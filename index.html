@@ -71,7 +71,7 @@
   </div>
 
   <!-- =====================================================================
-       1. STICKY ROYAL MAROON HEADER (Matches Recording Top Bar)
+       1. STICKY ROYAL MAROON HEADER
   ====================================================================== -->
   <header class="sticky top-0 z-40 bg-[#6A0D25] text-[#FFFDF9] shadow-md">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
@@ -93,7 +93,6 @@
         <button id="adminModePill" onclick="openAdminModal()" class="hidden bg-[#D4AF37] text-[#2A0E17] text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow">
           ⚙️
         </button>
-        <!-- Circular WhatsApp Icon Button (Top Right as in Recording) -->
         <button onclick="openWaDirect('Shop Visit / Custom Stitching & Collection Inquiry - Firdous Ladies Tailor, Nai Ki Thadi Jaipur')" aria-label="Chat on WhatsApp" class="w-10 h-10 rounded-full bg-[#D81B60] hover:bg-pink-700 border border-[#D4AF37]/40 flex items-center justify-center text-white shadow transition active:scale-95">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
@@ -115,13 +114,12 @@
         🔊 Sound
       </button>
 
-      <!-- Capsule Slide Dots (Matching Recording) -->
       <div id="heroDots" class="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 bg-black/45 backdrop-blur-xs px-2.5 py-1 rounded-full flex gap-1.5"></div>
     </div>
   </section>
 
   <!-- =====================================================================
-       3. DUAL MODE SWITCHER BAR (Directly Below 16:9 Banner as in Recording)
+       3. DUAL MODE SWITCHER BAR
   ====================================================================== -->
   <div class="sticky top-[64px] z-30 bg-[#FFFDF9] border-b border-[#EFE0E5] max-w-5xl w-full mx-auto">
     <div class="grid grid-cols-2">
@@ -147,7 +145,7 @@
   <main class="flex-1 max-w-5xl w-full mx-auto px-4 pt-4 pb-10">
 
     <!-- ===================================================================
-         VIEW 1: ANSAR COLLECTION (READY-MADE SHOP - MATCHES RECORDING)
+         VIEW 1: ANSAR COLLECTION (READY-MADE SHOP)
     ==================================================================== -->
     <section id="view_collection" class="space-y-4">
       <div>
@@ -161,10 +159,10 @@
         <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#D81B60]">🔍</span>
       </div>
 
-      <!-- Circular Photo Category Icons (All, Ladies Suits, Sarees, Abayas, Kids Wear) -->
+      <!-- Circular Photo Category Icons -->
       <div id="prodCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
 
-      <!-- Action Pills: [All Designs] + [Offers & New (नए व ऑफर)] -->
+      <!-- Action Pills -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button id="btnAllDesigns" onclick="toggleOffersFilter(false)" class="px-4 py-2 rounded-full text-xs font-extrabold bg-[#6A0D25] text-white whitespace-nowrap shadow-xs transition">
           All Designs
@@ -174,7 +172,7 @@
         </button>
       </div>
 
-      <!-- Category Header + Share Category Button (Shown when specific category selected) -->
+      <!-- Category Header + Share Category Button -->
       <div id="categoryShareStrip" class="hidden flex items-center justify-between py-1">
         <span id="categoryCountLabel" class="text-sm font-extrabold text-[#2A0E17]">Abayas (1)</span>
         <button onclick="shareCurrentCategory()" class="bg-[#FCE4EC] hover:bg-pink-200 text-[#D81B60] text-xs font-extrabold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition active:scale-95">
@@ -182,10 +180,10 @@
         </button>
       </div>
 
-      <!-- 2-Column Product Cards Grid (with Photo Count Badge) -->
+      <!-- 2-Column Product Cards Grid -->
       <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
 
-      <!-- Empty Filter State (Matches Recording) -->
+      <!-- Empty Filter State -->
       <div id="emptyProductsBox" class="hidden text-center py-8 space-y-3">
         <p class="font-display text-xl font-bold text-[#2A0E17]">No matching designs found</p>
         <p class="text-xs text-gray-500">Try tapping "All" or searching another outfit style.</p>
@@ -204,7 +202,7 @@
         <p class="text-xs text-gray-500 mt-0.5">फोटो पर टैप करके डिज़ाइन चुनें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
-      <!-- Quick Jump Chips (ज़री कढ़ाई, 2-Hour होम पिकअप, ऑर्डर ट्रैक करें) -->
+      <!-- Quick Jump Chips -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button onclick="jumpToStitchCat('Zari & Zardozi Embroidery')" class="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-[#6A0D25] text-[#D4AF37] whitespace-nowrap">
           ✨ ज़री कढ़ाई
@@ -223,7 +221,7 @@
       <!-- Grouped Stitching & Zardozi Cards -->
       <div id="stitchingGroupedContainer" class="space-y-6"></div>
 
-      <!-- WALK-IN MEASUREMENT CARD (Matches Recording) -->
+      <!-- WALK-IN MEASUREMENT CARD -->
       <div class="bg-[#6A0D25] text-[#FFFDF9] border border-[#D4AF37]/40 rounded-3xl p-5 space-y-3 shadow-md">
         <div class="text-[11px] font-extrabold text-[#D4AF37] flex items-center gap-1.5">
           <span>🏪</span><span>Walk-In Measurement · Jaipur</span>
@@ -246,7 +244,7 @@
         </div>
       </div>
 
-      <!-- 2-HOUR HOME FABRIC PICKUP (RAPIDO) FORM (Matches Recording) -->
+      <!-- 2-HOUR HOME FABRIC PICKUP (RAPIDO) FORM -->
       <div id="pickupSection" class="bg-white border border-[#EFE0E5] rounded-3xl p-5 space-y-3 shadow-xs scroll-mt-32">
         <div class="text-[11px] font-extrabold text-[#D81B60] flex items-center gap-1.5">
           <span>🛵</span><span>Jaipur Local Service · 2-Hour Pickup</span>
@@ -282,7 +280,7 @@
         </div>
       </div>
 
-      <!-- TRACK YOUR STITCHING ORDER (Matches Recording) -->
+      <!-- TRACK YOUR STITCHING ORDER -->
       <div id="trackSection" class="bg-white border border-[#EFE0E5] rounded-3xl p-5 space-y-3 shadow-xs scroll-mt-32">
         <h3 class="font-display text-2xl font-bold text-[#2A0E17]">Track Your Stitching Order</h3>
         <p class="text-xs text-gray-500">अपने ऑर्डर का स्टेटस देखें — Phone Number या Order ID (जैसे FLT-101) डालें</p>
@@ -332,7 +330,7 @@
   </main>
 
   <!-- =====================================================================
-       6. ROYAL SHOP FOOTER (Matches Recording Bottom Section)
+       6. ROYAL SHOP FOOTER
   ====================================================================== -->
   <footer class="bg-[#6A0D25] text-[#FFFDF9] border-t-2 border-[#D4AF37]/60">
     <div class="max-w-5xl mx-auto px-4 py-8 space-y-5">
@@ -382,7 +380,7 @@
   </footer>
 
   <!-- =====================================================================
-       7. FIXED BOTTOM 5-ICON BAR (Shop | Stitching | Reels | Pickup | Track)
+       7. FIXED BOTTOM 5-ICON BAR
   ====================================================================== -->
   <nav aria-label="Bottom Quick Navigation" class="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-[#EFE0E5] shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
     <div class="max-w-5xl mx-auto grid grid-cols-5 py-1.5 text-center">
@@ -410,7 +408,7 @@
   </nav>
 
   <!-- =====================================================================
-       8. SLIDE-OVER SIDE DRAWER (Matches Recording Left Drawer)
+       8. SLIDE-OVER SIDE DRAWER
   ====================================================================== -->
   <div id="navDrawer" onclick="if(event.target===this) closeDrawer()" class="hidden fixed inset-0 z-50 bg-black/60 flex">
     <aside class="w-[82vw] max-w-xs bg-[#FFFDF9] h-full flex flex-col shadow-2xl overflow-y-auto">
@@ -423,7 +421,6 @@
       </div>
 
       <div class="p-4 space-y-5 text-xs font-bold text-[#2A0E17] flex-1">
-        <!-- QUICK MENU -->
         <div class="space-y-1">
           <div class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-2 pb-1">Quick Menu</div>
           <button onclick="switchMode('collection'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
@@ -448,7 +445,6 @@
 
         <hr class="border-[#EFE0E5]" />
 
-        <!-- SHOP CATEGORIES -->
         <div class="space-y-1">
           <div class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-2 pb-1">Shop Categories</div>
           <button onclick="switchMode('collection'); selectedProdCat='Ladies Suits'; renderProducts(); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center justify-between text-sm">
@@ -467,7 +463,6 @@
 
         <hr class="border-[#EFE0E5]" />
 
-        <!-- CONNECT & VISIT -->
         <div class="space-y-1.5">
           <div class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-2 pb-1">Connect &amp; Visit</div>
           <button onclick="openWaDirect('WhatsApp Shop Appointment - Firdous Ladies Tailor'); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
@@ -510,12 +505,12 @@
     </div>
   </div>
 
-  <!-- FULL-SCREEN 5-TAB ADMIN DASHBOARD (BRIGHT ROYAL IVORY & ROSE THEME) -->
+  <!-- FULL-SCREEN 5-TAB ADMIN DASHBOARD -->
   <div id="adminModal" class="hidden fixed inset-0 z-50 bg-[#FFFDF9] text-[#2A0E17] flex flex-col">
     <div class="px-4 py-3.5 bg-[#6A0D25] text-[#FFFDF9] border-b border-[#D4AF37]/50 flex items-center justify-between shadow-sm">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#D4AF37] leading-none">⚙️ Firdous Tailor &amp; Ansar Admin</h2>
-        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Customer Khata • Smart Naap Parser • Digital Receipt • Catalog</p>
+        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Customer Khata • Smart Naap &amp; Meesho Auto-Fill • Digital Receipt</p>
       </div>
       <button onclick="closeAdminModal()" class="bg-white/15 hover:bg-white/25 text-white px-4 py-2 rounded-full text-xs font-extrabold transition">← Back to Shop</button>
     </div>
@@ -537,19 +532,19 @@
             <h3 class="font-display text-xl font-bold text-[#6A0D25]">🪄 Smart Naap Parser &amp; New Order</h3>
             <button onclick="autoParseSmartNaap()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill from Text</button>
           </div>
-          <textarea id="smartNaapRawInput" rows="3" placeholder="WhatsApp se aaya customer ka raw naap paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
+          <textarea id="smartNaapRawInput" rows="3" placeholder="WhatsApp se aaya customer ka raw naap ya Zari suit description paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
 
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
             <input id="khName" type="text" placeholder="Customer Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="khPhone" type="tel" maxlength="10" placeholder="Mobile / WhatsApp No. *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="khAltWaPhone" type="tel" maxlength="10" placeholder="Alag WhatsApp No. (Optional)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
-            <input id="khGarment" type="text" placeholder="Garment / Design *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khGarment" type="text" placeholder="Garment / Zari Design *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="khBill" type="number" placeholder="Total Bill ₹ *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="khPaid" type="number" placeholder="Advance Paid ₹" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <input id="khDelivery" type="date" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
-            <input id="khNaapNotes" type="text" placeholder="Measurements (Length, Chest, Waist, Hip, Sleeve, Gala)..." class="sm:col-span-2 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-medium text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khNaapNotes" type="text" placeholder="Measurements & Zari Work Description..." class="sm:col-span-2 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-medium text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
           </div>
           <button onclick="addCustomerOrder()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Save Customer Order &amp; Naap</button>
         </div>
@@ -561,26 +556,34 @@
         <div id="adminKhataList" class="space-y-3"></div>
       </div>
 
-      <!-- ADMIN TAB 2: PRODUCTS -->
+      <!-- ADMIN TAB 2: PRODUCTS + SMART MEESHO & CATALOG AUTO-FILL -->
       <div id="admPanel_products" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
-          <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Ready-Made Product</h3>
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-display text-xl font-bold text-[#6A0D25]">🪄 Smart Product &amp; Meesho Auto-Fill</h3>
+            <button onclick="autoParseProductText()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill Details</button>
+          </div>
+          <textarea id="smartProdRawInput" rows="3" placeholder="Meesho se copy kiya hua text ya Zari Suit / Abaya / Kurti / Kids Wear ka description yahan paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            <input id="newProdName" type="text" placeholder="Product Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="newProdName" type="text" placeholder="Product Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <select id="newProdCat" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]">
               <option value="Ladies Suits">Ladies Suits</option>
               <option value="Sarees">Sarees</option>
               <option value="Abayas">Abayas</option>
               <option value="Kids Wear">Kids Wear</option>
             </select>
-            <input id="newProdPrice" type="number" placeholder="Selling Price ₹ *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="newProdPrice" type="number" placeholder="Selling Price ₹ *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="newProdOrigPrice" type="number" placeholder="MRP ₹ (Optional)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="newProdSizes" type="text" placeholder="Sizes (e.g. S, M, L, XL, XXL)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="newProdFabric" type="text" placeholder="Fabric (e.g. Cotton Blend, Korean Nida)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="newProdSet" type="text" placeholder="Set Includes (e.g. Kurta + Palazzo + Dupatta)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <label class="bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
               📷 Select Product Photo
               <input id="newProdPhoto" type="file" accept="image/*" class="hidden" />
             </label>
           </div>
+          <textarea id="newProdDesc" rows="2" placeholder="Full Product / Zari Work Description..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
           <button onclick="adminAddProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Add to Ready-Made Catalog</button>
         </div>
         <div id="adminProductsList" class="space-y-2.5"></div>
@@ -620,7 +623,7 @@
     </div>
   </div>
 
-  <!-- CANVAS RECEIPT PREVIEW MODAL -->
+  <!-- CANVAS RECEIPT PREVIEW MODAL (DUAL WHATSAPP + WA BUSINESS BUTTONS) -->
   <div id="receiptModal" onclick="if(event.target===this) closeReceiptModal()" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-3 overflow-y-auto">
     <div class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-sm rounded-3xl p-4 space-y-3 shadow-2xl border border-[#D4AF37]/40 my-auto">
       <div class="flex items-center justify-between">
@@ -629,7 +632,7 @@
       </div>
       <canvas id="receiptCanvas" width="600" height="840" class="w-full rounded-2xl border border-[#E5CFD6] shadow-xs"></canvas>
 
-      <!-- Custom / Alternate WhatsApp Number Input -->
+      <!-- Customer WhatsApp Number Input -->
       <div class="bg-[#FCE4EC]/55 border border-[#F8BBD0] rounded-2xl p-2.5 space-y-1.5">
         <div class="flex items-center justify-between">
           <label class="text-[11px] font-extrabold text-[#6A0D25]">📲 Customer WhatsApp Number:</label>
@@ -638,7 +641,7 @@
         <input id="receiptTargetWaInput" type="tel" maxlength="10" placeholder="10-digit WhatsApp Number" class="w-full bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-extrabold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
       </div>
 
-      <!-- Direct WhatsApp & WhatsApp Business + Share Receipt Image Buttons -->
+      <!-- Dual Buttons: WhatsApp & WhatsApp Business -->
       <div class="grid grid-cols-2 gap-2">
         <button onclick="sendReceiptViaApp('whatsapp')" class="bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-xs py-2.5 px-2 rounded-xl shadow-xs flex items-center justify-center gap-1 transition active:scale-95">
           <span>💬</span><span>WhatsApp</span>
@@ -661,10 +664,9 @@
   <script>
     const SHOP_PHONE = '916350517782';
     const ADMIN_PASS = '@qwer';
-    const STORAGE_KEY = 'firdous_ansar_single_v5';
-    const AUTH_KEY = 'firdous_ansar_admin_v5';
+    const STORAGE_KEY = 'firdous_ansar_single_v6';
+    const AUTH_KEY = 'firdous_ansar_admin_v6';
 
-    // वीडियो में दिखाए गए सभी सटीक AI फोटोग्राफ्स (Exact Video AI Photographs)
     const PHOTOS = {
       heroTailor: 'watermarked_img_7400333915196377873.jpg',
       heroCollection: 'watermarked_img_11605133640720319739.jpg',
@@ -719,8 +721,8 @@
         { id: 'pw3', title: 'Bridal Kali Lehenga Heavy Zardozi Panel', tag: 'Bridal Lehenga', price: '₹3,500 onwards', img: PHOTOS.bridalLehenga, desc: 'Royal Rajasthani karchob zardozi with kundan, moti and heavy dabka work across lehenga kalis.' }
       ],
       customers: [
-        { id: 'c1', orderId: 'FLT-101', customerName: 'Rukhsar Bano', phone: '9829011223', garment: 'Lining / Astar Suit + Piping', naap: 'Length: 42", Chest: 38", Waist: 34", Hip: 41", Sleeve: 16", Gala: F 6.5" / B 7"', deliveryDate: '2026-11-23', status: 'Stitching', totalBill: 550, amountPaid: 300 },
-        { id: 'c2', orderId: 'FLT-102', customerName: 'Sunita Sharma', phone: '9414055667', garment: 'Astar / Padded Designer Blouse', naap: 'Length: 14.5", Chest: 36", Waist: 30", Sleeve: 10.5", Gala: F 6" / B 9.5"', deliveryDate: '2026-11-22', status: 'Ready for Delivery', totalBill: 350, amountPaid: 150 }
+        { id: 'c1', orderId: 'FLT-101', customerName: 'Rukhsar Bano', phone: '9829011223', altWaPhone: '', garment: 'Lining / Astar Suit + Piping', naap: 'Length: 42", Chest: 38", Waist: 34", Hip: 41", Sleeve: 16", Gala: F 6.5" / B 7"', deliveryDate: '2026-11-23', status: 'Stitching', totalBill: 550, amountPaid: 300 },
+        { id: 'c2', orderId: 'FLT-102', customerName: 'Sunita Sharma', phone: '9414055667', altWaPhone: '', garment: 'Astar / Padded Designer Blouse', naap: 'Length: 14.5", Chest: 36", Waist: 30", Sleeve: 10.5", Gala: F 6" / B 9.5"', deliveryDate: '2026-11-22', status: 'Ready for Delivery', totalBill: 350, amountPaid: 150 }
       ]
     };
 
@@ -733,6 +735,7 @@
     let slideTimer = null;
     let isHeroVisible = true;
     let isHeroMuted = false;
+    let currentReceiptCustomer = null;
 
     function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
 
@@ -877,7 +880,6 @@
       document.getElementById('heroMuteBtn').textContent = isHeroMuted ? '🔇 Muted' : '🔊 Sound';
     }
 
-    // Touch swipe for hero slider
     (function initHeroSwipe() {
       const box = document.getElementById('heroBox');
       let startX = 0;
@@ -927,7 +929,7 @@
     function closeDrawer() { document.getElementById('navDrawer').classList.add('hidden'); }
 
     // =====================================================================
-    // TAB 1: ANSAR COLLECTION (CIRCULAR ICONS + SHARE CATEGORY + GRID)
+    // TAB 1: ANSAR COLLECTION
     // =====================================================================
     function toggleOffersFilter(val) {
       onlyOffersFilter = val;
@@ -1087,7 +1089,7 @@
     }
 
     // =====================================================================
-    // TAB 2: STITCHING & ZARI CATALOGUE (CIRCULAR ICONS + GROUPED CARDS)
+    // TAB 2: STITCHING & ZARI CATALOGUE
     // =====================================================================
     function jumpToStitchCat(cat) {
       selectedStitchCat = cat;
@@ -1166,7 +1168,6 @@
         `;
       }).join('');
 
-      // Populate Rapido service dropdown
       const sel = document.getElementById('rapidoService');
       if (sel) {
         sel.innerHTML = appState.rates.map(r =>
@@ -1297,38 +1298,104 @@
       document.getElementById(`admTab_${t}`).className = 'adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs';
     }
 
+    // SMART NAAP & ZARI SUIT ORDER AUTO-FILL PARSER
     function autoParseSmartNaap() {
       const raw = document.getElementById('smartNaapRawInput').value.trim();
-      if (!raw) return toast('Pehle raw naap text paste karein!');
+      if (!raw) return toast('Pehle raw naap ya Zari suit description paste karein!');
 
       const phoneMatch = raw.match(/(?:\+?91[\s-]*)?([6-9]\d{9})/);
       if (phoneMatch) document.getElementById('khPhone').value = phoneMatch[1];
 
-      const billMatch = raw.match(/(?:bill|total|rate|amount)[\s:=-]*₹?\s*(\d+)/i);
+      const billMatch = raw.match(/(?:bill|total|rate|price|amount)[\s:=-]*₹?\s*(\d+)/i);
       if (billMatch) document.getElementById('khBill').value = billMatch[1];
 
       const paidMatch = raw.match(/(?:paid|advance|jama)[\s:=-]*₹?\s*(\d+)/i);
       if (paidMatch) document.getElementById('khPaid').value = paidMatch[1];
 
-      const garmentMatch = raw.match(/(astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown)/i);
-      if (garmentMatch) document.getElementById('khGarment').value = garmentMatch[0];
+      const garmentMatch = raw.match(/(zari[\w\s-]*suit|zardozi[\w\s-]*|karchob[\w\s-]*|bridal lehenga|astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown)/i);
+      if (garmentMatch) document.getElementById('khGarment').value = garmentMatch[0].trim();
 
       const firstChunk = raw.split(/\n|,/)[0] || '';
       const cleanName = firstChunk
         .replace(/(?:\+?91[\s-]*)?[6-9]\d{9}/g, '')
-        .replace(/(?:astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown|length|chest|waist|hip|sleeve|gala|bill|paid|advance).*/i, '')
+        .replace(/(?:zari|zardozi|karchob|astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown|length|chest|waist|hip|sleeve|gala|bill|paid|advance).*/i, '')
         .replace(/\d+/g, '')
         .trim();
-      if (cleanName) document.getElementById('khName').value = cleanName;
+      if (cleanName && cleanName.length <= 35) document.getElementById('khName').value = cleanName;
 
       const pairs = [];
-      ['length', 'lambai', 'chest', 'seena', 'waist', 'kamar', 'hip', 'sleeve', 'baju', 'gala', 'neck', 'salwar', 'pant', 'mori'].forEach(k => {
-        const m = raw.match(new RegExp(`${k}[\\s:=-]*([0-9./"']+)`, 'i'));
-        if (m) pairs.push(`${k.charAt(0).toUpperCase() + k.slice(1)}: ${m[1]}`);
+      ['length', 'lambai', 'chest', 'seena', 'waist', 'kamar', 'hip', 'sleeve', 'baju', 'gala', 'neck', 'salwar', 'pant', 'mori', 'work', 'design', 'fabric', 'color'].forEach(k => {
+        const m = raw.match(new RegExp(`${k}[\\s:=-]*([^\\n,]+)`, 'i'));
+        if (m) pairs.push(`${k.charAt(0).toUpperCase() + k.slice(1)}: ${m[1].trim()}`);
       });
 
-      document.getElementById('khNaapNotes').value = pairs.length ? pairs.join(', ') : raw.replace(/\n/g, ' | ');
-      toast('🪄 Smart Naap Parsed!');
+      document.getElementById('khNaapNotes').value = pairs.length ? pairs.join(' | ') : raw.replace(/\n+/g, ' | ');
+      toast('🪄 Smart Naap & Description Auto-Filled!');
+    }
+
+    // SMART PRODUCT & MEESHO AUTO-FILL PARSER (FOR READY-MADE CATALOG)
+    function autoParseProductText() {
+      const raw = document.getElementById('smartProdRawInput').value.trim();
+      if (!raw) return toast('Pehle Meesho ya Zari Suit / Abaya / Kurti ka text paste karein!');
+
+      const lines = raw.split(/\n/).map(l => l.trim()).filter(Boolean);
+
+      // 1. Product Name extraction
+      const nameLabelMatch = raw.match(/(?:name|title|product|catalog)[\s:=-]+([^\n]+)/i);
+      const cleanFirstLine = lines[0] ? lines[0].replace(/^(?:name|title|product|catalog)[\s:=-]+/i, '').trim() : '';
+      const detectedName = nameLabelMatch ? nameLabelMatch[1].trim() : cleanFirstLine;
+      if (detectedName) document.getElementById('newProdName').value = detectedName.slice(0, 90);
+
+      // 2. Category Auto-Detection
+      const lower = raw.toLowerCase();
+      let cat = 'Ladies Suits';
+      if (/(abaya|burqa|naqab|jilbab)/i.test(lower)) cat = 'Abayas';
+      else if (/(saree|sari|pallu|banarasi)/i.test(lower)) cat = 'Sarees';
+      else if (/(kid|kids|boy|girl|children|bachcho|16|18|20|22|24|26|28|30|32)/i.test(lower) && /(kid|boy|girl|children|bachcho)/i.test(lower)) cat = 'Kids Wear';
+      document.getElementById('newProdCat').value = cat;
+
+      // 3. Selling Price & MRP extraction
+      const priceMatches = [...raw.matchAll(/(?:price|rate|offer|selling)?[\s:=-]*₹\s*(\d{2,5})/gi)].map(m => Number(m[1]));
+      if (priceMatches.length) {
+        const minPrice = Math.min(...priceMatches);
+        const maxPrice = Math.max(...priceMatches);
+        document.getElementById('newProdPrice').value = minPrice;
+        if (maxPrice > minPrice) document.getElementById('newProdOrigPrice').value = maxPrice;
+      } else {
+        const plainPrice = raw.match(/(?:price|rate|rs\.?)[\s:=-]*(\d{2,5})/i);
+        if (plainPrice) document.getElementById('newProdPrice').value = plainPrice[1];
+      }
+
+      // 4. Sizes Auto-Detection (Meesho XXS-XXXL, Abaya 52-58, Kids 14-36)
+      const sizeLineMatch = raw.match(/(?:sizes?|available sizes?)[\s:=-]+([^\n]+)/i);
+      if (sizeLineMatch) {
+        const cleanSizes = sizeLineMatch[1].replace(/\([^)]*\)/g, '').split(/[,/|]+/).map(s => s.trim()).filter(s => s && s.length <= 12);
+        if (cleanSizes.length) document.getElementById('newProdSizes').value = cleanSizes.join(', ');
+      } else {
+        const foundAlphaSizes = raw.match(/\b(XXS|XS|S|M|L|XL|XXL|XXXL|Free Size)\b/gi);
+        if (foundAlphaSizes) {
+          document.getElementById('newProdSizes').value = [...new Set(foundAlphaSizes.map(s => s.toUpperCase()))].join(', ');
+        }
+      }
+
+      // 5. Fabric Extraction
+      const fabricMatch = raw.match(/(?:fabric|material|cloth)[\s:=-]+([^\n]+)/i);
+      if (fabricMatch) {
+        document.getElementById('newProdFabric').value = fabricMatch[1].trim();
+      } else {
+        const knownFabric = raw.match(/(cotton blend|pure cotton|rayon|georgette|silk|banarasi|korean nida|firdaus|velvet|organza|chanderi|crepe)/i);
+        if (knownFabric) document.getElementById('newProdFabric').value = knownFabric[0];
+      }
+
+      // 6. Set Includes Extraction
+      const setMatch = raw.match(/(?:set includes|package contains|in the box|combo)[\s:=-]+([^\n]+)/i);
+      if (setMatch) document.getElementById('newProdSet').value = setMatch[1].trim();
+
+      // 7. Full Description Auto-Fill
+      const cleanDesc = lines.filter(l => !/^(?:price|mrp|rs\.?|₹\d+)/i.test(l)).join(' • ');
+      document.getElementById('newProdDesc').value = cleanDesc;
+
+      toast('🪄 Meesho / Product Details Auto-Filled!');
     }
 
     function addCustomerOrder() {
@@ -1401,7 +1468,6 @@
             <p class="text-xs text-gray-700">👗 <strong class="text-[#2A0E17]">${c.garment}</strong> • Delivery: <span class="font-semibold">${c.deliveryDate}</span></p>
             ${c.naap ? `<p class="text-[11px] bg-[#FFF8F2] border border-[#F3DFC8] p-2.5 rounded-xl text-[#6A0D25] font-medium">📏 ${c.naap}</p>` : ''}
 
-            <!-- Inline Quick WhatsApp Number Override + Action Buttons -->
             <div class="pt-2 border-t border-[#EFE0E5] space-y-2">
               <div class="flex items-center justify-between text-xs">
                 <span class="text-gray-700">Bill: <strong>₹${c.totalBill}</strong> | Paid: <strong class="text-emerald-700">₹${c.amountPaid}</strong> | Due: <strong class="text-[#D81B60]">₹${due}</strong></span>
@@ -1429,6 +1495,17 @@
       toast('📲 WhatsApp Number Updated');
     }
 
+    function updateOrderStatus(id, st) {
+      const c = appState.customers.find(x => x.id === id);
+      if (c) { c.status = st; saveState(); toast(`Status: ${st}`); }
+    }
+
+    function deleteCustomerOrder(id) {
+      appState.customers = appState.customers.filter(x => x.id !== id);
+      saveState();
+      renderAdminKhata();
+    }
+
     function buildReceiptShareText(c) {
       const due = Math.max(0, c.totalBill - c.amountPaid);
       const siteUrl = getWebsiteShareUrl();
@@ -1444,8 +1521,6 @@
       const msg = buildReceiptShareText(c);
       launchWhatsAppApp(targetPhone, msg, appType);
     }
-
-    let currentReceiptCustomer = null;
 
     // DIGITAL CANVAS RECEIPT GENERATOR WITH WEBSITE QR CODE
     function openDigitalReceipt(id) {
@@ -1584,9 +1659,9 @@
       } catch (e) {}
 
       downloadReceiptPng();
-      toast('📥 Receipt Image Saved! Ab WhatsApp me attach karke bhej dein.');
+      toast('📥 Receipt Image Saved! Ab WhatsApp Business me attach karke bhej dein.');
       if (inputPhone.length >= 10) {
-        setTimeout(() => launchWhatsAppApp(inputPhone, msg, 'whatsapp'), 700);
+        setTimeout(() => launchWhatsAppApp(inputPhone, msg, 'business'), 700);
       }
     }
 
@@ -1594,128 +1669,6 @@
       document.getElementById('receiptModal').classList.add('hidden');
       syncHeroPlayback();
     }
-
-    function renderAdminKhata() {
-      const q = (document.getElementById('khataSearch')?.value || '').toLowerCase();
-      const list = appState.customers.filter(c => !q || c.customerName.toLowerCase().includes(q) || c.orderId.toLowerCase().includes(q));
-      document.getElementById('adminKhataList').innerHTML = list.map(c => {
-        const due = Math.max(0, c.totalBill - c.amountPaid);
-        return `
-          <div class="bg-white p-4 rounded-2xl border border-[#EFE0E5] shadow-xs space-y-2">
-            <div class="flex items-center justify-between gap-2">
-              <div>
-                <span class="text-[10px] font-extrabold bg-[#6A0D25] text-[#D4AF37] px-2.5 py-0.5 rounded-full">${c.orderId}</span>
-                <strong class="font-display text-lg text-[#2A0E17] ml-1.5">${c.customerName}</strong>
-                <span class="text-xs text-gray-500 ml-1">(${c.phone || 'No Phone'})</span>
-              </div>
-              <select onchange="updateOrderStatus('${c.id}', this.value)" class="bg-[#FCE4EC]/70 border border-[#F8BBD0] rounded-xl px-2.5 py-1 text-[11px] font-bold text-[#6A0D25] outline-none">
-                ${['Received', 'Cutting', 'Stitching', 'Ready for Delivery'].map(st => `<option value="${st}" ${c.status === st ? 'selected' : ''}>${st}</option>`).join('')}
-              </select>
-            </div>
-            <p class="text-xs text-gray-700">👗 <strong class="text-[#2A0E17]">${c.garment}</strong> • Delivery: <span class="font-semibold">${c.deliveryDate}</span></p>
-            ${c.naap ? `<p class="text-[11px] bg-[#FFF8F2] border border-[#F3DFC8] p-2.5 rounded-xl text-[#6A0D25] font-medium">📏 ${c.naap}</p>` : ''}
-            <div class="flex flex-wrap items-center justify-between gap-2 pt-1.5 border-t border-[#EFE0E5] text-xs">
-              <span class="text-gray-700">Bill: <strong>₹${c.totalBill}</strong> | Paid: <strong class="text-emerald-700">₹${c.amountPaid}</strong> | Due: <strong class="text-[#D81B60]">₹${due}</strong></span>
-              <div class="flex gap-1.5">
-                <button onclick="openDigitalReceipt('${c.id}')" class="bg-[#D4AF37] text-[#2A0E17] font-extrabold px-3 py-1.5 rounded-xl text-[11px] shadow-2xs">🧾 Receipt</button>
-                <button onclick="sendKhataReminder('${c.id}')" class="bg-[#25D366] text-white font-extrabold px-3 py-1.5 rounded-xl text-[11px] shadow-2xs">📲 WA Update</button>
-                <button onclick="deleteCustomerOrder('${c.id}')" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1.5 rounded-xl text-[11px]">🗑</button>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function updateOrderStatus(id, st) {
-      const c = appState.customers.find(x => x.id === id);
-      if (c) { c.status = st; saveState(); toast(`Status: ${st}`); }
-    }
-
-    function deleteCustomerOrder(id) {
-      appState.customers = appState.customers.filter(x => x.id !== id);
-      saveState();
-      renderAdminKhata();
-    }
-
-    function sendKhataReminder(id) {
-      const c = appState.customers.find(x => x.id === id);
-      if (!c) return;
-      const due = Math.max(0, c.totalBill - c.amountPaid);
-      const msg = `🧵 *Firdous Ladies Tailor — Order Update*\n\n🧾 Order ID: ${c.orderId}\n👤 Name: ${c.customerName}\n👗 Outfit: ${c.garment}\n📌 Status: *${c.status}*\n📅 Delivery: ${c.deliveryDate}\n💰 Total: ₹${c.totalBill} | Paid: ₹${c.amountPaid}\n💳 Balance Due: *₹${due}*`;
-      openWaDirect(msg, c.phone);
-    }
-
-    // DIGITAL CANVAS RECEIPT GENERATOR
-    function openDigitalReceipt(id) {
-      const c = appState.customers.find(x => x.id === id);
-      if (!c) return;
-      const due = Math.max(0, c.totalBill - c.amountPaid);
-      const canvas = document.getElementById('receiptCanvas');
-      const ctx = canvas.getContext('2d');
-
-      ctx.fillStyle = '#FFFDF9';
-      ctx.fillRect(0, 0, 600, 760);
-
-      ctx.fillStyle = '#6A0D25';
-      ctx.fillRect(0, 0, 600, 150);
-      ctx.fillStyle = '#D4AF37';
-      ctx.font = 'bold 30px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('FIRDOUS LADIES TAILOR', 300, 58);
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 16px sans-serif';
-      ctx.fillText('ANSAR COLLECTION • JAIPUR', 300, 88);
-      ctx.font = '13px sans-serif';
-      ctx.fillStyle = '#FCE4EC';
-      ctx.fillText('Somvaar Bazaar Wali Gali, Nai Ki Thadi | +91 6350517782', 300, 118);
-
-      ctx.textAlign = 'left';
-      ctx.fillStyle = '#2A0E17';
-      ctx.font = 'bold 20px sans-serif';
-      ctx.fillText(`DIGITAL RECEIPT : ${c.orderId}`, 40, 205);
-
-      ctx.font = '16px sans-serif';
-      let y = 260;
-      [
-        ['Customer Name:', c.customerName],
-        ['Mobile Number:', c.phone || '-'],
-        ['Outfit / Design:', c.garment],
-        ['Order Status:', c.status],
-        ['Delivery Date:', c.deliveryDate]
-      ].forEach(([k, v]) => {
-        ctx.fillStyle = '#6B7280';
-        ctx.fillText(k, 40, y);
-        ctx.fillStyle = '#111827';
-        ctx.font = 'bold 16px sans-serif';
-        ctx.fillText(String(v).slice(0, 32), 220, y);
-        ctx.font = '16px sans-serif';
-        y += 44;
-      });
-
-      ctx.fillStyle = '#FCE4EC';
-      ctx.fillRect(36, 490, 528, 155);
-      ctx.fillStyle = '#6A0D25';
-      ctx.font = 'bold 18px sans-serif';
-      ctx.fillText(`Total Bill:          ₹${c.totalBill}`, 60, 535);
-      ctx.fillStyle = '#047857';
-      ctx.fillText(`Advance Paid:    ₹${c.amountPaid}`, 60, 578);
-      ctx.fillStyle = '#BE123C';
-      ctx.font = 'bold 22px sans-serif';
-      ctx.fillText(`Balance Due:     ₹${due}`, 60, 624);
-
-      ctx.fillStyle = '#6A0D25';
-      ctx.font = 'italic 15px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Thank you for choosing Firdous Ladies Tailor & Ansar Collection!', 300, 705);
-
-      const waMsg = `🧾 *Digital Receipt — Firdous Ladies Tailor*\nOrder ID: ${c.orderId}\nName: ${c.customerName}\nOutfit: ${c.garment}\nTotal: ₹${c.totalBill} | Paid: ₹${c.amountPaid} | Balance Due: ₹${due}\nDelivery: ${c.deliveryDate}`;
-      const ph = c.phone.replace(/\D/g, '');
-      document.getElementById('receiptWaShareBtn').href = `https://wa.me/${ph.length === 10 ? '91' + ph : SHOP_PHONE}?text=${encodeURIComponent(waMsg)}`;
-      document.getElementById('receiptModal').classList.remove('hidden');
-    }
-
-    function closeReceiptModal() { document.getElementById('receiptModal').classList.add('hidden'); }
 
     function downloadReceiptPng() {
       const a = document.createElement('a');
@@ -1749,8 +1702,18 @@
       const price = Number(document.getElementById('newProdPrice').value);
       const originalPrice = Number(document.getElementById('newProdOrigPrice').value) || undefined;
       const sizes = document.getElementById('newProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+      const fabric = document.getElementById('newProdFabric').value.trim() || 'Premium Boutique Fabric';
+      const setIncludes = document.getElementById('newProdSet').value.trim() || 'Complete Outfit Set';
+      const description = document.getElementById('newProdDesc').value.trim() || `${name} from Ansar Collection Jaipur.`;
       const file = document.getElementById('newProdPhoto').files[0];
       if (!name || !price) return toast('⚠️ Product Name aur Price daalein!');
+
+      const defaultImgByCat = {
+        'Ladies Suits': PHOTOS.bandhaniSuit,
+        'Abayas': PHOTOS.abaya,
+        'Sarees': PHOTOS.banarasiSaree,
+        'Kids Wear': PHOTOS.kidsWear
+      };
 
       const finishAdd = (imgSrc) => {
         appState.products.unshift({
@@ -1760,17 +1723,16 @@
           name, category, price, originalPrice,
           isOffer: true,
           sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
-          fabric: 'Premium Boutique Fabric',
-          setIncludes: 'Complete Outfit Set',
-          description: `${name} from Ansar Collection Jaipur.`,
+          fabric,
+          setIncludes,
+          description,
           images: [imgSrc],
           inStock: true
         });
         saveState();
-        document.getElementById('newProdName').value = '';
-        document.getElementById('newProdPrice').value = '';
+        ['smartProdRawInput', 'newProdName', 'newProdPrice', 'newProdOrigPrice', 'newProdSizes', 'newProdFabric', 'newProdSet', 'newProdDesc'].forEach(id => document.getElementById(id).value = '');
         renderAdminProducts();
-        toast('✅ Product Added!');
+        toast('✅ Product Added to Catalog!');
       };
 
       if (file) {
@@ -1778,7 +1740,7 @@
         r.onload = () => finishAdd(r.result);
         r.readAsDataURL(file);
       } else {
-        finishAdd(PHOTOS.bandhaniSuit);
+        finishAdd(defaultImgByCat[category] || PHOTOS.bandhaniSuit);
       }
     }
 
