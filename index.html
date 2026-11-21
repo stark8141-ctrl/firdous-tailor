@@ -63,7 +63,7 @@
 <body class="bg-[#FFFDF9] text-[#2A0E17] min-h-screen flex flex-col pb-16">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[100] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[120] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
 
   <!-- Offline Indicator -->
   <div id="offlineStrip" class="hidden bg-[#D81B60] text-white text-center text-[11px] font-bold py-1 px-3">
@@ -71,7 +71,7 @@
   </div>
 
   <!-- =====================================================================
-       1. STICKY ROYAL MAROON HEADER (Always Displays Ansar Collection Top Bar)
+       1. STICKY ROYAL MAROON HEADER
   ====================================================================== -->
   <header class="sticky top-0 z-40 bg-[#6A0D25] text-[#FFFDF9] shadow-md">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
@@ -197,7 +197,6 @@
          VIEW 1B: FULL-PAGE PRODUCT DETAIL VIEW (MEESHO / AMAZON STYLE)
     ==================================================================== -->
     <section id="view_product_page" class="hidden space-y-6 animate-fade-in">
-      <!-- Top Back Bar -->
       <div class="flex items-center justify-between gap-2 border-b border-[#EFE0E5] pb-3">
         <button onclick="closeFullProductPage()" class="inline-flex items-center gap-1.5 bg-[#FCE4EC] hover:bg-pink-200 text-[#6A0D25] text-xs font-extrabold px-4 py-2 rounded-full transition active:scale-95">
           <span>←</span><span>Back to Catalog</span>
@@ -207,16 +206,12 @@
         </button>
       </div>
 
-      <!-- Main Full-Page Product Layout -->
       <div id="fullProductMainContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
 
-      <!-- Similar Products Section (Amazon / Meesho Style) -->
       <div class="pt-6 border-t border-[#EFE0E5] space-y-3">
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="font-display text-2xl font-bold text-[#2A0E17]">Similar &amp; Recommended Designs</h3>
-            <p class="text-xs text-gray-500">मिलते-जुलते अन्य शानदार डिज़ाइन देखें</p>
-          </div>
+        <div>
+          <h3 class="font-display text-2xl font-bold text-[#2A0E17]">Similar &amp; Recommended Designs</h3>
+          <p class="text-xs text-gray-500">मिलते-जुलते अन्य शानदार डिज़ाइन देखें</p>
         </div>
         <div id="similarProductsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
       </div>
@@ -231,7 +226,6 @@
         <p class="text-xs text-gray-500 mt-0.5">फोटो पर टैप करके डिज़ाइन चुनें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
-      <!-- Quick Jump Chips -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button onclick="jumpToStitchCat('Zari & Zardozi Embroidery')" class="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-[#6A0D25] text-[#D4AF37] whitespace-nowrap">
           ✨ ज़री कढ़ाई
@@ -244,10 +238,7 @@
         </button>
       </div>
 
-      <!-- Circular Photo Category Icons for Stitching -->
       <div id="stitchCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
-
-      <!-- Grouped Stitching & Zardozi Cards -->
       <div id="stitchingGroupedContainer" class="space-y-6"></div>
 
       <!-- WALK-IN MEASUREMENT CARD -->
@@ -359,13 +350,11 @@
         </div>
       </div>
 
-      <!-- Partner Store Items -->
       <div class="space-y-3">
         <h3 class="font-display text-xl font-bold text-[#2A0E17]">✨ Saklani Zari Handwork Catalogue</h3>
         <div id="partnerWorksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
       </div>
 
-      <!-- Ansar Collection Cross-Showcase Inside Partner Store -->
       <div class="pt-5 border-t border-[#EFE0E5] space-y-3">
         <div class="flex items-center justify-between">
           <div>
@@ -547,19 +536,19 @@
         <h3 class="font-display italic text-xl font-bold text-[#6A0D25]">🔐 Tailor &amp; Shop Admin</h3>
         <button onclick="closePasscodeModal()" class="w-8 h-8 rounded-full bg-[#FCE4EC] text-[#6A0D25] font-bold text-xs">✕</button>
       </div>
-      <p class="text-xs text-gray-600">Enter owner passcode to manage Khata, Naap &amp; Catalog:</p>
+      <p class="text-xs text-gray-600">Enter owner passcode to manage Khata, Catalog, Silai Rates &amp; Photos:</p>
       <input id="adminPassInput" type="password" onkeydown="if(event.key==='Enter') checkAdminPass()" placeholder="Enter Passcode" class="w-full bg-white border border-[#E5CFD6] rounded-xl px-4 py-3 text-sm text-[#2A0E17] font-semibold outline-none focus:border-[#6A0D25] shadow-2xs" />
       <p id="adminPassErr" class="hidden text-xs text-[#D81B60] font-bold">❌ Wrong passcode!</p>
       <button onclick="checkAdminPass()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3.5 rounded-xl shadow-md transition">Unlock Admin Dashboard</button>
     </div>
   </div>
 
-  <!-- FULL-SCREEN 5-TAB ADMIN DASHBOARD -->
+  <!-- FULL-SCREEN 6-TAB ADMIN DASHBOARD -->
   <div id="adminModal" class="hidden fixed inset-0 z-50 bg-[#FFFDF9] text-[#2A0E17] flex flex-col">
     <div class="px-4 py-3.5 bg-[#6A0D25] text-[#FFFDF9] border-b border-[#D4AF37]/50 flex items-center justify-between shadow-sm">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#D4AF37] leading-none">⚙️ Firdous Tailor &amp; Ansar Admin</h2>
-        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Customer Khata • Smart Naap &amp; Meesho Auto-Fill • Digital Receipt</p>
+        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Full Catalog Editor • Silai Rates • Categories • Khata • Banners</p>
       </div>
       <button onclick="closeAdminModal()" class="bg-white/15 hover:bg-white/25 text-white px-4 py-2 rounded-full text-xs font-extrabold transition">← Back to Shop</button>
     </div>
@@ -569,7 +558,8 @@
       <button onclick="switchAdminTab('products')" id="admTab_products" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">2. Ready-Made Stock</button>
       <button onclick="switchAdminTab('rates')" id="admTab_rates" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">3. Silai Rates</button>
       <button onclick="switchAdminTab('banners')" id="admTab_banners" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">4. 16:9 Banners</button>
-      <button onclick="switchAdminTab('backup')" id="admTab_backup" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">5. Drive Backup &amp; Logout</button>
+      <button onclick="switchAdminTab('categories')" id="admTab_categories" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">5. Categories</button>
+      <button onclick="switchAdminTab('backup')" id="admTab_backup" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">6. Drive Backup</button>
     </div>
 
     <div class="flex-1 overflow-y-auto p-4 max-w-4xl w-full mx-auto space-y-5">
@@ -605,14 +595,18 @@
         <div id="adminKhataList" class="space-y-3"></div>
       </div>
 
-      <!-- ADMIN TAB 2: PRODUCTS + SMART MEESHO & CATALOG AUTO-FILL -->
+      <!-- ADMIN TAB 2: PRODUCTS (FULL CATALOG ADD & FULL EDIT + MULTI-MEDIA) -->
       <div id="admPanel_products" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-bold text-[#6A0D25]">🪄 Smart Product &amp; Meesho Auto-Fill</h3>
-            <button onclick="autoParseProductText()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill Details</button>
+            <h3 id="prodFormHeading" class="font-display text-xl font-bold text-[#6A0D25]">➕ Add / Edit Ready-Made Product</h3>
+            <div class="flex items-center gap-1.5">
+              <button id="cancelEditProdBtn" onclick="resetAdminProductForm()" class="hidden bg-gray-200 text-gray-700 text-[11px] font-bold px-3 py-1.5 rounded-full">Cancel Edit</button>
+              <button onclick="autoParseProductText()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill</button>
+            </div>
           </div>
-          <textarea id="smartProdRawInput" rows="3" placeholder="Meesho se copy kiya hua text ya Zari Suit / Abaya / Kurti / Kids Wear ka description yahan paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
+          <input type="hidden" id="editProdId" value="" />
+          <textarea id="smartProdRawInput" rows="2" placeholder="Meesho se copy kiya hua text ya Zari Suit / Abaya / Kurti ka description yahan paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <input id="newProdName" type="text" placeholder="Product Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
@@ -628,32 +622,74 @@
             <input id="newProdFabric" type="text" placeholder="Fabric (e.g. Cotton Blend, Korean Nida)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="newProdSet" type="text" placeholder="Set Includes (e.g. Kurta + Palazzo + Dupatta)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <label class="bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
-              📷 Select Product Photo (Auto Base64)
-              <input id="newProdPhoto" type="file" accept="image/*" class="hidden" />
+              📷 Select Multiple Photos (Gallery)
+              <input id="newProdPhoto" type="file" accept="image/*" multiple class="hidden" />
             </label>
           </div>
+          <label class="block bg-[#FFF8F2] border border-dashed border-[#D4AF37] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
+            🎞️ Optional: Select 9:16 Reel Video for this Product
+            <input id="newProdVideo" type="file" accept="video/*" class="hidden" />
+          </label>
           <textarea id="newProdDesc" rows="2" placeholder="Full Product / Zari Work Description..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
-          <button onclick="adminAddProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Add to Ready-Made Catalog</button>
+          <button id="saveProdSubmitBtn" onclick="adminSaveProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Save Product to Catalog</button>
         </div>
+
+        <h4 class="font-display text-lg font-bold text-[#2A0E17]">📦 All Ready-Made Products (Tap "Edit ✏️" to modify anything)</h4>
         <div id="adminProductsList" class="space-y-2.5"></div>
       </div>
 
-      <!-- ADMIN TAB 3: RATES -->
-      <div id="admPanel_rates" class="adm-panel hidden space-y-3">
-        <h3 class="font-display text-xl font-bold text-[#6A0D25]">✂️ Edit Silai &amp; Zardozi Rates</h3>
+      <!-- ADMIN TAB 3: SILAI & ZARDOZI RATES (FULL EDIT + PHOTO + ADD NEW) -->
+      <div id="admPanel_rates" class="adm-panel hidden space-y-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 id="rateFormHeading" class="font-display text-xl font-bold text-[#6A0D25]">✂️ Add / Edit Silai &amp; Zardozi Design</h3>
+            <button id="cancelEditRateBtn" onclick="resetAdminRateForm()" class="hidden bg-gray-200 text-gray-700 text-[11px] font-bold px-3 py-1 rounded-full">Cancel Edit</button>
+          </div>
+          <input type="hidden" id="editRateId" value="" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <input id="rateNameInput" type="text" placeholder="Design / Service Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <select id="rateCatInput" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]">
+              <option value="Ladies Suits">Ladies Suits</option>
+              <option value="Blouse & Lehenga">Blouse &amp; Lehenga</option>
+              <option value="Zari & Zardozi Embroidery">Zari &amp; Zardozi Embroidery</option>
+              <option value="Kids & Gents">Kids &amp; Gents</option>
+              <option value="Finishing & Handwork">Finishing &amp; Handwork</option>
+            </select>
+            <input id="rateSubInput" type="text" placeholder="Hindi Subtitle (e.g. अस्तर वाला सूट)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="ratePriceInput" type="number" placeholder="Rate ₹ (0 for Custom Quote)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="rateDaysInput" type="text" placeholder="Delivery Time (e.g. 2–3 Days)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="rateNeckInput" type="text" placeholder="Neck / Work Details" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+          </div>
+          <label class="block bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
+            📷 Upload / Change Design Photo
+            <input id="ratePhotoInput" type="file" accept="image/*" class="hidden" />
+          </label>
+          <button id="saveRateSubmitBtn" onclick="adminSaveRate()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Save Silai / Zardozi Design</button>
+        </div>
+
         <div id="adminRatesList" class="space-y-2.5"></div>
       </div>
 
-      <!-- ADMIN TAB 4: BANNERS -->
+      <!-- ADMIN TAB 4: BANNERS (MULTI-SELECT IMAGES & VIDEOS) -->
       <div id="admPanel_banners" class="adm-panel hidden space-y-4">
         <label class="block bg-white border-2 border-dashed border-[#D81B60]/50 rounded-3xl p-5 text-center cursor-pointer shadow-2xs hover:bg-[#FCE4EC]/30 transition">
-          <span class="text-sm font-extrabold text-[#6A0D25]">+ Upload 16:9 Banner Image or Video</span>
-          <input type="file" accept="image/*,video/*" onchange="adminUploadBanner(event)" class="hidden" />
+          <span class="text-sm font-extrabold text-[#6A0D25] block">+ Select Multiple 16:9 Banner Images &amp; Videos</span>
+          <span class="text-[11px] text-gray-500 mt-1 block">Gallery se ek saath kai photos aur videos select karein</span>
+          <input type="file" accept="image/*,video/*" multiple onchange="adminUploadBanner(event)" class="hidden" />
         </label>
         <div id="adminBannersList" class="space-y-2"></div>
       </div>
 
-      <!-- ADMIN TAB 5: BACKUP & LOGOUT -->
+      <!-- ADMIN TAB 5: CATEGORY PHOTOS EDITOR -->
+      <div id="admPanel_categories" class="adm-panel hidden space-y-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-2">
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">🖼️ Edit Circular Category Photos</h3>
+          <p class="text-xs text-gray-600">Yahan se aap storefront par dikhne wale sabhi circular category icons (All, Ladies Suits, Sarees, Abayas, Kids Wear, etc.) ki photos badal sakte hain:</p>
+        </div>
+        <div id="adminCategoriesList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- ADMIN TAB 6: BACKUP & LOGOUT -->
       <div id="admPanel_backup" class="adm-panel hidden space-y-4">
         <div class="bg-white p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
           <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Google Drive Sync &amp; JSON Backup</h3>
@@ -714,10 +750,10 @@
   <script>
     const SHOP_PHONE = '916350517782';
     const ADMIN_PASS = '@qwer';
-    const STORAGE_KEY = 'firdous_ansar_single_v7';
-    const AUTH_KEY = 'firdous_ansar_admin_v7';
+    const STORAGE_KEY = 'firdous_ansar_single_v8';
+    const AUTH_KEY = 'firdous_ansar_admin_v8';
 
-    // Self-Contained Embedded SVG Artworks (Zero External Image Dependencies)
+    // Self-Contained Embedded SVG Artworks (Never Break Offline or Online)
     function makeRoyalArt(bg1, bg2, title, subtitle, icon) {
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
         <defs>
@@ -750,16 +786,30 @@
       bridalLehenga: makeRoyalArt('#6A0D25', '#B01E4D', 'Bridal Lehenga Zardozi', 'HEAVY KALI & CAN-CAN STITCHING', '👑')
     };
 
+    const DEFAULT_CATEGORY_IMAGES = {
+      'All': PHOTOS.heroCollection,
+      'Ladies Suits': PHOTOS.bandhaniSuit,
+      'Sarees': PHOTOS.banarasiSaree,
+      'Abayas': PHOTOS.abaya,
+      'Kids Wear': PHOTOS.kidsWear,
+      'Stitch_Ladies Suits': PHOTOS.liningSuit,
+      'Stitch_Blouse & Lehenga': PHOTOS.blouse,
+      'Stitch_Zari & Zardozi Embroidery': PHOTOS.zardozi,
+      'Stitch_Kids & Gents': PHOTOS.kidsWear,
+      'Stitch_Finishing & Handwork': PHOTOS.heroTailor
+    };
+
     const DEFAULT_STATE = {
+      categoryImages: { ...DEFAULT_CATEGORY_IMAGES },
       banners: [
         { id: 'b1', type: 'image', src: PHOTOS.heroTailor, title: 'Firdous Ladies Tailor — Custom Designer Stitching', active: true },
         { id: 'b2', type: 'image', src: PHOTOS.heroCollection, title: 'Ansar Collection — Jaipuri Suits, Sarees & Abayas', active: true }
       ],
       products: [
-        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Ideal for daily wear and festive gatherings.', images: [PHOTOS.bandhaniSuit, PHOTOS.liningSuit, PHOTOS.anarkaliSuit], inStock: true },
-        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida / Imported Georgette', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece luxury modest abaya with generous flared flow and fine antique gold embroidery along the neckline and wide cuffs.', images: [PHOTOS.abaya, PHOTOS.zardozi], inStock: true },
-        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Banarasi Silk Saree (5.5m) + 1 Matching Unstitched Blouse Piece (0.8m)', description: 'Festive Rose Pink and Royal Maroon Banarasi silk saree woven with rich antique gold zari brocade motifs.', images: [PHOTOS.banarasiSaree, PHOTOS.heroCollection, PHOTOS.blouse], inStock: true },
-        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Silk-Blend Woven Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Embroidered Maroon Nehru Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36 for weddings, Eid, and festivals.', images: [PHOTOS.kidsWear, PHOTOS.bandhaniSuit], inStock: true }
+        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Ideal for daily wear and festive gatherings.', images: [PHOTOS.bandhaniSuit, PHOTOS.liningSuit, PHOTOS.anarkaliSuit], video: '', inStock: true },
+        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida / Imported Georgette', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece luxury modest abaya with generous flared flow and fine antique gold embroidery along the neckline and wide cuffs.', images: [PHOTOS.abaya, PHOTOS.zardozi], video: '', inStock: true },
+        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Banarasi Silk Saree (5.5m) + 1 Matching Unstitched Blouse Piece (0.8m)', description: 'Festive Rose Pink and Royal Maroon Banarasi silk saree woven with rich antique gold zari brocade motifs.', images: [PHOTOS.banarasiSaree, PHOTOS.heroCollection, PHOTOS.blouse], video: '', inStock: true },
+        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Silk-Blend Woven Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Embroidered Maroon Nehru Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36 for weddings, Eid, and festivals.', images: [PHOTOS.kidsWear, PHOTOS.bandhaniSuit], video: '', inStock: true }
       ],
       rates: [
         { id: 'r1', category: 'Ladies Suits', name: 'Simple Suit & Salwar (Bina Astar)', sub: 'सिंपल सूट और सलवार (बिना अस्तर)', price: 300, days: '2–3 Days', img: PHOTOS.bandhaniSuit, neck: 'Round / Sweetheart / Paan / V-Neck' },
@@ -795,7 +845,60 @@
       ]
     };
 
-    let appState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || DEFAULT_STATE;
+    // Sanitize old cached broken image filenames if present
+    function sanitizeMediaSrc(src, fallback) {
+      if (!src || typeof src !== 'string') return fallback;
+      if (src.startsWith('watermarked_img_')) return fallback;
+      return src;
+    }
+
+    function loadCleanState() {
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) {}
+      if (!saved) return JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+      saved.categoryImages = { ...DEFAULT_CATEGORY_IMAGES, ...(saved.categoryImages || {}) };
+      Object.keys(saved.categoryImages).forEach(k => {
+        saved.categoryImages[k] = sanitizeMediaSrc(saved.categoryImages[k], DEFAULT_CATEGORY_IMAGES[k] || PHOTOS.heroCollection);
+      });
+
+      if (Array.isArray(saved.banners)) {
+        saved.banners.forEach((b, idx) => {
+          b.src = sanitizeMediaSrc(b.src, idx % 2 === 0 ? PHOTOS.heroTailor : PHOTOS.heroCollection);
+        });
+      } else {
+        saved.banners = DEFAULT_STATE.banners;
+      }
+
+      if (Array.isArray(saved.products)) {
+        saved.products.forEach(p => {
+          const catFallback = DEFAULT_CATEGORY_IMAGES[p.category] || PHOTOS.bandhaniSuit;
+          p.images = (p.images && p.images.length ? p.images : [catFallback]).map(img => sanitizeMediaSrc(img, catFallback));
+        });
+      } else {
+        saved.products = DEFAULT_STATE.products;
+      }
+
+      if (Array.isArray(saved.rates)) {
+        saved.rates.forEach(r => {
+          r.img = sanitizeMediaSrc(r.img, PHOTOS.zardozi);
+        });
+      } else {
+        saved.rates = DEFAULT_STATE.rates;
+      }
+
+      if (Array.isArray(saved.partnerWorks)) {
+        saved.partnerWorks.forEach(w => {
+          w.img = sanitizeMediaSrc(w.img, PHOTOS.zardozi);
+        });
+      } else {
+        saved.partnerWorks = DEFAULT_STATE.partnerWorks;
+      }
+
+      return saved;
+    }
+
+    let appState = loadCleanState();
     let isAdmin = localStorage.getItem(AUTH_KEY) === 'true';
     let selectedProdCat = 'All';
     let onlyOffersFilter = false;
@@ -807,7 +910,22 @@
     let currentReceiptCustomer = null;
     let activeFullProduct = null;
 
-    function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        toast('⚠️ Storage full! Purani badi videos/photos hata kar backup lein.');
+      }
+    }
+
+    function readFilesAsDataURLs(fileList) {
+      return Promise.all(Array.from(fileList).map(file => new Promise((resolve, reject) => {
+        const r = new FileReader();
+        r.onload = () => resolve({ name: file.name, type: file.type, dataUrl: r.result });
+        r.onerror = reject;
+        r.readAsDataURL(file);
+      })));
+    }
 
     function toast(msg) {
       const el = document.getElementById('toast');
@@ -1034,11 +1152,11 @@
 
     function renderProducts() {
       const circleCats = [
-        { name: 'All', img: PHOTOS.heroCollection },
-        { name: 'Ladies Suits', img: PHOTOS.bandhaniSuit },
-        { name: 'Sarees', img: PHOTOS.banarasiSaree },
-        { name: 'Abayas', img: PHOTOS.abaya },
-        { name: 'Kids Wear', img: PHOTOS.kidsWear }
+        { name: 'All', img: appState.categoryImages['All'] || PHOTOS.heroCollection },
+        { name: 'Ladies Suits', img: appState.categoryImages['Ladies Suits'] || PHOTOS.bandhaniSuit },
+        { name: 'Sarees', img: appState.categoryImages['Sarees'] || PHOTOS.banarasiSaree },
+        { name: 'Abayas', img: appState.categoryImages['Abayas'] || PHOTOS.abaya },
+        { name: 'Kids Wear', img: appState.categoryImages['Kids Wear'] || PHOTOS.kidsWear }
       ];
 
       document.getElementById('prodCircleCategories').innerHTML = circleCats.map(c => {
@@ -1106,7 +1224,6 @@
         </div>`;
     }
 
-    // OPEN FULL-PAGE PRODUCT VIEW (NOT A POPUP MODAL)
     function openFullProductPage(id) {
       const p = appState.products.find(x => x.id === id);
       if (!p) return;
@@ -1117,7 +1234,6 @@
         : 0;
 
       document.getElementById('fullProductMainContainer').innerHTML = `
-        <!-- Left Column: Main Image + Thumbnail Strip -->
         <div class="space-y-3">
           <div class="aspect-square rounded-3xl overflow-hidden border border-[#EFE0E5] bg-white shadow-xs">
             <img id="fullProdMainImg" src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover" />
@@ -1133,7 +1249,6 @@
           ` : ''}
         </div>
 
-        <!-- Right Column: Full Specifications & Direct WhatsApp Order -->
         <div class="space-y-4">
           <div>
             <div class="flex flex-wrap items-center gap-2">
@@ -1189,7 +1304,6 @@
         </div>
       `;
 
-      // Populate Similar Products (Same Category First, then Other Featured Products)
       const sameCat = appState.products.filter(x => x.id !== p.id && x.category === p.category);
       const others = appState.products.filter(x => x.id !== p.id && x.category !== p.category);
       const similarList = [...sameCat, ...others].slice(0, 6);
@@ -1234,11 +1348,11 @@
     function renderStitching() {
       const stitchCircleList = [
         { name: 'All', label: 'All Designs', isAllIcon: true },
-        { name: 'Ladies Suits', img: PHOTOS.liningSuit },
-        { name: 'Blouse & Lehenga', img: PHOTOS.blouse },
-        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: PHOTOS.zardozi },
-        { name: 'Kids & Gents', img: PHOTOS.kidsWear },
-        { name: 'Finishing & Handwork', label: 'Finishing', img: PHOTOS.heroTailor }
+        { name: 'Ladies Suits', img: appState.categoryImages['Stitch_Ladies Suits'] || PHOTOS.liningSuit },
+        { name: 'Blouse & Lehenga', img: appState.categoryImages['Stitch_Blouse & Lehenga'] || PHOTOS.blouse },
+        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: appState.categoryImages['Stitch_Zari & Zardozi Embroidery'] || PHOTOS.zardozi },
+        { name: 'Kids & Gents', img: appState.categoryImages['Stitch_Kids & Gents'] || PHOTOS.kidsWear },
+        { name: 'Finishing & Handwork', label: 'Finishing', img: appState.categoryImages['Stitch_Finishing & Handwork'] || PHOTOS.heroTailor }
       ];
 
       document.getElementById('stitchCircleCategories').innerHTML = stitchCircleList.map(c => {
@@ -1365,13 +1479,14 @@
     }
 
     // =====================================================================
-    // TAB 3: 9:16 REELS (WITH TWO BUTTONS: VIEW DETAILS + DIRECT ORDER)
+    // TAB 3: 9:16 REELS (WITH VIDEO SUPPORT + DUAL BUTTONS: DETAILS + ORDER)
     // =====================================================================
     function renderReels() {
       const prodItems = appState.products.map(p => ({
         title: p.name,
         sub: `Ansar Collection • ₹${p.price}`,
         img: p.images[0],
+        video: p.video || '',
         prodId: p.id,
         wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.`
       }));
@@ -1380,6 +1495,7 @@
         title: r.name,
         sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`,
         img: r.img,
+        video: '',
         prodId: null,
         wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.`
       }));
@@ -1388,15 +1504,17 @@
 
       document.getElementById('reelsContainer').innerHTML = items.map(it => `
         <div class="relative aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-lg border border-[#D4AF37]/30">
-          <img src="${it.img}" alt="${it.title}" loading="lazy" class="w-full h-full object-cover opacity-90" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent"></div>
+          ${it.video
+            ? `<video src="${it.video}" class="w-full h-full object-cover" controls playsinline loop muted></video>`
+            : `<img src="${it.img}" alt="${it.title}" loading="lazy" class="w-full h-full object-cover opacity-90" />`
+          }
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
           <div class="absolute top-3 left-3 bg-[#6A0D25]/90 text-[#D4AF37] text-[10px] font-extrabold px-2.5 py-1 rounded-full">9:16 Showcase</div>
           <div class="absolute bottom-4 left-3.5 right-3.5 text-white space-y-2.5">
             <div>
               <h3 class="font-bold text-sm leading-snug">${it.title}</h3>
               <p class="text-xs text-[#D4AF37] font-bold mt-0.5">${it.sub}</p>
             </div>
-            <!-- Dual Action Buttons: Product Details + Direct Order -->
             <div class="grid grid-cols-2 gap-2">
               <button onclick="${it.prodId ? `openFullProductPage('${it.prodId}')` : `switchMode('stitching')`}" class="bg-white/20 hover:bg-white/30 backdrop-blur-xs text-white border border-white/30 font-extrabold text-[11px] py-2.5 px-2 rounded-xl shadow transition active:scale-95">
                 👁️ View Details
@@ -1411,7 +1529,7 @@
     }
 
     // =====================================================================
-    // TAB 4: PARTNER STOREFRONT (WITH DEDICATED LINK + ANSAR COLLECTION)
+    // TAB 4: PARTNER STOREFRONT
     // =====================================================================
     function getPartnerShareUrl() {
       const base = getWebsiteShareUrl().split('?')[0];
@@ -1460,6 +1578,7 @@
       renderAdminProducts();
       renderAdminRates();
       renderAdminBanners();
+      renderAdminCategories();
       syncHeroPlayback();
     }
 
@@ -1475,569 +1594,4 @@
       document.querySelectorAll('.adm-panel').forEach(p => p.classList.add('hidden'));
       document.getElementById(`admPanel_${t}`).classList.remove('hidden');
       document.querySelectorAll('.adm-btn').forEach(b => b.className = 'adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap');
-      document.getElementById(`admTab_${t}`).className = 'adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs';
-    }
-
-    // SMART NAAP & ZARI SUIT ORDER AUTO-FILL PARSER
-    function autoParseSmartNaap() {
-      const raw = document.getElementById('smartNaapRawInput').value.trim();
-      if (!raw) return toast('Pehle raw naap ya Zari suit description paste karein!');
-
-      const phoneMatch = raw.match(/(?:\+?91[\s-]*)?([6-9]\d{9})/);
-      if (phoneMatch) document.getElementById('khPhone').value = phoneMatch[1];
-
-      const billMatch = raw.match(/(?:bill|total|rate|price|amount)[\s:=-]*₹?\s*(\d+)/i);
-      if (billMatch) document.getElementById('khBill').value = billMatch[1];
-
-      const paidMatch = raw.match(/(?:paid|advance|jama)[\s:=-]*₹?\s*(\d+)/i);
-      if (paidMatch) document.getElementById('khPaid').value = paidMatch[1];
-
-      const garmentMatch = raw.match(/(zari[\w\s-]*suit|zardozi[\w\s-]*|karchob[\w\s-]*|bridal lehenga|astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown)/i);
-      if (garmentMatch) document.getElementById('khGarment').value = garmentMatch[0].trim();
-
-      const firstChunk = raw.split(/\n|,/)[0] || '';
-      const cleanName = firstChunk
-        .replace(/(?:\+?91[\s-]*)?[6-9]\d{9}/g, '')
-        .replace(/(?:zari|zardozi|karchob|astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown|length|chest|waist|hip|sleeve|gala|bill|paid|advance).*/i, '')
-        .replace(/\d+/g, '')
-        .trim();
-      if (cleanName && cleanName.length <= 35) document.getElementById('khName').value = cleanName;
-
-      const pairs = [];
-      ['length', 'lambai', 'chest', 'seena', 'waist', 'kamar', 'hip', 'sleeve', 'baju', 'gala', 'neck', 'salwar', 'pant', 'mori', 'work', 'design', 'fabric', 'color'].forEach(k => {
-        const m = raw.match(new RegExp(`${k}[\\s:=-]*([^\\n,]+)`, 'i'));
-        if (m) pairs.push(`${k.charAt(0).toUpperCase() + k.slice(1)}: ${m[1].trim()}`);
-      });
-
-      document.getElementById('khNaapNotes').value = pairs.length ? pairs.join(' | ') : raw.replace(/\n+/g, ' | ');
-      toast('🪄 Smart Naap & Description Auto-Filled!');
-    }
-
-    // SMART PRODUCT & MEESHO AUTO-FILL PARSER
-    function autoParseProductText() {
-      const raw = document.getElementById('smartProdRawInput').value.trim();
-      if (!raw) return toast('Pehle Meesho ya Zari Suit / Abaya / Kurti ka text paste karein!');
-
-      const lines = raw.split(/\n/).map(l => l.trim()).filter(Boolean);
-
-      const nameLabelMatch = raw.match(/(?:name|title|product|catalog)[\s:=-]+([^\n]+)/i);
-      const cleanFirstLine = lines[0] ? lines[0].replace(/^(?:name|title|product|catalog)[\s:=-]+/i, '').trim() : '';
-      const detectedName = nameLabelMatch ? nameLabelMatch[1].trim() : cleanFirstLine;
-      if (detectedName) document.getElementById('newProdName').value = detectedName.slice(0, 90);
-
-      const lower = raw.toLowerCase();
-      let cat = 'Ladies Suits';
-      if (/(abaya|burqa|naqab|jilbab)/i.test(lower)) cat = 'Abayas';
-      else if (/(saree|sari|pallu|banarasi)/i.test(lower)) cat = 'Sarees';
-      else if (/(kid|kids|boy|girl|children|bachcho)/i.test(lower)) cat = 'Kids Wear';
-      document.getElementById('newProdCat').value = cat;
-
-      const priceMatches = [...raw.matchAll(/(?:price|rate|offer|selling)?[\s:=-]*₹\s*(\d{2,5})/gi)].map(m => Number(m[1]));
-      if (priceMatches.length) {
-        const minPrice = Math.min(...priceMatches);
-        const maxPrice = Math.max(...priceMatches);
-        document.getElementById('newProdPrice').value = minPrice;
-        if (maxPrice > minPrice) document.getElementById('newProdOrigPrice').value = maxPrice;
-      } else {
-        const plainPrice = raw.match(/(?:price|rate|rs\.?)[\s:=-]*(\d{2,5})/i);
-        if (plainPrice) document.getElementById('newProdPrice').value = plainPrice[1];
-      }
-
-      const sizeLineMatch = raw.match(/(?:sizes?|available sizes?)[\s:=-]+([^\n]+)/i);
-      if (sizeLineMatch) {
-        const cleanSizes = sizeLineMatch[1].replace(/\([^)]*\)/g, '').split(/[,/|]+/).map(s => s.trim()).filter(s => s && s.length <= 12);
-        if (cleanSizes.length) document.getElementById('newProdSizes').value = cleanSizes.join(', ');
-      } else {
-        const foundAlphaSizes = raw.match(/\b(XXS|XS|S|M|L|XL|XXL|XXXL|Free Size)\b/gi);
-        if (foundAlphaSizes) {
-          document.getElementById('newProdSizes').value = [...new Set(foundAlphaSizes.map(s => s.toUpperCase()))].join(', ');
-        }
-      }
-
-      const fabricMatch = raw.match(/(?:fabric|material|cloth)[\s:=-]+([^\n]+)/i);
-      if (fabricMatch) {
-        document.getElementById('newProdFabric').value = fabricMatch[1].trim();
-      } else {
-        const knownFabric = raw.match(/(cotton blend|pure cotton|rayon|georgette|silk|banarasi|korean nida|firdaus|velvet|organza|chanderi|crepe)/i);
-        if (knownFabric) document.getElementById('newProdFabric').value = knownFabric[0];
-      }
-
-      const setMatch = raw.match(/(?:set includes|package contains|in the box|combo)[\s:=-]+([^\n]+)/i);
-      if (setMatch) document.getElementById('newProdSet').value = setMatch[1].trim();
-
-      const cleanDesc = lines.filter(l => !/^(?:price|mrp|rs\.?|₹\d+)/i.test(l)).join(' • ');
-      document.getElementById('newProdDesc').value = cleanDesc;
-
-      toast('🪄 Meesho / Product Details Auto-Filled!');
-    }
-
-    function addCustomerOrder() {
-      const customerName = document.getElementById('khName').value.trim();
-      const phone = document.getElementById('khPhone').value.replace(/\D/g, '').slice(-10);
-      const altWaPhone = document.getElementById('khAltWaPhone').value.replace(/\D/g, '').slice(-10);
-      const garment = document.getElementById('khGarment').value.trim() || 'Custom Suit';
-      const totalBill = Number(document.getElementById('khBill').value) || 0;
-      const amountPaid = Number(document.getElementById('khPaid').value) || 0;
-      const deliveryDate = document.getElementById('khDelivery').value || new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10);
-      const naap = document.getElementById('khNaapNotes').value.trim();
-
-      if (!customerName || !totalBill) return toast('⚠️ Customer Name aur Total Bill bharein!');
-
-      appState.customers.unshift({
-        id: 'c_' + Date.now(),
-        orderId: `FLT-${101 + appState.customers.length}`,
-        customerName,
-        phone,
-        altWaPhone,
-        garment,
-        naap,
-        deliveryDate,
-        status: 'Received',
-        totalBill,
-        amountPaid
-      });
-      saveState();
-      ['smartNaapRawInput', 'khName', 'khPhone', 'khAltWaPhone', 'khGarment', 'khBill', 'khPaid', 'khNaapNotes'].forEach(id => document.getElementById(id).value = '');
-      renderAdminKhata();
-      toast('✅ Order & Naap Saved in Khata!');
-    }
-
-    function getWebsiteShareUrl() {
-      return window.location.href.split('#')[0];
-    }
-
-    function launchWhatsAppApp(rawPhone, message, appType) {
-      const digits = (rawPhone || '').replace(/\D/g, '');
-      const fullPhone = digits.length === 10 ? `91${digits}` : (digits || SHOP_PHONE);
-      const encoded = encodeURIComponent(message);
-      const waMeUrl = `https://wa.me/${fullPhone}?text=${encoded}`;
-
-      if (/Android/i.test(navigator.userAgent)) {
-        const pkg = appType === 'business' ? 'com.whatsapp.w4b' : 'com.whatsapp';
-        window.location.href = `intent://send?phone=${fullPhone}&text=${encoded}#Intent;scheme=whatsapp;package=${pkg};S.browser_fallback_url=${encodeURIComponent(waMeUrl)};end`;
-        return;
-      }
-      window.open(waMeUrl, '_blank', 'noopener,noreferrer');
-    }
-
-    function renderAdminKhata() {
-      const q = (document.getElementById('khataSearch')?.value || '').toLowerCase();
-      const list = appState.customers.filter(c => !q || c.customerName.toLowerCase().includes(q) || c.orderId.toLowerCase().includes(q) || (c.phone && c.phone.includes(q)));
-      document.getElementById('adminKhataList').innerHTML = list.map(c => {
-        const due = Math.max(0, c.totalBill - c.amountPaid);
-        const activeWa = c.altWaPhone || c.phone || '';
-        return `
-          <div class="bg-white p-4 rounded-2xl border border-[#EFE0E5] shadow-xs space-y-2.5">
-            <div class="flex items-center justify-between gap-2">
-              <div>
-                <span class="text-[10px] font-extrabold bg-[#6A0D25] text-[#D4AF37] px-2.5 py-0.5 rounded-full">${c.orderId}</span>
-                <strong class="font-display text-lg text-[#2A0E17] ml-1.5">${c.customerName}</strong>
-                <span class="text-xs text-gray-500 ml-1">(${c.phone || 'No Phone'}${c.altWaPhone ? ` • WA: ${c.altWaPhone}` : ''})</span>
-              </div>
-              <select onchange="updateOrderStatus('${c.id}', this.value)" class="bg-[#FCE4EC]/70 border border-[#F8BBD0] rounded-xl px-2.5 py-1 text-[11px] font-bold text-[#6A0D25] outline-none">
-                ${['Received', 'Cutting', 'Stitching', 'Ready for Delivery'].map(st => `<option value="${st}" ${c.status === st ? 'selected' : ''}>${st}</option>`).join('')}
-              </select>
-            </div>
-            <p class="text-xs text-gray-700">👗 <strong class="text-[#2A0E17]">${c.garment}</strong> • Delivery: <span class="font-semibold">${c.deliveryDate}</span></p>
-            ${c.naap ? `<p class="text-[11px] bg-[#FFF8F2] border border-[#F3DFC8] p-2.5 rounded-xl text-[#6A0D25] font-medium">📏 ${c.naap}</p>` : ''}
-
-            <div class="pt-2 border-t border-[#EFE0E5] space-y-2">
-              <div class="flex items-center justify-between text-xs">
-                <span class="text-gray-700">Bill: <strong>₹${c.totalBill}</strong> | Paid: <strong class="text-emerald-700">₹${c.amountPaid}</strong> | Due: <strong class="text-[#D81B60]">₹${due}</strong></span>
-                <button onclick="deleteCustomerOrder('${c.id}')" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-[11px]">🗑</button>
-              </div>
-
-              <div class="flex flex-wrap items-center gap-1.5">
-                <input id="cardWa_${c.id}" type="tel" maxlength="10" value="${activeWa}" onchange="saveCardCustomWa('${c.id}', this.value)" placeholder="WhatsApp No." class="w-28 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-2.5 py-1.5 text-[11px] font-bold text-[#2A0E17] outline-none focus:border-[#6A0D25]" title="Alag WhatsApp number ho to yahan badlein" />
-                <button onclick="openDigitalReceipt('${c.id}')" class="bg-[#D4AF37] text-[#2A0E17] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">🧾 Receipt</button>
-                <button onclick="sendKhataReminder('${c.id}', 'whatsapp')" class="bg-[#25D366] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💬 WhatsApp</button>
-                <button onclick="sendKhataReminder('${c.id}', 'business')" class="bg-[#128C7E] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💼 WA Business</button>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function saveCardCustomWa(id, val) {
-      const c = appState.customers.find(x => x.id === id);
-      if (!c) return;
-      const clean = val.replace(/\D/g, '').slice(-10);
-      c.altWaPhone = clean && clean !== c.phone ? clean : '';
-      saveState();
-      toast('📲 WhatsApp Number Updated');
-    }
-
-    function updateOrderStatus(id, st) {
-      const c = appState.customers.find(x => x.id === id);
-      if (c) { c.status = st; saveState(); toast(`Status: ${st}`); }
-    }
-
-    function deleteCustomerOrder(id) {
-      appState.customers = appState.customers.filter(x => x.id !== id);
-      saveState();
-      renderAdminKhata();
-    }
-
-    function buildReceiptShareText(c) {
-      const due = Math.max(0, c.totalBill - c.amountPaid);
-      const siteUrl = getWebsiteShareUrl();
-      return `✨ *FIRDOUS LADIES TAILOR - ANSAR COLLECTION*\n🧾 *Digital Receipt:* ${c.orderId}\n\n👤 *Customer:* ${c.customerName}\n👗 *Outfit:* ${c.garment}\n📌 *Status:* ${c.status}\n📅 *Delivery Date:* ${c.deliveryDate}\n💰 *Total:* ₹${c.totalBill} | *Paid:* ₹${c.amountPaid}\n💳 *Balance Due:* ₹${due}\n\n🌐 *Order & Live Status Link:*\n${siteUrl}`;
-    }
-
-    function sendKhataReminder(id, appType) {
-      const c = appState.customers.find(x => x.id === id);
-      if (!c) return;
-      const cardInput = document.getElementById(`cardWa_${c.id}`);
-      const targetPhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone)).replace(/\D/g, '');
-      if (targetPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number daalein!');
-      const msg = buildReceiptShareText(c);
-      launchWhatsAppApp(targetPhone, msg, appType);
-    }
-
-    // DIGITAL CANVAS RECEIPT GENERATOR WITH WEBSITE QR CODE
-    function openDigitalReceipt(id) {
-      const c = appState.customers.find(x => x.id === id);
-      if (!c) return;
-      currentReceiptCustomer = c;
-
-      const cardInput = document.getElementById(`cardWa_${c.id}`);
-      const activePhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone || '')).replace(/\D/g, '').slice(-10);
-      document.getElementById('receiptTargetWaInput').value = activePhone;
-
-      const due = Math.max(0, c.totalBill - c.amountPaid);
-      const siteUrl = getWebsiteShareUrl();
-      const canvas = document.getElementById('receiptCanvas');
-      const ctx = canvas.getContext('2d');
-
-      ctx.fillStyle = '#FFFDF9';
-      ctx.fillRect(0, 0, 600, 840);
-
-      // Royal Header
-      ctx.fillStyle = '#6A0D25';
-      ctx.fillRect(0, 0, 600, 145);
-      ctx.fillStyle = '#D4AF37';
-      ctx.font = 'bold 30px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('FIRDOUS LADIES TAILOR', 300, 56);
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 16px sans-serif';
-      ctx.fillText('ANSAR COLLECTION • JAIPUR', 300, 86);
-      ctx.font = '13px sans-serif';
-      ctx.fillStyle = '#FCE4EC';
-      ctx.fillText('Somvaar Bazaar Wali Gali, Nai Ki Thadi | +91 6350517782', 300, 116);
-
-      // Receipt Title
-      ctx.textAlign = 'left';
-      ctx.fillStyle = '#2A0E17';
-      ctx.font = 'bold 20px sans-serif';
-      ctx.fillText(`DIGITAL RECEIPT : ${c.orderId}`, 40, 195);
-
-      ctx.font = '16px sans-serif';
-      let y = 242;
-      [
-        ['Customer Name:', c.customerName],
-        ['Mobile Number:', activePhone || c.phone || '-'],
-        ['Outfit / Design:', c.garment],
-        ['Order Status:', c.status],
-        ['Delivery Date:', c.deliveryDate]
-      ].forEach(([k, v]) => {
-        ctx.fillStyle = '#6B7280';
-        ctx.fillText(k, 40, y);
-        ctx.fillStyle = '#111827';
-        ctx.font = 'bold 16px sans-serif';
-        ctx.fillText(String(v).slice(0, 32), 215, y);
-        ctx.font = '16px sans-serif';
-        y += 40;
-      });
-
-      // Billing Summary Box
-      ctx.fillStyle = '#FCE4EC';
-      ctx.fillRect(36, 455, 528, 145);
-      ctx.fillStyle = '#6A0D25';
-      ctx.font = 'bold 18px sans-serif';
-      ctx.fillText(`Total Bill:          ₹${c.totalBill}`, 60, 495);
-      ctx.fillStyle = '#047857';
-      ctx.fillText(`Advance Paid:    ₹${c.amountPaid}`, 60, 535);
-      ctx.fillStyle = '#BE123C';
-      ctx.font = 'bold 22px sans-serif';
-      ctx.fillText(`Balance Due:     ₹${due}`, 60, 580);
-
-      // Website QR Code Box at Bottom
-      ctx.fillStyle = '#FFF8F2';
-      ctx.fillRect(36, 620, 528, 165);
-      ctx.strokeStyle = '#D4AF37';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(36, 620, 528, 165);
-
-      ctx.fillStyle = '#6A0D25';
-      ctx.font = 'bold 16px sans-serif';
-      ctx.fillText('SCAN FOR WEBSITE & CATALOG', 195, 665);
-      ctx.fillStyle = '#4B5563';
-      ctx.font = '13px sans-serif';
-      ctx.fillText('• Latest Suits, Sarees & Abayas', 195, 695);
-      ctx.fillText('• Zari-Zardozi & Silai Rates', 195, 720);
-      ctx.fillText('• Live Stitching Order Tracking', 195, 745);
-      ctx.fillStyle = '#D81B60';
-      ctx.font = 'bold 12px sans-serif';
-      ctx.fillText(siteUrl.slice(0, 42), 195, 770);
-
-      ctx.fillStyle = '#6A0D25';
-      ctx.font = 'italic 14px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Thank you for choosing Firdous Ladies Tailor & Ansar Collection!', 300, 818);
-
-      // Draw Live QR Code Image onto Canvas
-      const qrImg = new Image();
-      qrImg.crossOrigin = 'anonymous';
-      qrImg.onload = () => {
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(52, 636, 128, 128);
-        ctx.drawImage(qrImg, 56, 640, 120, 120);
-      };
-      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(siteUrl)}`;
-
-      document.getElementById('receiptModal').classList.remove('hidden');
-      syncHeroPlayback();
-    }
-
-    function sendReceiptViaApp(appType) {
-      if (!currentReceiptCustomer) return;
-      const inputPhone = document.getElementById('receiptTargetWaInput').value.replace(/\D/g, '');
-      if (inputPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number likhein!');
-      saveCardCustomWa(currentReceiptCustomer.id, inputPhone);
-      const msg = buildReceiptShareText(currentReceiptCustomer);
-      launchWhatsAppApp(inputPhone, msg, appType);
-    }
-
-    async function shareReceiptImageWithText() {
-      if (!currentReceiptCustomer) return;
-      const inputPhone = document.getElementById('receiptTargetWaInput').value.replace(/\D/g, '');
-      if (inputPhone.length >= 10) saveCardCustomWa(currentReceiptCustomer.id, inputPhone);
-
-      const msg = buildReceiptShareText(currentReceiptCustomer);
-      const canvas = document.getElementById('receiptCanvas');
-
-      try {
-        const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
-        const file = new File([blob], `Firdous-Receipt-${currentReceiptCustomer.orderId}.png`, { type: 'image/png' });
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            files: [file],
-            title: `Receipt ${currentReceiptCustomer.orderId}`,
-            text: msg
-          });
-          return;
-        }
-      } catch (e) {}
-
-      downloadReceiptPng();
-      toast('📥 Receipt Image Saved! Ab WhatsApp Business me attach karke bhej dein.');
-      if (inputPhone.length >= 10) {
-        setTimeout(() => launchWhatsAppApp(inputPhone, msg, 'business'), 700);
-      }
-    }
-
-    function closeReceiptModal() {
-      document.getElementById('receiptModal').classList.add('hidden');
-      syncHeroPlayback();
-    }
-
-    function downloadReceiptPng() {
-      const a = document.createElement('a');
-      a.download = `Firdous-Tailor-Receipt-${Date.now()}.png`;
-      a.href = document.getElementById('receiptCanvas').toDataURL('image/png');
-      a.click();
-    }
-
-    function renderAdminProducts() {
-      document.getElementById('adminProductsList').innerHTML = appState.products.map(p => `
-        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
-          <img src="${p.images[0]}" class="w-12 h-12 rounded-xl object-cover border border-[#EFE0E5]" />
-          <div class="flex-1 min-w-0">
-            <p class="font-bold text-xs text-[#2A0E17] truncate">${p.name}</p>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="text-xs text-gray-500">₹</span>
-              <input type="number" value="${p.price}" onchange="updateProdPrice('${p.id}', this.value)" class="w-16 bg-[#FFFDF9] border border-[#E5CFD6] px-2 py-0.5 rounded-lg text-xs font-extrabold text-[#6A0D25]" />
-            </div>
-          </div>
-          <button onclick="toggleProdStock('${p.id}')" class="px-2.5 py-1.5 rounded-xl text-[11px] font-bold ${p.inStock ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
-            ${p.inStock ? 'In Stock' : 'Sold Out'}
-          </button>
-          <button onclick="deleteProd('${p.id}')" class="text-rose-600 font-bold text-xs px-1.5">✕</button>
-        </div>
-      `).join('');
-    }
-
-    function adminAddProduct() {
-      const name = document.getElementById('newProdName').value.trim();
-      const category = document.getElementById('newProdCat').value;
-      const price = Number(document.getElementById('newProdPrice').value);
-      const originalPrice = Number(document.getElementById('newProdOrigPrice').value) || undefined;
-      const sizes = document.getElementById('newProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
-      const fabric = document.getElementById('newProdFabric').value.trim() || 'Premium Boutique Fabric';
-      const setIncludes = document.getElementById('newProdSet').value.trim() || 'Complete Outfit Set';
-      const description = document.getElementById('newProdDesc').value.trim() || `${name} from Ansar Collection Jaipur.`;
-      const file = document.getElementById('newProdPhoto').files[0];
-      if (!name || !price) return toast('⚠️ Product Name aur Price daalein!');
-
-      const defaultImgByCat = {
-        'Ladies Suits': PHOTOS.bandhaniSuit,
-        'Abayas': PHOTOS.abaya,
-        'Sarees': PHOTOS.banarasiSaree,
-        'Kids Wear': PHOTOS.kidsWear
-      };
-
-      const finishAdd = (imgSrc) => {
-        appState.products.unshift({
-          id: 'prod-' + Date.now(),
-          code: String(100 + appState.products.length + 1),
-          sku: 'AC-' + Date.now().toString().slice(-4),
-          name, category, price, originalPrice,
-          isOffer: true,
-          sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
-          fabric,
-          setIncludes,
-          description,
-          images: [imgSrc],
-          inStock: true
-        });
-        saveState();
-        ['smartProdRawInput', 'newProdName', 'newProdPrice', 'newProdOrigPrice', 'newProdSizes', 'newProdFabric', 'newProdSet', 'newProdDesc'].forEach(id => document.getElementById(id).value = '');
-        renderAdminProducts();
-        toast('✅ Product Added to Catalog!');
-      };
-
-      if (file) {
-        const r = new FileReader();
-        r.onload = () => finishAdd(r.result);
-        r.readAsDataURL(file);
-      } else {
-        finishAdd(defaultImgByCat[category] || PHOTOS.bandhaniSuit);
-      }
-    }
-
-    function updateProdPrice(id, val) {
-      const p = appState.products.find(x => x.id === id);
-      if (p) { p.price = Number(val) || p.price; saveState(); toast('Price Updated'); }
-    }
-
-    function toggleProdStock(id) {
-      const p = appState.products.find(x => x.id === id);
-      if (p) { p.inStock = !p.inStock; saveState(); renderAdminProducts(); }
-    }
-
-    function deleteProd(id) {
-      appState.products = appState.products.filter(x => x.id !== id);
-      saveState();
-      renderAdminProducts();
-    }
-
-    function renderAdminRates() {
-      document.getElementById('adminRatesList').innerHTML = appState.rates.map(r => `
-        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
-          <div class="flex-1 min-w-0">
-            <p class="font-bold text-xs text-[#2A0E17] truncate">${r.name}</p>
-            <span class="text-[10px] text-[#D81B60] font-semibold">${r.category}</span>
-          </div>
-          <div class="flex items-center gap-1">
-            <span class="text-xs text-gray-500">₹</span>
-            <input type="number" value="${r.price}" onchange="updateRatePrice('${r.id}', this.value)" class="w-16 bg-[#FFFDF9] border border-[#E5CFD6] px-2 py-1 rounded-lg text-xs font-extrabold text-[#6A0D25]" />
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function updateRatePrice(id, val) {
-      const r = appState.rates.find(x => x.id === id);
-      if (r) { r.price = Number(val) || 0; r.priceLabel = r.price > 0 ? `₹${r.price}` : 'Custom Quote'; saveState(); toast('Silai Rate Updated'); }
-    }
-
-    function renderAdminBanners() {
-      document.getElementById('adminBannersList').innerHTML = appState.banners.map((b, i) => `
-        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
-          <span class="text-xs font-bold text-[#2A0E17] truncate flex-1">${i + 1}. ${b.title || 'Banner Media'}</span>
-          <button onclick="toggleBannerVis(${i})" class="bg-[#FCE4EC] text-[#6A0D25] font-bold px-2.5 py-1 rounded-lg text-xs">${b.active !== false ? 'Shown' : 'Hidden'}</button>
-          <button onclick="deleteBanner(${i})" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-xs">Delete</button>
-        </div>
-      `).join('');
-    }
-
-    function adminUploadBanner(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const r = new FileReader();
-      r.onload = () => {
-        appState.banners.push({
-          id: 'bn-' + Date.now(),
-          type: file.type.startsWith('video/') ? 'video' : 'image',
-          src: r.result,
-          title: file.name,
-          active: true
-        });
-        saveState();
-        renderAdminBanners();
-        toast('Banner Uploaded!');
-      };
-      r.readAsDataURL(file);
-    }
-
-    function toggleBannerVis(i) {
-      appState.banners[i].active = appState.banners[i].active === false ? true : false;
-      saveState();
-      renderAdminBanners();
-    }
-
-    function deleteBanner(i) {
-      appState.banners.splice(i, 1);
-      saveState();
-      renderAdminBanners();
-    }
-
-    function downloadFullBackup() {
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(new Blob([JSON.stringify(appState, null, 2)], { type: 'application/json' }));
-      a.download = `firdous-ansar-backup-${new Date().toISOString().slice(0, 10)}.json`;
-      a.click();
-      toast('⬇️ Backup Downloaded!');
-    }
-
-    function downloadAndOpenDrive() {
-      downloadFullBackup();
-      setTimeout(() => window.open('https://drive.google.com/drive/my-drive', '_blank', 'noopener,noreferrer'), 800);
-    }
-
-    function restoreFullBackup(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const r = new FileReader();
-      r.onload = () => {
-        try {
-          appState = JSON.parse(r.result);
-          saveState();
-          renderAdminKhata();
-          renderAdminProducts();
-          toast('✅ Backup Restored!');
-        } catch {
-          toast('❌ Invalid Backup File');
-        }
-      };
-      r.readAsText(file);
-    }
-
-    // INIT + DIRECT PARTNER LINK (?partner=saklani) HANDLER
-    window.addEventListener('DOMContentLoaded', () => {
-      syncOnlineBanner();
-      if (isAdmin) document.getElementById('adminModePill').classList.remove('hidden');
-      renderHero();
-      renderProducts();
-      renderStitching();
-
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('partner')) {
-        switchMode('partner');
-      }
-    });
-  </script>
-</body>
-</html>
+      document.getElementById(`admTab_${t}`).
