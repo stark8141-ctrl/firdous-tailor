@@ -9,7 +9,7 @@
   <meta name="description" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Custom Designer Stitching & Ready-Made Ethnic Wear | Somvaar Bazaar Wali Gali, 60 Feet Road, Nai Ki Thadi, Jaipur." />
   <title>FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Jaipur</title>
 
-  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -53,11 +53,11 @@
     .font-royal { font-family: 'Cinzel Decorative', 'Cormorant Garamond', serif; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    @keyframes slideUp {
-      from { transform: translateY(100%); opacity: 0.4; }
-      to { transform: translateY(0); opacity: 1; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .animate-slide-up { animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-fade-in { animation: fadeIn 0.22s ease-out forwards; }
   </style>
 </head>
 <body class="bg-[#FFFDF9] text-[#2A0E17] min-h-screen flex flex-col pb-16">
@@ -71,7 +71,7 @@
   </div>
 
   <!-- =====================================================================
-       1. STICKY ROYAL MAROON HEADER
+       1. STICKY ROYAL MAROON HEADER (Always Displays Ansar Collection Top Bar)
   ====================================================================== -->
   <header class="sticky top-0 z-40 bg-[#6A0D25] text-[#FFFDF9] shadow-md">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
@@ -121,7 +121,7 @@
   <!-- =====================================================================
        3. DUAL MODE SWITCHER BAR
   ====================================================================== -->
-  <div class="sticky top-[64px] z-30 bg-[#FFFDF9] border-b border-[#EFE0E5] max-w-5xl w-full mx-auto">
+  <div id="dualModeBar" class="sticky top-[64px] z-30 bg-[#FFFDF9] border-b border-[#EFE0E5] max-w-5xl w-full mx-auto">
     <div class="grid grid-cols-2">
       <button onclick="switchMode('stitching')" id="topDual_stitching" class="py-2.5 px-2 text-center border-b-2 border-transparent text-gray-500 transition">
         <div class="text-xs sm:text-sm font-extrabold flex items-center justify-center gap-1.5">
@@ -150,7 +150,7 @@
     <section id="view_collection" class="space-y-4">
       <div>
         <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#2A0E17] leading-tight">Ansar Collection</h2>
-        <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें और सीधे WhatsApp पर ऑर्डर करें</p>
+        <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें — पूरी डिटेल देखें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
       <!-- Pill Search Bar -->
@@ -190,6 +190,35 @@
         <button onclick="resetProductFilters()" class="bg-[#6A0D25] text-white text-xs font-extrabold px-5 py-2.5 rounded-full shadow">
           Show All Designs
         </button>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 1B: FULL-PAGE PRODUCT DETAIL VIEW (MEESHO / AMAZON STYLE)
+    ==================================================================== -->
+    <section id="view_product_page" class="hidden space-y-6 animate-fade-in">
+      <!-- Top Back Bar -->
+      <div class="flex items-center justify-between gap-2 border-b border-[#EFE0E5] pb-3">
+        <button onclick="closeFullProductPage()" class="inline-flex items-center gap-1.5 bg-[#FCE4EC] hover:bg-pink-200 text-[#6A0D25] text-xs font-extrabold px-4 py-2 rounded-full transition active:scale-95">
+          <span>←</span><span>Back to Catalog</span>
+        </button>
+        <button onclick="shareActiveProductPage()" class="inline-flex items-center gap-1.5 bg-white border border-[#E5CFD6] text-[#2A0E17] text-xs font-bold px-3.5 py-2 rounded-full shadow-2xs">
+          <span>🔗</span><span>Share Product</span>
+        </button>
+      </div>
+
+      <!-- Main Full-Page Product Layout -->
+      <div id="fullProductMainContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+      <!-- Similar Products Section (Amazon / Meesho Style) -->
+      <div class="pt-6 border-t border-[#EFE0E5] space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-display text-2xl font-bold text-[#2A0E17]">Similar &amp; Recommended Designs</h3>
+            <p class="text-xs text-gray-500">मिलते-जुलते अन्य शानदार डिज़ाइन देखें</p>
+          </div>
+        </div>
+        <div id="similarProductsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
       </div>
     </section>
 
@@ -298,33 +327,55 @@
     </section>
 
     <!-- ===================================================================
-         VIEW 3: 9:16 VERTICAL REELS FEED
+         VIEW 3: 9:16 VERTICAL REELS FEED (WITH DUAL BUTTONS: DETAILS + ORDER)
     ==================================================================== -->
     <section id="view_reels" class="hidden space-y-4">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#6A0D25]">Ansar Collection &amp; Tailor Reels</h2>
-        <p class="text-xs text-gray-500">9:16 Showcase — Mannequin &amp; Flat-Lay Presentation • Direct WhatsApp Order</p>
+        <p class="text-xs text-gray-500">9:16 Showcase — पूरी डिटेल देखें या सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
       <div id="reelsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
     </section>
 
     <!-- ===================================================================
-         VIEW 4: PARTNER STOREFRONT (SAKLANI ZARI HANDWORK)
+         VIEW 4: PARTNER STOREFRONT (DEDICATED SHAREABLE LINK + ANSAR COLLECTION)
     ==================================================================== -->
-    <section id="view_partner" class="hidden space-y-5">
-      <div class="bg-[#2A0E17] text-[#FFFDF9] rounded-3xl p-5 border border-[#D4AF37]/50 shadow-lg">
+    <section id="view_partner" class="hidden space-y-6">
+      <div class="bg-[#2A0E17] text-[#FFFDF9] rounded-3xl p-5 border border-[#D4AF37]/50 shadow-lg space-y-3">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <span class="bg-[#D4AF37] text-[#2A0E17] text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Verified Handwork Partner</span>
+            <span class="bg-[#D4AF37] text-[#2A0E17] text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Verified Handwork Partner • Ansar Collection</span>
             <h2 class="font-display italic text-2xl sm:text-3xl font-bold text-[#D4AF37] mt-1">Saklani Zari Handwork</h2>
             <p class="text-xs text-[#FCE4EC]/85 mt-1">Authentic Karchob Adda Zari, Dabka, Nakshi, Saree Border &amp; Bridal Lehenga Zardozi Work • Jaipur</p>
           </div>
-          <button onclick="openWaDirect('Saklani Zari Handwork - Karchob Adda Zardozi & Bridal Embroidery Inquiry')" class="bg-[#25D366] hover:bg-green-600 text-white text-xs font-extrabold px-4 py-2.5 rounded-full shadow transition">
-            💬 Order Zari Work on WA
-          </button>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="sharePartnerStoreLink()" class="bg-white/15 hover:bg-white/25 text-[#D4AF37] border border-[#D4AF37]/40 text-xs font-extrabold px-3.5 py-2.5 rounded-full transition">
+              🔗 Copy / Share Partner Store Link
+            </button>
+            <button onclick="openWaDirect('Saklani Zari Handwork - Karchob Adda Zardozi & Bridal Embroidery Inquiry')" class="bg-[#25D366] hover:bg-green-600 text-white text-xs font-extrabold px-4 py-2.5 rounded-full shadow transition">
+              💬 Order Zari Work on WA
+            </button>
+          </div>
         </div>
       </div>
-      <div id="partnerWorksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+      <!-- Partner Store Items -->
+      <div class="space-y-3">
+        <h3 class="font-display text-xl font-bold text-[#2A0E17]">✨ Saklani Zari Handwork Catalogue</h3>
+        <div id="partnerWorksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+
+      <!-- Ansar Collection Cross-Showcase Inside Partner Store -->
+      <div class="pt-5 border-t border-[#EFE0E5] space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#D81B60]">Official Main Store</span>
+            <h3 class="font-display text-2xl font-bold text-[#6A0D25]">🛍️ Ansar Collection Ready-Made Wear</h3>
+          </div>
+          <button onclick="switchMode('collection')" class="text-xs font-extrabold text-[#D81B60] underline">View All →</button>
+        </div>
+        <div id="partnerAnsarProductsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+      </div>
     </section>
 
   </main>
@@ -435,6 +486,9 @@
           <button onclick="switchMode('stitching'); jumpToStitchCat('Zari & Zardozi Embroidery'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
             <span>✨</span><span>Zari &amp; Zardozi कढ़ाई (Embroidery)</span>
           </button>
+          <button onclick="switchMode('partner'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>🤝</span><span>Partner Store: Saklani Zari</span>
+          </button>
           <button onclick="switchMode('stitching'); scrollToSection('pickupSection'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
             <span>🛵</span><span>2-Hour Home Pickup (Rapido)</span>
           </button>
@@ -486,11 +540,6 @@
     </aside>
   </div>
 
-  <!-- PRODUCT / DESIGN DETAIL MODAL -->
-  <div id="detailModal" onclick="if(event.target===this) closeDetailModal()" class="hidden fixed inset-0 z-50 bg-black/70 flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div id="detailModalContent" class="bg-[#FFFDF9] w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92vh] overflow-y-auto p-5 shadow-2xl animate-slide-up"></div>
-  </div>
-
   <!-- SECRET ADMIN PASSCODE MODAL (@qwer) -->
   <div id="passcodeModal" onclick="if(event.target===this) closePasscodeModal()" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
     <div class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-xs rounded-3xl p-6 border-2 border-[#D4AF37]/60 shadow-2xl space-y-4">
@@ -529,7 +578,7 @@
       <div id="admPanel_khata" class="adm-panel space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-bold text-[#6A0D25]">🪄 Smart Naap Parser &amp; New Order</h3>
+            <h3 class="font-display text-xl font-bold text-[#6A0D25]">🪄 Smart Naap &amp; Zari Order Auto-Fill</h3>
             <button onclick="autoParseSmartNaap()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill from Text</button>
           </div>
           <textarea id="smartNaapRawInput" rows="3" placeholder="WhatsApp se aaya customer ka raw naap ya Zari suit description paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
@@ -579,7 +628,7 @@
             <input id="newProdFabric" type="text" placeholder="Fabric (e.g. Cotton Blend, Korean Nida)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="newProdSet" type="text" placeholder="Set Includes (e.g. Kurta + Palazzo + Dupatta)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <label class="bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
-              📷 Select Product Photo
+              📷 Select Product Photo (Auto Base64)
               <input id="newProdPhoto" type="file" accept="image/*" class="hidden" />
             </label>
           </div>
@@ -607,7 +656,8 @@
       <!-- ADMIN TAB 5: BACKUP & LOGOUT -->
       <div id="admPanel_backup" class="adm-panel hidden space-y-4">
         <div class="bg-white p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
-          <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Google Drive Sync &amp; JSON Backup (Stark8144@gmail.com)</h3>
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Google Drive Sync &amp; JSON Backup</h3>
+          <p class="text-xs text-gray-600">Download ki gayi backup file ko apne Google Drive synced folder me rakhein taaki sabhi records automatically cloud par safe rahein.</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <button onclick="downloadFullBackup()" class="bg-[#6A0D25] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-xs">⬇️ Download Shop Backup (.json)</button>
             <button onclick="downloadAndOpenDrive()" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-3 rounded-xl shadow-xs">☁️ Download &amp; Open Google Drive</button>
@@ -664,21 +714,40 @@
   <script>
     const SHOP_PHONE = '916350517782';
     const ADMIN_PASS = '@qwer';
-    const STORAGE_KEY = 'firdous_ansar_single_v6';
-    const AUTH_KEY = 'firdous_ansar_admin_v6';
+    const STORAGE_KEY = 'firdous_ansar_single_v7';
+    const AUTH_KEY = 'firdous_ansar_admin_v7';
+
+    // Self-Contained Embedded SVG Artworks (Zero External Image Dependencies)
+    function makeRoyalArt(bg1, bg2, title, subtitle, icon) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="${bg1}"/>
+            <stop offset="100%" stop-color="${bg2}"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="800" fill="url(#g)"/>
+        <rect x="34" y="34" width="732" height="732" rx="36" fill="none" stroke="#D4AF37" stroke-width="3" stroke-opacity="0.55"/>
+        <text x="400" y="325" text-anchor="middle" font-size="115">${icon}</text>
+        <text x="400" y="445" text-anchor="middle" fill="#FFFDF9" font-family="Georgia, serif" font-weight="bold" font-size="40">${title}</text>
+        <text x="400" y="498" text-anchor="middle" fill="#D4AF37" font-family="sans-serif" font-weight="bold" font-size="22" letter-spacing="3">${subtitle}</text>
+        <text x="400" y="695" text-anchor="middle" fill="#FCE4EC" fill-opacity="0.75" font-family="sans-serif" font-size="18">FIRDOUS LADIES TAILOR • ANSAR COLLECTION</text>
+      </svg>`;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
 
     const PHOTOS = {
-      heroTailor: 'watermarked_img_7400333915196377873.jpg',
-      heroCollection: 'watermarked_img_11605133640720319739.jpg',
-      bandhaniSuit: 'watermarked_img_12841673581805564993.jpg',
-      abaya: 'watermarked_img_15869078735826594033.jpg',
-      banarasiSaree: 'watermarked_img_7880406917539602570.jpg',
-      kidsWear: 'watermarked_img_7887056453225923786.jpg',
-      liningSuit: 'watermarked_img_12706418769679913324.jpg',
-      anarkaliSuit: 'watermarked_img_7459714392644382222.jpg',
-      blouse: 'watermarked_img_5979142155847498025.jpg',
-      zardozi: 'watermarked_img_4924175731972845715.jpg',
-      bridalLehenga: 'watermarked_img_16679583788663199533.jpg'
+      heroTailor: makeRoyalArt('#6A0D25', '#2A0E17', 'Firdous Ladies Tailor', 'CUSTOM DESIGNER STITCHING • JAIPUR', '✂️'),
+      heroCollection: makeRoyalArt('#880E4F', '#3E081B', 'Ansar Collection', 'SUITS • SAREES • ABAYAS • KIDS WEAR', '🛍️'),
+      bandhaniSuit: makeRoyalArt('#4A0E2E', '#1E0814', 'Jaipuri Bandhani Suit', '3-PIECE COTTON BLEND SET', '👗'),
+      abaya: makeRoyalArt('#2A0E17', '#5C1128', 'Luxury Embroidered Abaya', 'KOREAN NIDA • GOLD ZARI WORK', '🧕'),
+      banarasiSaree: makeRoyalArt('#9C1440', '#4A081E', 'Banarasi Silk Saree', 'FESTIVE ZARI BROCADE WEAVE', '🥻'),
+      kidsWear: makeRoyalArt('#6A0D25', '#9E2A47', 'Kids Festive Wear', 'ETHNIC KURTA PAJAMA & JACKET', '🧒'),
+      liningSuit: makeRoyalArt('#590D22', '#2B0913', 'Astar & Designer Suit', 'PERFECT BOUTIQUE FITTING', '🪡'),
+      anarkaliSuit: makeRoyalArt('#7A1032', '#330715', 'Anarkali & Frock Suit', 'ROYAL UMBRELLA FLARE STITCHING', '💃'),
+      blouse: makeRoyalArt('#8B1538', '#3B0818', 'Designer Padded Blouse', 'SWEETHEART & BACK DORI PATTERNS', '👚'),
+      zardozi: makeRoyalArt('#3D0B1B', '#7A1C38', 'Zari & Zardozi Handwork', 'KARCHOB ADDA • DABKA & NAKSHI', '✨'),
+      bridalLehenga: makeRoyalArt('#6A0D25', '#B01E4D', 'Bridal Lehenga Zardozi', 'HEAVY KALI & CAN-CAN STITCHING', '👑')
     };
 
     const DEFAULT_STATE = {
@@ -736,6 +805,7 @@
     let isHeroVisible = true;
     let isHeroMuted = false;
     let currentReceiptCustomer = null;
+    let activeFullProduct = null;
 
     function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
 
@@ -816,8 +886,7 @@
     function syncHeroPlayback() {
       const vid = document.querySelector('#heroStage video');
       if (!vid) return;
-      const modalOpen = !document.getElementById('detailModal').classList.contains('hidden') ||
-                        !document.getElementById('adminModal').classList.contains('hidden') ||
+      const modalOpen = !document.getElementById('adminModal').classList.contains('hidden') ||
                         !document.getElementById('passcodeModal').classList.contains('hidden') ||
                         !document.getElementById('receiptModal').classList.contains('hidden');
       if (isHeroVisible && !modalOpen && !document.hidden) vid.play().catch(() => {});
@@ -895,9 +964,11 @@
 
     // NAVIGATION & SCROLL HELPERS
     function switchMode(mode) {
-      ['collection', 'stitching', 'reels', 'partner'].forEach(m => {
+      ['collection', 'product_page', 'stitching', 'reels', 'partner'].forEach(m => {
         document.getElementById(`view_${m}`).classList.toggle('hidden', m !== mode);
       });
+
+      document.getElementById('heroSection').classList.toggle('hidden', mode === 'product_page');
 
       const stBtn = document.getElementById('topDual_stitching');
       const coBtn = document.getElementById('topDual_collection');
@@ -911,11 +982,13 @@
 
       ['collection', 'stitching', 'reels'].forEach(b => {
         const el = document.getElementById(`botNav_${b}`);
-        if (el) el.className = b === mode ? 'flex flex-col items-center justify-center text-[#D81B60] font-extrabold' : 'flex flex-col items-center justify-center text-gray-500 font-bold';
+        const activeNav = (mode === 'product_page' && b === 'collection') || b === mode;
+        if (el) el.className = activeNav ? 'flex flex-col items-center justify-center text-[#D81B60] font-extrabold' : 'flex flex-col items-center justify-center text-gray-500 font-bold';
       });
 
       if (mode === 'reels') renderReels();
       if (mode === 'partner') renderPartnerWorks();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function scrollToSection(id) {
@@ -929,7 +1002,7 @@
     function closeDrawer() { document.getElementById('navDrawer').classList.add('hidden'); }
 
     // =====================================================================
-    // TAB 1: ANSAR COLLECTION
+    // TAB 1: ANSAR COLLECTION + FULL-PAGE PRODUCT VIEW (MEESHO/AMAZON STYLE)
     // =====================================================================
     function toggleOffersFilter(val) {
       onlyOffersFilter = val;
@@ -951,7 +1024,7 @@
 
     function shareCurrentCategory() {
       const cat = selectedProdCat === 'All' ? 'Ansar Collection' : selectedProdCat;
-      const msg = `🛍️ *${cat} — Firdous Ladies Tailor (Ansar Collection, Jaipur)*\n✨ Naye designs aur rates dekhne ke liye link kholein:\n${window.location.href}`;
+      const msg = `🛍️ *${cat} — Firdous Ladies Tailor (Ansar Collection, Jaipur)*\n✨ Naye designs aur rates dekhne ke liye link kholein:\n${getWebsiteShareUrl()}`;
       if (navigator.share) {
         navigator.share({ title: cat, text: msg }).catch(() => openWaDirect(msg));
       } else {
@@ -1005,87 +1078,149 @@
       }
       emptyEl.classList.add('hidden');
 
-      gridEl.innerHTML = filtered.map(p => {
-        const photoCount = p.images ? p.images.length : 1;
-        return `
-          <div onclick="openProductDetail('${p.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col ${p.inStock ? '' : 'opacity-60'}">
-            <div class="relative aspect-[4/5] bg-[#FCE4EC]/30">
-              <img src="${p.images[0]}" alt="${p.name}" loading="lazy" class="w-full h-full object-cover" />
-              ${photoCount > 1 ? `<span class="absolute top-2 right-2 bg-black/65 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">📷 ${photoCount}</span>` : ''}
-              ${!p.inStock ? `<span class="absolute inset-0 bg-black/55 text-white font-extrabold text-xs flex items-center justify-center">Out of Stock</span>` : ''}
-            </div>
-            <div class="p-3 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="text-[10px] font-bold text-[#B45309]">Ansar Collection · ${p.category}</span>
-                <h3 class="font-bold text-xs sm:text-sm text-[#2A0E17] line-clamp-2 mt-0.5">${p.name}</h3>
-              </div>
-              <div class="mt-2 pt-2 border-t border-[#EFE0E5] flex items-center justify-between">
-                <span class="font-extrabold text-sm text-[#6A0D25]">₹${p.price}</span>
-                <span class="text-[11px] font-extrabold text-[#D81B60]">Order →</span>
-              </div>
-            </div>
-          </div>`;
-      }).join('');
+      gridEl.innerHTML = filtered.map(p => renderProductCardHtml(p)).join('');
     }
 
-    function openProductDetail(id) {
+    function renderProductCardHtml(p) {
+      const photoCount = p.images ? p.images.length : 1;
+      return `
+        <div onclick="openFullProductPage('${p.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col ${p.inStock ? '' : 'opacity-60'}">
+          <div class="relative aspect-[4/5] bg-[#FCE4EC]/30">
+            <img src="${p.images[0]}" alt="${p.name}" loading="lazy" class="w-full h-full object-cover" />
+            ${photoCount > 1 ? `<span class="absolute top-2 right-2 bg-black/65 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">📷 ${photoCount}</span>` : ''}
+            ${!p.inStock ? `<span class="absolute inset-0 bg-black/55 text-white font-extrabold text-xs flex items-center justify-center">Out of Stock</span>` : ''}
+          </div>
+          <div class="p-3 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-[#B45309]">Ansar Collection · ${p.category}</span>
+              <h3 class="font-bold text-xs sm:text-sm text-[#2A0E17] line-clamp-2 mt-0.5">${p.name}</h3>
+            </div>
+            <div class="mt-2 pt-2 border-t border-[#EFE0E5] flex items-center justify-between">
+              <div>
+                <span class="font-extrabold text-sm text-[#6A0D25]">₹${p.price}</span>
+                ${p.originalPrice ? `<span class="text-[10px] text-gray-400 line-through ml-1">₹${p.originalPrice}</span>` : ''}
+              </div>
+              <span class="text-[11px] font-extrabold text-[#D81B60]">Details →</span>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // OPEN FULL-PAGE PRODUCT VIEW (NOT A POPUP MODAL)
+    function openFullProductPage(id) {
       const p = appState.products.find(x => x.id === id);
       if (!p) return;
-      document.getElementById('detailModalContent').innerHTML = `
+      activeFullProduct = p;
+
+      const discountPct = (p.originalPrice && p.originalPrice > p.price)
+        ? Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)
+        : 0;
+
+      document.getElementById('fullProductMainContainer').innerHTML = `
+        <!-- Left Column: Main Image + Thumbnail Strip -->
+        <div class="space-y-3">
+          <div class="aspect-square rounded-3xl overflow-hidden border border-[#EFE0E5] bg-white shadow-xs">
+            <img id="fullProdMainImg" src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover" />
+          </div>
+          ${p.images.length > 1 ? `
+            <div class="flex gap-2.5 overflow-x-auto no-scrollbar">
+              ${p.images.map((imgSrc, idx) => `
+                <button onclick="document.getElementById('fullProdMainImg').src='${imgSrc}'" class="w-16 h-16 rounded-2xl overflow-hidden border-2 ${idx === 0 ? 'border-[#D81B60]' : 'border-[#EFE0E5]'} flex-shrink-0">
+                  <img src="${imgSrc}" class="w-full h-full object-cover" />
+                </button>
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Right Column: Full Specifications & Direct WhatsApp Order -->
         <div class="space-y-4">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-extrabold text-[#D81B60] uppercase">${p.category} • SKU: ${p.sku || p.code}</span>
-            <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-gray-100 font-bold text-xs">✕</button>
-          </div>
-          <img src="${p.images[0]}" alt="${p.name}" class="w-full aspect-square object-cover rounded-2xl border border-[#EFE0E5]" />
           <div>
-            <h2 class="font-display text-2xl font-bold text-[#2A0E17]">${p.name}</h2>
-            <p class="text-lg font-extrabold text-[#6A0D25] mt-1">₹${p.price} ${p.originalPrice ? `<span class="text-xs text-gray-400 line-through font-normal">₹${p.originalPrice}</span>` : ''}</p>
-            <p class="text-xs text-gray-600 mt-2 leading-relaxed">${p.description}</p>
-            <div class="mt-3 bg-[#FCE4EC]/40 p-3 rounded-xl text-xs space-y-1">
-              <p><strong>Fabric:</strong> ${p.fabric}</p>
-              <p><strong>Set Includes:</strong> ${p.setIncludes}</p>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-[#FCE4EC] text-[#6A0D25] text-[11px] font-extrabold px-3 py-0.5 rounded-full uppercase">${p.category}</span>
+              <span class="text-[11px] text-gray-500 font-bold">SKU: ${p.sku || p.code}</span>
+            </div>
+            <h1 class="font-display text-2xl sm:text-3xl font-bold text-[#2A0E17] mt-2 leading-snug">${p.name}</h1>
+
+            <div class="flex items-baseline gap-2.5 mt-2">
+              <span class="text-2xl sm:text-3xl font-extrabold text-[#6A0D25]">₹${p.price}</span>
+              ${p.originalPrice ? `<span class="text-sm text-gray-400 line-through">₹${p.originalPrice}</span>` : ''}
+              ${discountPct > 0 ? `<span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-2.5 py-0.5 rounded-full">${discountPct}% OFF</span>` : ''}
+            </div>
+            <p class="text-[11px] text-emerald-700 font-bold mt-1">✓ Direct Boutique Price • Cash on Delivery / UPI Available</p>
+          </div>
+
+          <div class="bg-white border border-[#EFE0E5] rounded-2xl p-4 space-y-2 text-xs">
+            <h4 class="font-extrabold text-[#6A0D25] uppercase tracking-wider text-[11px]">Product Specifications</h4>
+            <p class="text-gray-700 leading-relaxed">${p.description}</p>
+            <div class="grid grid-cols-1 gap-1.5 pt-2 border-t border-[#EFE0E5]">
+              <p><strong class="text-[#2A0E17]">Fabric / Material:</strong> ${p.fabric}</p>
+              <p><strong class="text-[#2A0E17]">Package / Set Includes:</strong> ${p.setIncludes}</p>
+              <p><strong class="text-[#2A0E17]">Store:</strong> Ansar Collection (Firdous Ladies Tailor, Jaipur)</p>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="text-[11px] font-bold text-gray-500">Select Size</label>
-              <select id="ordSize" class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-bold bg-white">
-                ${p.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
-              </select>
+
+          <div class="bg-[#FFF8F2] border border-[#F3DFC8] rounded-2xl p-4 space-y-3">
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="text-[11px] font-bold text-gray-600">Select Size *</label>
+                <select id="fullOrdSize" class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3 py-2.5 text-xs font-bold bg-white outline-none focus:border-[#6A0D25]">
+                  ${p.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
+                </select>
+              </div>
+              <div>
+                <label class="text-[11px] font-bold text-gray-600">Delivery Mode *</label>
+                <select id="fullOrdDelivery" class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3 py-2.5 text-xs font-bold bg-white outline-none focus:border-[#6A0D25]">
+                  <option value="Jaipur 2-Hr Express Delivery">Jaipur 2-Hr Delivery</option>
+                  <option value="Shop Pickup (Nai Ki Thadi)">Shop Pickup</option>
+                  <option value="Courier All India">Courier Delivery</option>
+                </select>
+              </div>
             </div>
             <div>
-              <label class="text-[11px] font-bold text-gray-500">Delivery Mode</label>
-              <select id="ordDelivery" class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-bold bg-white">
-                <option value="Jaipur 2-Hr Express Delivery">Jaipur 2-Hr Delivery</option>
-                <option value="Shop Pickup (Nai Ki Thadi)">Shop Pickup</option>
-                <option value="Courier All India">Courier Delivery</option>
-              </select>
+              <label class="text-[11px] font-bold text-gray-600">Your Name &amp; Full Delivery Address *</label>
+              <input id="fullOrdAddress" type="text" placeholder="Naam, House/Plot No., Colony, City..." class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs bg-white outline-none focus:border-[#6A0D25]" />
             </div>
+            ${p.inStock
+              ? `<button onclick="submitFullPageProductOrder('${p.id}')" class="w-full bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-sm py-3.5 rounded-2xl shadow-lg transition active:scale-95">📲 Order Now on WhatsApp</button>`
+              : `<div class="w-full bg-gray-200 text-gray-500 font-extrabold text-xs py-3 rounded-2xl text-center">Currently Out of Stock</div>`
+            }
           </div>
-          <input id="ordAddress" type="text" placeholder="Your Name & Full Delivery Address *" class="w-full border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs outline-none focus:border-[#6A0D25]" />
-          ${p.inStock
-            ? `<button onclick="submitProductOrder('${p.id}')" class="w-full bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-sm py-3.5 rounded-2xl shadow-lg transition active:scale-95">📲 Order Direct on WhatsApp</button>`
-            : `<div class="w-full bg-gray-200 text-gray-500 font-extrabold text-xs py-3 rounded-2xl text-center">Currently Out of Stock</div>`
-          }
         </div>
       `;
-      document.getElementById('detailModal').classList.remove('hidden');
-      syncHeroPlayback();
+
+      // Populate Similar Products (Same Category First, then Other Featured Products)
+      const sameCat = appState.products.filter(x => x.id !== p.id && x.category === p.category);
+      const others = appState.products.filter(x => x.id !== p.id && x.category !== p.category);
+      const similarList = [...sameCat, ...others].slice(0, 6);
+
+      document.getElementById('similarProductsGrid').innerHTML = similarList.map(sp => renderProductCardHtml(sp)).join('');
+
+      switchMode('product_page');
     }
 
-    function submitProductOrder(id) {
+    function closeFullProductPage() {
+      switchMode('collection');
+    }
+
+    function shareActiveProductPage() {
+      if (!activeFullProduct) return;
+      const p = activeFullProduct;
+      const msg = `🛍️ *${p.name}*\n💰 Price: ₹${p.price}\n👗 Category: ${p.category}\n✨ Ansar Collection (Firdous Ladies Tailor, Jaipur)\n\nOrder karne ke liye link kholein:\n${getWebsiteShareUrl()}`;
+      if (navigator.share) {
+        navigator.share({ title: p.name, text: msg }).catch(() => openWaDirect(msg));
+      } else {
+        openWaDirect(msg);
+      }
+    }
+
+    function submitFullPageProductOrder(id) {
       const p = appState.products.find(x => x.id === id);
-      const size = document.getElementById('ordSize').value;
-      const del = document.getElementById('ordDelivery').value;
-      const addr = document.getElementById('ordAddress').value.trim();
+      const size = document.getElementById('fullOrdSize').value;
+      const del = document.getElementById('fullOrdDelivery').value;
+      const addr = document.getElementById('fullOrdAddress').value.trim();
       if (!addr) return toast('⚠️ Kripya apna Naam aur Address likhein!');
       openWaDirect(`🛍️ *Order — ${p.name}*\n\n📏 Size: ${size} | Qty: 1\n💰 Price: ₹${p.price}\n🚚 Delivery: ${del}\n📍 Address: ${addr}\n\n✅ Order Confirm Karein Please`);
-    }
-
-    function closeDetailModal() {
-      document.getElementById('detailModal').classList.add('hidden');
-      syncHeroPlayback();
     }
 
     // =====================================================================
@@ -1229,29 +1364,72 @@
       }).join('');
     }
 
-    // TAB 3: 9:16 REELS
+    // =====================================================================
+    // TAB 3: 9:16 REELS (WITH TWO BUTTONS: VIEW DETAILS + DIRECT ORDER)
+    // =====================================================================
     function renderReels() {
-      const items = [
-        ...appState.products.map(p => ({ title: p.name, sub: `Ansar Collection • ₹${p.price}`, img: p.images[0], wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.` })),
-        ...appState.rates.slice(0, 4).map(r => ({ title: r.name, sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`, img: r.img, wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.` }))
-      ];
+      const prodItems = appState.products.map(p => ({
+        title: p.name,
+        sub: `Ansar Collection • ₹${p.price}`,
+        img: p.images[0],
+        prodId: p.id,
+        wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.`
+      }));
+
+      const stitchItems = appState.rates.slice(0, 4).map(r => ({
+        title: r.name,
+        sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`,
+        img: r.img,
+        prodId: null,
+        wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.`
+      }));
+
+      const items = [...prodItems, ...stitchItems];
+
       document.getElementById('reelsContainer').innerHTML = items.map(it => `
         <div class="relative aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-lg border border-[#D4AF37]/30">
           <img src="${it.img}" alt="${it.title}" loading="lazy" class="w-full h-full object-cover opacity-90" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent"></div>
           <div class="absolute top-3 left-3 bg-[#6A0D25]/90 text-[#D4AF37] text-[10px] font-extrabold px-2.5 py-1 rounded-full">9:16 Showcase</div>
-          <div class="absolute bottom-4 left-4 right-4 text-white space-y-2">
-            <h3 class="font-bold text-sm leading-snug">${it.title}</h3>
-            <p class="text-xs text-[#D4AF37] font-bold">${it.sub}</p>
-            <button onclick="openWaDirect(\`${it.wa}\`)" class="w-full bg-[#25D366] text-white font-extrabold text-xs py-2.5 rounded-xl shadow transition active:scale-95">
-              📲 Buy / Book on WhatsApp
-            </button>
+          <div class="absolute bottom-4 left-3.5 right-3.5 text-white space-y-2.5">
+            <div>
+              <h3 class="font-bold text-sm leading-snug">${it.title}</h3>
+              <p class="text-xs text-[#D4AF37] font-bold mt-0.5">${it.sub}</p>
+            </div>
+            <!-- Dual Action Buttons: Product Details + Direct Order -->
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="${it.prodId ? `openFullProductPage('${it.prodId}')` : `switchMode('stitching')`}" class="bg-white/20 hover:bg-white/30 backdrop-blur-xs text-white border border-white/30 font-extrabold text-[11px] py-2.5 px-2 rounded-xl shadow transition active:scale-95">
+                👁️ View Details
+              </button>
+              <button onclick="openWaDirect(\`${it.wa}\`)" class="bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-[11px] py-2.5 px-2 rounded-xl shadow transition active:scale-95">
+                📲 Direct Order
+              </button>
+            </div>
           </div>
         </div>
       `).join('');
     }
 
-    // TAB 4: PARTNER STOREFRONT
+    // =====================================================================
+    // TAB 4: PARTNER STOREFRONT (WITH DEDICATED LINK + ANSAR COLLECTION)
+    // =====================================================================
+    function getPartnerShareUrl() {
+      const base = getWebsiteShareUrl().split('?')[0];
+      return `${base}?partner=saklani`;
+    }
+
+    function sharePartnerStoreLink() {
+      const link = getPartnerShareUrl();
+      const msg = `✨ *Saklani Zari Handwork — Verified Partner at Firdous Ladies Tailor (Ansar Collection, Jaipur)*\n\nKarchob Adda Zari, Bridal Zardozi & Ready-Made Suits/Sarees dekhne ke liye link kholein:\n${link}`;
+      if (navigator.clipboard) navigator.clipboard.writeText(link).catch(() => {});
+      if (navigator.share) {
+        navigator.share({ title: 'Saklani Zari Handwork - Ansar Collection', text: msg, url: link }).catch(() => openWaDirect(msg));
+      } else {
+        toast('🔗 Partner Store Link Copied!');
+        openWaDirect(msg);
+      }
+    }
+
     function renderPartnerWorks() {
       document.getElementById('partnerWorksGrid').innerHTML = appState.partnerWorks.map(w => `
         <div class="bg-white rounded-2xl border border-[#D4AF37]/40 overflow-hidden shadow-sm">
@@ -1269,6 +1447,8 @@
           </div>
         </div>
       `).join('');
+
+      document.getElementById('partnerAnsarProductsGrid').innerHTML = appState.products.slice(0, 4).map(p => renderProductCardHtml(p)).join('');
     }
 
     // =====================================================================
@@ -1333,28 +1513,25 @@
       toast('🪄 Smart Naap & Description Auto-Filled!');
     }
 
-    // SMART PRODUCT & MEESHO AUTO-FILL PARSER (FOR READY-MADE CATALOG)
+    // SMART PRODUCT & MEESHO AUTO-FILL PARSER
     function autoParseProductText() {
       const raw = document.getElementById('smartProdRawInput').value.trim();
       if (!raw) return toast('Pehle Meesho ya Zari Suit / Abaya / Kurti ka text paste karein!');
 
       const lines = raw.split(/\n/).map(l => l.trim()).filter(Boolean);
 
-      // 1. Product Name extraction
       const nameLabelMatch = raw.match(/(?:name|title|product|catalog)[\s:=-]+([^\n]+)/i);
       const cleanFirstLine = lines[0] ? lines[0].replace(/^(?:name|title|product|catalog)[\s:=-]+/i, '').trim() : '';
       const detectedName = nameLabelMatch ? nameLabelMatch[1].trim() : cleanFirstLine;
       if (detectedName) document.getElementById('newProdName').value = detectedName.slice(0, 90);
 
-      // 2. Category Auto-Detection
       const lower = raw.toLowerCase();
       let cat = 'Ladies Suits';
       if (/(abaya|burqa|naqab|jilbab)/i.test(lower)) cat = 'Abayas';
       else if (/(saree|sari|pallu|banarasi)/i.test(lower)) cat = 'Sarees';
-      else if (/(kid|kids|boy|girl|children|bachcho|16|18|20|22|24|26|28|30|32)/i.test(lower) && /(kid|boy|girl|children|bachcho)/i.test(lower)) cat = 'Kids Wear';
+      else if (/(kid|kids|boy|girl|children|bachcho)/i.test(lower)) cat = 'Kids Wear';
       document.getElementById('newProdCat').value = cat;
 
-      // 3. Selling Price & MRP extraction
       const priceMatches = [...raw.matchAll(/(?:price|rate|offer|selling)?[\s:=-]*₹\s*(\d{2,5})/gi)].map(m => Number(m[1]));
       if (priceMatches.length) {
         const minPrice = Math.min(...priceMatches);
@@ -1366,7 +1543,6 @@
         if (plainPrice) document.getElementById('newProdPrice').value = plainPrice[1];
       }
 
-      // 4. Sizes Auto-Detection (Meesho XXS-XXXL, Abaya 52-58, Kids 14-36)
       const sizeLineMatch = raw.match(/(?:sizes?|available sizes?)[\s:=-]+([^\n]+)/i);
       if (sizeLineMatch) {
         const cleanSizes = sizeLineMatch[1].replace(/\([^)]*\)/g, '').split(/[,/|]+/).map(s => s.trim()).filter(s => s && s.length <= 12);
@@ -1378,7 +1554,6 @@
         }
       }
 
-      // 5. Fabric Extraction
       const fabricMatch = raw.match(/(?:fabric|material|cloth)[\s:=-]+([^\n]+)/i);
       if (fabricMatch) {
         document.getElementById('newProdFabric').value = fabricMatch[1].trim();
@@ -1387,11 +1562,9 @@
         if (knownFabric) document.getElementById('newProdFabric').value = knownFabric[0];
       }
 
-      // 6. Set Includes Extraction
       const setMatch = raw.match(/(?:set includes|package contains|in the box|combo)[\s:=-]+([^\n]+)/i);
       if (setMatch) document.getElementById('newProdSet').value = setMatch[1].trim();
 
-      // 7. Full Description Auto-Fill
       const cleanDesc = lines.filter(l => !/^(?:price|mrp|rs\.?|₹\d+)/i.test(l)).join(' • ');
       document.getElementById('newProdDesc').value = cleanDesc;
 
@@ -1852,13 +2025,18 @@
       r.readAsText(file);
     }
 
-    // INIT
+    // INIT + DIRECT PARTNER LINK (?partner=saklani) HANDLER
     window.addEventListener('DOMContentLoaded', () => {
       syncOnlineBanner();
       if (isAdmin) document.getElementById('adminModePill').classList.remove('hidden');
       renderHero();
       renderProducts();
       renderStitching();
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('partner')) {
+        switchMode('partner');
+      }
     });
   </script>
 </body>
