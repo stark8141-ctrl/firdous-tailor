@@ -1594,4 +1594,741 @@
       document.querySelectorAll('.adm-panel').forEach(p => p.classList.add('hidden'));
       document.getElementById(`admPanel_${t}`).classList.remove('hidden');
       document.querySelectorAll('.adm-btn').forEach(b => b.className = 'adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap');
-      document.getElementById(`admTab_${t}`).
+      document.getElementById(`admTab_${t}`).className = 'adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs';
+    }
+
+    // SMART NAAP & ZARI SUIT ORDER AUTO-FILL PARSER
+    function autoParseSmartNaap() {
+      const raw = document.getElementById('smartNaapRawInput').value.trim();
+      if (!raw) return toast('Pehle raw naap ya Zari suit description paste karein!');
+
+      const phoneMatch = raw.match(/(?:\+?91[\s-]*)?([6-9]\d{9})/);
+      if (phoneMatch) document.getElementById('khPhone').value = phoneMatch[1];
+
+      const billMatch = raw.match(/(?:bill|total|rate|price|amount)[\s:=-]*₹?\s*(\d+)/i);
+      if (billMatch) document.getElementById('khBill').value = billMatch[1];
+
+      const paidMatch = raw.match(/(?:paid|advance|jama)[\s:=-]*₹?\s*(\d+)/i);
+      if (paidMatch) document.getElementById('khPaid').value = paidMatch[1];
+
+      const garmentMatch = raw.match(/(zari[\w\s-]*suit|zardozi[\w\s-]*|karchob[\w\s-]*|bridal lehenga|astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown)/i);
+      if (garmentMatch) document.getElementById('khGarment').value = garmentMatch[0].trim();
+
+      const firstChunk = raw.split(/\n|,/)[0] || '';
+      const cleanName = firstChunk
+        .replace(/(?:\+?91[\s-]*)?[6-9]\d{9}/g, '')
+        .replace(/(?:zari|zardozi|karchob|astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown|length|chest|waist|hip|sleeve|gala|bill|paid|advance).*/i, '')
+        .replace(/\d+/g, '')
+        .trim();
+      if (cleanName && cleanName.length <= 35) document.getElementById('khName').value = cleanName;
+
+      const pairs = [];
+      ['length', 'lambai', 'chest', 'seena', 'waist', 'kamar', 'hip', 'sleeve', 'baju', 'gala', 'neck', 'salwar', 'pant', 'mori', 'work', 'design', 'fabric', 'color'].forEach(k => {
+        const m = raw.match(new RegExp(`${k}[\\s:=-]*([^\\n,]+)`, 'i'));
+        if (m) pairs.push(`${k.charAt(0).toUpperCase() + k.slice(1)}: ${m[1].trim()}`);
+      });
+
+      document.getElementById('khNaapNotes').value = pairs.length ? pairs.join(' | ') : raw.replace(/\n+/g, ' | ');
+      toast('🪄 Smart Naap & Description Auto-Filled!');
+    }
+
+    // SMART PRODUCT & MEESHO AUTO-FILL PARSER
+    function autoParseProductText() {
+      const raw = document.getElementById('smartProdRawInput').value.trim();
+      if (!raw) return toast('Pehle Meesho ya Zari Suit / Abaya / Kurti ka text paste karein!');
+
+      const lines = raw.split(/\n/).map(l => l.trim()).filter(Boolean);
+
+      const nameLabelMatch = raw.match(/(?:name|title|product|catalog)[\s:=-]+([^\n]+)/i);
+      const cleanFirstLine = lines[0] ? lines[0].replace(/^(?:name|title|product|catalog)[\s:=-]+/i, '').trim() : '';
+      const detectedName = nameLabelMatch ? nameLabelMatch[1].trim() : cleanFirstLine;
+      if (detectedName) document.getElementById('newProdName').value = detectedName.slice(0, 90);
+
+      const lower = raw.toLowerCase();
+      let cat = 'Ladies Suits';
+      if (/(abaya|burqa|naqab|jilbab)/i.test(lower)) cat = 'Abayas';
+      else if (/(saree|sari|pallu|banarasi)/i.test(lower)) cat = 'Sarees';
+      else if (/(kid|kids|boy|girl|children|bachcho)/i.test(lower)) cat = 'Kids Wear';
+      document.getElementById('newProdCat').value = cat;
+
+      const priceMatches = [...raw.matchAll(/(?:price|rate|offer|selling)?[\s:=-]*₹\s*(\d{2,5})/gi)].map(m => Number(m[1]));
+      if (priceMatches.length) {
+        const minPrice = Math.min(...priceMatches);
+        const maxPrice = Math.max(...priceMatches);
+        document.getElementById('newProdPrice').value = minPrice;
+        if (maxPrice > minPrice) document.getElementById('newProdOrigPrice').value = maxPrice;
+      } else {
+        const plainPrice = raw.match(/(?:price|rate|rs\.?)[\s:=-]*(\d{2,5})/i);
+        if (plainPrice) document.getElementById('newProdPrice').value = plainPrice[1];
+      }
+
+      const sizeLineMatch = raw.match(/(?:sizes?|available sizes?)[\s:=-]+([^\n]+)/i);
+      if (sizeLineMatch) {
+        const cleanSizes = sizeLineMatch[1].replace(/\([^)]*\)/g, '').split(/[,/|]+/).map(s => s.trim()).filter(s => s && s.length <= 12);
+        if (cleanSizes.length) document.getElementById('newProdSizes').value = cleanSizes.join(', ');
+      } else {
+        const foundAlphaSizes = raw.match(/\b(XXS|XS|S|M|L|XL|XXL|XXXL|Free Size)\b/gi);
+        if (foundAlphaSizes) {
+          document.getElementById('newProdSizes').value = [...new Set(foundAlphaSizes.map(s => s.toUpperCase()))].join(', ');
+        }
+      }
+
+      const fabricMatch = raw.match(/(?:fabric|material|cloth)[\s:=-]+([^\n]+)/i);
+      if (fabricMatch) {
+        document.getElementById('newProdFabric').value = fabricMatch[1].trim();
+      } else {
+        const knownFabric = raw.match(/(cotton blend|pure cotton|rayon|georgette|silk|banarasi|korean nida|firdaus|velvet|organza|chanderi|crepe)/i);
+        if (knownFabric) document.getElementById('newProdFabric').value = knownFabric[0];
+      }
+
+      const setMatch = raw.match(/(?:set includes|package contains|in the box|combo)[\s:=-]+([^\n]+)/i);
+      if (setMatch) document.getElementById('newProdSet').value = setMatch[1].trim();
+
+      const cleanDesc = lines.filter(l => !/^(?:price|mrp|rs\.?|₹\d+)/i.test(l)).join(' • ');
+      document.getElementById('newProdDesc').value = cleanDesc;
+
+      toast('🪄 Meesho / Product Details Auto-Filled!');
+    }
+
+    function addCustomerOrder() {
+      const customerName = document.getElementById('khName').value.trim();
+      const phone = document.getElementById('khPhone').value.replace(/\D/g, '').slice(-10);
+      const altWaPhone = document.getElementById('khAltWaPhone').value.replace(/\D/g, '').slice(-10);
+      const garment = document.getElementById('khGarment').value.trim() || 'Custom Suit';
+      const totalBill = Number(document.getElementById('khBill').value) || 0;
+      const amountPaid = Number(document.getElementById('khPaid').value) || 0;
+      const deliveryDate = document.getElementById('khDelivery').value || new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10);
+      const naap = document.getElementById('khNaapNotes').value.trim();
+
+      if (!customerName || !totalBill) return toast('⚠️ Customer Name aur Total Bill bharein!');
+
+      appState.customers.unshift({
+        id: 'c_' + Date.now(),
+        orderId: `FLT-${101 + appState.customers.length}`,
+        customerName,
+        phone,
+        altWaPhone,
+        garment,
+        naap,
+        deliveryDate,
+        status: 'Received',
+        totalBill,
+        amountPaid
+      });
+      saveState();
+      ['smartNaapRawInput', 'khName', 'khPhone', 'khAltWaPhone', 'khGarment', 'khBill', 'khPaid', 'khNaapNotes'].forEach(id => document.getElementById(id).value = '');
+      renderAdminKhata();
+      toast('✅ Order & Naap Saved in Khata!');
+    }
+
+    function getWebsiteShareUrl() {
+      return window.location.href.split('#')[0];
+    }
+
+    function launchWhatsAppApp(rawPhone, message, appType) {
+      const digits = (rawPhone || '').replace(/\D/g, '');
+      const fullPhone = digits.length === 10 ? `91${digits}` : (digits || SHOP_PHONE);
+      const encoded = encodeURIComponent(message);
+      const waMeUrl = `https://wa.me/${fullPhone}?text=${encoded}`;
+
+      if (/Android/i.test(navigator.userAgent)) {
+        const pkg = appType === 'business' ? 'com.whatsapp.w4b' : 'com.whatsapp';
+        window.location.href = `intent://send?phone=${fullPhone}&text=${encoded}#Intent;scheme=whatsapp;package=${pkg};S.browser_fallback_url=${encodeURIComponent(waMeUrl)};end`;
+        return;
+      }
+      window.open(waMeUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    function renderAdminKhata() {
+      const q = (document.getElementById('khataSearch')?.value || '').toLowerCase();
+      const list = appState.customers.filter(c => !q || c.customerName.toLowerCase().includes(q) || c.orderId.toLowerCase().includes(q) || (c.phone && c.phone.includes(q)));
+      const statuses = ['Received', 'Cutting', 'Stitching', 'Ready for Delivery', 'Delivered'];
+      document.getElementById('adminKhataList').innerHTML = list.map(c => {
+        const due = Math.max(0, c.totalBill - c.amountPaid);
+        const activeWa = c.altWaPhone || c.phone || '';
+        const isDelivered = c.status === 'Delivered';
+        return `
+          <div class="bg-white p-4 rounded-2xl border border-[#EFE0E5] shadow-xs space-y-2.5">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-extrabold bg-[#6A0D25] text-[#D4AF37] px-2.5 py-0.5 rounded-full">${c.orderId}</span>
+                <strong class="font-display text-lg text-[#2A0E17] ml-1.5">${c.customerName}</strong>
+                <span class="text-xs text-gray-500 ml-1">(${c.phone || 'No Phone'}${c.altWaPhone ? ` • WA: ${c.altWaPhone}` : ''})</span>
+              </div>
+              <select onchange="updateOrderStatus('${c.id}', this.value)" class="${isDelivered ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-[#FCE4EC]/70 text-[#6A0D25] border-[#F8BBD0]'} border rounded-xl px-2.5 py-1 text-[11px] font-bold outline-none">
+                ${statuses.map(st => `<option value="${st}" ${c.status === st ? 'selected' : ''}>${st}</option>`).join('')}
+              </select>
+            </div>
+            <p class="text-xs text-gray-700">👗 <strong class="text-[#2A0E17]">${c.garment}</strong> • Delivery: <span class="font-semibold">${c.deliveryDate}</span></p>
+            ${c.naap ? `<p class="text-[11px] bg-[#FFF8F2] border border-[#F3DFC8] p-2.5 rounded-xl text-[#6A0D25] font-medium">📏 ${c.naap}</p>` : ''}
+
+            <div class="pt-2 border-t border-[#EFE0E5] space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-gray-700">Bill: <strong>₹${c.totalBill}</strong> | Paid: <strong class="text-emerald-700">₹${c.amountPaid}</strong> | Due: <strong class="text-[#D81B60]">₹${due}</strong></span>
+                <button onclick="deleteCustomerOrder('${c.id}')" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-[11px]">🗑</button>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-1.5">
+                <input id="cardWa_${c.id}" type="tel" maxlength="10" value="${activeWa}" onchange="saveCardCustomWa('${c.id}', this.value)" placeholder="WhatsApp No." class="w-28 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-2.5 py-1.5 text-[11px] font-bold text-[#2A0E17] outline-none focus:border-[#6A0D25]" title="Alag WhatsApp number ho to yahan badlein" />
+                <button onclick="openDigitalReceipt('${c.id}')" class="bg-[#D4AF37] text-[#2A0E17] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">🧾 Receipt</button>
+                <button onclick="sendKhataReminder('${c.id}', 'whatsapp')" class="bg-[#25D366] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💬 WhatsApp</button>
+                <button onclick="sendKhataReminder('${c.id}', 'business')" class="bg-[#128C7E] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💼 WA Business</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveCardCustomWa(id, val) {
+      const c = appState.customers.find(x => x.id === id);
+      if (!c) return;
+      const clean = val.replace(/\D/g, '').slice(-10);
+      c.altWaPhone = clean && clean !== c.phone ? clean : '';
+      saveState();
+      toast('📲 WhatsApp Number Updated');
+    }
+
+    function updateOrderStatus(id, st) {
+      const c = appState.customers.find(x => x.id === id);
+      if (c) {
+        c.status = st;
+        saveState();
+        renderAdminKhata();
+        toast(`Status: ${st}`);
+      }
+    }
+
+    function deleteCustomerOrder(id) {
+      appState.customers = appState.customers.filter(x => x.id !== id);
+      saveState();
+      renderAdminKhata();
+    }
+
+    function buildReceiptShareText(c) {
+      const due = Math.max(0, c.totalBill - c.amountPaid);
+      const siteUrl = getWebsiteShareUrl();
+      return `✨ *FIRDOUS LADIES TAILOR - ANSAR COLLECTION*\n🧾 *Digital Receipt:* ${c.orderId}\n\n👤 *Customer:* ${c.customerName}\n👗 *Outfit:* ${c.garment}\n📌 *Status:* ${c.status}\n📅 *Delivery Date:* ${c.deliveryDate}\n💰 *Total:* ₹${c.totalBill} | *Paid:* ₹${c.amountPaid}\n💳 *Balance Due:* ₹${due}\n\n🌐 *Order & Live Status Link:*\n${siteUrl}`;
+    }
+
+    function sendKhataReminder(id, appType) {
+      const c = appState.customers.find(x => x.id === id);
+      if (!c) return;
+      const cardInput = document.getElementById(`cardWa_${c.id}`);
+      const targetPhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone)).replace(/\D/g, '');
+      if (targetPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number daalein!');
+      const msg = buildReceiptShareText(c);
+      launchWhatsAppApp(targetPhone, msg, appType);
+    }
+
+    // DIGITAL CANVAS RECEIPT GENERATOR WITH WEBSITE QR CODE
+    function openDigitalReceipt(id) {
+      const c = appState.customers.find(x => x.id === id);
+      if (!c) return;
+      currentReceiptCustomer = c;
+
+      const cardInput = document.getElementById(`cardWa_${c.id}`);
+      const activePhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone || '')).replace(/\D/g, '').slice(-10);
+      document.getElementById('receiptTargetWaInput').value = activePhone;
+
+      const due = Math.max(0, c.totalBill - c.amountPaid);
+      const siteUrl = getWebsiteShareUrl();
+      const canvas = document.getElementById('receiptCanvas');
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = '#FFFDF9';
+      ctx.fillRect(0, 0, 600, 840);
+
+      ctx.fillStyle = '#6A0D25';
+      ctx.fillRect(0, 0, 600, 145);
+      ctx.fillStyle = '#D4AF37';
+      ctx.font = 'bold 30px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('FIRDOUS LADIES TAILOR', 300, 56);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('ANSAR COLLECTION • JAIPUR', 300, 86);
+      ctx.font = '13px sans-serif';
+      ctx.fillStyle = '#FCE4EC';
+      ctx.fillText('Somvaar Bazaar Wali Gali, Nai Ki Thadi | +91 6350517782', 300, 116);
+
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#2A0E17';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText(`DIGITAL RECEIPT : ${c.orderId}`, 40, 195);
+
+      ctx.font = '16px sans-serif';
+      let y = 242;
+      [
+        ['Customer Name:', c.customerName],
+        ['Mobile Number:', activePhone || c.phone || '-'],
+        ['Outfit / Design:', c.garment],
+        ['Order Status:', c.status],
+        ['Delivery Date:', c.deliveryDate]
+      ].forEach(([k, v]) => {
+        ctx.fillStyle = '#6B7280';
+        ctx.fillText(k, 40, y);
+        ctx.fillStyle = '#111827';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText(String(v).slice(0, 32), 215, y);
+        ctx.font = '16px sans-serif';
+        y += 40;
+      });
+
+      ctx.fillStyle = '#FCE4EC';
+      ctx.fillRect(36, 455, 528, 145);
+      ctx.fillStyle = '#6A0D25';
+      ctx.font = 'bold 18px sans-serif';
+      ctx.fillText(`Total Bill:          ₹${c.totalBill}`, 60, 495);
+      ctx.fillStyle = '#047857';
+      ctx.fillText(`Advance Paid:    ₹${c.amountPaid}`, 60, 535);
+      ctx.fillStyle = '#BE123C';
+      ctx.font = 'bold 22px sans-serif';
+      ctx.fillText(`Balance Due:     ₹${due}`, 60, 580);
+
+      ctx.fillStyle = '#FFF8F2';
+      ctx.fillRect(36, 620, 528, 165);
+      ctx.strokeStyle = '#D4AF37';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(36, 620, 528, 165);
+
+      ctx.fillStyle = '#6A0D25';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('SCAN FOR WEBSITE & CATALOG', 195, 665);
+      ctx.fillStyle = '#4B5563';
+      ctx.font = '13px sans-serif';
+      ctx.fillText('• Latest Suits, Sarees & Abayas', 195, 695);
+      ctx.fillText('• Zari-Zardozi & Silai Rates', 195, 720);
+      ctx.fillText('• Live Stitching Order Tracking', 195, 745);
+      ctx.fillStyle = '#D81B60';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillText(siteUrl.slice(0, 42), 195, 770);
+
+      ctx.fillStyle = '#6A0D25';
+      ctx.font = 'italic 14px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Thank you for choosing Firdous Ladies Tailor & Ansar Collection!', 300, 818);
+
+      const qrImg = new Image();
+      qrImg.crossOrigin = 'anonymous';
+      qrImg.onload = () => {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(52, 636, 128, 128);
+        ctx.drawImage(qrImg, 56, 640, 120, 120);
+      };
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(siteUrl)}`;
+
+      document.getElementById('receiptModal').classList.remove('hidden');
+      syncHeroPlayback();
+    }
+
+    function sendReceiptViaApp(appType) {
+      if (!currentReceiptCustomer) return;
+      const inputPhone = document.getElementById('receiptTargetWaInput').value.replace(/\D/g, '');
+      if (inputPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number likhein!');
+      saveCardCustomWa(currentReceiptCustomer.id, inputPhone);
+      const msg = buildReceiptShareText(currentReceiptCustomer);
+      launchWhatsAppApp(inputPhone, msg, appType);
+    }
+
+    async function shareReceiptImageWithText() {
+      if (!currentReceiptCustomer) return;
+      const inputPhone = document.getElementById('receiptTargetWaInput').value.replace(/\D/g, '');
+      if (inputPhone.length >= 10) saveCardCustomWa(currentReceiptCustomer.id, inputPhone);
+
+      const msg = buildReceiptShareText(currentReceiptCustomer);
+      const canvas = document.getElementById('receiptCanvas');
+
+      try {
+        const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+        const file = new File([blob], `Firdous-Receipt-${currentReceiptCustomer.orderId}.png`, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: `Receipt ${currentReceiptCustomer.orderId}`,
+            text: msg
+          });
+          return;
+        }
+      } catch (e) {}
+
+      downloadReceiptPng();
+      toast('📥 Receipt Image Saved! Ab WhatsApp Business me attach karke bhej dein.');
+      if (inputPhone.length >= 10) {
+        setTimeout(() => launchWhatsAppApp(inputPhone, msg, 'business'), 700);
+      }
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('receiptModal').classList.add('hidden');
+      syncHeroPlayback();
+    }
+
+    function downloadReceiptPng() {
+      const a = document.createElement('a');
+      a.download = `Firdous-Tailor-Receipt-${Date.now()}.png`;
+      a.href = document.getElementById('receiptCanvas').toDataURL('image/png');
+      a.click();
+    }
+
+    // =====================================================================
+    // ADMIN TAB 2: FULL PRODUCT EDITOR (ADD + EDIT ALL FIELDS + MULTI-PHOTOS)
+    // =====================================================================
+    function renderAdminProducts() {
+      document.getElementById('adminProductsList').innerHTML = appState.products.map(p => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
+          <img src="${p.images[0]}" class="w-14 h-14 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />
+          <div class="flex-1 min-w-0">
+            <span class="text-[10px] font-bold text-[#D81B60]">${p.category} • ${p.images.length} Photo(s)</span>
+            <p class="font-bold text-xs text-[#2A0E17] truncate">${p.name}</p>
+            <p class="text-xs font-extrabold text-[#6A0D25] mt-0.5">₹${p.price} ${p.originalPrice ? `<span class="text-[10px] text-gray-400 line-through font-normal">₹${p.originalPrice}</span>` : ''}</p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1.5">
+            <button onclick="startEditProduct('${p.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold px-2.5 py-1 rounded-xl text-[11px]">✏️ Edit</button>
+            <button onclick="toggleProdStock('${p.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold ${p.inStock ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
+              ${p.inStock ? 'In Stock' : 'Sold Out'}
+            </button>
+            <button onclick="deleteProd('${p.id}')" class="bg-rose-50 text-rose-600 font-bold text-xs px-2 py-1 rounded-lg">✕</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function startEditProduct(id) {
+      const p = appState.products.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('editProdId').value = p.id;
+      document.getElementById('prodFormHeading').textContent = `✏️ Editing: ${p.name.slice(0, 28)}...`;
+      document.getElementById('cancelEditProdBtn').classList.remove('hidden');
+      document.getElementById('saveProdSubmitBtn').textContent = '💾 Update Product Changes';
+
+      document.getElementById('newProdName').value = p.name;
+      document.getElementById('newProdCat').value = p.category;
+      document.getElementById('newProdPrice').value = p.price;
+      document.getElementById('newProdOrigPrice').value = p.originalPrice || '';
+      document.getElementById('newProdSizes').value = (p.sizes || []).join(', ');
+      document.getElementById('newProdFabric').value = p.fabric || '';
+      document.getElementById('newProdSet').value = p.setIncludes || '';
+      document.getElementById('newProdDesc').value = p.description || '';
+      document.getElementById('admPanel_products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function resetAdminProductForm() {
+      document.getElementById('editProdId').value = '';
+      document.getElementById('prodFormHeading').textContent = '➕ Add / Edit Ready-Made Product';
+      document.getElementById('cancelEditProdBtn').classList.add('hidden');
+      document.getElementById('saveProdSubmitBtn').textContent = '+ Save Product to Catalog';
+      ['smartProdRawInput', 'newProdName', 'newProdPrice', 'newProdOrigPrice', 'newProdSizes', 'newProdFabric', 'newProdSet', 'newProdDesc'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('newProdPhoto').value = '';
+      document.getElementById('newProdVideo').value = '';
+    }
+
+    async function adminSaveProduct() {
+      const editId = document.getElementById('editProdId').value;
+      const name = document.getElementById('newProdName').value.trim();
+      const category = document.getElementById('newProdCat').value;
+      const price = Number(document.getElementById('newProdPrice').value);
+      const originalPrice = Number(document.getElementById('newProdOrigPrice').value) || undefined;
+      const sizes = document.getElementById('newProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+      const fabric = document.getElementById('newProdFabric').value.trim() || 'Premium Boutique Fabric';
+      const setIncludes = document.getElementById('newProdSet').value.trim() || 'Complete Outfit Set';
+      const description = document.getElementById('newProdDesc').value.trim() || `${name} from Ansar Collection Jaipur.`;
+      const photoFiles = document.getElementById('newProdPhoto').files;
+      const videoFile = document.getElementById('newProdVideo').files[0];
+
+      if (!name || !price) return toast('⚠️ Product Name aur Price daalein!');
+
+      let uploadedImgs = [];
+      if (photoFiles && photoFiles.length > 0) {
+        const res = await readFilesAsDataURLs(photoFiles);
+        uploadedImgs = res.map(x => x.dataUrl);
+      }
+
+      let uploadedVideo = '';
+      if (videoFile) {
+        const vRes = await readFilesAsDataURLs([videoFile]);
+        uploadedVideo = vRes[0].dataUrl;
+      }
+
+      if (editId) {
+        const idx = appState.products.findIndex(x => x.id === editId);
+        if (idx !== -1) {
+          const old = appState.products[idx];
+          appState.products[idx] = {
+            ...old,
+            name, category, price, originalPrice,
+            sizes: sizes.length ? sizes : old.sizes,
+            fabric, setIncludes, description,
+            images: uploadedImgs.length ? uploadedImgs : old.images,
+            video: uploadedVideo || old.video
+          };
+          toast('✅ Product Updated!');
+        }
+      } else {
+        const fallbackImg = appState.categoryImages[category] || PHOTOS.bandhaniSuit;
+        appState.products.unshift({
+          id: 'prod-' + Date.now(),
+          code: String(100 + appState.products.length + 1),
+          sku: 'AC-' + Date.now().toString().slice(-4),
+          name, category, price, originalPrice,
+          isOffer: true,
+          sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
+          fabric, setIncludes, description,
+          images: uploadedImgs.length ? uploadedImgs : [fallbackImg],
+          video: uploadedVideo,
+          inStock: true
+        });
+        toast('✅ New Product Added!');
+      }
+
+      saveState();
+      resetAdminProductForm();
+      renderAdminProducts();
+    }
+
+    function toggleProdStock(id) {
+      const p = appState.products.find(x => x.id === id);
+      if (p) { p.inStock = !p.inStock; saveState(); renderAdminProducts(); }
+    }
+
+    function deleteProd(id) {
+      appState.products = appState.products.filter(x => x.id !== id);
+      saveState();
+      renderAdminProducts();
+    }
+
+    // =====================================================================
+    // ADMIN TAB 3: FULL SILAI & ZARDOZI RATES EDITOR (WITH PHOTOS)
+    // =====================================================================
+    function renderAdminRates() {
+      document.getElementById('adminRatesList').innerHTML = appState.rates.map(r => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
+          <img src="${r.img}" class="w-12 h-12 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-xs text-[#2A0E17] truncate">${r.name}</p>
+            <span class="text-[10px] text-[#D81B60] font-semibold block">${r.category} • ${r.days}</span>
+            <span class="text-xs font-extrabold text-[#6A0D25]">${r.priceLabel || '₹' + r.price}</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button onclick="startEditRate('${r.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px]">✏️ Edit</button>
+            <button onclick="deleteRate('${r.id}')" class="bg-rose-50 text-rose-600 font-bold text-xs px-2 py-1.5 rounded-lg">✕</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function startEditRate(id) {
+      const r = appState.rates.find(x => x.id === id);
+      if (!r) return;
+      document.getElementById('editRateId').value = r.id;
+      document.getElementById('rateFormHeading').textContent = `✏️ Editing: ${r.name.slice(0, 26)}...`;
+      document.getElementById('cancelEditRateBtn').classList.remove('hidden');
+      document.getElementById('saveRateSubmitBtn').textContent = '💾 Update Silai / Zardozi Design';
+
+      document.getElementById('rateNameInput').value = r.name;
+      document.getElementById('rateCatInput').value = r.category;
+      document.getElementById('rateSubInput').value = r.sub || '';
+      document.getElementById('ratePriceInput').value = r.price;
+      document.getElementById('rateDaysInput').value = r.days || '2–3 Days';
+      document.getElementById('rateNeckInput').value = r.neck || '';
+      document.getElementById('admPanel_rates').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function resetAdminRateForm() {
+      document.getElementById('editRateId').value = '';
+      document.getElementById('rateFormHeading').textContent = '✂️ Add / Edit Silai & Zardozi Design';
+      document.getElementById('cancelEditRateBtn').classList.add('hidden');
+      document.getElementById('saveRateSubmitBtn').textContent = '+ Save Silai / Zardozi Design';
+      ['rateNameInput', 'rateSubInput', 'ratePriceInput', 'rateDaysInput', 'rateNeckInput'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('ratePhotoInput').value = '';
+    }
+
+    async function adminSaveRate() {
+      const editId = document.getElementById('editRateId').value;
+      const name = document.getElementById('rateNameInput').value.trim();
+      const category = document.getElementById('rateCatInput').value;
+      const sub = document.getElementById('rateSubInput').value.trim() || name;
+      const price = Number(document.getElementById('ratePriceInput').value) || 0;
+      const priceLabel = price > 0 ? `₹${price}` : 'Custom Quote';
+      const days = document.getElementById('rateDaysInput').value.trim() || '2–3 Days';
+      const neck = document.getElementById('rateNeckInput').value.trim() || 'Custom Designer Finish';
+      const photoFile = document.getElementById('ratePhotoInput').files[0];
+
+      if (!name) return toast('⚠️ Design Name daalein!');
+
+      let uploadedImg = '';
+      if (photoFile) {
+        const res = await readFilesAsDataURLs([photoFile]);
+        uploadedImg = res[0].dataUrl;
+      }
+
+      if (editId) {
+        const idx = appState.rates.findIndex(x => x.id === editId);
+        if (idx !== -1) {
+          const old = appState.rates[idx];
+          appState.rates[idx] = {
+            ...old,
+            name, category, sub, price, priceLabel, days, neck,
+            img: uploadedImg || old.img
+          };
+          toast('✅ Silai / Zardozi Design Updated!');
+        }
+      } else {
+        appState.rates.unshift({
+          id: 'r_' + Date.now(),
+          category, name, sub, price, priceLabel, days, neck,
+          img: uploadedImg || PHOTOS.zardozi
+        });
+        toast('✅ New Design Added!');
+      }
+
+      saveState();
+      resetAdminRateForm();
+      renderAdminRates();
+    }
+
+    function deleteRate(id) {
+      appState.rates = appState.rates.filter(x => x.id !== id);
+      saveState();
+      renderAdminRates();
+    }
+
+    // =====================================================================
+    // ADMIN TAB 4: MULTI-FILE BANNERS UPLOAD
+    // =====================================================================
+    function renderAdminBanners() {
+      document.getElementById('adminBannersList').innerHTML = appState.banners.map((b, i) => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
+          ${b.type === 'video'
+            ? `<div class="w-14 h-10 rounded-xl bg-[#2A0E17] text-[#D4AF37] text-[10px] font-bold flex items-center justify-center flex-shrink-0">🎬 VIDEO</div>`
+            : `<img src="${b.src}" class="w-14 h-10 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />`
+          }
+          <span class="text-xs font-bold text-[#2A0E17] truncate flex-1">${i + 1}. ${b.title || 'Banner Media'}</span>
+          <button onclick="toggleBannerVis(${i})" class="bg-[#FCE4EC] text-[#6A0D25] font-bold px-2.5 py-1 rounded-lg text-xs">${b.active !== false ? 'Shown' : 'Hidden'}</button>
+          <button onclick="deleteBanner(${i})" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-xs">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    async function adminUploadBanner(e) {
+      const files = e.target.files;
+      if (!files || !files.length) return;
+      const items = await readFilesAsDataURLs(files);
+      items.forEach((it, idx) => {
+        appState.banners.push({
+          id: 'bn-' + Date.now() + '-' + idx,
+          type: it.type.startsWith('video/') ? 'video' : 'image',
+          src: it.dataUrl,
+          title: it.name,
+          active: true
+        });
+      });
+      saveState();
+      renderAdminBanners();
+      toast(`✅ ${items.length} Banner(s) Uploaded!`);
+      e.target.value = '';
+    }
+
+    function toggleBannerVis(i) {
+      appState.banners[i].active = appState.banners[i].active === false ? true : false;
+      saveState();
+      renderAdminBanners();
+    }
+
+    function deleteBanner(i) {
+      appState.banners.splice(i, 1);
+      saveState();
+      renderAdminBanners();
+    }
+
+    // =====================================================================
+    // ADMIN TAB 5: CATEGORY CIRCULAR PHOTOS EDITOR
+    // =====================================================================
+    function renderAdminCategories() {
+      const catKeys = [
+        { key: 'All', label: 'Ready-Made: All' },
+        { key: 'Ladies Suits', label: 'Ready-Made: Ladies Suits' },
+        { key: 'Sarees', label: 'Ready-Made: Sarees' },
+        { key: 'Abayas', label: 'Ready-Made: Abayas' },
+        { key: 'Kids Wear', label: 'Ready-Made: Kids Wear' },
+        { key: 'Stitch_Ladies Suits', label: 'Stitching: Ladies Suits' },
+        { key: 'Stitch_Blouse & Lehenga', label: 'Stitching: Blouse & Lehenga' },
+        { key: 'Stitch_Zari & Zardozi Embroidery', label: 'Stitching: Zari & Zardozi' },
+        { key: 'Stitch_Kids & Gents', label: 'Stitching: Kids & Gents' },
+        { key: 'Stitch_Finishing & Handwork', label: 'Stitching: Finishing' }
+      ];
+
+      document.getElementById('adminCategoriesList').innerHTML = catKeys.map(c => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="${appState.categoryImages[c.key] || PHOTOS.heroCollection}" class="w-12 h-12 rounded-full object-cover border-2 border-[#D81B60] flex-shrink-0" />
+            <span class="font-bold text-xs text-[#2A0E17] truncate">${c.label}</span>
+          </div>
+          <label class="bg-[#6A0D25] text-[#D4AF37] font-extrabold text-[11px] px-3 py-1.5 rounded-xl cursor-pointer whitespace-nowrap">
+            📷 Change
+            <input type="file" accept="image/*" onchange="updateCategoryPhoto('${c.key}', event)" class="hidden" />
+          </label>
+        </div>
+      `).join('');
+    }
+
+    async function updateCategoryPhoto(key, e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const res = await readFilesAsDataURLs([file]);
+      appState.categoryImages[key] = res[0].dataUrl;
+      saveState();
+      renderAdminCategories();
+      toast('✅ Category Photo Updated!');
+    }
+
+    function downloadFullBackup() {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(appState, null, 2)], { type: 'application/json' }));
+      a.download = `firdous-ansar-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      toast('⬇️ Backup Downloaded!');
+    }
+
+    function downloadAndOpenDrive() {
+      downloadFullBackup();
+      setTimeout(() => window.open('https://drive.google.com/drive/my-drive', '_blank', 'noopener,noreferrer'), 800);
+    }
+
+    function restoreFullBackup(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = () => {
+        try {
+          appState = JSON.parse(r.result);
+          saveState();
+          renderAdminKhata();
+          renderAdminProducts();
+          renderAdminRates();
+          renderAdminBanners();
+          renderAdminCategories();
+          toast('✅ Backup Restored!');
+        } catch {
+          toast('❌ Invalid Backup File');
+        }
+      };
+      r.readAsText(file);
+    }
+
+    // INIT + DIRECT PARTNER LINK (?partner=saklani) HANDLER
+    window.addEventListener('DOMContentLoaded', () => {
+      syncOnlineBanner();
+      if (isAdmin) document.getElementById('adminModePill').classList.remove('hidden');
+      renderHero();
+      renderProducts();
+      renderStitching();
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('partner')) {
+        switchMode('partner');
+      }
+    });
+  </script>
+</body>
+</html>
