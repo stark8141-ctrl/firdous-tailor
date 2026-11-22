@@ -63,7 +63,7 @@
 <body class="bg-[#FFFDF9] text-[#2A0E17] min-h-screen flex flex-col pb-16">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[120] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[140] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
 
   <!-- Offline Indicator -->
   <div id="offlineStrip" class="hidden bg-[#D81B60] text-white text-center text-[11px] font-bold py-1 px-3">
@@ -153,16 +153,13 @@
         <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें — पूरी डिटेल देखें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
-      <!-- Pill Search Bar -->
       <div class="relative">
         <input id="prodSearch" type="text" oninput="renderProducts()" placeholder="सूट, साड़ी, अबाया, ज़री या स्टोर खोजें..." class="w-full bg-white border border-[#E5CFD6] rounded-full pl-10 pr-4 py-2.5 text-xs sm:text-sm outline-none focus:border-[#D81B60] shadow-2xs transition" />
         <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#D81B60]">🔍</span>
       </div>
 
-      <!-- Circular Photo Category Icons -->
       <div id="prodCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
 
-      <!-- Action Pills -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button id="btnAllDesigns" onclick="toggleOffersFilter(false)" class="px-4 py-2 rounded-full text-xs font-extrabold bg-[#6A0D25] text-white whitespace-nowrap shadow-xs transition">
           All Designs
@@ -172,7 +169,6 @@
         </button>
       </div>
 
-      <!-- Category Header + Share Category Button -->
       <div id="categoryShareStrip" class="hidden flex items-center justify-between py-1">
         <span id="categoryCountLabel" class="text-sm font-extrabold text-[#2A0E17]">Abayas (1)</span>
         <button onclick="shareCurrentCategory()" class="bg-[#FCE4EC] hover:bg-pink-200 text-[#D81B60] text-xs font-extrabold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition active:scale-95">
@@ -180,10 +176,8 @@
         </button>
       </div>
 
-      <!-- 2-Column Product Cards Grid -->
       <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
 
-      <!-- Empty Filter State -->
       <div id="emptyProductsBox" class="hidden text-center py-8 space-y-3">
         <p class="font-display text-xl font-bold text-[#2A0E17]">No matching designs found</p>
         <p class="text-xs text-gray-500">Try tapping "All" or searching another outfit style.</p>
@@ -318,7 +312,7 @@
     </section>
 
     <!-- ===================================================================
-         VIEW 3: 9:16 VERTICAL REELS FEED (WITH DUAL BUTTONS: DETAILS + ORDER)
+         VIEW 3: 9:16 VERTICAL REELS FEED
     ==================================================================== -->
     <section id="view_reels" class="hidden space-y-4">
       <div>
@@ -329,7 +323,7 @@
     </section>
 
     <!-- ===================================================================
-         VIEW 4: PARTNER STOREFRONT (DEDICATED SHAREABLE LINK + ANSAR COLLECTION)
+         VIEW 4: PARTNER STOREFRONT
     ==================================================================== -->
     <section id="view_partner" class="hidden space-y-6">
       <div class="bg-[#2A0E17] text-[#FFFDF9] rounded-3xl p-5 border border-[#D4AF37]/50 shadow-lg space-y-3">
@@ -548,7 +542,7 @@
     <div class="px-4 py-3.5 bg-[#6A0D25] text-[#FFFDF9] border-b border-[#D4AF37]/50 flex items-center justify-between shadow-sm">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#D4AF37] leading-none">⚙️ Firdous Tailor &amp; Ansar Admin</h2>
-        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Full Catalog Editor • Silai Rates • Categories • Khata • Banners</p>
+        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Auto-Compress Photos • Inline Popup Edit • Reorder Banners</p>
       </div>
       <button onclick="closeAdminModal()" class="bg-white/15 hover:bg-white/25 text-white px-4 py-2 rounded-full text-xs font-extrabold transition">← Back to Shop</button>
     </div>
@@ -595,17 +589,13 @@
         <div id="adminKhataList" class="space-y-3"></div>
       </div>
 
-      <!-- ADMIN TAB 2: PRODUCTS (FULL CATALOG ADD & FULL EDIT + MULTI-MEDIA) -->
+      <!-- ADMIN TAB 2: READY-MADE STOCK -->
       <div id="admPanel_products" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <h3 id="prodFormHeading" class="font-display text-xl font-bold text-[#6A0D25]">➕ Add / Edit Ready-Made Product</h3>
-            <div class="flex items-center gap-1.5">
-              <button id="cancelEditProdBtn" onclick="resetAdminProductForm()" class="hidden bg-gray-200 text-gray-700 text-[11px] font-bold px-3 py-1.5 rounded-full">Cancel Edit</button>
-              <button onclick="autoParseProductText()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill</button>
-            </div>
+            <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Ready-Made Product</h3>
+            <button onclick="autoParseProductText()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill</button>
           </div>
-          <input type="hidden" id="editProdId" value="" />
           <textarea id="smartProdRawInput" rows="2" placeholder="Meesho se copy kiya hua text ya Zari Suit / Abaya / Kurti ka description yahan paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -622,30 +612,29 @@
             <input id="newProdFabric" type="text" placeholder="Fabric (e.g. Cotton Blend, Korean Nida)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <input id="newProdSet" type="text" placeholder="Set Includes (e.g. Kurta + Palazzo + Dupatta)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <label class="bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
-              📷 Select Multiple Photos (Gallery)
+              📷 Select Multiple Photos (Auto-Compressed)
               <input id="newProdPhoto" type="file" accept="image/*" multiple class="hidden" />
             </label>
           </div>
           <label class="block bg-[#FFF8F2] border border-dashed border-[#D4AF37] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
-            🎞️ Optional: Select 9:16 Reel Video for this Product
+            🎞️ Optional: Select 9:16 Reel Video
             <input id="newProdVideo" type="file" accept="video/*" class="hidden" />
           </label>
           <textarea id="newProdDesc" rows="2" placeholder="Full Product / Zari Work Description..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
-          <button id="saveProdSubmitBtn" onclick="adminSaveProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Save Product to Catalog</button>
+          <button onclick="adminAddProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Add Product to Catalog</button>
         </div>
 
-        <h4 class="font-display text-lg font-bold text-[#2A0E17]">📦 All Ready-Made Products (Tap "Edit ✏️" to modify anything)</h4>
+        <div class="flex items-center justify-between gap-2">
+          <h4 class="font-display text-lg font-bold text-[#2A0E17]">📦 All Ready-Made Products</h4>
+          <button onclick="deleteAllProducts()" class="bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold text-[11px] px-3 py-1.5 rounded-xl">🗑️ Delete All</button>
+        </div>
         <div id="adminProductsList" class="space-y-2.5"></div>
       </div>
 
-      <!-- ADMIN TAB 3: SILAI & ZARDOZI RATES (FULL EDIT + PHOTO + ADD NEW) -->
+      <!-- ADMIN TAB 3: SILAI & ZARDOZI RATES -->
       <div id="admPanel_rates" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 id="rateFormHeading" class="font-display text-xl font-bold text-[#6A0D25]">✂️ Add / Edit Silai &amp; Zardozi Design</h3>
-            <button id="cancelEditRateBtn" onclick="resetAdminRateForm()" class="hidden bg-gray-200 text-gray-700 text-[11px] font-bold px-3 py-1 rounded-full">Cancel Edit</button>
-          </div>
-          <input type="hidden" id="editRateId" value="" />
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Silai &amp; Zardozi Design</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <input id="rateNameInput" type="text" placeholder="Design / Service Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <select id="rateCatInput" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]">
@@ -661,30 +650,34 @@
             <input id="rateNeckInput" type="text" placeholder="Neck / Work Details" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
           </div>
           <label class="block bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
-            📷 Upload / Change Design Photo
+            📷 Upload Design Photo (Auto-Compressed)
             <input id="ratePhotoInput" type="file" accept="image/*" class="hidden" />
           </label>
-          <button id="saveRateSubmitBtn" onclick="adminSaveRate()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Save Silai / Zardozi Design</button>
+          <button onclick="adminAddRate()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Add Silai / Zardozi Design</button>
         </div>
 
+        <div class="flex items-center justify-between gap-2">
+          <h4 class="font-display text-lg font-bold text-[#2A0E17]">✂️ Silai &amp; Zardozi List (Tap Edit ✏️)</h4>
+          <button onclick="deleteAllRates()" class="bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold text-[11px] px-3 py-1.5 rounded-xl">🗑️ Delete All</button>
+        </div>
         <div id="adminRatesList" class="space-y-2.5"></div>
       </div>
 
-      <!-- ADMIN TAB 4: BANNERS (MULTI-SELECT IMAGES & VIDEOS) -->
+      <!-- ADMIN TAB 4: BANNERS (REORDER UP/DOWN + MULTI-SELECT) -->
       <div id="admPanel_banners" class="adm-panel hidden space-y-4">
         <label class="block bg-white border-2 border-dashed border-[#D81B60]/50 rounded-3xl p-5 text-center cursor-pointer shadow-2xs hover:bg-[#FCE4EC]/30 transition">
           <span class="text-sm font-extrabold text-[#6A0D25] block">+ Select Multiple 16:9 Banner Images &amp; Videos</span>
-          <span class="text-[11px] text-gray-500 mt-1 block">Gallery se ek saath kai photos aur videos select karein</span>
+          <span class="text-[11px] text-gray-500 mt-1 block">Niche ⬆️ / ⬇️ button se tay karein ki kaunsa banner 1st number par dikhega</span>
           <input type="file" accept="image/*,video/*" multiple onchange="adminUploadBanner(event)" class="hidden" />
         </label>
-        <div id="adminBannersList" class="space-y-2"></div>
+        <div id="adminBannersList" class="space-y-2.5"></div>
       </div>
 
       <!-- ADMIN TAB 5: CATEGORY PHOTOS EDITOR -->
       <div id="admPanel_categories" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-2">
           <h3 class="font-display text-xl font-bold text-[#6A0D25]">🖼️ Edit Circular Category Photos</h3>
-          <p class="text-xs text-gray-600">Yahan se aap storefront par dikhne wale sabhi circular category icons (All, Ladies Suits, Sarees, Abayas, Kids Wear, etc.) ki photos badal sakte hain:</p>
+          <p class="text-xs text-gray-600">Yahan se aap Ready-Made Shop aur Stitching ke sabhi circular icons ki photos badal sakte hain:</p>
         </div>
         <div id="adminCategoriesList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
       </div>
@@ -702,6 +695,9 @@
             <label class="text-xs font-bold text-gray-700 block mb-1">Restore Backup File (.json):</label>
             <input type="file" accept=".json" onchange="restoreFullBackup(event)" class="w-full text-xs bg-[#FFFDF9] border border-[#E5CFD6] p-2.5 rounded-xl text-[#2A0E17]" />
           </div>
+          <div class="pt-2 border-t border-[#EFE0E5]">
+            <button onclick="resetToDefaultClean()" class="w-full bg-amber-100 text-amber-900 font-extrabold text-xs py-2.5 rounded-xl">🔄 Reset Storage &amp; Free Space</button>
+          </div>
         </div>
         <button onclick="adminLogout()" class="w-full bg-[#D81B60] hover:bg-pink-700 text-white font-extrabold text-xs py-3.5 rounded-xl shadow-md">🚪 Logout Admin</button>
       </div>
@@ -709,8 +705,15 @@
     </div>
   </div>
 
-  <!-- CANVAS RECEIPT PREVIEW MODAL (DUAL WHATSAPP + WA BUSINESS BUTTONS) -->
-  <div id="receiptModal" onclick="if(event.target===this) closeReceiptModal()" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-3 overflow-y-auto">
+  <!-- =====================================================================
+       POPUP MODAL FOR EDITING PRODUCT OR SILAI RATE IN PLACE (NO SCROLL!)
+  ====================================================================== -->
+  <div id="quickEditModal" onclick="if(event.target===this) closeQuickEditModal()" class="hidden fixed inset-0 z-[80] bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 overflow-y-auto">
+    <div id="quickEditBody" class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-md rounded-3xl p-5 border-2 border-[#D4AF37]/60 shadow-2xl space-y-3 my-auto"></div>
+  </div>
+
+  <!-- CANVAS RECEIPT PREVIEW MODAL -->
+  <div id="receiptModal" onclick="if(event.target===this) closeReceiptModal()" class="hidden fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-3 overflow-y-auto">
     <div class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-sm rounded-3xl p-4 space-y-3 shadow-2xl border border-[#D4AF37]/40 my-auto">
       <div class="flex items-center justify-between">
         <h3 class="font-display italic text-lg font-bold text-[#6A0D25]">🧾 Customer Digital Receipt</h3>
@@ -718,7 +721,6 @@
       </div>
       <canvas id="receiptCanvas" width="600" height="840" class="w-full rounded-2xl border border-[#E5CFD6] shadow-xs"></canvas>
 
-      <!-- Customer WhatsApp Number Input -->
       <div class="bg-[#FCE4EC]/55 border border-[#F8BBD0] rounded-2xl p-2.5 space-y-1.5">
         <div class="flex items-center justify-between">
           <label class="text-[11px] font-extrabold text-[#6A0D25]">📲 Customer WhatsApp Number:</label>
@@ -727,7 +729,6 @@
         <input id="receiptTargetWaInput" type="tel" maxlength="10" placeholder="10-digit WhatsApp Number" class="w-full bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-extrabold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
       </div>
 
-      <!-- Dual Buttons: WhatsApp & WhatsApp Business -->
       <div class="grid grid-cols-2 gap-2">
         <button onclick="sendReceiptViaApp('whatsapp')" class="bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-xs py-2.5 px-2 rounded-xl shadow-xs flex items-center justify-center gap-1 transition active:scale-95">
           <span>💬</span><span>WhatsApp</span>
@@ -750,10 +751,9 @@
   <script>
     const SHOP_PHONE = '916350517782';
     const ADMIN_PASS = '@qwer';
-    const STORAGE_KEY = 'firdous_ansar_single_v8';
-    const AUTH_KEY = 'firdous_ansar_admin_v8';
+    const STORAGE_KEY = 'firdous_ansar_single_v9';
+    const AUTH_KEY = 'firdous_ansar_admin_v9';
 
-    // Self-Contained Embedded SVG Artworks (Never Break Offline or Online)
     function makeRoyalArt(bg1, bg2, title, subtitle, icon) {
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
         <defs>
@@ -792,6 +792,7 @@
       'Sarees': PHOTOS.banarasiSaree,
       'Abayas': PHOTOS.abaya,
       'Kids Wear': PHOTOS.kidsWear,
+      'Stitch_All': PHOTOS.heroTailor,
       'Stitch_Ladies Suits': PHOTOS.liningSuit,
       'Stitch_Blouse & Lehenga': PHOTOS.blouse,
       'Stitch_Zari & Zardozi Embroidery': PHOTOS.zardozi,
@@ -845,7 +846,6 @@
       ]
     };
 
-    // Sanitize old cached broken image filenames if present
     function sanitizeMediaSrc(src, fallback) {
       if (!src || typeof src !== 'string') return fallback;
       if (src.startsWith('watermarked_img_')) return fallback;
@@ -913,18 +913,56 @@
     function saveState() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+        return true;
       } catch (e) {
-        toast('⚠️ Storage full! Purani badi videos/photos hata kar backup lein.');
+        toast('⚠️ Phone storage full! Drive Backup tab se backup lekar purani media saaf karein.');
+        return false;
       }
     }
 
-    function readFilesAsDataURLs(fileList) {
-      return Promise.all(Array.from(fileList).map(file => new Promise((resolve, reject) => {
-        const r = new FileReader();
-        r.onload = () => resolve({ name: file.name, type: file.type, dataUrl: r.result });
-        r.onerror = reject;
-        r.readAsDataURL(file);
-      })));
+    // Automatic Image Compressor (Keeps photos crisp while saving 85% storage space!)
+    function compressImageFile(file, maxWidth = 720, quality = 0.72) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const img = new Image();
+          img.onload = () => {
+            let w = img.width;
+            let h = img.height;
+            if (w > maxWidth) {
+              h = Math.round((h * maxWidth) / w);
+              w = maxWidth;
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, w, h);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+          };
+          img.onerror = () => resolve(ev.target.result);
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function processSelectedMedia(fileList) {
+      const results = [];
+      for (const file of Array.from(fileList)) {
+        if (file.type.startsWith('image/')) {
+          const compressed = await compressImageFile(file, 720, 0.72);
+          results.push({ name: file.name, type: 'image/jpeg', dataUrl: compressed });
+        } else {
+          const dataUrl = await new Promise((res) => {
+            const r = new FileReader();
+            r.onload = () => res(r.result);
+            r.readAsDataURL(file);
+          });
+          results.push({ name: file.name, type: file.type, dataUrl });
+        }
+      }
+      return results;
     }
 
     function toast(msg) {
@@ -1120,7 +1158,7 @@
     function closeDrawer() { document.getElementById('navDrawer').classList.add('hidden'); }
 
     // =====================================================================
-    // TAB 1: ANSAR COLLECTION + FULL-PAGE PRODUCT VIEW (MEESHO/AMAZON STYLE)
+    // TAB 1: ANSAR COLLECTION + FULL-PAGE PRODUCT VIEW
     // =====================================================================
     function toggleOffersFilter(val) {
       onlyOffersFilter = val;
@@ -1347,7 +1385,7 @@
 
     function renderStitching() {
       const stitchCircleList = [
-        { name: 'All', label: 'All Designs', isAllIcon: true },
+        { name: 'All', label: 'All Designs', img: appState.categoryImages['Stitch_All'] || PHOTOS.heroTailor },
         { name: 'Ladies Suits', img: appState.categoryImages['Stitch_Ladies Suits'] || PHOTOS.liningSuit },
         { name: 'Blouse & Lehenga', img: appState.categoryImages['Stitch_Blouse & Lehenga'] || PHOTOS.blouse },
         { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: appState.categoryImages['Stitch_Zari & Zardozi Embroidery'] || PHOTOS.zardozi },
@@ -1357,13 +1395,10 @@
 
       document.getElementById('stitchCircleCategories').innerHTML = stitchCircleList.map(c => {
         const active = selectedStitchCat === c.name;
-        const inner = c.isAllIcon
-          ? `<div class="w-full h-full rounded-full bg-[#6A0D25] text-white font-extrabold text-xs flex items-center justify-center">All</div>`
-          : `<img src="${c.img}" alt="${c.name}" class="w-full h-full rounded-full object-cover" />`;
         return `
           <button onclick="selectedStitchCat='${c.name}';renderStitching()" class="flex flex-col items-center flex-shrink-0 w-16">
             <div class="w-14 h-14 rounded-full p-0.5 transition ${active ? 'ring-2 ring-[#D81B60] bg-[#D81B60]' : 'ring-1 ring-[#E5CFD6] bg-white'}">
-              ${inner}
+              <img src="${c.img}" alt="${c.name}" class="w-full h-full rounded-full object-cover" />
             </div>
             <span class="text-[11px] mt-1.5 text-center leading-tight ${active ? 'font-extrabold text-[#6A0D25]' : 'font-semibold text-gray-600'}">${c.label || c.name}</span>
           </button>`;
@@ -1479,7 +1514,7 @@
     }
 
     // =====================================================================
-    // TAB 3: 9:16 REELS (WITH VIDEO SUPPORT + DUAL BUTTONS: DETAILS + ORDER)
+    // TAB 3: 9:16 REELS
     // =====================================================================
     function renderReels() {
       const prodItems = appState.products.map(p => ({
@@ -1769,7 +1804,7 @@
               </div>
 
               <div class="flex flex-wrap items-center gap-1.5">
-                <input id="cardWa_${c.id}" type="tel" maxlength="10" value="${activeWa}" onchange="saveCardCustomWa('${c.id}', this.value)" placeholder="WhatsApp No." class="w-28 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-2.5 py-1.5 text-[11px] font-bold text-[#2A0E17] outline-none focus:border-[#6A0D25]" title="Alag WhatsApp number ho to yahan badlein" />
+                <input id="cardWa_${c.id}" type="tel" maxlength="10" value="${activeWa}" onchange="saveCardCustomWa('${c.id}', this.value)" placeholder="WhatsApp No." class="w-28 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-2.5 py-1.5 text-[11px] font-bold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
                 <button onclick="openDigitalReceipt('${c.id}')" class="bg-[#D4AF37] text-[#2A0E17] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">🧾 Receipt</button>
                 <button onclick="sendKhataReminder('${c.id}', 'whatsapp')" class="bg-[#25D366] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💬 WhatsApp</button>
                 <button onclick="sendKhataReminder('${c.id}', 'business')" class="bg-[#128C7E] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💼 WA Business</button>
@@ -1821,7 +1856,6 @@
       launchWhatsAppApp(targetPhone, msg, appType);
     }
 
-    // DIGITAL CANVAS RECEIPT GENERATOR WITH WEBSITE QR CODE
     function openDigitalReceipt(id) {
       const c = appState.customers.find(x => x.id === id);
       if (!c) return;
@@ -1972,7 +2006,163 @@
     }
 
     // =====================================================================
-    // ADMIN TAB 2: FULL PRODUCT EDITOR (ADD + EDIT ALL FIELDS + MULTI-PHOTOS)
+    // INLINE POPUP MODAL EDITOR (NO PAGE JUMP / NO SCROLLING NEEDED!)
+    // =====================================================================
+    function closeQuickEditModal() {
+      document.getElementById('quickEditModal').classList.add('hidden');
+    }
+
+    function openQuickEditProduct(id) {
+      const p = appState.products.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('quickEditBody').innerHTML = `
+        <div class="flex items-center justify-between">
+          <h3 class="font-display italic text-xl font-bold text-[#6A0D25]">✏️ Edit Product</h3>
+          <button onclick="closeQuickEditModal()" class="w-8 h-8 rounded-full bg-[#FCE4EC] text-[#6A0D25] font-bold text-xs">✕</button>
+        </div>
+        <div class="space-y-2.5 text-xs">
+          <div>
+            <label class="font-bold text-gray-600">Product Name</label>
+            <input id="qeProdName" type="text" value="${p.name.replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 font-semibold" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="font-bold text-gray-600">Category</label>
+              <select id="qeProdCat" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 font-semibold">
+                ${['Ladies Suits', 'Sarees', 'Abayas', 'Kids Wear'].map(c => `<option value="${c}" ${p.category === c ? 'selected' : ''}>${c}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="font-bold text-gray-600">Price ₹</label>
+              <input id="qeProdPrice" type="number" value="${p.price}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 font-extrabold text-[#6A0D25]" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="font-bold text-gray-600">MRP ₹</label>
+              <input id="qeProdOrig" type="number" value="${p.originalPrice || ''}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2" />
+            </div>
+            <div>
+              <label class="font-bold text-gray-600">Sizes</label>
+              <input id="qeProdSizes" type="text" value="${(p.sizes || []).join(', ')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2" />
+            </div>
+          </div>
+          <div>
+            <label class="font-bold text-gray-600">Fabric &amp; Set Details</label>
+            <input id="qeProdFabric" type="text" value="${(p.fabric || '').replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2" />
+          </div>
+          <div>
+            <label class="font-bold text-gray-600">Description</label>
+            <textarea id="qeProdDesc" rows="2" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl p-2.5">${p.description || ''}</textarea>
+          </div>
+          <label class="block bg-[#FCE4EC]/70 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-center cursor-pointer font-bold text-[#6A0D25]">
+            📷 Replace / Upload Multiple Photos
+            <input id="qeProdPhotos" type="file" accept="image/*" multiple class="hidden" />
+          </label>
+          <button onclick="saveQuickEditProduct('${p.id}')" class="w-full bg-[#6A0D25] text-[#D4AF37] font-extrabold py-3 rounded-xl shadow">💾 Save Product Changes</button>
+        </div>
+      `;
+      document.getElementById('quickEditModal').classList.remove('hidden');
+    }
+
+    async function saveQuickEditProduct(id) {
+      const p = appState.products.find(x => x.id === id);
+      if (!p) return;
+      const files = document.getElementById('qeProdPhotos').files;
+      if (files && files.length > 0) {
+        const res = await processSelectedMedia(files);
+        p.images = res.map(x => x.dataUrl);
+      }
+      p.name = document.getElementById('qeProdName').value.trim() || p.name;
+      p.category = document.getElementById('qeProdCat').value;
+      p.price = Number(document.getElementById('qeProdPrice').value) || p.price;
+      p.originalPrice = Number(document.getElementById('qeProdOrig').value) || undefined;
+      const sz = document.getElementById('qeProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+      if (sz.length) p.sizes = sz;
+      p.fabric = document.getElementById('qeProdFabric').value.trim() || p.fabric;
+      p.description = document.getElementById('qeProdDesc').value.trim();
+
+      if (saveState()) {
+        closeQuickEditModal();
+        renderAdminProducts();
+        toast('✅ Product Updated!');
+      }
+    }
+
+    function openQuickEditRate(id) {
+      const r = appState.rates.find(x => x.id === id);
+      if (!r) return;
+      document.getElementById('quickEditBody').innerHTML = `
+        <div class="flex items-center justify-between">
+          <h3 class="font-display italic text-xl font-bold text-[#6A0D25]">✏️ Edit Silai / Zardozi</h3>
+          <button onclick="closeQuickEditModal()" class="w-8 h-8 rounded-full bg-[#FCE4EC] text-[#6A0D25] font-bold text-xs">✕</button>
+        </div>
+        <div class="space-y-2.5 text-xs">
+          <div>
+            <label class="font-bold text-gray-600">Design / Service Name</label>
+            <input id="qeRateName" type="text" value="${r.name.replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 font-semibold" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="font-bold text-gray-600">Category</label>
+              <select id="qeRateCat" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 font-semibold">
+                ${['Ladies Suits', 'Blouse & Lehenga', 'Zari & Zardozi Embroidery', 'Kids & Gents', 'Finishing & Handwork'].map(c => `<option value="${c}" ${r.category === c ? 'selected' : ''}>${c}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="font-bold text-gray-600">Rate ₹ (0 = Custom)</label>
+              <input id="qeRatePrice" type="number" value="${r.price}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 font-extrabold text-[#6A0D25]" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="font-bold text-gray-600">Delivery Time</label>
+              <input id="qeRateDays" type="text" value="${r.days || ''}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2" />
+            </div>
+            <div>
+              <label class="font-bold text-gray-600">Neck / Work Details</label>
+              <input id="qeRateNeck" type="text" value="${(r.neck || '').replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2" />
+            </div>
+          </div>
+          <div>
+            <label class="font-bold text-gray-600">Hindi Subtitle</label>
+            <input id="qeRateSub" type="text" value="${(r.sub || '').replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2" />
+          </div>
+          <label class="block bg-[#FCE4EC]/70 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-center cursor-pointer font-bold text-[#6A0D25]">
+            📷 Change Design Photo
+            <input id="qeRatePhoto" type="file" accept="image/*" class="hidden" />
+          </label>
+          <button onclick="saveQuickEditRate('${r.id}')" class="w-full bg-[#6A0D25] text-[#D4AF37] font-extrabold py-3 rounded-xl shadow">💾 Save Design Changes</button>
+        </div>
+      `;
+      document.getElementById('quickEditModal').classList.remove('hidden');
+    }
+
+    async function saveQuickEditRate(id) {
+      const r = appState.rates.find(x => x.id === id);
+      if (!r) return;
+      const file = document.getElementById('qeRatePhoto').files[0];
+      if (file) {
+        const res = await processSelectedMedia([file]);
+        r.img = res[0].dataUrl;
+      }
+      r.name = document.getElementById('qeRateName').value.trim() || r.name;
+      r.category = document.getElementById('qeRateCat').value;
+      r.price = Number(document.getElementById('qeRatePrice').value) || 0;
+      r.priceLabel = r.price > 0 ? `₹${r.price}` : 'Custom Quote';
+      r.days = document.getElementById('qeRateDays').value.trim() || r.days;
+      r.neck = document.getElementById('qeRateNeck').value.trim() || r.neck;
+      r.sub = document.getElementById('qeRateSub').value.trim() || r.sub;
+
+      if (saveState()) {
+        closeQuickEditModal();
+        renderAdminRates();
+        toast('✅ Silai / Zardozi Design Updated!');
+      }
+    }
+
+    // =====================================================================
+    // ADMIN TAB 2: READY-MADE STOCK LIST & ACTIONS
     // =====================================================================
     function renderAdminProducts() {
       document.getElementById('adminProductsList').innerHTML = appState.products.map(p => `
@@ -1984,7 +2174,7 @@
             <p class="text-xs font-extrabold text-[#6A0D25] mt-0.5">₹${p.price} ${p.originalPrice ? `<span class="text-[10px] text-gray-400 line-through font-normal">₹${p.originalPrice}</span>` : ''}</p>
           </div>
           <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1.5">
-            <button onclick="startEditProduct('${p.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold px-2.5 py-1 rounded-xl text-[11px]">✏️ Edit</button>
+            <button onclick="openQuickEditProduct('${p.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold px-2.5 py-1 rounded-xl text-[11px]">✏️ Edit</button>
             <button onclick="toggleProdStock('${p.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold ${p.inStock ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
               ${p.inStock ? 'In Stock' : 'Sold Out'}
             </button>
@@ -1994,37 +2184,7 @@
       `).join('');
     }
 
-    function startEditProduct(id) {
-      const p = appState.products.find(x => x.id === id);
-      if (!p) return;
-      document.getElementById('editProdId').value = p.id;
-      document.getElementById('prodFormHeading').textContent = `✏️ Editing: ${p.name.slice(0, 28)}...`;
-      document.getElementById('cancelEditProdBtn').classList.remove('hidden');
-      document.getElementById('saveProdSubmitBtn').textContent = '💾 Update Product Changes';
-
-      document.getElementById('newProdName').value = p.name;
-      document.getElementById('newProdCat').value = p.category;
-      document.getElementById('newProdPrice').value = p.price;
-      document.getElementById('newProdOrigPrice').value = p.originalPrice || '';
-      document.getElementById('newProdSizes').value = (p.sizes || []).join(', ');
-      document.getElementById('newProdFabric').value = p.fabric || '';
-      document.getElementById('newProdSet').value = p.setIncludes || '';
-      document.getElementById('newProdDesc').value = p.description || '';
-      document.getElementById('admPanel_products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function resetAdminProductForm() {
-      document.getElementById('editProdId').value = '';
-      document.getElementById('prodFormHeading').textContent = '➕ Add / Edit Ready-Made Product';
-      document.getElementById('cancelEditProdBtn').classList.add('hidden');
-      document.getElementById('saveProdSubmitBtn').textContent = '+ Save Product to Catalog';
-      ['smartProdRawInput', 'newProdName', 'newProdPrice', 'newProdOrigPrice', 'newProdSizes', 'newProdFabric', 'newProdSet', 'newProdDesc'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('newProdPhoto').value = '';
-      document.getElementById('newProdVideo').value = '';
-    }
-
-    async function adminSaveProduct() {
-      const editId = document.getElementById('editProdId').value;
+    async function adminAddProduct() {
       const name = document.getElementById('newProdName').value.trim();
       const category = document.getElementById('newProdCat').value;
       const price = Number(document.getElementById('newProdPrice').value);
@@ -2040,50 +2200,37 @@
 
       let uploadedImgs = [];
       if (photoFiles && photoFiles.length > 0) {
-        const res = await readFilesAsDataURLs(photoFiles);
+        const res = await processSelectedMedia(photoFiles);
         uploadedImgs = res.map(x => x.dataUrl);
       }
 
       let uploadedVideo = '';
       if (videoFile) {
-        const vRes = await readFilesAsDataURLs([videoFile]);
+        const vRes = await processSelectedMedia([videoFile]);
         uploadedVideo = vRes[0].dataUrl;
       }
 
-      if (editId) {
-        const idx = appState.products.findIndex(x => x.id === editId);
-        if (idx !== -1) {
-          const old = appState.products[idx];
-          appState.products[idx] = {
-            ...old,
-            name, category, price, originalPrice,
-            sizes: sizes.length ? sizes : old.sizes,
-            fabric, setIncludes, description,
-            images: uploadedImgs.length ? uploadedImgs : old.images,
-            video: uploadedVideo || old.video
-          };
-          toast('✅ Product Updated!');
-        }
-      } else {
-        const fallbackImg = appState.categoryImages[category] || PHOTOS.bandhaniSuit;
-        appState.products.unshift({
-          id: 'prod-' + Date.now(),
-          code: String(100 + appState.products.length + 1),
-          sku: 'AC-' + Date.now().toString().slice(-4),
-          name, category, price, originalPrice,
-          isOffer: true,
-          sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
-          fabric, setIncludes, description,
-          images: uploadedImgs.length ? uploadedImgs : [fallbackImg],
-          video: uploadedVideo,
-          inStock: true
-        });
+      const fallbackImg = appState.categoryImages[category] || PHOTOS.bandhaniSuit;
+      appState.products.unshift({
+        id: 'prod-' + Date.now(),
+        code: String(100 + appState.products.length + 1),
+        sku: 'AC-' + Date.now().toString().slice(-4),
+        name, category, price, originalPrice,
+        isOffer: true,
+        sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
+        fabric, setIncludes, description,
+        images: uploadedImgs.length ? uploadedImgs : [fallbackImg],
+        video: uploadedVideo,
+        inStock: true
+      });
+
+      if (saveState()) {
+        ['smartProdRawInput', 'newProdName', 'newProdPrice', 'newProdOrigPrice', 'newProdSizes', 'newProdFabric', 'newProdSet', 'newProdDesc'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('newProdPhoto').value = '';
+        document.getElementById('newProdVideo').value = '';
+        renderAdminProducts();
         toast('✅ New Product Added!');
       }
-
-      saveState();
-      resetAdminProductForm();
-      renderAdminProducts();
     }
 
     function toggleProdStock(id) {
@@ -2097,8 +2244,15 @@
       renderAdminProducts();
     }
 
+    function deleteAllProducts() {
+      appState.products = [];
+      saveState();
+      renderAdminProducts();
+      toast('🗑️ All Ready-Made Products Deleted');
+    }
+
     // =====================================================================
-    // ADMIN TAB 3: FULL SILAI & ZARDOZI RATES EDITOR (WITH PHOTOS)
+    // ADMIN TAB 3: SILAI & ZARDOZI LIST & ACTIONS
     // =====================================================================
     function renderAdminRates() {
       document.getElementById('adminRatesList').innerHTML = appState.rates.map(r => `
@@ -2110,41 +2264,14 @@
             <span class="text-xs font-extrabold text-[#6A0D25]">${r.priceLabel || '₹' + r.price}</span>
           </div>
           <div class="flex items-center gap-1.5">
-            <button onclick="startEditRate('${r.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px]">✏️ Edit</button>
+            <button onclick="openQuickEditRate('${r.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px]">✏️ Edit</button>
             <button onclick="deleteRate('${r.id}')" class="bg-rose-50 text-rose-600 font-bold text-xs px-2 py-1.5 rounded-lg">✕</button>
           </div>
         </div>
       `).join('');
     }
 
-    function startEditRate(id) {
-      const r = appState.rates.find(x => x.id === id);
-      if (!r) return;
-      document.getElementById('editRateId').value = r.id;
-      document.getElementById('rateFormHeading').textContent = `✏️ Editing: ${r.name.slice(0, 26)}...`;
-      document.getElementById('cancelEditRateBtn').classList.remove('hidden');
-      document.getElementById('saveRateSubmitBtn').textContent = '💾 Update Silai / Zardozi Design';
-
-      document.getElementById('rateNameInput').value = r.name;
-      document.getElementById('rateCatInput').value = r.category;
-      document.getElementById('rateSubInput').value = r.sub || '';
-      document.getElementById('ratePriceInput').value = r.price;
-      document.getElementById('rateDaysInput').value = r.days || '2–3 Days';
-      document.getElementById('rateNeckInput').value = r.neck || '';
-      document.getElementById('admPanel_rates').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function resetAdminRateForm() {
-      document.getElementById('editRateId').value = '';
-      document.getElementById('rateFormHeading').textContent = '✂️ Add / Edit Silai & Zardozi Design';
-      document.getElementById('cancelEditRateBtn').classList.add('hidden');
-      document.getElementById('saveRateSubmitBtn').textContent = '+ Save Silai / Zardozi Design';
-      ['rateNameInput', 'rateSubInput', 'ratePriceInput', 'rateDaysInput', 'rateNeckInput'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('ratePhotoInput').value = '';
-    }
-
-    async function adminSaveRate() {
-      const editId = document.getElementById('editRateId').value;
+    async function adminAddRate() {
       const name = document.getElementById('rateNameInput').value.trim();
       const category = document.getElementById('rateCatInput').value;
       const sub = document.getElementById('rateSubInput').value.trim() || name;
@@ -2158,33 +2285,22 @@
 
       let uploadedImg = '';
       if (photoFile) {
-        const res = await readFilesAsDataURLs([photoFile]);
+        const res = await processSelectedMedia([photoFile]);
         uploadedImg = res[0].dataUrl;
       }
 
-      if (editId) {
-        const idx = appState.rates.findIndex(x => x.id === editId);
-        if (idx !== -1) {
-          const old = appState.rates[idx];
-          appState.rates[idx] = {
-            ...old,
-            name, category, sub, price, priceLabel, days, neck,
-            img: uploadedImg || old.img
-          };
-          toast('✅ Silai / Zardozi Design Updated!');
-        }
-      } else {
-        appState.rates.unshift({
-          id: 'r_' + Date.now(),
-          category, name, sub, price, priceLabel, days, neck,
-          img: uploadedImg || PHOTOS.zardozi
-        });
+      appState.rates.unshift({
+        id: 'r_' + Date.now(),
+        category, name, sub, price, priceLabel, days, neck,
+        img: uploadedImg || PHOTOS.zardozi
+      });
+
+      if (saveState()) {
+        ['rateNameInput', 'rateSubInput', 'ratePriceInput', 'rateDaysInput', 'rateNeckInput'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('ratePhotoInput').value = '';
+        renderAdminRates();
         toast('✅ New Design Added!');
       }
-
-      saveState();
-      resetAdminRateForm();
-      renderAdminRates();
     }
 
     function deleteRate(id) {
@@ -2193,29 +2309,51 @@
       renderAdminRates();
     }
 
+    function deleteAllRates() {
+      appState.rates = [];
+      saveState();
+      renderAdminRates();
+      toast('🗑️ All Silai Designs Deleted');
+    }
+
     // =====================================================================
-    // ADMIN TAB 4: MULTI-FILE BANNERS UPLOAD
+    // ADMIN TAB 4: BANNERS WITH REORDER UP/DOWN CONTROLS
     // =====================================================================
     function renderAdminBanners() {
       document.getElementById('adminBannersList').innerHTML = appState.banners.map((b, i) => `
-        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
           ${b.type === 'video'
-            ? `<div class="w-14 h-10 rounded-xl bg-[#2A0E17] text-[#D4AF37] text-[10px] font-bold flex items-center justify-center flex-shrink-0">🎬 VIDEO</div>`
-            : `<img src="${b.src}" class="w-14 h-10 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />`
+            ? `<div class="w-12 h-9 rounded-xl bg-[#2A0E17] text-[#D4AF37] text-[9px] font-bold flex items-center justify-center flex-shrink-0">🎬 VID</div>`
+            : `<img src="${b.src}" class="w-12 h-9 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />`
           }
-          <span class="text-xs font-bold text-[#2A0E17] truncate flex-1">${i + 1}. ${b.title || 'Banner Media'}</span>
-          <button onclick="toggleBannerVis(${i})" class="bg-[#FCE4EC] text-[#6A0D25] font-bold px-2.5 py-1 rounded-lg text-xs">${b.active !== false ? 'Shown' : 'Hidden'}</button>
-          <button onclick="deleteBanner(${i})" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-xs">Delete</button>
+          <span class="text-xs font-bold text-[#2A0E17] truncate flex-1">${i + 1}. ${b.title || 'Banner'}</span>
+          <div class="flex items-center gap-1">
+            <button onclick="moveBanner(${i}, -1)" ${i === 0 ? 'disabled' : ''} class="bg-gray-100 disabled:opacity-35 px-2 py-1 rounded-lg text-xs font-bold" title="Move Up">⬆️</button>
+            <button onclick="moveBanner(${i}, 1)" ${i === appState.banners.length - 1 ? 'disabled' : ''} class="bg-gray-100 disabled:opacity-35 px-2 py-1 rounded-lg text-xs font-bold" title="Move Down">⬇️</button>
+            <button onclick="toggleBannerVis(${i})" class="bg-[#FCE4EC] text-[#6A0D25] font-bold px-2 py-1 rounded-lg text-[11px]">${b.active !== false ? 'Shown' : 'Hidden'}</button>
+            <button onclick="deleteBanner(${i})" class="bg-rose-100 text-rose-700 font-bold px-2 py-1 rounded-lg text-[11px]">✕</button>
+          </div>
         </div>
       `).join('');
+    }
+
+    function moveBanner(index, dir) {
+      const target = index + dir;
+      if (target < 0 || target >= appState.banners.length) return;
+      const temp = appState.banners[index];
+      appState.banners[index] = appState.banners[target];
+      appState.banners[target] = temp;
+      saveState();
+      renderAdminBanners();
+      toast(`Banner moved to #${target + 1}`);
     }
 
     async function adminUploadBanner(e) {
       const files = e.target.files;
       if (!files || !files.length) return;
-      const items = await readFilesAsDataURLs(files);
+      const items = await processSelectedMedia(files);
       items.forEach((it, idx) => {
-        appState.banners.push({
+        appState.banners.unshift({
           id: 'bn-' + Date.now() + '-' + idx,
           type: it.type.startsWith('video/') ? 'video' : 'image',
           src: it.dataUrl,
@@ -2223,9 +2361,10 @@
           active: true
         });
       });
-      saveState();
-      renderAdminBanners();
-      toast(`✅ ${items.length} Banner(s) Uploaded!`);
+      if (saveState()) {
+        renderAdminBanners();
+        toast(`✅ ${items.length} Banner(s) Added at Top!`);
+      }
       e.target.value = '';
     }
 
@@ -2251,6 +2390,7 @@
         { key: 'Sarees', label: 'Ready-Made: Sarees' },
         { key: 'Abayas', label: 'Ready-Made: Abayas' },
         { key: 'Kids Wear', label: 'Ready-Made: Kids Wear' },
+        { key: 'Stitch_All', label: 'Stitching: All Designs' },
         { key: 'Stitch_Ladies Suits', label: 'Stitching: Ladies Suits' },
         { key: 'Stitch_Blouse & Lehenga', label: 'Stitching: Blouse & Lehenga' },
         { key: 'Stitch_Zari & Zardozi Embroidery', label: 'Stitching: Zari & Zardozi' },
@@ -2275,11 +2415,12 @@
     async function updateCategoryPhoto(key, e) {
       const file = e.target.files[0];
       if (!file) return;
-      const res = await readFilesAsDataURLs([file]);
+      const res = await processSelectedMedia([file]);
       appState.categoryImages[key] = res[0].dataUrl;
-      saveState();
-      renderAdminCategories();
-      toast('✅ Category Photo Updated!');
+      if (saveState()) {
+        renderAdminCategories();
+        toast('✅ Category Photo Updated!');
+      }
     }
 
     function downloadFullBackup() {
@@ -2316,7 +2457,17 @@
       r.readAsText(file);
     }
 
-    // INIT + DIRECT PARTNER LINK (?partner=saklani) HANDLER
+    function resetToDefaultClean() {
+      localStorage.removeItem(STORAGE_KEY);
+      appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      saveState();
+      renderAdminProducts();
+      renderAdminRates();
+      renderAdminBanners();
+      renderAdminCategories();
+      toast('🔄 Storage Cleaned & Reset!');
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       syncOnlineBanner();
       if (isAdmin) document.getElementById('adminModePill').classList.remove('hidden');
