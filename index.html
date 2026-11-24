@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,35 +10,7 @@
   <meta name="description" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Custom Designer Stitching & Ready-Made Ethnic Wear | Somvaar Bazaar Wali Gali, 60 Feet Road, Nai Ki Thadi, Jaipur." />
   <title>FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Jaipur</title>
 
-  <!-- Open Graph / WhatsApp Rich Link Preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION" />
-  <meta property="og:title" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Jaipur" />
-  <meta property="og:description" content="Custom Designer Stitching, Zari-Zardozi Handwork & Ready-Made Suits, Sarees, Abayas | 2-Hour Home Fabric Pickup in Jaipur." />
-  <meta property="og:image" content="./hero_ansar_collection_1795074285344.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="./hero_ansar_collection_1795074285344.jpg" />
-
-  <!-- PWA Icons & Manifest -->
-  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-  <link rel="manifest" href="data:application/manifest+json,{
-    %22name%22:%22Firdous%20Ladies%20Tailor%20-%20Ansar%20Collection%22,
-    %22short_name%22:%22Firdous%20Tailor%22,
-    %22start_url%22:%22.%22,
-    %22display%22:%22standalone%22,
-    %22background_color%22:%22%23FFFDF9%22,
-    %22theme_color%22:%22%236A0D25%22,
-    %22icons%22:[
-      {%22src%22:%22./pwa-192x192.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},
-      {%22src%22:%22./pwa-512x512.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22},
-      {%22src%22:%22./pwa-maskable-512x512.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22,%22purpose%22:%22maskable%22}
-    ]
-  }" />
-
-  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,9 +71,7 @@
     Offline Mode Active — Saved Catalog &amp; Customer Khata Ready
   </div>
 
-  <!-- =====================================================================
-       1. STICKY ROYAL MAROON HEADER
-  ====================================================================== -->
+  <!-- 1. STICKY ROYAL MAROON HEADER -->
   <header class="sticky top-0 z-40 bg-[#6A0D25] text-[#FFFDF9] shadow-md">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
       <button onclick="openDrawer()" aria-label="Open Navigation Menu" class="w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center text-[#FFFDF9] text-xl flex-shrink-0 transition active:scale-95">
@@ -108,7 +79,6 @@
       </button>
 
       <div class="text-center min-w-0 flex-1">
-        <!-- SECRET 5-TAP OWNER TRIGGER (@qwer) -->
         <h1 id="brandSecretTrigger" class="font-display italic text-2xl sm:text-3xl font-bold tracking-wide text-[#FFFDF9] leading-none cursor-pointer truncate">
           Firdous Ladies Tailor
         </h1>
@@ -130,25 +100,21 @@
     </div>
   </header>
 
-  <!-- =====================================================================
-       2. 16:9 SWIPEABLE HERO BANNER SLIDER
-  ====================================================================== -->
+  <!-- 2. 16:9 SWIPEABLE HERO BANNER SLIDER (Video + Images) -->
   <section id="heroSection" aria-label="Featured Offers" class="max-w-5xl w-full mx-auto">
     <div id="heroBox" class="relative w-full aspect-video max-h-[340px] bg-[#2A0E17] overflow-hidden shadow">
       <div id="heroStage" class="w-full h-full relative"></div>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/50 to-transparent"></div>
 
       <button id="heroMuteBtn" onclick="toggleHeroMute(event)" class="hidden absolute top-3 right-3 z-20 bg-black/75 text-white px-3 py-1 rounded-full text-xs font-bold backdrop-blur-xs">
-        🔊 Sound
+        🔇 Muted
       </button>
 
       <div id="heroDots" class="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 bg-black/45 backdrop-blur-xs px-2.5 py-1 rounded-full flex gap-1.5"></div>
     </div>
   </section>
 
-  <!-- =====================================================================
-       3. DUAL MODE SWITCHER BAR
-  ====================================================================== -->
+  <!-- 3. DUAL MODE SWITCHER BAR -->
   <div class="sticky top-[64px] z-30 bg-[#FFFDF9] border-b border-[#EFE0E5] max-w-5xl w-full mx-auto">
     <div class="grid grid-cols-2">
       <button onclick="switchMode('stitching')" id="topDual_stitching" class="py-2.5 px-2 text-center border-b-2 border-transparent text-gray-500 transition">
@@ -167,30 +133,23 @@
     </div>
   </div>
 
-  <!-- =====================================================================
-       MAIN STOREFRONT CONTENT
-  ====================================================================== -->
+  <!-- MAIN STOREFRONT CONTENT -->
   <main class="flex-1 max-w-5xl w-full mx-auto px-4 pt-4 pb-10">
 
-    <!-- ===================================================================
-         VIEW 1: ANSAR COLLECTION (READY-MADE SHOP)
-    ==================================================================== -->
+    <!-- VIEW 1: ANSAR COLLECTION -->
     <section id="view_collection" class="space-y-4">
       <div>
         <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#2A0E17] leading-tight">Ansar Collection</h2>
         <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
-      <!-- Pill Search Bar -->
       <div class="relative">
-        <input id="prodSearch" type="text" oninput="renderProducts()" placeholder="सूट, साड़ी, अबाया, ज़री या स्टोर खोजें..." class="w-full bg-white border border-[#E5CFD6] rounded-full pl-10 pr-4 py-2.5 text-xs sm:text-sm outline-none focus:border-[#D81B60] shadow-2xs transition" />
+        <input id="prodSearch" type="text" oninput="renderProducts()" placeholder="सूट, साड़ी, अबाया, ज़री या किड्स वियर खोजें..." class="w-full bg-white border border-[#E5CFD6] rounded-full pl-10 pr-4 py-2.5 text-xs sm:text-sm outline-none focus:border-[#D81B60] shadow-2xs transition" />
         <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#D81B60]">🔍</span>
       </div>
 
-      <!-- Circular Photo Category Icons -->
       <div id="prodCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
 
-      <!-- Action Pills -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button id="btnAllDesigns" onclick="toggleOffersFilter(false)" class="px-4 py-2 rounded-full text-xs font-extrabold bg-[#6A0D25] text-white whitespace-nowrap shadow-xs transition">
           All Designs
@@ -200,7 +159,6 @@
         </button>
       </div>
 
-      <!-- Category Header + Share Category Button -->
       <div id="categoryShareStrip" class="hidden flex items-center justify-between py-1">
         <span id="categoryCountLabel" class="text-sm font-extrabold text-[#2A0E17]">Abayas (1)</span>
         <button onclick="shareCurrentCategory()" class="bg-[#FCE4EC] hover:bg-pink-200 text-[#D81B60] text-xs font-extrabold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition active:scale-95">
@@ -208,10 +166,8 @@
         </button>
       </div>
 
-      <!-- 2-Column Product Cards Grid -->
       <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
 
-      <!-- Empty Filter State -->
       <div id="emptyProductsBox" class="hidden text-center py-8 space-y-3">
         <p class="font-display text-xl font-bold text-[#2A0E17]">No matching designs found</p>
         <p class="text-xs text-gray-500">Try tapping "All" or searching another outfit style.</p>
@@ -221,16 +177,13 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         VIEW 2: STITCHING & ZARI-ZARDOZI CATALOGUE + PICKUP + TRACKING
-    ==================================================================== -->
+    <!-- VIEW 2: STITCHING & ZARI-ZARDOZI CATALOGUE -->
     <section id="view_stitching" class="hidden space-y-5">
       <div>
         <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#2A0E17] leading-tight">Stitching &amp; Zari-Zardozi Catalogue</h2>
         <p class="text-xs text-gray-500 mt-0.5">फोटो पर टैप करके डिज़ाइन चुनें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
-      <!-- Quick Jump Chips -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button onclick="jumpToStitchCat('Zari & Zardozi Embroidery')" class="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-[#6A0D25] text-[#D4AF37] whitespace-nowrap">
           ✨ ज़री कढ़ाई
@@ -243,10 +196,7 @@
         </button>
       </div>
 
-      <!-- Circular Photo Category Icons for Stitching -->
       <div id="stitchCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
-
-      <!-- Grouped Stitching & Zardozi Cards -->
       <div id="stitchingGroupedContainer" class="space-y-6"></div>
 
       <!-- WALK-IN MEASUREMENT CARD -->
@@ -272,7 +222,7 @@
         </div>
       </div>
 
-      <!-- 2-HOUR HOME FABRIC PICKUP (RAPIDO) FORM -->
+      <!-- 2-HOUR HOME FABRIC PICKUP FORM -->
       <div id="pickupSection" class="bg-white border border-[#EFE0E5] rounded-3xl p-5 space-y-3 shadow-xs scroll-mt-32">
         <div class="text-[11px] font-extrabold text-[#D81B60] flex items-center gap-1.5">
           <span>🛵</span><span>Jaipur Local Service · 2-Hour Pickup</span>
@@ -325,20 +275,16 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         VIEW 3: 9:16 VERTICAL REELS FEED
-    ==================================================================== -->
+    <!-- VIEW 3: 9:16 VERTICAL REELS FEED -->
     <section id="view_reels" class="hidden space-y-4">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#6A0D25]">Ansar Collection &amp; Tailor Reels</h2>
-        <p class="text-xs text-gray-500">9:16 Showcase — Mannequin &amp; Flat-Lay Presentation • Direct WhatsApp Order</p>
+        <p class="text-xs text-gray-500">9:16 Showcase — Video Reels &amp; Outfit Highlights • Direct WhatsApp Order</p>
       </div>
       <div id="reelsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
     </section>
 
-    <!-- ===================================================================
-         VIEW 4: PARTNER STOREFRONT (SAKLANI ZARI HANDWORK)
-    ==================================================================== -->
+    <!-- VIEW 4: PARTNER STOREFRONT (SAKLANI ZARI HANDWORK) -->
     <section id="view_partner" class="hidden space-y-5">
       <div class="bg-[#2A0E17] text-[#FFFDF9] rounded-3xl p-5 border border-[#D4AF37]/50 shadow-lg">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -357,9 +303,7 @@
 
   </main>
 
-  <!-- =====================================================================
-       6. ROYAL SHOP FOOTER
-  ====================================================================== -->
+  <!-- 6. ROYAL SHOP FOOTER -->
   <footer class="bg-[#6A0D25] text-[#FFFDF9] border-t-2 border-[#D4AF37]/60">
     <div class="max-w-5xl mx-auto px-4 py-8 space-y-5">
       <div>
@@ -407,9 +351,7 @@
     </div>
   </footer>
 
-  <!-- =====================================================================
-       7. FIXED BOTTOM 5-ICON BAR
-  ====================================================================== -->
+  <!-- 7. FIXED BOTTOM 5-ICON BAR -->
   <nav aria-label="Bottom Quick Navigation" class="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-[#EFE0E5] shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
     <div class="max-w-5xl mx-auto grid grid-cols-5 py-1.5 text-center">
       <button onclick="switchMode('collection')" id="botNav_collection" class="flex flex-col items-center justify-center text-[#D81B60] font-extrabold">
@@ -435,9 +377,7 @@
     </div>
   </nav>
 
-  <!-- =====================================================================
-       8. SLIDE-OVER SIDE DRAWER
-  ====================================================================== -->
+  <!-- 8. SLIDE-OVER SIDE DRAWER -->
   <div id="navDrawer" onclick="if(event.target===this) closeDrawer()" class="hidden fixed inset-0 z-50 bg-black/60 flex">
     <aside class="w-[82vw] max-w-xs bg-[#FFFDF9] h-full flex flex-col shadow-2xl overflow-y-auto">
       <div class="bg-[#6A0D25] text-white px-5 py-5 flex items-start justify-between">
@@ -464,7 +404,7 @@
             <span>✨</span><span>Zari &amp; Zardozi कढ़ाई (Embroidery)</span>
           </button>
           <button onclick="switchMode('partner'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
-            <span>🪡</span><span>Saklani Zari Handwork Studio</span>
+            <span>🧵</span><span>Saklani Zari Handwork</span>
           </button>
           <button onclick="switchMode('stitching'); scrollToSection('pickupSection'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
             <span>🛵</span><span>2-Hour Home Pickup (Rapido)</span>
@@ -517,7 +457,7 @@
     </aside>
   </div>
 
-  <!-- PRODUCT / DESIGN DETAIL MODAL -->
+  <!-- PRODUCT DETAIL MODAL -->
   <div id="detailModal" onclick="if(event.target===this) closeDetailModal()" class="hidden fixed inset-0 z-50 bg-black/70 flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div id="detailModalContent" class="bg-[#FFFDF9] w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92vh] overflow-y-auto p-5 shadow-2xl animate-slide-up"></div>
   </div>
@@ -630,7 +570,7 @@
       <!-- ADMIN TAB 5: BACKUP & LOGOUT -->
       <div id="admPanel_backup" class="adm-panel hidden space-y-4">
         <div class="bg-white p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
-          <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Google Drive Sync &amp; JSON Backup (Stark8144@gmail.com)</h3>
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Google Drive Sync &amp; JSON Backup</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <button onclick="downloadFullBackup()" class="bg-[#6A0D25] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-xs">⬇️ Download Shop Backup (.json)</button>
             <button onclick="downloadAndOpenDrive()" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-3 rounded-xl shadow-xs">☁️ Download &amp; Open Google Drive</button>
@@ -688,66 +628,110 @@
     const STORAGE_KEY = 'firdous_ansar_single_v6';
     const AUTH_KEY = 'firdous_ansar_admin_v6';
 
-    // सभी 18 असली GitHub फ़ोटो फ़ाइल नाम (Exact 18 Uploaded Filenames)
-    const PHOTOS = {
-      heroTailor: './hero_jaipur_tailoring_1795074271100.jpg',
-      heroCollection: './hero_ansar_collection_1795074285344.jpg',
-      bandhaniSuit: './prod_bandhani_suit_1795074263591.jpg',
-      bandhaniDetail: './prod_bandhani_detail_1795075798504.jpg',
-      abaya: './prod_luxury_abaya_1795074262293.jpg',
-      abayaDetail: './prod_abaya_detail_1795075800376.jpg',
-      banarasiSaree: './prod_banarasi_saree_1795074265649.jpg',
-      banarasiDetail: './prod_banarasi_detail_1795075802168.jpg',
-      kidsWear: './prod_kids_kurta_set_1795074262625.jpg',
-      kidsDetail: './prod_kids_detail_1795075801085.jpg',
-      liningSuit: './stitch_astar_lining_suit_1795085950240.jpg',
-      anarkaliSuit: './stitch_anarkali_palazzo_suit_1795085950547.jpg',
-      simpleBlouse: './stitch_simple_blouse_1795085953376.jpg',
-      paddedBlouse: './stitch_astar_padded_blouse_1795085951113.jpg',
-      blouseLehenga: './stitch_blouse_lehenga_1795075801312.jpg',
-      zardoziNeck: './zari_zardozi_neck_work_1795085949826.jpg',
-      zardoziSaree: './zari_zardozi_saree_border_1795085951874.jpg',
-      zardoziLehenga: './zari_zardozi_lehenga_work_1795085952551.jpg'
+    // Exact filenames from FIRDOUS TAILOR Google Drive folder (for GitHub Pages root deployment)
+    const MEDIA = {
+      bannerVideo16x9: 'gemini_generated_video_ada08316.mp4',
+      heroTailor: 'hero_jaipur_tailoring_1795074271100.jpg',
+      heroCollection: 'hero_ansar_collection_1795074285344.jpg',
+      bandhaniSuit: 'prod_bandhani_suit_1795074263591.jpg',
+      bandhaniDetail: 'prod_bandhani_detail_1795075798504.jpg',
+      abaya: 'prod_luxury_abaya_1795074262293.jpg',
+      abayaDetail: 'prod_abaya_detail_1795075800376.jpg',
+      banarasiSaree: 'prod_banarasi_saree_1795074265649.jpg',
+      banarasiDetail: 'prod_banarasi_detail_1795075802168.jpg',
+      kidsWear: 'prod_kids_kurta_set_1795074262625.jpg',
+      kidsDetail: 'prod_kids_detail_1795075801085.jpg',
+      liningSuit: 'stitch_astar_lining_suit_1795085950240.jpg',
+      anarkaliSuit: 'stitch_anarkali_palazzo_suit_1795085950547.jpg',
+      blouseLehenga: 'stitch_blouse_lehenga_1795075801312.jpg',
+      simpleBlouse: 'stitch_simple_blouse_1795085953376.jpg',
+      paddedBlouse: 'stitch_astar_padded_blouse_1795085951113.jpg',
+      zardoziNeck: 'zari_zardozi_neck_work_1795085949826.jpg',
+      zardoziSaree: 'zari_zardozi_saree_border_1795085951874.jpg',
+      zardoziLehenga: 'zari_zardozi_lehenga_work_1795085952551.jpg',
+      indigoSuit: [
+        'ms_8nu1v_512_658844149.jpg',
+        'ms_4tyfs_512_658844149.jpg',
+        'ms_2nkz8_512_658844149.jpg',
+        'ms_sr1gm_512_658844149.jpg'
+      ],
+      lavenderSuit: [
+        'ms_uotnb_512_969209288.jpg',
+        'ms_a1uei_512_969209288.jpg',
+        'ms_dcsng_512_969209288.jpg',
+        'ms_rshqs_512_969209288.jpg'
+      ],
+      blackCoord: [
+        'ms_ko15g_512_1042880843.jpg',
+        'ms_zqlr7_512_1042880843.jpg',
+        'ms_apfb6_512_1042880843.jpg',
+        'ms_hhzx4_512_1042880843.jpg'
+      ],
+      whitePeplum: [
+        'ms_kgdqn_512_1145961625.jpg',
+        'ms_ljxxu_512_1145961625.jpg',
+        'ms_hwxvp_512_1145961625.jpg'
+      ],
+      boysKurtaJacket: [
+        'ms_ebp7h_512_1125105824.jpg',
+        'ms_chrhx_512_1125105824.jpg',
+        'ms_kzyu8_512_1125105824.jpg'
+      ],
+      navyTealSaree: [
+        'ms_n3d6d_512_1165946885.jpg',
+        'ms_qv9gq_512_1165946885.jpg',
+        'ms_iub5u_512_1165946885.jpg',
+        'ms_grfoo_512_1165946885.jpg'
+      ]
     };
 
     const DEFAULT_STATE = {
       banners: [
-        { id: 'b1', type: 'image', src: PHOTOS.heroTailor, title: 'Firdous Ladies Tailor — Custom Designer Stitching', active: true },
-        { id: 'b2', type: 'image', src: PHOTOS.heroCollection, title: 'Ansar Collection — Jaipuri Suits, Sarees & Abayas', active: true }
+        { id: 'b0', type: 'video', src: MEDIA.bannerVideo16x9, title: 'Firdous Ladies Tailor — 16:9 Showcase Video', active: true },
+        { id: 'b1', type: 'image', src: MEDIA.heroTailor, title: 'Firdous Ladies Tailor — Custom Designer Stitching', active: true },
+        { id: 'b2', type: 'image', src: MEDIA.heroCollection, title: 'Ansar Collection — Jaipuri Suits, Sarees & Abayas', active: true }
       ],
+      // Add 9:16 vertical video filenames here when uploaded to GitHub Pages
+      reels: [],
       products: [
-        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Ideal for daily wear and festive gatherings.', images: [PHOTOS.bandhaniSuit, PHOTOS.bandhaniDetail, PHOTOS.liningSuit], inStock: true },
-        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida / Imported Georgette', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece luxury modest abaya with generous flared flow and fine antique gold embroidery along the neckline and wide cuffs.', images: [PHOTOS.abaya, PHOTOS.abayaDetail], inStock: true },
-        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Banarasi Silk Saree (5.5m) + 1 Matching Unstitched Blouse Piece (0.8m)', description: 'Festive Rose Pink and Royal Maroon Banarasi silk saree woven with rich antique gold zari brocade motifs.', images: [PHOTOS.banarasiSaree, PHOTOS.banarasiDetail, PHOTOS.zardoziSaree], inStock: true },
-        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Silk-Blend Woven Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Embroidered Maroon Nehru Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36 for weddings, Eid, and festivals.', images: [PHOTOS.kidsWear, PHOTOS.kidsDetail], inStock: true }
+        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Ideal for daily wear and festive gatherings.', images: [MEDIA.bandhaniSuit, MEDIA.bandhaniDetail, MEDIA.liningSuit], inStock: true },
+        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida / Imported Georgette', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece luxury modest abaya with generous flared flow and fine antique gold embroidery along the neckline and wide cuffs.', images: [MEDIA.abaya, MEDIA.abayaDetail], inStock: true },
+        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Banarasi Silk Saree (5.5m) + 1 Matching Unstitched Blouse Piece (0.8m)', description: 'Festive Rose Pink and Royal Maroon Banarasi silk saree woven with rich antique gold zari brocade motifs.', images: [MEDIA.banarasiSaree, MEDIA.banarasiDetail, MEDIA.simpleBlouse], inStock: true },
+        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Silk-Blend Woven Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Embroidered Maroon Nehru Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36 for weddings, Eid, and festivals.', images: [MEDIA.kidsWear, MEDIA.kidsDetail], inStock: true },
+        { id: 'prod-105', code: '105', sku: 'AC-IND-105', name: 'Indigo Blue & White Jaipuri Printed Cotton Suit Set', category: 'Ladies Suits', price: 449, originalPrice: 699, isOffer: true, sizes: ['S', 'M', 'L', 'XL', 'XXL'], fabric: 'Pure Jaipuri Cotton', setIncludes: '1 Printed Kurta, 1 Matching Pant, 1 Cotton Dupatta', description: 'Comfortable indigo-blue block-printed cotton 3-piece suit set with matching pant and soft dupatta for daily and office wear.', images: MEDIA.indigoSuit, inStock: true },
+        { id: 'prod-106', code: '106', sku: 'AC-LAV-106', name: 'Lavender Embroidered Festive Suit with Scallop Dupatta', category: 'Ladies Suits', price: 749, originalPrice: 1099, isOffer: true, sizes: ['S', 'M', 'L', 'XL', 'XXL'], fabric: 'Silk Blend with Zari Embroidery', setIncludes: '1 Embroidered Kurta, 1 Pant, 1 Scallop-Border Organza Dupatta', description: 'Elegant lavender festive suit featuring heavy neckline embroidery and a delicate scalloped dupatta.', images: MEDIA.lavenderSuit, inStock: true },
+        { id: 'prod-107', code: '107', sku: 'AC-BLK-107', name: 'Black Embroidered Short Kurti & Palazzo Co-ord Set', category: 'Ladies Suits', price: 549, originalPrice: 799, isOffer: true, sizes: ['S', 'M', 'L', 'XL', 'XXL'], fabric: 'Soft Rayon Slub', setIncludes: '1 Embroidered Short Kurti + 1 Matching Embroidered Palazzo', description: 'Stylish black co-ord kurti and palazzo set with fine white floral embroidery along the hem and trouser border.', images: MEDIA.blackCoord, inStock: true },
+        { id: 'prod-108', code: '108', sku: 'AC-WHT-108', name: 'White Floral Printed Peplum Kurti & Palazzo Set', category: 'Ladies Suits', price: 529, originalPrice: 799, isOffer: false, sizes: ['S', 'M', 'L', 'XL', 'XXL'], fabric: 'Breathable Cotton Blend', setIncludes: '1 Flared Peplum Kurti + 1 Matching Printed Palazzo', description: 'Fresh white floral peplum kurti paired with wide-leg palazzo pants for effortless summer and daytime elegance.', images: MEDIA.whitePeplum, inStock: true },
+        { id: 'prod-109', code: '109', sku: 'AC-KDJ-109', name: 'Boys Cream Kurta-Pajama with Floral Nehru Jacket', category: 'Kids Wear', price: 479, originalPrice: 699, isOffer: true, sizes: ['16', '18', '20', '22', '24', '26', '28', '30', '32'], fabric: 'Soft Cotton Kurta & Woven Nehru Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Floral Woven Waistcoat', description: 'Charming cream kurta-pajama paired with a pastel floral Nehru jacket, ideal for weddings and family celebrations.', images: MEDIA.boysKurtaJacket, inStock: true },
+        { id: 'prod-110', code: '110', sku: 'AC-SAR-110', name: 'Navy Blue & Teal Printed Silk Saree with Matching Fall', category: 'Sarees', price: 699, originalPrice: 999, isOffer: true, sizes: ['Free Size (5.5m + Blouse + Fall)'], fabric: 'Soft Art Silk with Zari Border', setIncludes: '1 Printed Silk Saree, 1 Unstitched Blouse Piece, 1 Matching Saree Fall', description: 'Graceful navy blue and teal floral art-silk saree finished with a classic woven border and matching saree fall.', images: MEDIA.navyTealSaree, inStock: true }
       ],
       rates: [
-        { id: 'r1', category: 'Ladies Suits', name: 'Simple Suit & Salwar (Bina Astar)', sub: 'सिंपल सूट और सलवार (बिना अस्तर)', price: 300, days: '2–3 Days', img: PHOTOS.bandhaniSuit, neck: 'Round / Sweetheart / Paan / V-Neck' },
-        { id: 'r2', category: 'Ladies Suits', name: 'Lining / Astar Suit', sub: 'अस्तर वाला सूट परफेक्ट फिटिंग के साथ', price: 450, days: '3–4 Days', img: PHOTOS.liningSuit, neck: 'Piped V-Neck / Keyhole / Sweetheart' },
-        { id: 'r3', category: 'Ladies Suits', name: 'Pant / Palazzo / Afghani Salwar Suit', sub: 'पैंट, प्लाज़ो या अफ़गानी सलवार सूट', price: 350, days: '2–3 Days', img: PHOTOS.anarkaliSuit, neck: 'Boat Neck / Round / Mandarin Collar' },
-        { id: 'r4', category: 'Ladies Suits', name: 'Anarkali / Umbrella Frock Suit', sub: 'अनारकली और अंब्रेला फ्लेयर फ्रॉक सूट', price: 600, days: '4–5 Days', img: PHOTOS.anarkaliSuit, neck: 'Boat Neck / Deep Back Dori' },
-        { id: 'r5', category: 'Ladies Suits', name: 'Suit Alteration / Fitting', sub: 'सूट ऑल्टरेशन और लूज़-टाइट फिटिंग', price: 80, days: 'Same Day / 1 Day', img: PHOTOS.heroTailor, neck: 'Gala Deep/Short Adjustment' },
-        { id: 'r6', category: 'Blouse & Lehenga', name: 'Simple Blouse (Bina Astar)', sub: 'सिंपल ब्लाउज़ (बिना अस्तर)', price: 200, days: '2 Days', img: PHOTOS.simpleBlouse, neck: 'Front Round / Back U / Paan / Square' },
-        { id: 'r7', category: 'Blouse & Lehenga', name: 'Astar / Padded Designer Blouse', sub: 'अस्तर और पैडेड डिज़ाइनर ब्लाउज़ (डोरी व लटकन)', price: 350, days: '3 Days', img: PHOTOS.paddedBlouse, neck: 'Sweetheart / Deep Matka / Back Dori' },
-        { id: 'r8', category: 'Blouse & Lehenga', name: 'Bridal / Party Wear Lehenga Stitching', sub: 'ब्राइडल व पार्टी वियर लहंगा-चोली सिलाई', price: 1200, days: '5–7 Days', img: PHOTOS.blouseLehenga, neck: 'Double Astar + Can-Can + Side Zip' },
-        { id: 'r9', category: 'Zari & Zardozi Embroidery', name: 'Suit Gala & Sleeve Zari-Zardozi Work', sub: 'सूट के गले और आस्तीन पर हाथ की ज़री-ज़रदोज़ी कढ़ाई', price: 650, days: '3–4 Days', img: PHOTOS.zardoziNeck, neck: 'Front Gala Bel-Buti / Heavy V-Panel' },
-        { id: 'r10', category: 'Zari & Zardozi Embroidery', name: 'Bridal Blouse Zari-Zardozi Handwork', sub: 'ब्राइडल व पार्टी ब्लाउज़ पर हैवी बैक गला व बाजू ज़रदोज़ी कढ़ाई', price: 1200, days: '4–6 Days', img: PHOTOS.paddedBlouse, neck: 'Deep Back Bridal Arch / Sweetheart' },
-        { id: 'r11', category: 'Zari & Zardozi Embroidery', name: 'Saree Border & Pallu Zari-Zardozi Work', sub: 'साड़ी के बॉर्डर और पल्लू पर रॉयल ज़री-ज़रदोज़ी कढ़ाई', price: 1800, days: '5–7 Days', img: PHOTOS.zardoziSaree, neck: '4-Side Scallop / Floral Zari Border' },
-        { id: 'r12', category: 'Zari & Zardozi Embroidery', name: 'Bridal Lehenga Heavy Zardozi Work', sub: 'लहंगा कली और घेरे पर शाही जयपुरी ज़री-ज़रदोज़ी हैंडवर्क', price: 3500, days: '7–12 Days', img: PHOTOS.zardoziLehenga, neck: '12–16 Kali Balanced Heavy Dabka & Zari' },
-        { id: 'r13', category: 'Zari & Zardozi Embroidery', name: 'Dupatta Zari Border & Buti Handwork', sub: 'दुपट्टे के चारों तरफ़ ज़री-ज़रदोज़ी बॉर्डर और छोटी बूटी', price: 750, days: '3–4 Days', img: PHOTOS.zardoziSaree, neck: 'Bridal Matha-Patti Heavy Border' },
-        { id: 'r14', category: 'Zari & Zardozi Embroidery', name: 'Custom Zari, Zardozi & Karchob Handwork', sub: 'आपकी पसंद के फोटो अनुसार कस्टम ज़री व करचोब कढ़ाई', price: 0, priceLabel: 'Custom Quote', days: 'As per design', img: PHOTOS.zardoziNeck, neck: 'Koi bhi Photo WhatsApp par Bhejein' },
-        { id: 'r15', category: 'Kids & Gents', name: 'Kids Kurta-Pajama Set', sub: 'बच्चों का कुर्ता-पाजामा सेट (सॉफ्ट फिटिंग)', price: 250, days: '2–3 Days', img: PHOTOS.kidsWear, neck: 'Mandarin Band / Round Placket' },
-        { id: 'r16', category: 'Kids & Gents', name: 'Gents Kurta-Pajama', sub: 'जेंट्स कुर्ता-पाजामा कस्टम नाप व कॉलर फिनिशिंग', price: 400, days: '3–4 Days', img: PHOTOS.kidsDetail, neck: 'Mandarin Band / Pathani Collar' },
-        { id: 'r17', category: 'Finishing & Handwork', name: 'Dupatta / Saree Pico', sub: 'दुपट्टा या साड़ी पीको फिनिशिंग (मज़बूत और बारीक)', price: 30, days: 'Same Day', img: PHOTOS.banarasiSaree, neck: 'Matching Silk / Cotton Thread Roll' },
-        { id: 'r18', category: 'Finishing & Handwork', name: 'Interlock (Full Suit)', sub: 'पूरे सूट की मज़बूत इंटरलॉक (धागे निकलने से बचाव)', price: 40, days: 'Same Day', img: PHOTOS.heroTailor, neck: '3-Thread Neat Industrial Overlock' },
-        { id: 'r19', category: 'Finishing & Handwork', name: 'Saree Fall & Pico Combo', sub: 'साड़ी फॉल और पीको कॉम्बो (मैचिंग कॉटन फॉल)', price: 80, days: 'Same Day / 1 Day', img: PHOTOS.banarasiDetail, neck: 'Invisible Hand-Hemmed Top Stitch' },
-        { id: 'r20', category: 'Finishing & Handwork', name: 'Kaj-Button / Hook-Eye (Per Set)', sub: 'काज-बटन या हुक-आई (प्रति सेट)', price: 20, days: 'Same Day', img: PHOTOS.simpleBlouse, neck: 'Rust-Free Hooks & Hand Eye Loops' },
-        { id: 'r21', category: 'Finishing & Handwork', name: 'Custom Neck & Sleeve Piping / Patti Design', sub: 'गले और बाजू की मोरी पर कस्टम पाइपिंग / गोटा पट्टी', price: 100, days: '1–2 Days', img: PHOTOS.liningSuit, neck: 'Contrast Dori Piping / Potli Buttons' }
+        { id: 'r1', category: 'Ladies Suits', name: 'Simple Suit & Salwar (Bina Astar)', sub: 'सिंपल सूट और सलवार (बिना अस्तर)', price: 300, days: '2–3 Days', img: MEDIA.bandhaniSuit, neck: 'Round / Sweetheart / Paan / V-Neck' },
+        { id: 'r2', category: 'Ladies Suits', name: 'Lining / Astar Suit', sub: 'अस्तर वाला सूट परफेक्ट फिटिंग के साथ', price: 450, days: '3–4 Days', img: MEDIA.liningSuit, neck: 'Piped V-Neck / Keyhole / Sweetheart' },
+        { id: 'r3', category: 'Ladies Suits', name: 'Pant / Palazzo / Afghani Salwar Suit', sub: 'पैंट, प्लाज़ो या अफ़गानी सलवार सूट', price: 350, days: '2–3 Days', img: MEDIA.indigoSuit[0], neck: 'Boat Neck / Round / Mandarin Collar' },
+        { id: 'r4', category: 'Ladies Suits', name: 'Anarkali / Umbrella Frock Suit', sub: 'अनारकली और अंब्रेला फ्लेयर फ्रॉक सूट', price: 600, days: '4–5 Days', img: MEDIA.anarkaliSuit, neck: 'Boat Neck / Deep Back Dori' },
+        { id: 'r5', category: 'Ladies Suits', name: 'Suit Alteration / Fitting', sub: 'सूट ऑल्टरेशन और लूज़-टाइट फिटिंग', price: 80, days: 'Same Day / 1 Day', img: MEDIA.heroTailor, neck: 'Gala Deep/Short Adjustment' },
+        { id: 'r6', category: 'Blouse & Lehenga', name: 'Simple Blouse (Bina Astar)', sub: 'सिंपल ब्लाउज़ (बिना अस्तर)', price: 200, days: '2 Days', img: MEDIA.simpleBlouse, neck: 'Front Round / Back U / Paan / Square' },
+        { id: 'r7', category: 'Blouse & Lehenga', name: 'Astar / Padded Designer Blouse', sub: 'अस्तर और पैडेड डिज़ाइनर ब्लाउज़ (डोरी व लटकन)', price: 350, days: '3 Days', img: MEDIA.paddedBlouse, neck: 'Sweetheart / Deep Matka / Back Dori' },
+        { id: 'r8', category: 'Blouse & Lehenga', name: 'Bridal / Party Wear Lehenga Stitching', sub: 'ब्राइडल व पार्टी वियर लहंगा-चोली सिलाई', price: 1200, days: '5–7 Days', img: MEDIA.blouseLehenga, neck: 'Double Astar + Can-Can + Side Zip' },
+        { id: 'r9', category: 'Zari & Zardozi Embroidery', name: 'Suit Gala & Sleeve Zari-Zardozi Work', sub: 'सूट के गले और आस्तीन पर हाथ की ज़री-ज़रदोज़ी कढ़ाई', price: 650, days: '3–4 Days', img: MEDIA.zardoziNeck, neck: 'Front Gala Bel-Buti / Heavy V-Panel' },
+        { id: 'r10', category: 'Zari & Zardozi Embroidery', name: 'Bridal Blouse Zari-Zardozi Handwork', sub: 'ब्राइडल व पार्टी ब्लाउज़ पर हैवी बैक गला व बाजू ज़रदोज़ी कढ़ाई', price: 1200, days: '4–6 Days', img: MEDIA.paddedBlouse, neck: 'Deep Back Bridal Arch / Sweetheart' },
+        { id: 'r11', category: 'Zari & Zardozi Embroidery', name: 'Saree Border & Pallu Zari-Zardozi Work', sub: 'साड़ी के बॉर्डर और पल्लू पर रॉयल ज़री-ज़रदोज़ी कढ़ाई', price: 1800, days: '5–7 Days', img: MEDIA.zardoziSaree, neck: '4-Side Scallop / Floral Zari Border' },
+        { id: 'r12', category: 'Zari & Zardozi Embroidery', name: 'Bridal Lehenga Heavy Zardozi Work', sub: 'लहंगा कली और घेरे पर शाही जयपुरी ज़री-ज़रदोज़ी हैंडवर्क', price: 3500, days: '7–12 Days', img: MEDIA.zardoziLehenga, neck: '12–16 Kali Balanced Heavy Dabka & Zari' },
+        { id: 'r13', category: 'Zari & Zardozi Embroidery', name: 'Dupatta Zari Border & Buti Handwork', sub: 'दुपट्टे के चारों तरफ़ ज़री-ज़रदोज़ी बॉर्डर और छोटी बूटी', price: 750, days: '3–4 Days', img: MEDIA.banarasiDetail, neck: 'Bridal Matha-Patti Heavy Border' },
+        { id: 'r14', category: 'Zari & Zardozi Embroidery', name: 'Custom Zari, Zardozi & Karchob Handwork', sub: 'आपकी पसंद के फोटो अनुसार कस्टम ज़री व करचोब कढ़ाई', price: 0, priceLabel: 'Custom Quote', days: 'As per design', img: MEDIA.zardoziNeck, neck: 'Koi bhi Photo WhatsApp par Bhejein' },
+        { id: 'r15', category: 'Kids & Gents', name: 'Kids Kurta-Pajama Set', sub: 'बच्चों का कुर्ता-पाजामा सेट (सॉफ्ट फिटिंग)', price: 250, days: '2–3 Days', img: MEDIA.kidsWear, neck: 'Mandarin Band / Round Placket' },
+        { id: 'r16', category: 'Kids & Gents', name: 'Gents Kurta-Pajama', sub: 'जेंट्स कुर्ता-पाजामा कस्टम नाप व कॉलर फिनिशिंग', price: 400, days: '3–4 Days', img: MEDIA.boysKurtaJacket[0], neck: 'Mandarin Band / Pathani Collar' },
+        { id: 'r17', category: 'Finishing & Handwork', name: 'Dupatta / Saree Pico', sub: 'दुपट्टा या साड़ी पीको फिनिशिंग (मज़बूत और बारीक)', price: 30, days: 'Same Day', img: MEDIA.banarasiSaree, neck: 'Matching Silk / Cotton Thread Roll' },
+        { id: 'r18', category: 'Finishing & Handwork', name: 'Interlock (Full Suit)', sub: 'पूरे सूट की मज़बूत इंटरलॉक (धागे निकलने से बचाव)', price: 40, days: 'Same Day', img: MEDIA.heroTailor, neck: '3-Thread Neat Industrial Overlock' },
+        { id: 'r19', category: 'Finishing & Handwork', name: 'Saree Fall & Pico Combo', sub: 'साड़ी फॉल और पीको कॉम्बो (मैचिंग कॉटन फॉल)', price: 80, days: 'Same Day / 1 Day', img: MEDIA.navyTealSaree[3], neck: 'Invisible Hand-Hemmed Top Stitch' },
+        { id: 'r20', category: 'Finishing & Handwork', name: 'Kaj-Button / Hook-Eye (Per Set)', sub: 'काज-बटन या हुक-आई (प्रति सेट)', price: 20, days: 'Same Day', img: MEDIA.simpleBlouse, neck: 'Rust-Free Hooks & Hand Eye Loops' },
+        { id: 'r21', category: 'Finishing & Handwork', name: 'Custom Neck & Sleeve Piping / Patti Design', sub: 'गले और बाजू की मोरी पर कस्टम पाइपिंग / गोटा पट्टी', price: 100, days: '1–2 Days', img: MEDIA.liningSuit, neck: 'Contrast Dori Piping / Potli Buttons' }
       ],
       partnerWorks: [
-        { id: 'pw1', title: 'Royal Bridal Neck & Sleeve Zardozi Work', tag: 'Karchob Adda Handwork', price: '₹650 onwards', img: PHOTOS.zardoziNeck, desc: 'Pure antique gold dabka, nakshi, moti & kasab embroidery for bridal suits and blouses.' },
-        { id: 'pw2', title: 'Jaipuri Scallop Zari Saree Border & Pallu', tag: 'Saree Handwork', price: '₹1,800 onwards', img: PHOTOS.zardoziSaree, desc: 'Fine gold zari, resham & pearl floral vine handwork along full saree border and heavy pallu.' },
-        { id: 'pw3', title: 'Bridal Kali Lehenga Heavy Zardozi Panel', tag: 'Bridal Lehenga', price: '₹3,500 onwards', img: PHOTOS.zardoziLehenga, desc: 'Royal Rajasthani karchob zardozi with kundan, moti and heavy dabka work across lehenga kalis.' }
+        { id: 'pw1', title: 'Royal Bridal Neck & Sleeve Zardozi Work', tag: 'Karchob Adda Handwork', price: '₹650 onwards', img: MEDIA.zardoziNeck, desc: 'Pure antique gold dabka, nakshi, moti & kasab embroidery for bridal suits and blouses.' },
+        { id: 'pw2', title: 'Jaipuri Scallop Zari Saree Border & Pallu', tag: 'Saree Handwork', price: '₹1,800 onwards', img: MEDIA.zardoziSaree, desc: 'Fine gold zari, resham & pearl floral vine handwork along full saree border and heavy pallu.' },
+        { id: 'pw3', title: 'Bridal Kali Lehenga Heavy Zardozi Panel', tag: 'Bridal Lehenga', price: '₹3,500 onwards', img: MEDIA.zardoziLehenga, desc: 'Royal Rajasthani karchob zardozi with kundan, moti and heavy dabka work across lehenga kalis.' }
       ],
       customers: [
         { id: 'c1', orderId: 'FLT-101', customerName: 'Rukhsar Bano', phone: '9829011223', garment: 'Lining / Astar Suit + Piping', naap: 'Length: 42", Chest: 38", Waist: 34", Hip: 41", Sleeve: 16", Gala: F 6.5" / B 7"', deliveryDate: '2026-11-23', status: 'Stitching', totalBill: 550, amountPaid: 300 },
@@ -755,17 +739,39 @@
       ]
     };
 
-    let appState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || DEFAULT_STATE;
-    let isAdmin = localStorage.getItem(AUTH_KEY) === 'true';
+    function loadStorage(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function loadAuth() {
+      try {
+        return localStorage.getItem(AUTH_KEY) === 'true';
+      } catch (e) {
+        return false;
+      }
+    }
+
+    let appState = loadStorage(STORAGE_KEY, DEFAULT_STATE);
+    let isAdmin = loadAuth();
     let selectedProdCat = 'All';
     let onlyOffersFilter = false;
     let selectedStitchCat = 'All';
     let slideIndex = 0;
     let slideTimer = null;
     let isHeroVisible = true;
-    let isHeroMuted = false;
+    let isHeroMuted = true;
+    let currentReceiptCustomer = null;
 
-    function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {}
+    }
 
     function toast(msg) {
       const el = document.getElementById('toast');
@@ -792,7 +798,7 @@
     window.addEventListener('online', syncOnlineBanner);
     window.addEventListener('offline', syncOnlineBanner);
 
-    // 5-TAP SECRET ADMIN LOGIN (@qwer)
+    // 5-TAP SECRET ADMIN LOGIN
     (function initSecretTrigger() {
       const el = document.getElementById('brandSecretTrigger');
       let taps = [];
@@ -822,7 +828,7 @@
     function checkAdminPass() {
       if (document.getElementById('adminPassInput').value.trim() === ADMIN_PASS) {
         isAdmin = true;
-        localStorage.setItem(AUTH_KEY, 'true');
+        try { localStorage.setItem(AUTH_KEY, 'true'); } catch (e) {}
         closePasscodeModal();
         document.getElementById('adminModePill').classList.remove('hidden');
         openAdminModal();
@@ -834,13 +840,13 @@
 
     function adminLogout() {
       isAdmin = false;
-      localStorage.removeItem(AUTH_KEY);
+      try { localStorage.removeItem(AUTH_KEY); } catch (e) {}
       document.getElementById('adminModePill').classList.add('hidden');
       closeAdminModal();
       toast('Admin Logged Out');
     }
 
-    // HERO SLIDER + SMART AUTO-PAUSE / RESUME
+    // HERO SLIDER + AUTO-PAUSE
     function syncHeroPlayback() {
       const vid = document.querySelector('#heroStage video');
       if (!vid) return;
@@ -870,8 +876,9 @@
       const muteBtn = document.getElementById('heroMuteBtn');
 
       if (item.type === 'video') {
-        stage.innerHTML = `<video src="${item.src}" class="w-full h-full object-cover" playsinline ${isHeroMuted ? 'muted' : ''}></video>`;
+        stage.innerHTML = `<video src="${item.src}" class="w-full h-full object-cover" autoplay playsinline ${isHeroMuted ? 'muted' : ''}></video>`;
         muteBtn.classList.remove('hidden');
+        muteBtn.textContent = isHeroMuted ? '🔇 Muted' : '🔊 Sound';
         const vid = stage.querySelector('video');
         vid.onended = () => nextHeroSlide();
         syncHeroPlayback();
@@ -921,7 +928,7 @@
       }, { passive: true });
     })();
 
-    // NAVIGATION & SCROLL HELPERS
+    // NAVIGATION
     function switchMode(mode) {
       ['collection', 'stitching', 'reels', 'partner'].forEach(m => {
         document.getElementById(`view_${m}`).classList.toggle('hidden', m !== mode);
@@ -956,9 +963,7 @@
     function openDrawer() { document.getElementById('navDrawer').classList.remove('hidden'); }
     function closeDrawer() { document.getElementById('navDrawer').classList.add('hidden'); }
 
-    // =====================================================================
     // TAB 1: ANSAR COLLECTION
-    // =====================================================================
     function toggleOffersFilter(val) {
       onlyOffersFilter = val;
       document.getElementById('btnAllDesigns').className = !val
@@ -989,11 +994,11 @@
 
     function renderProducts() {
       const circleCats = [
-        { name: 'All', img: PHOTOS.heroCollection },
-        { name: 'Ladies Suits', img: PHOTOS.bandhaniSuit },
-        { name: 'Sarees', img: PHOTOS.banarasiSaree },
-        { name: 'Abayas', img: PHOTOS.abaya },
-        { name: 'Kids Wear', img: PHOTOS.kidsWear }
+        { name: 'All', img: MEDIA.heroCollection },
+        { name: 'Ladies Suits', img: MEDIA.bandhaniSuit },
+        { name: 'Sarees', img: MEDIA.banarasiSaree },
+        { name: 'Abayas', img: MEDIA.abaya },
+        { name: 'Kids Wear', img: MEDIA.kidsWear }
       ];
 
       document.getElementById('prodCircleCategories').innerHTML = circleCats.map(c => {
@@ -1056,23 +1061,30 @@
       }).join('');
     }
 
+    function setDetailMainImg(src, thumbEl) {
+      const main = document.getElementById('detailMainImage');
+      if (main) main.src = src;
+      document.querySelectorAll('.detail-thumb').forEach(t => t.classList.remove('ring-2', 'ring-[#D81B60]'));
+      if (thumbEl) thumbEl.classList.add('ring-2', 'ring-[#D81B60]');
+    }
+
     function openProductDetail(id) {
       const p = appState.products.find(x => x.id === id);
       if (!p) return;
+      const thumbs = (p.images && p.images.length > 1)
+        ? `<div class="flex gap-2 overflow-x-auto no-scrollbar pt-1">${p.images.map((src, i) => `
+            <img src="${src}" onclick="setDetailMainImg('${src}', this)" class="detail-thumb w-14 h-14 rounded-xl object-cover border border-[#E5CFD6] cursor-pointer flex-shrink-0 ${i === 0 ? 'ring-2 ring-[#D81B60]' : ''}" />
+          `).join('')}</div>`
+        : '';
+
       document.getElementById('detailModalContent').innerHTML = `
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-xs font-extrabold text-[#D81B60] uppercase">${p.category} • SKU: ${p.sku || p.code}</span>
             <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-gray-100 font-bold text-xs">✕</button>
           </div>
-          <img id="modalMainImg" src="${p.images[0]}" alt="${p.name}" class="w-full aspect-square object-cover rounded-2xl border border-[#EFE0E5]" />
-          ${p.images.length > 1 ? `
-            <div class="flex gap-2 overflow-x-auto no-scrollbar">
-              ${p.images.map(imgUrl => `
-                <img src="${imgUrl}" onclick="document.getElementById('modalMainImg').src='${imgUrl}'" class="w-16 h-16 rounded-xl object-cover border-2 border-[#EFE0E5] hover:border-[#D81B60] cursor-pointer flex-shrink-0" />
-              `).join('')}
-            </div>
-          ` : ''}
+          <img id="detailMainImage" src="${p.images[0]}" alt="${p.name}" class="w-full aspect-square object-cover rounded-2xl border border-[#EFE0E5]" />
+          ${thumbs}
           <div>
             <h2 class="font-display text-2xl font-bold text-[#2A0E17]">${p.name}</h2>
             <p class="text-lg font-extrabold text-[#6A0D25] mt-1">₹${p.price} ${p.originalPrice ? `<span class="text-xs text-gray-400 line-through font-normal">₹${p.originalPrice}</span>` : ''}</p>
@@ -1123,9 +1135,7 @@
       syncHeroPlayback();
     }
 
-    // =====================================================================
     // TAB 2: STITCHING & ZARI CATALOGUE
-    // =====================================================================
     function jumpToStitchCat(cat) {
       selectedStitchCat = cat;
       renderStitching();
@@ -1134,11 +1144,11 @@
     function renderStitching() {
       const stitchCircleList = [
         { name: 'All', label: 'All Designs', isAllIcon: true },
-        { name: 'Ladies Suits', img: PHOTOS.liningSuit },
-        { name: 'Blouse & Lehenga', img: PHOTOS.paddedBlouse },
-        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: PHOTOS.zardoziNeck },
-        { name: 'Kids & Gents', img: PHOTOS.kidsWear },
-        { name: 'Finishing & Handwork', label: 'Finishing', img: PHOTOS.heroTailor }
+        { name: 'Ladies Suits', img: MEDIA.liningSuit },
+        { name: 'Blouse & Lehenga', img: MEDIA.blouseLehenga },
+        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: MEDIA.zardoziNeck },
+        { name: 'Kids & Gents', img: MEDIA.kidsWear },
+        { name: 'Finishing & Handwork', label: 'Finishing', img: MEDIA.heroTailor }
       ];
 
       document.getElementById('stitchCircleCategories').innerHTML = stitchCircleList.map(c => {
@@ -1264,13 +1274,27 @@
       }).join('');
     }
 
-    // TAB 3: 9:16 REELS
+    // TAB 3: 9:16 REELS (Supports 9:16 Videos + Outfit Showcase Cards)
     function renderReels() {
-      const items = [
+      const videoCards = (appState.reels || []).map(v => `
+        <div class="relative aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-lg border border-[#D4AF37]/30">
+          <video src="${v.src}" class="w-full h-full object-cover" controls playsinline muted loop></video>
+          <div class="absolute top-3 left-3 bg-[#6A0D25]/90 text-[#D4AF37] text-[10px] font-extrabold px-2.5 py-1 rounded-full">9:16 Video Reel</div>
+          <div class="absolute bottom-4 left-4 right-4 text-white space-y-2 pointer-events-none">
+            <h3 class="font-bold text-sm leading-snug drop-shadow">${v.title}</h3>
+            <button onclick="openWaDirect(\`${v.wa}\`)" class="pointer-events-auto w-full bg-[#25D366] text-white font-extrabold text-xs py-2.5 rounded-xl shadow transition active:scale-95">
+              📲 Buy / Book on WhatsApp
+            </button>
+          </div>
+        </div>
+      `);
+
+      const showcaseItems = [
         ...appState.products.map(p => ({ title: p.name, sub: `Ansar Collection • ₹${p.price}`, img: p.images[0], wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.` })),
         ...appState.rates.slice(0, 4).map(r => ({ title: r.name, sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`, img: r.img, wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.` }))
       ];
-      document.getElementById('reelsContainer').innerHTML = items.map(it => `
+
+      const photoCards = showcaseItems.map(it => `
         <div class="relative aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-lg border border-[#D4AF37]/30">
           <img src="${it.img}" alt="${it.title}" loading="lazy" class="w-full h-full object-cover opacity-90" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
@@ -1283,7 +1307,9 @@
             </button>
           </div>
         </div>
-      `).join('');
+      `);
+
+      document.getElementById('reelsContainer').innerHTML = [...videoCards, ...photoCards].join('');
     }
 
     // TAB 4: PARTNER STOREFRONT
@@ -1306,9 +1332,7 @@
       `).join('');
     }
 
-    // =====================================================================
-    // ADMIN DASHBOARD FUNCTIONS
-    // =====================================================================
+    // ADMIN DASHBOARD
     function openAdminModal() {
       document.getElementById('adminModal').classList.remove('hidden');
       renderAdminKhata();
@@ -1488,10 +1512,8 @@
       const targetPhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone)).replace(/\D/g, '');
       if (targetPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number daalein!');
       const msg = buildReceiptShareText(c);
-      launchWhatsAppApp(targetPhone, msg, appType);
+      launchWhatsAppApp(targetPhone, msg, appType || 'whatsapp');
     }
-
-    let currentReceiptCustomer = null;
 
     function openDigitalReceipt(id) {
       const c = appState.customers.find(x => x.id === id);
@@ -1696,7 +1718,7 @@
         r.onload = () => finishAdd(r.result);
         r.readAsDataURL(file);
       } else {
-        finishAdd(PHOTOS.bandhaniSuit);
+        finishAdd(MEDIA.bandhaniSuit);
       }
     }
 
@@ -1801,7 +1823,7 @@
           renderAdminKhata();
           renderAdminProducts();
           toast('✅ Backup Restored!');
-        } catch {
+        } catch (err) {
           toast('❌ Invalid Backup File');
         }
       };
@@ -1819,3 +1841,4 @@
   </script>
 </body>
 </html>
+```
