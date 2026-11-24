@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION" />
   <meta property="og:title" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Jaipur" />
   <meta property="og:description" content="Custom Designer Stitching, Zari-Zardozi Handwork & Ready-Made Suits, Sarees, Abayas | 2-Hour Home Fabric Pickup in Jaipur." />
-  <meta property="og:image" content="https://stark8141-ctrl.github.io/firdous-tailor/hero_jaipur_tailoring_179504271100.jpg" />
+  <meta property="og:image" content="./hero_ansar_collection_1795074285344.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://stark8141-ctrl.github.io/firdous-tailor/hero_jaipur_tailoring_179504271100.jpg" />
+  <meta name="twitter:image" content="./hero_ansar_collection_1795074285344.jpg" />
 
   <!-- PWA Icons & Manifest -->
   <link rel="icon" type="image/svg+xml" href="./icon.svg" />
@@ -37,7 +37,7 @@
     ]
   }" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -81,23 +81,17 @@
     .font-royal { font-family: 'Cinzel Decorative', 'Cormorant Garamond', serif; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0.4; }
+      to { transform: translateY(0); opacity: 1; }
     }
-    .animate-fade-in { animation: fadeIn 0.22s ease-out forwards; }
-    @media print {
-      body * { visibility: hidden !important; }
-      #combinedPdfModal, #combinedPdfModal * { visibility: visible !important; }
-      #combinedPdfModal { position: absolute !important; inset: 0 !important; background: white !important; padding: 0 !important; }
-      .no-print { display: none !important; }
-    }
+    .animate-slide-up { animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   </style>
 </head>
 <body class="bg-[#FFFDF9] text-[#2A0E17] min-h-screen flex flex-col pb-16">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[140] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[100] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
 
   <!-- Offline Indicator -->
   <div id="offlineStrip" class="hidden bg-[#D81B60] text-white text-center text-[11px] font-bold py-1 px-3">
@@ -105,7 +99,7 @@
   </div>
 
   <!-- =====================================================================
-       1. STICKY ROYAL MAROON HEADER (Exact Original + 5-Tap Hidden Trigger)
+       1. STICKY ROYAL MAROON HEADER
   ====================================================================== -->
   <header class="sticky top-0 z-40 bg-[#6A0D25] text-[#FFFDF9] shadow-md">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
@@ -114,7 +108,7 @@
       </button>
 
       <div class="text-center min-w-0 flex-1">
-        <!-- SECRET 5-TAP OWNER / PARTNER TRIGGER (@qwer) -->
+        <!-- SECRET 5-TAP OWNER TRIGGER (@qwer) -->
         <h1 id="brandSecretTrigger" class="font-display italic text-2xl sm:text-3xl font-bold tracking-wide text-[#FFFDF9] leading-none cursor-pointer truncate">
           Firdous Ladies Tailor
         </h1>
@@ -127,7 +121,7 @@
         <button id="adminModePill" onclick="openAdminModal()" class="hidden bg-[#D4AF37] text-[#2A0E17] text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow">
           ⚙️
         </button>
-        <button onclick="shareWebsiteWithPreview()" aria-label="Share or Chat on WhatsApp" class="w-10 h-10 rounded-full bg-[#D81B60] hover:bg-pink-700 border border-[#D4AF37]/40 flex items-center justify-center text-white shadow transition active:scale-95">
+        <button onclick="openWaDirect('Shop Visit / Custom Stitching & Collection Inquiry - Firdous Ladies Tailor, Nai Ki Thadi Jaipur')" aria-label="Chat on WhatsApp" class="w-10 h-10 rounded-full bg-[#D81B60] hover:bg-pink-700 border border-[#D4AF37]/40 flex items-center justify-center text-white shadow transition active:scale-95">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
           </svg>
@@ -137,7 +131,7 @@
   </header>
 
   <!-- =====================================================================
-       2. 16:9 SWIPEABLE HERO BANNER SLIDER (Exact Original Full-Width Fixed)
+       2. 16:9 SWIPEABLE HERO BANNER SLIDER
   ====================================================================== -->
   <section id="heroSection" aria-label="Featured Offers" class="max-w-5xl w-full mx-auto">
     <div id="heroBox" class="relative w-full aspect-video max-h-[340px] bg-[#2A0E17] overflow-hidden shadow">
@@ -153,9 +147,9 @@
   </section>
 
   <!-- =====================================================================
-       3. DUAL MODE SWITCHER BAR (Exact Original Two Modes)
+       3. DUAL MODE SWITCHER BAR
   ====================================================================== -->
-  <div id="dualModeBar" class="sticky top-[64px] z-30 bg-[#FFFDF9] border-b border-[#EFE0E5] max-w-5xl w-full mx-auto">
+  <div class="sticky top-[64px] z-30 bg-[#FFFDF9] border-b border-[#EFE0E5] max-w-5xl w-full mx-auto">
     <div class="grid grid-cols-2">
       <button onclick="switchMode('stitching')" id="topDual_stitching" class="py-2.5 px-2 text-center border-b-2 border-transparent text-gray-500 transition">
         <div class="text-xs sm:text-sm font-extrabold flex items-center justify-center gap-1.5">
@@ -184,16 +178,19 @@
     <section id="view_collection" class="space-y-4">
       <div>
         <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#2A0E17] leading-tight">Ansar Collection</h2>
-        <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें — पूरी डिटेल देखें और सीधे WhatsApp पर ऑर्डर करें</p>
+        <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
+      <!-- Pill Search Bar -->
       <div class="relative">
         <input id="prodSearch" type="text" oninput="renderProducts()" placeholder="सूट, साड़ी, अबाया, ज़री या स्टोर खोजें..." class="w-full bg-white border border-[#E5CFD6] rounded-full pl-10 pr-4 py-2.5 text-xs sm:text-sm outline-none focus:border-[#D81B60] shadow-2xs transition" />
         <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#D81B60]">🔍</span>
       </div>
 
+      <!-- Circular Photo Category Icons -->
       <div id="prodCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
 
+      <!-- Action Pills -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button id="btnAllDesigns" onclick="toggleOffersFilter(false)" class="px-4 py-2 rounded-full text-xs font-extrabold bg-[#6A0D25] text-white whitespace-nowrap shadow-xs transition">
           All Designs
@@ -203,6 +200,7 @@
         </button>
       </div>
 
+      <!-- Category Header + Share Category Button -->
       <div id="categoryShareStrip" class="hidden flex items-center justify-between py-1">
         <span id="categoryCountLabel" class="text-sm font-extrabold text-[#2A0E17]">Abayas (1)</span>
         <button onclick="shareCurrentCategory()" class="bg-[#FCE4EC] hover:bg-pink-200 text-[#D81B60] text-xs font-extrabold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition active:scale-95">
@@ -210,38 +208,16 @@
         </button>
       </div>
 
+      <!-- 2-Column Product Cards Grid -->
       <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
 
+      <!-- Empty Filter State -->
       <div id="emptyProductsBox" class="hidden text-center py-8 space-y-3">
         <p class="font-display text-xl font-bold text-[#2A0E17]">No matching designs found</p>
         <p class="text-xs text-gray-500">Try tapping "All" or searching another outfit style.</p>
         <button onclick="resetProductFilters()" class="bg-[#6A0D25] text-white text-xs font-extrabold px-5 py-2.5 rounded-full shadow">
           Show All Designs
         </button>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         VIEW 1B: FULL-PAGE PRODUCT DETAIL VIEW (MEESHO / AMAZON STYLE)
-    ==================================================================== -->
-    <section id="view_product_page" class="hidden space-y-6 animate-fade-in">
-      <div class="flex items-center justify-between gap-2 border-b border-[#EFE0E5] pb-3">
-        <button onclick="closeFullProductPage()" class="inline-flex items-center gap-1.5 bg-[#FCE4EC] hover:bg-pink-200 text-[#6A0D25] text-xs font-extrabold px-4 py-2 rounded-full transition active:scale-95">
-          <span>←</span><span>Back to Catalog</span>
-        </button>
-        <button onclick="shareActiveProductPage()" class="inline-flex items-center gap-1.5 bg-[#25D366] text-white text-xs font-extrabold px-3.5 py-2 rounded-full shadow-xs">
-          <span>📤</span><span>Share Photo + Link</span>
-        </button>
-      </div>
-
-      <div id="fullProductMainContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-
-      <div class="pt-6 border-t border-[#EFE0E5] space-y-3">
-        <div>
-          <h3 class="font-display text-2xl font-bold text-[#2A0E17]">Similar &amp; Recommended Designs</h3>
-          <p class="text-xs text-gray-500">मिलते-जुलते अन्य शानदार डिज़ाइन देखें</p>
-        </div>
-        <div id="similarProductsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"></div>
       </div>
     </section>
 
@@ -254,6 +230,7 @@
         <p class="text-xs text-gray-500 mt-0.5">फोटो पर टैप करके डिज़ाइन चुनें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
+      <!-- Quick Jump Chips -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
         <button onclick="jumpToStitchCat('Zari & Zardozi Embroidery')" class="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-[#6A0D25] text-[#D4AF37] whitespace-nowrap">
           ✨ ज़री कढ़ाई
@@ -266,7 +243,10 @@
         </button>
       </div>
 
+      <!-- Circular Photo Category Icons for Stitching -->
       <div id="stitchCircleCategories" class="flex items-start gap-4 overflow-x-auto no-scrollbar py-1"></div>
+
+      <!-- Grouped Stitching & Zardozi Cards -->
       <div id="stitchingGroupedContainer" class="space-y-6"></div>
 
       <!-- WALK-IN MEASUREMENT CARD -->
@@ -328,4 +308,1514 @@
         </div>
       </div>
 
-      <!-- TRACK YOUR STITCHING ORDER 
+      <!-- TRACK YOUR STITCHING ORDER -->
+      <div id="trackSection" class="bg-white border border-[#EFE0E5] rounded-3xl p-5 space-y-3 shadow-xs scroll-mt-32">
+        <h3 class="font-display text-2xl font-bold text-[#2A0E17]">Track Your Stitching Order</h3>
+        <p class="text-xs text-gray-500">अपने ऑर्डर का स्टेटस देखें — Phone Number या Order ID (जैसे FLT-101) डालें</p>
+        <div class="flex gap-2">
+          <div class="relative flex-1">
+            <input id="trackOrderInput" type="text" onkeydown="if(event.key==='Enter') trackCustomerOrder()" placeholder="Phone Number or Order ID" class="w-full border border-[#E5CFD6] rounded-full pl-9 pr-3 py-2.5 text-xs outline-none focus:border-[#6A0D25]" />
+            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-gray-400">🔍</span>
+          </div>
+          <button onclick="trackCustomerOrder()" class="bg-[#6A0D25] text-white font-extrabold text-xs px-5 py-2.5 rounded-full">
+            Track
+          </button>
+        </div>
+        <div id="trackOrderResult" class="hidden pt-2"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 3: 9:16 VERTICAL REELS FEED
+    ==================================================================== -->
+    <section id="view_reels" class="hidden space-y-4">
+      <div>
+        <h2 class="font-display italic text-2xl font-bold text-[#6A0D25]">Ansar Collection &amp; Tailor Reels</h2>
+        <p class="text-xs text-gray-500">9:16 Showcase — Mannequin &amp; Flat-Lay Presentation • Direct WhatsApp Order</p>
+      </div>
+      <div id="reelsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 4: PARTNER STOREFRONT (SAKLANI ZARI HANDWORK)
+    ==================================================================== -->
+    <section id="view_partner" class="hidden space-y-5">
+      <div class="bg-[#2A0E17] text-[#FFFDF9] rounded-3xl p-5 border border-[#D4AF37]/50 shadow-lg">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="bg-[#D4AF37] text-[#2A0E17] text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Verified Handwork Partner</span>
+            <h2 class="font-display italic text-2xl sm:text-3xl font-bold text-[#D4AF37] mt-1">Saklani Zari Handwork</h2>
+            <p class="text-xs text-[#FCE4EC]/85 mt-1">Authentic Karchob Adda Zari, Dabka, Nakshi, Saree Border &amp; Bridal Lehenga Zardozi Work • Jaipur</p>
+          </div>
+          <button onclick="openWaDirect('Saklani Zari Handwork - Karchob Adda Zardozi & Bridal Embroidery Inquiry')" class="bg-[#25D366] hover:bg-green-600 text-white text-xs font-extrabold px-4 py-2.5 rounded-full shadow transition">
+            💬 Order Zari Work on WA
+          </button>
+        </div>
+      </div>
+      <div id="partnerWorksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       6. ROYAL SHOP FOOTER
+  ====================================================================== -->
+  <footer class="bg-[#6A0D25] text-[#FFFDF9] border-t-2 border-[#D4AF37]/60">
+    <div class="max-w-5xl mx-auto px-4 py-8 space-y-5">
+      <div>
+        <h3 class="font-display text-xl sm:text-2xl font-bold text-[#FFFDF9] tracking-wide">FIRDOUS LADIES TAILOR - ANSAR COLLECTION</h3>
+        <p class="text-xs text-[#FCE4EC]/85 mt-1">Custom Designer Stitching &amp; Ready-Made Ethnic Wear | Jaipur</p>
+      </div>
+
+      <div class="space-y-2.5">
+        <a href="https://maps.app.goo.gl/paVoyt3dwd57Diqm8" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#D4AF37] hover:bg-yellow-400 text-[#2A0E17] text-xs font-extrabold px-5 py-3 rounded-xl shadow">
+          <span>⭐ Rate Us 5-Stars on Google</span>
+        </a>
+        <a href="https://maps.app.goo.gl/paVoyt3dwd57Diqm8" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#D81B60] hover:bg-pink-700 text-white text-xs font-extrabold px-5 py-3 rounded-xl shadow sm:ml-2">
+          <span>📍 Open Shop Location on Google Maps</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/15 text-xs text-[#FCE4EC]/90">
+        <div class="flex items-start gap-2.5">
+          <span class="text-[#D4AF37] text-base">📍</span>
+          <div>
+            <strong class="text-[#D4AF37] block">Shop Address</strong>
+            Somvaar Bazaar Wali Gali, 60 Feet Road, Nai Ki Thadi, Jaipur Road, Jaipur, Rajasthan
+          </div>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <span class="text-[#D4AF37] text-base">⏰</span>
+          <div>
+            <strong class="text-[#D4AF37] block">Shop Timings</strong>
+            Open All Days (Somvaar se Ravivaar): 10:00 AM – 9:00 PM
+          </div>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <span class="text-[#D4AF37] text-base">📞</span>
+          <div>
+            <strong class="text-[#D4AF37] block">Direct Contact</strong>
+            <a href="tel:916350517782" class="font-bold underline">+91 6350517782</a>
+            <span class="block text-[11px] text-[#FCE4EC]/75">WhatsApp Orders &amp; 2-Hour Home Fabric Pickup</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-[11px] text-center text-[#FCE4EC]/60 pt-3 border-t border-white/10">
+        © 2026 Firdous Ladies Tailor - Ansar Collection, Jaipur. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       7. FIXED BOTTOM 5-ICON BAR
+  ====================================================================== -->
+  <nav aria-label="Bottom Quick Navigation" class="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-[#EFE0E5] shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
+    <div class="max-w-5xl mx-auto grid grid-cols-5 py-1.5 text-center">
+      <button onclick="switchMode('collection')" id="botNav_collection" class="flex flex-col items-center justify-center text-[#D81B60] font-extrabold">
+        <span class="text-base leading-none">🛍️</span>
+        <span class="text-[10px] mt-1">Shop</span>
+      </button>
+      <button onclick="switchMode('stitching')" id="botNav_stitching" class="flex flex-col items-center justify-center text-gray-500 font-bold">
+        <span class="text-base leading-none">✂️</span>
+        <span class="text-[10px] mt-1">Stitching</span>
+      </button>
+      <button onclick="switchMode('reels')" id="botNav_reels" class="flex flex-col items-center justify-center text-gray-500 font-bold">
+        <span class="text-base leading-none">🎞️</span>
+        <span class="text-[10px] mt-1">Reels</span>
+      </button>
+      <button onclick="switchMode('stitching'); scrollToSection('pickupSection');" id="botNav_pickup" class="flex flex-col items-center justify-center text-gray-500 font-bold">
+        <span class="text-base leading-none">🛵</span>
+        <span class="text-[10px] mt-1">Pickup</span>
+      </button>
+      <button onclick="switchMode('stitching'); scrollToSection('trackSection');" id="botNav_track" class="flex flex-col items-center justify-center text-gray-500 font-bold">
+        <span class="text-base leading-none">🔍</span>
+        <span class="text-[10px] mt-1">Track</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- =====================================================================
+       8. SLIDE-OVER SIDE DRAWER
+  ====================================================================== -->
+  <div id="navDrawer" onclick="if(event.target===this) closeDrawer()" class="hidden fixed inset-0 z-50 bg-black/60 flex">
+    <aside class="w-[82vw] max-w-xs bg-[#FFFDF9] h-full flex flex-col shadow-2xl overflow-y-auto">
+      <div class="bg-[#6A0D25] text-white px-5 py-5 flex items-start justify-between">
+        <div>
+          <div class="font-display italic text-2xl font-bold leading-none">Firdous Ladies Tailor</div>
+          <div class="text-[10px] uppercase tracking-[0.15em] text-[#D4AF37] font-bold mt-1.5">ANSAR COLLECTION • JAIPUR</div>
+        </div>
+        <button onclick="closeDrawer()" class="w-8 h-8 rounded-full bg-white/10 text-white font-bold">✕</button>
+      </div>
+
+      <div class="p-4 space-y-5 text-xs font-bold text-[#2A0E17] flex-1">
+        <div class="space-y-1">
+          <div class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-2 pb-1">Quick Menu</div>
+          <button onclick="switchMode('collection'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>🛍️</span><span>Ready-Made Collection</span>
+          </button>
+          <button onclick="switchMode('reels'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>🎞️</span><span>Video Reels (वीडियो रील्स)</span>
+          </button>
+          <button onclick="switchMode('stitching'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>✂️</span><span>Custom Stitching Catalogue</span>
+          </button>
+          <button onclick="switchMode('stitching'); jumpToStitchCat('Zari & Zardozi Embroidery'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>✨</span><span>Zari &amp; Zardozi कढ़ाई (Embroidery)</span>
+          </button>
+          <button onclick="switchMode('partner'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>🪡</span><span>Saklani Zari Handwork Studio</span>
+          </button>
+          <button onclick="switchMode('stitching'); scrollToSection('pickupSection'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>🛵</span><span>2-Hour Home Pickup (Rapido)</span>
+          </button>
+          <button onclick="switchMode('stitching'); scrollToSection('trackSection'); closeDrawer();" class="w-full text-left px-2.5 py-2.5 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>🔍</span><span>Track Order Status</span>
+          </button>
+        </div>
+
+        <hr class="border-[#EFE0E5]" />
+
+        <div class="space-y-1">
+          <div class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-2 pb-1">Shop Categories</div>
+          <button onclick="switchMode('collection'); selectedProdCat='Ladies Suits'; renderProducts(); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center justify-between text-sm">
+            <span>Ladies Suits</span><span class="text-gray-400">→</span>
+          </button>
+          <button onclick="switchMode('collection'); selectedProdCat='Sarees'; renderProducts(); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center justify-between text-sm">
+            <span>Sarees</span><span class="text-gray-400">→</span>
+          </button>
+          <button onclick="switchMode('collection'); selectedProdCat='Abayas'; renderProducts(); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center justify-between text-sm">
+            <span>Abayas</span><span class="text-gray-400">→</span>
+          </button>
+          <button onclick="switchMode('collection'); selectedProdCat='Kids Wear'; renderProducts(); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center justify-between text-sm">
+            <span>Kids Wear</span><span class="text-gray-400">→</span>
+          </button>
+        </div>
+
+        <hr class="border-[#EFE0E5]" />
+
+        <div class="space-y-1.5">
+          <div class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-2 pb-1">Connect &amp; Visit</div>
+          <button onclick="openWaDirect('WhatsApp Shop Appointment - Firdous Ladies Tailor'); closeDrawer();" class="w-full text-left px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>💬</span><span>WhatsApp Shop Appointment</span>
+          </button>
+          <a href="tel:916350517782" class="px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>📞</span><span>Call +91 6350517782</span>
+          </a>
+          <a href="https://maps.app.goo.gl/paVoyt3dwd57Diqm8" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>📍</span><span>Shop Location (Google Maps)</span>
+          </a>
+          <a href="https://maps.app.goo.gl/paVoyt3dwd57Diqm8" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl hover:bg-[#FCE4EC] flex items-center gap-3 text-sm">
+            <span>⭐</span><span>Rate Us 5-Stars on Google</span>
+          </a>
+          <div class="px-2.5 pt-2 text-[11px] font-normal text-gray-500 space-y-1">
+            <p>⏰ Open All Days (Somvaar se Ravivaar): 10:00 AM – 9:00 PM</p>
+            <p>Somvaar Bazaar Wali Gali, 60 Feet Road, Nai Ki Thadi, Jaipur Road, Jaipur, Rajasthan</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- PRODUCT / DESIGN DETAIL MODAL -->
+  <div id="detailModal" onclick="if(event.target===this) closeDetailModal()" class="hidden fixed inset-0 z-50 bg-black/70 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="detailModalContent" class="bg-[#FFFDF9] w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92vh] overflow-y-auto p-5 shadow-2xl animate-slide-up"></div>
+  </div>
+
+  <!-- SECRET ADMIN PASSCODE MODAL (@qwer) -->
+  <div id="passcodeModal" onclick="if(event.target===this) closePasscodeModal()" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-xs rounded-3xl p-6 border-2 border-[#D4AF37]/60 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-display italic text-xl font-bold text-[#6A0D25]">🔐 Tailor &amp; Shop Admin</h3>
+        <button onclick="closePasscodeModal()" class="w-8 h-8 rounded-full bg-[#FCE4EC] text-[#6A0D25] font-bold text-xs">✕</button>
+      </div>
+      <p class="text-xs text-gray-600">Enter owner passcode to manage Khata, Naap &amp; Catalog:</p>
+      <input id="adminPassInput" type="password" onkeydown="if(event.key==='Enter') checkAdminPass()" placeholder="Enter Passcode" class="w-full bg-white border border-[#E5CFD6] rounded-xl px-4 py-3 text-sm text-[#2A0E17] font-semibold outline-none focus:border-[#6A0D25] shadow-2xs" />
+      <p id="adminPassErr" class="hidden text-xs text-[#D81B60] font-bold">❌ Wrong passcode!</p>
+      <button onclick="checkAdminPass()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3.5 rounded-xl shadow-md transition">Unlock Admin Dashboard</button>
+    </div>
+  </div>
+
+  <!-- FULL-SCREEN 5-TAB ADMIN DASHBOARD -->
+  <div id="adminModal" class="hidden fixed inset-0 z-50 bg-[#FFFDF9] text-[#2A0E17] flex flex-col">
+    <div class="px-4 py-3.5 bg-[#6A0D25] text-[#FFFDF9] border-b border-[#D4AF37]/50 flex items-center justify-between shadow-sm">
+      <div>
+        <h2 class="font-display italic text-2xl font-bold text-[#D4AF37] leading-none">⚙️ Firdous Tailor &amp; Ansar Admin</h2>
+        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Customer Khata • Smart Naap Parser • Digital Receipt • Catalog</p>
+      </div>
+      <button onclick="closeAdminModal()" class="bg-white/15 hover:bg-white/25 text-white px-4 py-2 rounded-full text-xs font-extrabold transition">← Back to Shop</button>
+    </div>
+
+    <div class="px-3 py-2.5 border-b border-[#EFE0E5] flex gap-2 overflow-x-auto no-scrollbar bg-[#FCE4EC]/60">
+      <button onclick="switchAdminTab('khata')" id="admTab_khata" class="adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs">1. Khata &amp; Smart Naap</button>
+      <button onclick="switchAdminTab('products')" id="admTab_products" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">2. Ready-Made Stock</button>
+      <button onclick="switchAdminTab('rates')" id="admTab_rates" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">3. Silai Rates</button>
+      <button onclick="switchAdminTab('banners')" id="admTab_banners" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">4. 16:9 Banners</button>
+      <button onclick="switchAdminTab('backup')" id="admTab_backup" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">5. Drive Backup &amp; Logout</button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-4 max-w-4xl w-full mx-auto space-y-5">
+
+      <!-- ADMIN TAB 1: KHATA & SMART NAAP PARSER -->
+      <div id="admPanel_khata" class="adm-panel space-y-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-display text-xl font-bold text-[#6A0D25]">🪄 Smart Naap Parser &amp; New Order</h3>
+            <button onclick="autoParseSmartNaap()" class="bg-[#D81B60] hover:bg-pink-700 text-white text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-xs transition">⚡ Auto-Fill from Text</button>
+          </div>
+          <textarea id="smartNaapRawInput" rows="3" placeholder="WhatsApp se aaya customer ka raw naap paste karein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-2xl p-3 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]"></textarea>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+            <input id="khName" type="text" placeholder="Customer Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khPhone" type="tel" maxlength="10" placeholder="Mobile / WhatsApp No. *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khAltWaPhone" type="tel" maxlength="10" placeholder="Alag WhatsApp No. (Optional)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khGarment" type="text" placeholder="Garment / Design *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khBill" type="number" placeholder="Total Bill ₹ *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khPaid" type="number" placeholder="Advance Paid ₹" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <input id="khDelivery" type="date" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="khNaapNotes" type="text" placeholder="Measurements (Length, Chest, Waist, Hip, Sleeve, Gala)..." class="sm:col-span-2 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-medium text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+          </div>
+          <button onclick="addCustomerOrder()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Save Customer Order &amp; Naap</button>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 pt-1">
+          <h3 class="font-display text-xl font-bold text-[#2A0E17]">📒 Customer Khata &amp; Order Status</h3>
+          <input id="khataSearch" type="text" oninput="renderAdminKhata()" placeholder="Search name / order ID..." class="bg-white border border-[#E5CFD6] rounded-full px-4 py-2 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+        </div>
+        <div id="adminKhataList" class="space-y-3"></div>
+      </div>
+
+      <!-- ADMIN TAB 2: PRODUCTS -->
+      <div id="admPanel_products" class="adm-panel hidden space-y-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Ready-Made Product</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <input id="newProdName" type="text" placeholder="Product Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <select id="newProdCat" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]">
+              <option value="Ladies Suits">Ladies Suits</option>
+              <option value="Sarees">Sarees</option>
+              <option value="Abayas">Abayas</option>
+              <option value="Kids Wear">Kids Wear</option>
+            </select>
+            <input id="newProdPrice" type="number" placeholder="Selling Price ₹ *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="newProdOrigPrice" type="number" placeholder="MRP ₹ (Optional)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <input id="newProdSizes" type="text" placeholder="Sizes (e.g. S, M, L, XL, XXL)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+            <label class="bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2.5 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
+              📷 Select Product Photo
+              <input id="newProdPhoto" type="file" accept="image/*" class="hidden" />
+            </label>
+          </div>
+          <button onclick="adminAddProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Add to Ready-Made Catalog</button>
+        </div>
+        <div id="adminProductsList" class="space-y-2.5"></div>
+      </div>
+
+      <!-- ADMIN TAB 3: RATES -->
+      <div id="admPanel_rates" class="adm-panel hidden space-y-3">
+        <h3 class="font-display text-xl font-bold text-[#6A0D25]">✂️ Edit Silai &amp; Zardozi Rates</h3>
+        <div id="adminRatesList" class="space-y-2.5"></div>
+      </div>
+
+      <!-- ADMIN TAB 4: BANNERS -->
+      <div id="admPanel_banners" class="adm-panel hidden space-y-4">
+        <label class="block bg-white border-2 border-dashed border-[#D81B60]/50 rounded-3xl p-5 text-center cursor-pointer shadow-2xs hover:bg-[#FCE4EC]/30 transition">
+          <span class="text-sm font-extrabold text-[#6A0D25]">+ Upload 16:9 Banner Image or Video</span>
+          <input type="file" accept="image/*,video/*" onchange="adminUploadBanner(event)" class="hidden" />
+        </label>
+        <div id="adminBannersList" class="space-y-2"></div>
+      </div>
+
+      <!-- ADMIN TAB 5: BACKUP & LOGOUT -->
+      <div id="admPanel_backup" class="adm-panel hidden space-y-4">
+        <div class="bg-white p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Google Drive Sync &amp; JSON Backup (Stark8144@gmail.com)</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <button onclick="downloadFullBackup()" class="bg-[#6A0D25] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-xs">⬇️ Download Shop Backup (.json)</button>
+            <button onclick="downloadAndOpenDrive()" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-3 rounded-xl shadow-xs">☁️ Download &amp; Open Google Drive</button>
+          </div>
+          <div class="pt-2">
+            <label class="text-xs font-bold text-gray-700 block mb-1">Restore Backup File (.json):</label>
+            <input type="file" accept=".json" onchange="restoreFullBackup(event)" class="w-full text-xs bg-[#FFFDF9] border border-[#E5CFD6] p-2.5 rounded-xl text-[#2A0E17]" />
+          </div>
+        </div>
+        <button onclick="adminLogout()" class="w-full bg-[#D81B60] hover:bg-pink-700 text-white font-extrabold text-xs py-3.5 rounded-xl shadow-md">🚪 Logout Admin</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CANVAS RECEIPT PREVIEW MODAL -->
+  <div id="receiptModal" onclick="if(event.target===this) closeReceiptModal()" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-3 overflow-y-auto">
+    <div class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-sm rounded-3xl p-4 space-y-3 shadow-2xl border border-[#D4AF37]/40 my-auto">
+      <div class="flex items-center justify-between">
+        <h3 class="font-display italic text-lg font-bold text-[#6A0D25]">🧾 Customer Digital Receipt</h3>
+        <button onclick="closeReceiptModal()" class="w-7 h-7 rounded-full bg-[#FCE4EC] text-[#6A0D25] font-bold text-xs">✕</button>
+      </div>
+      <canvas id="receiptCanvas" width="600" height="840" class="w-full rounded-2xl border border-[#E5CFD6] shadow-xs"></canvas>
+
+      <div class="bg-[#FCE4EC]/55 border border-[#F8BBD0] rounded-2xl p-2.5 space-y-1.5">
+        <div class="flex items-center justify-between">
+          <label class="text-[11px] font-extrabold text-[#6A0D25]">📲 Customer WhatsApp Number:</label>
+          <span class="text-[10px] text-gray-500">Alag ho to edit karein</span>
+        </div>
+        <input id="receiptTargetWaInput" type="tel" maxlength="10" placeholder="10-digit WhatsApp Number" class="w-full bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-extrabold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="sendReceiptViaApp('whatsapp')" class="bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-xs py-2.5 px-2 rounded-xl shadow-xs flex items-center justify-center gap-1 transition active:scale-95">
+          <span>💬</span><span>WhatsApp</span>
+        </button>
+        <button onclick="sendReceiptViaApp('business')" class="bg-[#128C7E] hover:bg-teal-800 text-white font-extrabold text-xs py-2.5 px-2 rounded-xl shadow-xs flex items-center justify-center gap-1 transition active:scale-95">
+          <span>💼</span><span>WA Business</span>
+        </button>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="shareReceiptImageWithText()" class="bg-[#D81B60] hover:bg-pink-700 text-white font-extrabold text-xs py-2.5 px-2 rounded-xl shadow-xs flex items-center justify-center gap-1 transition active:scale-95">
+          <span>📤</span><span>Share Photo + Text</span>
+        </button>
+        <button onclick="downloadReceiptPng()" class="bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-2.5 px-2 rounded-xl shadow-xs flex items-center justify-center gap-1 transition active:scale-95">
+          <span>⬇️</span><span>Save Receipt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SHOP_PHONE = '916350517782';
+    const ADMIN_PASS = '@qwer';
+    const STORAGE_KEY = 'firdous_ansar_single_v6';
+    const AUTH_KEY = 'firdous_ansar_admin_v6';
+
+    // सभी 18 असली GitHub फ़ोटो फ़ाइल नाम (Exact 18 Uploaded Filenames)
+    const PHOTOS = {
+      heroTailor: './hero_jaipur_tailoring_1795074271100.jpg',
+      heroCollection: './hero_ansar_collection_1795074285344.jpg',
+      bandhaniSuit: './prod_bandhani_suit_1795074263591.jpg',
+      bandhaniDetail: './prod_bandhani_detail_1795075798504.jpg',
+      abaya: './prod_luxury_abaya_1795074262293.jpg',
+      abayaDetail: './prod_abaya_detail_1795075800376.jpg',
+      banarasiSaree: './prod_banarasi_saree_1795074265649.jpg',
+      banarasiDetail: './prod_banarasi_detail_1795075802168.jpg',
+      kidsWear: './prod_kids_kurta_set_1795074262625.jpg',
+      kidsDetail: './prod_kids_detail_1795075801085.jpg',
+      liningSuit: './stitch_astar_lining_suit_1795085950240.jpg',
+      anarkaliSuit: './stitch_anarkali_palazzo_suit_1795085950547.jpg',
+      simpleBlouse: './stitch_simple_blouse_1795085953376.jpg',
+      paddedBlouse: './stitch_astar_padded_blouse_1795085951113.jpg',
+      blouseLehenga: './stitch_blouse_lehenga_1795075801312.jpg',
+      zardoziNeck: './zari_zardozi_neck_work_1795085949826.jpg',
+      zardoziSaree: './zari_zardozi_saree_border_1795085951874.jpg',
+      zardoziLehenga: './zari_zardozi_lehenga_work_1795085952551.jpg'
+    };
+
+    const DEFAULT_STATE = {
+      banners: [
+        { id: 'b1', type: 'image', src: PHOTOS.heroTailor, title: 'Firdous Ladies Tailor — Custom Designer Stitching', active: true },
+        { id: 'b2', type: 'image', src: PHOTOS.heroCollection, title: 'Ansar Collection — Jaipuri Suits, Sarees & Abayas', active: true }
+      ],
+      products: [
+        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Ideal for daily wear and festive gatherings.', images: [PHOTOS.bandhaniSuit, PHOTOS.bandhaniDetail, PHOTOS.liningSuit], inStock: true },
+        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida / Imported Georgette', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece luxury modest abaya with generous flared flow and fine antique gold embroidery along the neckline and wide cuffs.', images: [PHOTOS.abaya, PHOTOS.abayaDetail], inStock: true },
+        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Banarasi Silk Saree (5.5m) + 1 Matching Unstitched Blouse Piece (0.8m)', description: 'Festive Rose Pink and Royal Maroon Banarasi silk saree woven with rich antique gold zari brocade motifs.', images: [PHOTOS.banarasiSaree, PHOTOS.banarasiDetail, PHOTOS.zardoziSaree], inStock: true },
+        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Silk-Blend Woven Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Embroidered Maroon Nehru Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36 for weddings, Eid, and festivals.', images: [PHOTOS.kidsWear, PHOTOS.kidsDetail], inStock: true }
+      ],
+      rates: [
+        { id: 'r1', category: 'Ladies Suits', name: 'Simple Suit & Salwar (Bina Astar)', sub: 'सिंपल सूट और सलवार (बिना अस्तर)', price: 300, days: '2–3 Days', img: PHOTOS.bandhaniSuit, neck: 'Round / Sweetheart / Paan / V-Neck' },
+        { id: 'r2', category: 'Ladies Suits', name: 'Lining / Astar Suit', sub: 'अस्तर वाला सूट परफेक्ट फिटिंग के साथ', price: 450, days: '3–4 Days', img: PHOTOS.liningSuit, neck: 'Piped V-Neck / Keyhole / Sweetheart' },
+        { id: 'r3', category: 'Ladies Suits', name: 'Pant / Palazzo / Afghani Salwar Suit', sub: 'पैंट, प्लाज़ो या अफ़गानी सलवार सूट', price: 350, days: '2–3 Days', img: PHOTOS.anarkaliSuit, neck: 'Boat Neck / Round / Mandarin Collar' },
+        { id: 'r4', category: 'Ladies Suits', name: 'Anarkali / Umbrella Frock Suit', sub: 'अनारकली और अंब्रेला फ्लेयर फ्रॉक सूट', price: 600, days: '4–5 Days', img: PHOTOS.anarkaliSuit, neck: 'Boat Neck / Deep Back Dori' },
+        { id: 'r5', category: 'Ladies Suits', name: 'Suit Alteration / Fitting', sub: 'सूट ऑल्टरेशन और लूज़-टाइट फिटिंग', price: 80, days: 'Same Day / 1 Day', img: PHOTOS.heroTailor, neck: 'Gala Deep/Short Adjustment' },
+        { id: 'r6', category: 'Blouse & Lehenga', name: 'Simple Blouse (Bina Astar)', sub: 'सिंपल ब्लाउज़ (बिना अस्तर)', price: 200, days: '2 Days', img: PHOTOS.simpleBlouse, neck: 'Front Round / Back U / Paan / Square' },
+        { id: 'r7', category: 'Blouse & Lehenga', name: 'Astar / Padded Designer Blouse', sub: 'अस्तर और पैडेड डिज़ाइनर ब्लाउज़ (डोरी व लटकन)', price: 350, days: '3 Days', img: PHOTOS.paddedBlouse, neck: 'Sweetheart / Deep Matka / Back Dori' },
+        { id: 'r8', category: 'Blouse & Lehenga', name: 'Bridal / Party Wear Lehenga Stitching', sub: 'ब्राइडल व पार्टी वियर लहंगा-चोली सिलाई', price: 1200, days: '5–7 Days', img: PHOTOS.blouseLehenga, neck: 'Double Astar + Can-Can + Side Zip' },
+        { id: 'r9', category: 'Zari & Zardozi Embroidery', name: 'Suit Gala & Sleeve Zari-Zardozi Work', sub: 'सूट के गले और आस्तीन पर हाथ की ज़री-ज़रदोज़ी कढ़ाई', price: 650, days: '3–4 Days', img: PHOTOS.zardoziNeck, neck: 'Front Gala Bel-Buti / Heavy V-Panel' },
+        { id: 'r10', category: 'Zari & Zardozi Embroidery', name: 'Bridal Blouse Zari-Zardozi Handwork', sub: 'ब्राइडल व पार्टी ब्लाउज़ पर हैवी बैक गला व बाजू ज़रदोज़ी कढ़ाई', price: 1200, days: '4–6 Days', img: PHOTOS.paddedBlouse, neck: 'Deep Back Bridal Arch / Sweetheart' },
+        { id: 'r11', category: 'Zari & Zardozi Embroidery', name: 'Saree Border & Pallu Zari-Zardozi Work', sub: 'साड़ी के बॉर्डर और पल्लू पर रॉयल ज़री-ज़रदोज़ी कढ़ाई', price: 1800, days: '5–7 Days', img: PHOTOS.zardoziSaree, neck: '4-Side Scallop / Floral Zari Border' },
+        { id: 'r12', category: 'Zari & Zardozi Embroidery', name: 'Bridal Lehenga Heavy Zardozi Work', sub: 'लहंगा कली और घेरे पर शाही जयपुरी ज़री-ज़रदोज़ी हैंडवर्क', price: 3500, days: '7–12 Days', img: PHOTOS.zardoziLehenga, neck: '12–16 Kali Balanced Heavy Dabka & Zari' },
+        { id: 'r13', category: 'Zari & Zardozi Embroidery', name: 'Dupatta Zari Border & Buti Handwork', sub: 'दुपट्टे के चारों तरफ़ ज़री-ज़रदोज़ी बॉर्डर और छोटी बूटी', price: 750, days: '3–4 Days', img: PHOTOS.zardoziSaree, neck: 'Bridal Matha-Patti Heavy Border' },
+        { id: 'r14', category: 'Zari & Zardozi Embroidery', name: 'Custom Zari, Zardozi & Karchob Handwork', sub: 'आपकी पसंद के फोटो अनुसार कस्टम ज़री व करचोब कढ़ाई', price: 0, priceLabel: 'Custom Quote', days: 'As per design', img: PHOTOS.zardoziNeck, neck: 'Koi bhi Photo WhatsApp par Bhejein' },
+        { id: 'r15', category: 'Kids & Gents', name: 'Kids Kurta-Pajama Set', sub: 'बच्चों का कुर्ता-पाजामा सेट (सॉफ्ट फिटिंग)', price: 250, days: '2–3 Days', img: PHOTOS.kidsWear, neck: 'Mandarin Band / Round Placket' },
+        { id: 'r16', category: 'Kids & Gents', name: 'Gents Kurta-Pajama', sub: 'जेंट्स कुर्ता-पाजामा कस्टम नाप व कॉलर फिनिशिंग', price: 400, days: '3–4 Days', img: PHOTOS.kidsDetail, neck: 'Mandarin Band / Pathani Collar' },
+        { id: 'r17', category: 'Finishing & Handwork', name: 'Dupatta / Saree Pico', sub: 'दुपट्टा या साड़ी पीको फिनिशिंग (मज़बूत और बारीक)', price: 30, days: 'Same Day', img: PHOTOS.banarasiSaree, neck: 'Matching Silk / Cotton Thread Roll' },
+        { id: 'r18', category: 'Finishing & Handwork', name: 'Interlock (Full Suit)', sub: 'पूरे सूट की मज़बूत इंटरलॉक (धागे निकलने से बचाव)', price: 40, days: 'Same Day', img: PHOTOS.heroTailor, neck: '3-Thread Neat Industrial Overlock' },
+        { id: 'r19', category: 'Finishing & Handwork', name: 'Saree Fall & Pico Combo', sub: 'साड़ी फॉल और पीको कॉम्बो (मैचिंग कॉटन फॉल)', price: 80, days: 'Same Day / 1 Day', img: PHOTOS.banarasiDetail, neck: 'Invisible Hand-Hemmed Top Stitch' },
+        { id: 'r20', category: 'Finishing & Handwork', name: 'Kaj-Button / Hook-Eye (Per Set)', sub: 'काज-बटन या हुक-आई (प्रति सेट)', price: 20, days: 'Same Day', img: PHOTOS.simpleBlouse, neck: 'Rust-Free Hooks & Hand Eye Loops' },
+        { id: 'r21', category: 'Finishing & Handwork', name: 'Custom Neck & Sleeve Piping / Patti Design', sub: 'गले और बाजू की मोरी पर कस्टम पाइपिंग / गोटा पट्टी', price: 100, days: '1–2 Days', img: PHOTOS.liningSuit, neck: 'Contrast Dori Piping / Potli Buttons' }
+      ],
+      partnerWorks: [
+        { id: 'pw1', title: 'Royal Bridal Neck & Sleeve Zardozi Work', tag: 'Karchob Adda Handwork', price: '₹650 onwards', img: PHOTOS.zardoziNeck, desc: 'Pure antique gold dabka, nakshi, moti & kasab embroidery for bridal suits and blouses.' },
+        { id: 'pw2', title: 'Jaipuri Scallop Zari Saree Border & Pallu', tag: 'Saree Handwork', price: '₹1,800 onwards', img: PHOTOS.zardoziSaree, desc: 'Fine gold zari, resham & pearl floral vine handwork along full saree border and heavy pallu.' },
+        { id: 'pw3', title: 'Bridal Kali Lehenga Heavy Zardozi Panel', tag: 'Bridal Lehenga', price: '₹3,500 onwards', img: PHOTOS.zardoziLehenga, desc: 'Royal Rajasthani karchob zardozi with kundan, moti and heavy dabka work across lehenga kalis.' }
+      ],
+      customers: [
+        { id: 'c1', orderId: 'FLT-101', customerName: 'Rukhsar Bano', phone: '9829011223', garment: 'Lining / Astar Suit + Piping', naap: 'Length: 42", Chest: 38", Waist: 34", Hip: 41", Sleeve: 16", Gala: F 6.5" / B 7"', deliveryDate: '2026-11-23', status: 'Stitching', totalBill: 550, amountPaid: 300 },
+        { id: 'c2', orderId: 'FLT-102', customerName: 'Sunita Sharma', phone: '9414055667', garment: 'Astar / Padded Designer Blouse', naap: 'Length: 14.5", Chest: 36", Waist: 30", Sleeve: 10.5", Gala: F 6" / B 9.5"', deliveryDate: '2026-11-22', status: 'Ready for Delivery', totalBill: 350, amountPaid: 150 }
+      ]
+    };
+
+    let appState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || DEFAULT_STATE;
+    let isAdmin = localStorage.getItem(AUTH_KEY) === 'true';
+    let selectedProdCat = 'All';
+    let onlyOffersFilter = false;
+    let selectedStitchCat = 'All';
+    let slideIndex = 0;
+    let slideTimer = null;
+    let isHeroVisible = true;
+    let isHeroMuted = false;
+
+    function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      clearTimeout(el._t);
+      el._t = setTimeout(() => el.classList.add('hidden'), 2600);
+    }
+
+    function stripGreetings(msg) {
+      return msg.replace(/^\s*(hi|hello|hey|salam|assalam[\w\s-]*|namaste)[,\s!.:-]*/i, '').trim();
+    }
+
+    function openWaDirect(text, customPhone) {
+      const clean = stripGreetings(text);
+      const ph = (customPhone || SHOP_PHONE).replace(/\D/g, '');
+      const target = ph.length === 10 ? `91${ph}` : (ph || SHOP_PHONE);
+      window.open(`https://wa.me/${target}?text=${encodeURIComponent(clean)}`, '_blank', 'noopener,noreferrer');
+    }
+
+    function syncOnlineBanner() {
+      document.getElementById('offlineStrip').classList.toggle('hidden', navigator.onLine);
+    }
+    window.addEventListener('online', syncOnlineBanner);
+    window.addEventListener('offline', syncOnlineBanner);
+
+    // 5-TAP SECRET ADMIN LOGIN (@qwer)
+    (function initSecretTrigger() {
+      const el = document.getElementById('brandSecretTrigger');
+      let taps = [];
+      el.addEventListener('click', () => {
+        const now = Date.now();
+        taps.push(now);
+        taps = taps.filter(t => now - t <= 2000);
+        if (taps.length >= 5) {
+          taps = [];
+          if (isAdmin) openAdminModal();
+          else {
+            document.getElementById('adminPassInput').value = '';
+            document.getElementById('adminPassErr').classList.add('hidden');
+            document.getElementById('passcodeModal').classList.remove('hidden');
+            syncHeroPlayback();
+            setTimeout(() => document.getElementById('adminPassInput').focus(), 100);
+          }
+        }
+      });
+    })();
+
+    function closePasscodeModal() {
+      document.getElementById('passcodeModal').classList.add('hidden');
+      syncHeroPlayback();
+    }
+
+    function checkAdminPass() {
+      if (document.getElementById('adminPassInput').value.trim() === ADMIN_PASS) {
+        isAdmin = true;
+        localStorage.setItem(AUTH_KEY, 'true');
+        closePasscodeModal();
+        document.getElementById('adminModePill').classList.remove('hidden');
+        openAdminModal();
+        toast('✅ Admin Session Activated');
+      } else {
+        document.getElementById('adminPassErr').classList.remove('hidden');
+      }
+    }
+
+    function adminLogout() {
+      isAdmin = false;
+      localStorage.removeItem(AUTH_KEY);
+      document.getElementById('adminModePill').classList.add('hidden');
+      closeAdminModal();
+      toast('Admin Logged Out');
+    }
+
+    // HERO SLIDER + SMART AUTO-PAUSE / RESUME
+    function syncHeroPlayback() {
+      const vid = document.querySelector('#heroStage video');
+      if (!vid) return;
+      const modalOpen = !document.getElementById('detailModal').classList.contains('hidden') ||
+                        !document.getElementById('adminModal').classList.contains('hidden') ||
+                        !document.getElementById('passcodeModal').classList.contains('hidden') ||
+                        !document.getElementById('receiptModal').classList.contains('hidden');
+      if (isHeroVisible && !modalOpen && !document.hidden) vid.play().catch(() => {});
+      else vid.pause();
+    }
+
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        isHeroVisible = e.isIntersecting;
+        syncHeroPlayback();
+      });
+    }, { threshold: 0.35 }).observe(document.getElementById('heroSection'));
+    document.addEventListener('visibilitychange', syncHeroPlayback);
+
+    function renderHero() {
+      clearTimeout(slideTimer);
+      const list = appState.banners.filter(b => b.active !== false);
+      if (!list.length) return;
+      if (slideIndex >= list.length) slideIndex = 0;
+      const item = list[slideIndex];
+      const stage = document.getElementById('heroStage');
+      const muteBtn = document.getElementById('heroMuteBtn');
+
+      if (item.type === 'video') {
+        stage.innerHTML = `<video src="${item.src}" class="w-full h-full object-cover" playsinline ${isHeroMuted ? 'muted' : ''}></video>`;
+        muteBtn.classList.remove('hidden');
+        const vid = stage.querySelector('video');
+        vid.onended = () => nextHeroSlide();
+        syncHeroPlayback();
+      } else {
+        muteBtn.classList.add('hidden');
+        stage.innerHTML = `<img src="${item.src}" alt="${item.title || 'Banner'}" class="w-full h-full object-cover" />`;
+        slideTimer = setTimeout(nextHeroSlide, 5000);
+      }
+
+      document.getElementById('heroDots').innerHTML = list.map((_, i) =>
+        `<button onclick="slideIndex=${i};renderHero()" aria-label="Slide ${i + 1}" class="h-1.5 rounded-full transition-all ${i === slideIndex ? 'w-5 bg-white' : 'w-1.5 bg-white/50'}"></button>`
+      ).join('');
+    }
+
+    function nextHeroSlide() {
+      const list = appState.banners.filter(b => b.active !== false);
+      if (!list.length) return;
+      slideIndex = (slideIndex + 1) % list.length;
+      renderHero();
+    }
+
+    function prevHeroSlide() {
+      const list = appState.banners.filter(b => b.active !== false);
+      if (!list.length) return;
+      slideIndex = (slideIndex - 1 + list.length) % list.length;
+      renderHero();
+    }
+
+    function toggleHeroMute(e) {
+      e.stopPropagation();
+      isHeroMuted = !isHeroMuted;
+      const vid = document.querySelector('#heroStage video');
+      if (vid) vid.muted = isHeroMuted;
+      document.getElementById('heroMuteBtn').textContent = isHeroMuted ? '🔇 Muted' : '🔊 Sound';
+    }
+
+    (function initHeroSwipe() {
+      const box = document.getElementById('heroBox');
+      let startX = 0;
+      box.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diff) > 45) {
+          if (diff < 0) nextHeroSlide();
+          else prevHeroSlide();
+        }
+      }, { passive: true });
+    })();
+
+    // NAVIGATION & SCROLL HELPERS
+    function switchMode(mode) {
+      ['collection', 'stitching', 'reels', 'partner'].forEach(m => {
+        document.getElementById(`view_${m}`).classList.toggle('hidden', m !== mode);
+      });
+
+      const stBtn = document.getElementById('topDual_stitching');
+      const coBtn = document.getElementById('topDual_collection');
+      if (mode === 'stitching') {
+        stBtn.className = 'py-2.5 px-2 text-center border-b-2 border-[#D81B60] text-[#6A0D25] transition';
+        coBtn.className = 'py-2.5 px-2 text-center border-b-2 border-transparent text-gray-500 transition';
+      } else {
+        coBtn.className = 'py-2.5 px-2 text-center border-b-2 border-[#D81B60] text-[#6A0D25] transition';
+        stBtn.className = 'py-2.5 px-2 text-center border-b-2 border-transparent text-gray-500 transition';
+      }
+
+      ['collection', 'stitching', 'reels'].forEach(b => {
+        const el = document.getElementById(`botNav_${b}`);
+        if (el) el.className = b === mode ? 'flex flex-col items-center justify-center text-[#D81B60] font-extrabold' : 'flex flex-col items-center justify-center text-gray-500 font-bold';
+      });
+
+      if (mode === 'reels') renderReels();
+      if (mode === 'partner') renderPartnerWorks();
+    }
+
+    function scrollToSection(id) {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+
+    function openDrawer() { document.getElementById('navDrawer').classList.remove('hidden'); }
+    function closeDrawer() { document.getElementById('navDrawer').classList.add('hidden'); }
+
+    // =====================================================================
+    // TAB 1: ANSAR COLLECTION
+    // =====================================================================
+    function toggleOffersFilter(val) {
+      onlyOffersFilter = val;
+      document.getElementById('btnAllDesigns').className = !val
+        ? 'px-4 py-2 rounded-full text-xs font-extrabold bg-[#6A0D25] text-white whitespace-nowrap shadow-xs transition'
+        : 'px-4 py-2 rounded-full text-xs font-extrabold bg-[#FCE4EC] text-[#6A0D25] whitespace-nowrap transition';
+      document.getElementById('btnOffersNew').className = val
+        ? 'px-4 py-2 rounded-full text-xs font-extrabold bg-[#6A0D25] text-[#D4AF37] whitespace-nowrap flex items-center gap-1.5 shadow-xs transition'
+        : 'px-4 py-2 rounded-full text-xs font-extrabold bg-[#FCE4EC] text-[#6A0D25] border border-[#F8BBD0] whitespace-nowrap flex items-center gap-1.5 transition';
+      renderProducts();
+    }
+
+    function resetProductFilters() {
+      selectedProdCat = 'All';
+      onlyOffersFilter = false;
+      document.getElementById('prodSearch').value = '';
+      toggleOffersFilter(false);
+    }
+
+    function shareCurrentCategory() {
+      const cat = selectedProdCat === 'All' ? 'Ansar Collection' : selectedProdCat;
+      const msg = `🛍️ *${cat} — Firdous Ladies Tailor (Ansar Collection, Jaipur)*\n✨ Naye designs aur rates dekhne ke liye link kholein:\n${window.location.href}`;
+      if (navigator.share) {
+        navigator.share({ title: cat, text: msg }).catch(() => openWaDirect(msg));
+      } else {
+        openWaDirect(msg);
+      }
+    }
+
+    function renderProducts() {
+      const circleCats = [
+        { name: 'All', img: PHOTOS.heroCollection },
+        { name: 'Ladies Suits', img: PHOTOS.bandhaniSuit },
+        { name: 'Sarees', img: PHOTOS.banarasiSaree },
+        { name: 'Abayas', img: PHOTOS.abaya },
+        { name: 'Kids Wear', img: PHOTOS.kidsWear }
+      ];
+
+      document.getElementById('prodCircleCategories').innerHTML = circleCats.map(c => {
+        const active = selectedProdCat === c.name;
+        return `
+          <button onclick="selectedProdCat='${c.name}';renderProducts()" class="flex flex-col items-center flex-shrink-0 w-16 group">
+            <div class="w-14 h-14 rounded-full p-0.5 transition ${active ? 'ring-2 ring-[#D81B60] bg-[#D81B60]' : 'ring-1 ring-[#E5CFD6] bg-white'}">
+              <img src="${c.img}" alt="${c.name}" class="w-full h-full rounded-full object-cover" />
+            </div>
+            <span class="text-[11px] mt-1.5 text-center leading-tight ${active ? 'font-extrabold text-[#6A0D25]' : 'font-semibold text-gray-600'}">${c.name}</span>
+          </button>`;
+      }).join('');
+
+      const q = document.getElementById('prodSearch').value.toLowerCase();
+      const filtered = appState.products.filter(p =>
+        (selectedProdCat === 'All' || p.category === selectedProdCat) &&
+        (!onlyOffersFilter || p.isOffer || (p.originalPrice && p.originalPrice > p.price)) &&
+        (p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q))
+      );
+
+      const shareStrip = document.getElementById('categoryShareStrip');
+      if (selectedProdCat !== 'All' && filtered.length > 0) {
+        shareStrip.classList.remove('hidden');
+        document.getElementById('categoryCountLabel').textContent = `${selectedProdCat} (${filtered.length})`;
+        document.getElementById('shareCatBtnText').textContent = `Share ${selectedProdCat}`;
+      } else {
+        shareStrip.classList.add('hidden');
+      }
+
+      const gridEl = document.getElementById('productsGrid');
+      const emptyEl = document.getElementById('emptyProductsBox');
+
+      if (filtered.length === 0) {
+        gridEl.innerHTML = '';
+        emptyEl.classList.remove('hidden');
+        return;
+      }
+      emptyEl.classList.add('hidden');
+
+      gridEl.innerHTML = filtered.map(p => {
+        const photoCount = p.images ? p.images.length : 1;
+        return `
+          <div onclick="openProductDetail('${p.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col ${p.inStock ? '' : 'opacity-60'}">
+            <div class="relative aspect-[4/5] bg-[#FCE4EC]/30">
+              <img src="${p.images[0]}" alt="${p.name}" loading="lazy" class="w-full h-full object-cover" />
+              ${photoCount > 1 ? `<span class="absolute top-2 right-2 bg-black/65 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">📷 ${photoCount}</span>` : ''}
+              ${!p.inStock ? `<span class="absolute inset-0 bg-black/55 text-white font-extrabold text-xs flex items-center justify-center">Out of Stock</span>` : ''}
+            </div>
+            <div class="p-3 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-bold text-[#B45309]">Ansar Collection · ${p.category}</span>
+                <h3 class="font-bold text-xs sm:text-sm text-[#2A0E17] line-clamp-2 mt-0.5">${p.name}</h3>
+              </div>
+              <div class="mt-2 pt-2 border-t border-[#EFE0E5] flex items-center justify-between">
+                <span class="font-extrabold text-sm text-[#6A0D25]">₹${p.price}</span>
+                <span class="text-[11px] font-extrabold text-[#D81B60]">Order →</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function openProductDetail(id) {
+      const p = appState.products.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('detailModalContent').innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold text-[#D81B60] uppercase">${p.category} • SKU: ${p.sku || p.code}</span>
+            <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-gray-100 font-bold text-xs">✕</button>
+          </div>
+          <img id="modalMainImg" src="${p.images[0]}" alt="${p.name}" class="w-full aspect-square object-cover rounded-2xl border border-[#EFE0E5]" />
+          ${p.images.length > 1 ? `
+            <div class="flex gap-2 overflow-x-auto no-scrollbar">
+              ${p.images.map(imgUrl => `
+                <img src="${imgUrl}" onclick="document.getElementById('modalMainImg').src='${imgUrl}'" class="w-16 h-16 rounded-xl object-cover border-2 border-[#EFE0E5] hover:border-[#D81B60] cursor-pointer flex-shrink-0" />
+              `).join('')}
+            </div>
+          ` : ''}
+          <div>
+            <h2 class="font-display text-2xl font-bold text-[#2A0E17]">${p.name}</h2>
+            <p class="text-lg font-extrabold text-[#6A0D25] mt-1">₹${p.price} ${p.originalPrice ? `<span class="text-xs text-gray-400 line-through font-normal">₹${p.originalPrice}</span>` : ''}</p>
+            <p class="text-xs text-gray-600 mt-2 leading-relaxed">${p.description}</p>
+            <div class="mt-3 bg-[#FCE4EC]/40 p-3 rounded-xl text-xs space-y-1">
+              <p><strong>Fabric:</strong> ${p.fabric}</p>
+              <p><strong>Set Includes:</strong> ${p.setIncludes}</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-[11px] font-bold text-gray-500">Select Size</label>
+              <select id="ordSize" class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-bold bg-white">
+                ${p.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-gray-500">Delivery Mode</label>
+              <select id="ordDelivery" class="w-full mt-1 border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-bold bg-white">
+                <option value="Jaipur 2-Hr Express Delivery">Jaipur 2-Hr Delivery</option>
+                <option value="Shop Pickup (Nai Ki Thadi)">Shop Pickup</option>
+                <option value="Courier All India">Courier Delivery</option>
+              </select>
+            </div>
+          </div>
+          <input id="ordAddress" type="text" placeholder="Your Name & Full Delivery Address *" class="w-full border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs outline-none focus:border-[#6A0D25]" />
+          ${p.inStock
+            ? `<button onclick="submitProductOrder('${p.id}')" class="w-full bg-[#25D366] hover:bg-green-600 text-white font-extrabold text-sm py-3.5 rounded-2xl shadow-lg transition active:scale-95">📲 Order Direct on WhatsApp</button>`
+            : `<div class="w-full bg-gray-200 text-gray-500 font-extrabold text-xs py-3 rounded-2xl text-center">Currently Out of Stock</div>`
+          }
+        </div>
+      `;
+      document.getElementById('detailModal').classList.remove('hidden');
+      syncHeroPlayback();
+    }
+
+    function submitProductOrder(id) {
+      const p = appState.products.find(x => x.id === id);
+      const size = document.getElementById('ordSize').value;
+      const del = document.getElementById('ordDelivery').value;
+      const addr = document.getElementById('ordAddress').value.trim();
+      if (!addr) return toast('⚠️ Kripya apna Naam aur Address likhein!');
+      openWaDirect(`🛍️ *Order — ${p.name}*\n\n📏 Size: ${size} | Qty: 1\n💰 Price: ₹${p.price}\n🚚 Delivery: ${del}\n📍 Address: ${addr}\n\n✅ Order Confirm Karein Please`);
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.add('hidden');
+      syncHeroPlayback();
+    }
+
+    // =====================================================================
+    // TAB 2: STITCHING & ZARI CATALOGUE
+    // =====================================================================
+    function jumpToStitchCat(cat) {
+      selectedStitchCat = cat;
+      renderStitching();
+    }
+
+    function renderStitching() {
+      const stitchCircleList = [
+        { name: 'All', label: 'All Designs', isAllIcon: true },
+        { name: 'Ladies Suits', img: PHOTOS.liningSuit },
+        { name: 'Blouse & Lehenga', img: PHOTOS.paddedBlouse },
+        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: PHOTOS.zardoziNeck },
+        { name: 'Kids & Gents', img: PHOTOS.kidsWear },
+        { name: 'Finishing & Handwork', label: 'Finishing', img: PHOTOS.heroTailor }
+      ];
+
+      document.getElementById('stitchCircleCategories').innerHTML = stitchCircleList.map(c => {
+        const active = selectedStitchCat === c.name;
+        const inner = c.isAllIcon
+          ? `<div class="w-full h-full rounded-full bg-[#6A0D25] text-white font-extrabold text-xs flex items-center justify-center">All</div>`
+          : `<img src="${c.img}" alt="${c.name}" class="w-full h-full rounded-full object-cover" />`;
+        return `
+          <button onclick="selectedStitchCat='${c.name}';renderStitching()" class="flex flex-col items-center flex-shrink-0 w-16">
+            <div class="w-14 h-14 rounded-full p-0.5 transition ${active ? 'ring-2 ring-[#D81B60] bg-[#D81B60]' : 'ring-1 ring-[#E5CFD6] bg-white'}">
+              ${inner}
+            </div>
+            <span class="text-[11px] mt-1.5 text-center leading-tight ${active ? 'font-extrabold text-[#6A0D25]' : 'font-semibold text-gray-600'}">${c.label || c.name}</span>
+          </button>`;
+      }).join('');
+
+      const catMeta = {
+        'Ladies Suits': 'सूट, अस्तर सूट, पैंट-प्लाज़ो और अनारकली सिलाई डिज़ाइन',
+        'Blouse & Lehenga': 'सिंपल ब्लाउज़, अस्तर-पैडेड डिज़ाइनर ब्लाउज़ व ब्राइडल लहंगा',
+        'Zari & Zardozi Embroidery': 'हाथ की ज़री, ज़रदोज़ी, दबका और करचोब कढ़ाई (गला, साड़ी, लहंगा)',
+        'Kids & Gents': 'बच्चों और जेंट्स का कस्टम कुर्ता-पाजामा',
+        'Finishing & Handwork': 'पीको, इंटरलॉक, साड़ी फॉल और गला-बाजू पाइपिंग'
+      };
+
+      const categoriesToShow = selectedStitchCat === 'All'
+        ? Object.keys(catMeta)
+        : [selectedStitchCat];
+
+      document.getElementById('stitchingGroupedContainer').innerHTML = categoriesToShow.map(cat => {
+        const items = appState.rates.filter(r => r.category === cat);
+        if (!items.length) return '';
+        return `
+          <div class="space-y-3">
+            <div class="flex items-end justify-between border-b border-[#EFE0E5] pb-1.5">
+              <div>
+                <h3 class="font-display text-xl font-bold text-[#2A0E17]">${cat}</h3>
+                <p class="text-[11px] text-gray-500">${catMeta[cat] || ''}</p>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400">${items.length} designs</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              ${items.map(r => `
+                <div onclick="bookStitchingRate('${r.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col">
+                  <div class="aspect-[4/3] bg-[#FCE4EC]/30">
+                    <img src="${r.img}" alt="${r.name}" loading="lazy" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="p-3 flex-1 flex flex-col justify-between">
+                    <div>
+                      <span class="text-[10px] font-bold text-[#B45309]">Firdous Tailor · ${r.days}</span>
+                      <h4 class="font-bold text-xs sm:text-sm text-[#2A0E17] leading-snug mt-0.5">${r.name}</h4>
+                      <p class="text-[10px] text-gray-500 line-clamp-1 mt-0.5">${r.neck}</p>
+                    </div>
+                    <div class="mt-2 pt-2 border-t border-[#EFE0E5] flex items-center justify-between">
+                      <span class="font-extrabold text-xs sm:text-sm text-[#6A0D25]">${r.priceLabel || `₹${r.price}`}</span>
+                      <span class="text-[10px] font-extrabold text-[#D81B60]">Select Design →</span>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const sel = document.getElementById('rapidoService');
+      if (sel) {
+        sel.innerHTML = appState.rates.map(r =>
+          `<option value="${r.name} (${r.priceLabel || '₹' + r.price})">${r.name} — ${r.priceLabel || '₹' + r.price}</option>`
+        ).join('');
+      }
+    }
+
+    function bookStitchingRate(id) {
+      const r = appState.rates.find(x => x.id === id);
+      if (!r) return;
+      openWaDirect(`✂️ *Custom Silai / Zardozi Booking — Firdous Ladies Tailor*\n\n👗 Design: ${r.name} (${r.sub})\n💰 Rate: ${r.priceLabel || '₹' + r.price} (${r.days})\n📍 Shop: Somvaar Bazaar Wali Gali, Nai Ki Thadi, Jaipur\n\nMujhe is design ki booking karni hai.`);
+    }
+
+    function bookRapidoPickup() {
+      const name = document.getElementById('rapidoName').value.trim();
+      const phone = document.getElementById('rapidoPhone').value.replace(/\D/g, '');
+      const service = document.getElementById('rapidoService').value;
+      const addr = document.getElementById('rapidoAddress').value.trim();
+      const notes = document.getElementById('rapidoNotes').value.trim();
+
+      if (!name) return toast('⚠️ Kripya apna Naam likhein!');
+      if (phone.length !== 10) return toast('⚠️ Sahi 10-digit Mobile Number daalein!');
+      if (!addr) return toast('⚠️ Jaipur Pickup Address likhein!');
+
+      const msg = `🛵 *2-Hour Home Fabric Pickup (Rapido) — Firdous Ladies Tailor*\n\n👤 Name: ${name}\n📞 Mobile: ${phone}\n✂️ Service: ${service}\n📍 Pickup Address: ${addr}${notes ? `\n📝 Notes: ${notes}` : ''}\n\nKripya 2-hour Rapido pickup confirm karein.`;
+      openWaDirect(msg);
+    }
+
+    function trackCustomerOrder() {
+      const q = document.getElementById('trackOrderInput').value.trim().toLowerCase();
+      const resBox = document.getElementById('trackOrderResult');
+      if (!q) return toast('⚠️ Phone Number ya Order ID daalein!');
+
+      const matches = appState.customers.filter(c =>
+        c.orderId.toLowerCase() === q ||
+        c.phone.replace(/\D/g, '').includes(q.replace(/\D/g, '') || '___')
+      );
+
+      resBox.classList.remove('hidden');
+      if (!matches.length) {
+        resBox.innerHTML = `<div class="bg-rose-50 text-[#D81B60] text-xs font-bold p-3 rounded-2xl">❌ Is Phone Number ya Order ID se koi order nahi mila. Sahi number ya FLT-101 daalein.</div>`;
+        return;
+      }
+
+      resBox.innerHTML = matches.map(c => {
+        const due = Math.max(0, c.totalBill - c.amountPaid);
+        return `
+          <div class="bg-[#FFF8F2] border border-[#F3DFC8] rounded-2xl p-3.5 space-y-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="bg-[#6A0D25] text-[#D4AF37] font-extrabold px-2.5 py-0.5 rounded-full text-[11px]">${c.orderId}</span>
+              <span class="bg-emerald-100 text-emerald-800 font-extrabold px-2.5 py-0.5 rounded-full text-[11px]">📌 ${c.status}</span>
+            </div>
+            <p class="font-extrabold text-sm text-[#2A0E17] pt-1">${c.customerName} • ${c.garment}</p>
+            <p class="text-gray-600">📅 Expected Delivery: <strong>${c.deliveryDate}</strong></p>
+            <p class="text-gray-700">💰 Total: <strong>₹${c.totalBill}</strong> | Paid: <strong class="text-emerald-700">₹${c.amountPaid}</strong> | Balance Due: <strong class="text-[#D81B60]">₹${due}</strong></p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // TAB 3: 9:16 REELS
+    function renderReels() {
+      const items = [
+        ...appState.products.map(p => ({ title: p.name, sub: `Ansar Collection • ₹${p.price}`, img: p.images[0], wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.` })),
+        ...appState.rates.slice(0, 4).map(r => ({ title: r.name, sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`, img: r.img, wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.` }))
+      ];
+      document.getElementById('reelsContainer').innerHTML = items.map(it => `
+        <div class="relative aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-lg border border-[#D4AF37]/30">
+          <img src="${it.img}" alt="${it.title}" loading="lazy" class="w-full h-full object-cover opacity-90" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div class="absolute top-3 left-3 bg-[#6A0D25]/90 text-[#D4AF37] text-[10px] font-extrabold px-2.5 py-1 rounded-full">9:16 Showcase</div>
+          <div class="absolute bottom-4 left-4 right-4 text-white space-y-2">
+            <h3 class="font-bold text-sm leading-snug">${it.title}</h3>
+            <p class="text-xs text-[#D4AF37] font-bold">${it.sub}</p>
+            <button onclick="openWaDirect(\`${it.wa}\`)" class="w-full bg-[#25D366] text-white font-extrabold text-xs py-2.5 rounded-xl shadow transition active:scale-95">
+              📲 Buy / Book on WhatsApp
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // TAB 4: PARTNER STOREFRONT
+    function renderPartnerWorks() {
+      document.getElementById('partnerWorksGrid').innerHTML = appState.partnerWorks.map(w => `
+        <div class="bg-white rounded-2xl border border-[#D4AF37]/40 overflow-hidden shadow-sm">
+          <img src="${w.img}" alt="${w.title}" loading="lazy" class="w-full aspect-[4/3] object-cover" />
+          <div class="p-4 space-y-2">
+            <span class="text-[10px] font-extrabold uppercase bg-[#FCE4EC] text-[#6A0D25] px-2 py-0.5 rounded-full">${w.tag}</span>
+            <h3 class="font-bold text-sm text-[#2A0E17]">${w.title}</h3>
+            <p class="text-xs text-gray-600">${w.desc}</p>
+            <div class="pt-2 flex items-center justify-between">
+              <span class="font-extrabold text-sm text-[#6A0D25]">${w.price}</span>
+              <button onclick="openWaDirect('✨ *Saklani Zari Handwork Order*\\nDesign: ${w.title} (${w.price})\\nIs handwork design ki booking karni hai.')" class="bg-[#6A0D25] text-[#D4AF37] text-xs font-extrabold px-3.5 py-2 rounded-xl transition active:scale-95">
+                Order Handwork
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // =====================================================================
+    // ADMIN DASHBOARD FUNCTIONS
+    // =====================================================================
+    function openAdminModal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+      renderAdminKhata();
+      renderAdminProducts();
+      renderAdminRates();
+      renderAdminBanners();
+      syncHeroPlayback();
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+      renderHero();
+      renderProducts();
+      renderStitching();
+      syncHeroPlayback();
+    }
+
+    function switchAdminTab(t) {
+      document.querySelectorAll('.adm-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById(`admPanel_${t}`).classList.remove('hidden');
+      document.querySelectorAll('.adm-btn').forEach(b => b.className = 'adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap');
+      document.getElementById(`admTab_${t}`).className = 'adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs';
+    }
+
+    function autoParseSmartNaap() {
+      const raw = document.getElementById('smartNaapRawInput').value.trim();
+      if (!raw) return toast('Pehle raw naap text paste karein!');
+
+      const phoneMatch = raw.match(/(?:\+?91[\s-]*)?([6-9]\d{9})/);
+      if (phoneMatch) document.getElementById('khPhone').value = phoneMatch[1];
+
+      const billMatch = raw.match(/(?:bill|total|rate|amount)[\s:=-]*₹?\s*(\d+)/i);
+      if (billMatch) document.getElementById('khBill').value = billMatch[1];
+
+      const paidMatch = raw.match(/(?:paid|advance|jama)[\s:=-]*₹?\s*(\d+)/i);
+      if (paidMatch) document.getElementById('khPaid').value = paidMatch[1];
+
+      const garmentMatch = raw.match(/(astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown)/i);
+      if (garmentMatch) document.getElementById('khGarment').value = garmentMatch[0];
+
+      const firstChunk = raw.split(/\n|,/)[0] || '';
+      const cleanName = firstChunk
+        .replace(/(?:\+?91[\s-]*)?[6-9]\d{9}/g, '')
+        .replace(/(?:astar suit|simple suit|blouse|lehenga|kurti|plazo|salwar|abaya|gown|length|chest|waist|hip|sleeve|gala|bill|paid|advance).*/i, '')
+        .replace(/\d+/g, '')
+        .trim();
+      if (cleanName) document.getElementById('khName').value = cleanName;
+
+      const pairs = [];
+      ['length', 'lambai', 'chest', 'seena', 'waist', 'kamar', 'hip', 'sleeve', 'baju', 'gala', 'neck', 'salwar', 'pant', 'mori'].forEach(k => {
+        const m = raw.match(new RegExp(`${k}[\\s:=-]*([0-9./"']+)`, 'i'));
+        if (m) pairs.push(`${k.charAt(0).toUpperCase() + k.slice(1)}: ${m[1]}`);
+      });
+
+      document.getElementById('khNaapNotes').value = pairs.length ? pairs.join(', ') : raw.replace(/\n/g, ' | ');
+      toast('🪄 Smart Naap Parsed!');
+    }
+
+    function addCustomerOrder() {
+      const customerName = document.getElementById('khName').value.trim();
+      const phone = document.getElementById('khPhone').value.replace(/\D/g, '').slice(-10);
+      const altWaPhone = document.getElementById('khAltWaPhone').value.replace(/\D/g, '').slice(-10);
+      const garment = document.getElementById('khGarment').value.trim() || 'Custom Suit';
+      const totalBill = Number(document.getElementById('khBill').value) || 0;
+      const amountPaid = Number(document.getElementById('khPaid').value) || 0;
+      const deliveryDate = document.getElementById('khDelivery').value || new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10);
+      const naap = document.getElementById('khNaapNotes').value.trim();
+
+      if (!customerName || !totalBill) return toast('⚠️ Customer Name aur Total Bill bharein!');
+
+      appState.customers.unshift({
+        id: 'c_' + Date.now(),
+        orderId: `FLT-${101 + appState.customers.length}`,
+        customerName,
+        phone,
+        altWaPhone,
+        garment,
+        naap,
+        deliveryDate,
+        status: 'Received',
+        totalBill,
+        amountPaid
+      });
+      saveState();
+      ['smartNaapRawInput', 'khName', 'khPhone', 'khAltWaPhone', 'khGarment', 'khBill', 'khPaid', 'khNaapNotes'].forEach(id => document.getElementById(id).value = '');
+      renderAdminKhata();
+      toast('✅ Order & Naap Saved in Khata!');
+    }
+
+    function getWebsiteShareUrl() {
+      return window.location.href.split('#')[0];
+    }
+
+    function launchWhatsAppApp(rawPhone, message, appType) {
+      const digits = (rawPhone || '').replace(/\D/g, '');
+      const fullPhone = digits.length === 10 ? `91${digits}` : (digits || SHOP_PHONE);
+      const encoded = encodeURIComponent(message);
+      const waMeUrl = `https://wa.me/${fullPhone}?text=${encoded}`;
+
+      if (/Android/i.test(navigator.userAgent)) {
+        const pkg = appType === 'business' ? 'com.whatsapp.w4b' : 'com.whatsapp';
+        window.location.href = `intent://send?phone=${fullPhone}&text=${encoded}#Intent;scheme=whatsapp;package=${pkg};S.browser_fallback_url=${encodeURIComponent(waMeUrl)};end`;
+        return;
+      }
+      window.open(waMeUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    function renderAdminKhata() {
+      const q = (document.getElementById('khataSearch')?.value || '').toLowerCase();
+      const list = appState.customers.filter(c => !q || c.customerName.toLowerCase().includes(q) || c.orderId.toLowerCase().includes(q) || (c.phone && c.phone.includes(q)));
+      document.getElementById('adminKhataList').innerHTML = list.map(c => {
+        const due = Math.max(0, c.totalBill - c.amountPaid);
+        const activeWa = c.altWaPhone || c.phone || '';
+        return `
+          <div class="bg-white p-4 rounded-2xl border border-[#EFE0E5] shadow-xs space-y-2.5">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-extrabold bg-[#6A0D25] text-[#D4AF37] px-2.5 py-0.5 rounded-full">${c.orderId}</span>
+                <strong class="font-display text-lg text-[#2A0E17] ml-1.5">${c.customerName}</strong>
+                <span class="text-xs text-gray-500 ml-1">(${c.phone || 'No Phone'}${c.altWaPhone ? ` • WA: ${c.altWaPhone}` : ''})</span>
+              </div>
+              <select onchange="updateOrderStatus('${c.id}', this.value)" class="bg-[#FCE4EC]/70 border border-[#F8BBD0] rounded-xl px-2.5 py-1 text-[11px] font-bold text-[#6A0D25] outline-none">
+                ${['Received', 'Cutting', 'Stitching', 'Ready for Delivery'].map(st => `<option value="${st}" ${c.status === st ? 'selected' : ''}>${st}</option>`).join('')}
+              </select>
+            </div>
+            <p class="text-xs text-gray-700">👗 <strong class="text-[#2A0E17]">${c.garment}</strong> • Delivery: <span class="font-semibold">${c.deliveryDate}</span></p>
+            ${c.naap ? `<p class="text-[11px] bg-[#FFF8F2] border border-[#F3DFC8] p-2.5 rounded-xl text-[#6A0D25] font-medium">📏 ${c.naap}</p>` : ''}
+
+            <div class="pt-2 border-t border-[#EFE0E5] space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-gray-700">Bill: <strong>₹${c.totalBill}</strong> | Paid: <strong class="text-emerald-700">₹${c.amountPaid}</strong> | Due: <strong class="text-[#D81B60]">₹${due}</strong></span>
+                <button onclick="deleteCustomerOrder('${c.id}')" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-[11px]">🗑</button>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-1.5">
+                <input id="cardWa_${c.id}" type="tel" maxlength="10" value="${activeWa}" onchange="saveCardCustomWa('${c.id}', this.value)" placeholder="WhatsApp No." class="w-28 bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-2.5 py-1.5 text-[11px] font-bold text-[#2A0E17] outline-none focus:border-[#6A0D25]" title="Alag WhatsApp number ho to yahan badlein" />
+                <button onclick="openDigitalReceipt('${c.id}')" class="bg-[#D4AF37] text-[#2A0E17] font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">🧾 Receipt</button>
+                <button onclick="sendKhataReminder('${c.id}', 'whatsapp')" class="bg-[#25D366] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💬 WhatsApp</button>
+                <button onclick="sendKhataReminder('${c.id}', 'business')" class="bg-[#128C7E] text-white font-extrabold px-2.5 py-1.5 rounded-xl text-[11px] shadow-2xs">💼 WA Business</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveCardCustomWa(id, val) {
+      const c = appState.customers.find(x => x.id === id);
+      if (!c) return;
+      const clean = val.replace(/\D/g, '').slice(-10);
+      c.altWaPhone = clean && clean !== c.phone ? clean : '';
+      saveState();
+      toast('📲 WhatsApp Number Updated');
+    }
+
+    function updateOrderStatus(id, st) {
+      const c = appState.customers.find(x => x.id === id);
+      if (c) { c.status = st; saveState(); toast(`Status: ${st}`); }
+    }
+
+    function deleteCustomerOrder(id) {
+      appState.customers = appState.customers.filter(x => x.id !== id);
+      saveState();
+      renderAdminKhata();
+    }
+
+    function buildReceiptShareText(c) {
+      const due = Math.max(0, c.totalBill - c.amountPaid);
+      const siteUrl = getWebsiteShareUrl();
+      return `✨ *FIRDOUS LADIES TAILOR - ANSAR COLLECTION*\n🧾 *Digital Receipt:* ${c.orderId}\n\n👤 *Customer:* ${c.customerName}\n👗 *Outfit:* ${c.garment}\n📌 *Status:* ${c.status}\n📅 *Delivery Date:* ${c.deliveryDate}\n💰 *Total:* ₹${c.totalBill} | *Paid:* ₹${c.amountPaid}\n💳 *Balance Due:* ₹${due}\n\n🌐 *Order & Live Status Link:*\n${siteUrl}`;
+    }
+
+    function sendKhataReminder(id, appType) {
+      const c = appState.customers.find(x => x.id === id);
+      if (!c) return;
+      const cardInput = document.getElementById(`cardWa_${c.id}`);
+      const targetPhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone)).replace(/\D/g, '');
+      if (targetPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number daalein!');
+      const msg = buildReceiptShareText(c);
+      launchWhatsAppApp(targetPhone, msg, appType);
+    }
+
+    let currentReceiptCustomer = null;
+
+    function openDigitalReceipt(id) {
+      const c = appState.customers.find(x => x.id === id);
+      if (!c) return;
+      currentReceiptCustomer = c;
+
+      const cardInput = document.getElementById(`cardWa_${c.id}`);
+      const activePhone = (cardInput ? cardInput.value : (c.altWaPhone || c.phone || '')).replace(/\D/g, '').slice(-10);
+      document.getElementById('receiptTargetWaInput').value = activePhone;
+
+      const due = Math.max(0, c.totalBill - c.amountPaid);
+      const siteUrl = getWebsiteShareUrl();
+      const canvas = document.getElementById('receiptCanvas');
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = '#FFFDF9';
+      ctx.fillRect(0, 0, 600, 840);
+
+      ctx.fillStyle = '#6A0D25';
+      ctx.fillRect(0, 0, 600, 145);
+      ctx.fillStyle = '#D4AF37';
+      ctx.font = 'bold 30px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('FIRDOUS LADIES TAILOR', 300, 56);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('ANSAR COLLECTION • JAIPUR', 300, 86);
+      ctx.font = '13px sans-serif';
+      ctx.fillStyle = '#FCE4EC';
+      ctx.fillText('Somvaar Bazaar Wali Gali, Nai Ki Thadi | +91 6350517782', 300, 116);
+
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#2A0E17';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText(`DIGITAL RECEIPT : ${c.orderId}`, 40, 195);
+
+      ctx.font = '16px sans-serif';
+      let y = 242;
+      [
+        ['Customer Name:', c.customerName],
+        ['Mobile Number:', activePhone || c.phone || '-'],
+        ['Outfit / Design:', c.garment],
+        ['Order Status:', c.status],
+        ['Delivery Date:', c.deliveryDate]
+      ].forEach(([k, v]) => {
+        ctx.fillStyle = '#6B7280';
+        ctx.fillText(k, 40, y);
+        ctx.fillStyle = '#111827';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText(String(v).slice(0, 32), 215, y);
+        ctx.font = '16px sans-serif';
+        y += 40;
+      });
+
+      ctx.fillStyle = '#FCE4EC';
+      ctx.fillRect(36, 455, 528, 145);
+      ctx.fillStyle = '#6A0D25';
+      ctx.font = 'bold 18px sans-serif';
+      ctx.fillText(`Total Bill:          ₹${c.totalBill}`, 60, 495);
+      ctx.fillStyle = '#047857';
+      ctx.fillText(`Advance Paid:    ₹${c.amountPaid}`, 60, 535);
+      ctx.fillStyle = '#BE123C';
+      ctx.font = 'bold 22px sans-serif';
+      ctx.fillText(`Balance Due:     ₹${due}`, 60, 580);
+
+      ctx.fillStyle = '#FFF8F2';
+      ctx.fillRect(36, 620, 528, 165);
+      ctx.strokeStyle = '#D4AF37';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(36, 620, 528, 165);
+
+      ctx.fillStyle = '#6A0D25';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('SCAN FOR WEBSITE & CATALOG', 195, 665);
+      ctx.fillStyle = '#4B5563';
+      ctx.font = '13px sans-serif';
+      ctx.fillText('• Latest Suits, Sarees & Abayas', 195, 695);
+      ctx.fillText('• Zari-Zardozi & Silai Rates', 195, 720);
+      ctx.fillText('• Live Stitching Order Tracking', 195, 745);
+      ctx.fillStyle = '#D81B60';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillText(siteUrl.slice(0, 42), 195, 770);
+
+      ctx.fillStyle = '#6A0D25';
+      ctx.font = 'italic 14px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Thank you for choosing Firdous Ladies Tailor & Ansar Collection!', 300, 818);
+
+      const qrImg = new Image();
+      qrImg.crossOrigin = 'anonymous';
+      qrImg.onload = () => {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(52, 636, 128, 128);
+        ctx.drawImage(qrImg, 56, 640, 120, 120);
+      };
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(siteUrl)}`;
+
+      document.getElementById('receiptModal').classList.remove('hidden');
+      syncHeroPlayback();
+    }
+
+    function sendReceiptViaApp(appType) {
+      if (!currentReceiptCustomer) return;
+      const inputPhone = document.getElementById('receiptTargetWaInput').value.replace(/\D/g, '');
+      if (inputPhone.length < 10) return toast('⚠️ Pehle sahi 10-digit WhatsApp Number likhein!');
+      saveCardCustomWa(currentReceiptCustomer.id, inputPhone);
+      const msg = buildReceiptShareText(currentReceiptCustomer);
+      launchWhatsAppApp(inputPhone, msg, appType);
+    }
+
+    async function shareReceiptImageWithText() {
+      if (!currentReceiptCustomer) return;
+      const inputPhone = document.getElementById('receiptTargetWaInput').value.replace(/\D/g, '');
+      if (inputPhone.length >= 10) saveCardCustomWa(currentReceiptCustomer.id, inputPhone);
+
+      const msg = buildReceiptShareText(currentReceiptCustomer);
+      const canvas = document.getElementById('receiptCanvas');
+
+      try {
+        const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+        const file = new File([blob], `Firdous-Receipt-${currentReceiptCustomer.orderId}.png`, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: `Receipt ${currentReceiptCustomer.orderId}`,
+            text: msg
+          });
+          return;
+        }
+      } catch (e) {}
+
+      downloadReceiptPng();
+      toast('📥 Receipt Image Saved! Ab WhatsApp me attach karke bhej dein.');
+      if (inputPhone.length >= 10) {
+        setTimeout(() => launchWhatsAppApp(inputPhone, msg, 'whatsapp'), 700);
+      }
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('receiptModal').classList.add('hidden');
+      syncHeroPlayback();
+    }
+
+    function downloadReceiptPng() {
+      const a = document.createElement('a');
+      a.download = `Firdous-Tailor-Receipt-${Date.now()}.png`;
+      a.href = document.getElementById('receiptCanvas').toDataURL('image/png');
+      a.click();
+    }
+
+    function renderAdminProducts() {
+      document.getElementById('adminProductsList').innerHTML = appState.products.map(p => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
+          <img src="${p.images[0]}" class="w-12 h-12 rounded-xl object-cover border border-[#EFE0E5]" />
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-xs text-[#2A0E17] truncate">${p.name}</p>
+            <div class="flex items-center gap-1 mt-1">
+              <span class="text-xs text-gray-500">₹</span>
+              <input type="number" value="${p.price}" onchange="updateProdPrice('${p.id}', this.value)" class="w-16 bg-[#FFFDF9] border border-[#E5CFD6] px-2 py-0.5 rounded-lg text-xs font-extrabold text-[#6A0D25]" />
+            </div>
+          </div>
+          <button onclick="toggleProdStock('${p.id}')" class="px-2.5 py-1.5 rounded-xl text-[11px] font-bold ${p.inStock ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
+            ${p.inStock ? 'In Stock' : 'Sold Out'}
+          </button>
+          <button onclick="deleteProd('${p.id}')" class="text-rose-600 font-bold text-xs px-1.5">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function adminAddProduct() {
+      const name = document.getElementById('newProdName').value.trim();
+      const category = document.getElementById('newProdCat').value;
+      const price = Number(document.getElementById('newProdPrice').value);
+      const originalPrice = Number(document.getElementById('newProdOrigPrice').value) || undefined;
+      const sizes = document.getElementById('newProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+      const file = document.getElementById('newProdPhoto').files[0];
+      if (!name || !price) return toast('⚠️ Product Name aur Price daalein!');
+
+      const finishAdd = (imgSrc) => {
+        appState.products.unshift({
+          id: 'prod-' + Date.now(),
+          code: String(100 + appState.products.length + 1),
+          sku: 'AC-' + Date.now().toString().slice(-4),
+          name, category, price, originalPrice,
+          isOffer: true,
+          sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
+          fabric: 'Premium Boutique Fabric',
+          setIncludes: 'Complete Outfit Set',
+          description: `${name} from Ansar Collection Jaipur.`,
+          images: [imgSrc],
+          inStock: true
+        });
+        saveState();
+        document.getElementById('newProdName').value = '';
+        document.getElementById('newProdPrice').value = '';
+        renderAdminProducts();
+        toast('✅ Product Added!');
+      };
+
+      if (file) {
+        const r = new FileReader();
+        r.onload = () => finishAdd(r.result);
+        r.readAsDataURL(file);
+      } else {
+        finishAdd(PHOTOS.bandhaniSuit);
+      }
+    }
+
+    function updateProdPrice(id, val) {
+      const p = appState.products.find(x => x.id === id);
+      if (p) { p.price = Number(val) || p.price; saveState(); toast('Price Updated'); }
+    }
+
+    function toggleProdStock(id) {
+      const p = appState.products.find(x => x.id === id);
+      if (p) { p.inStock = !p.inStock; saveState(); renderAdminProducts(); }
+    }
+
+    function deleteProd(id) {
+      appState.products = appState.products.filter(x => x.id !== id);
+      saveState();
+      renderAdminProducts();
+    }
+
+    function renderAdminRates() {
+      document.getElementById('adminRatesList').innerHTML = appState.rates.map(r => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-xs text-[#2A0E17] truncate">${r.name}</p>
+            <span class="text-[10px] text-[#D81B60] font-semibold">${r.category}</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-xs text-gray-500">₹</span>
+            <input type="number" value="${r.price}" onchange="updateRatePrice('${r.id}', this.value)" class="w-16 bg-[#FFFDF9] border border-[#E5CFD6] px-2 py-1 rounded-lg text-xs font-extrabold text-[#6A0D25]" />
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateRatePrice(id, val) {
+      const r = appState.rates.find(x => x.id === id);
+      if (r) { r.price = Number(val) || 0; r.priceLabel = r.price > 0 ? `₹${r.price}` : 'Custom Quote'; saveState(); toast('Silai Rate Updated'); }
+    }
+
+    function renderAdminBanners() {
+      document.getElementById('adminBannersList').innerHTML = appState.banners.map((b, i) => `
+        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-[#2A0E17] truncate flex-1">${i + 1}. ${b.title || 'Banner Media'}</span>
+          <button onclick="toggleBannerVis(${i})" class="bg-[#FCE4EC] text-[#6A0D25] font-bold px-2.5 py-1 rounded-lg text-xs">${b.active !== false ? 'Shown' : 'Hidden'}</button>
+          <button onclick="deleteBanner(${i})" class="bg-rose-100 text-rose-700 font-bold px-2.5 py-1 rounded-lg text-xs">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    function adminUploadBanner(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = () => {
+        appState.banners.push({
+          id: 'bn-' + Date.now(),
+          type: file.type.startsWith('video/') ? 'video' : 'image',
+          src: r.result,
+          title: file.name,
+          active: true
+        });
+        saveState();
+        renderAdminBanners();
+        toast('Banner Uploaded!');
+      };
+      r.readAsDataURL(file);
+    }
+
+    function toggleBannerVis(i) {
+      appState.banners[i].active = appState.banners[i].active === false ? true : false;
+      saveState();
+      renderAdminBanners();
+    }
+
+    function deleteBanner(i) {
+      appState.banners.splice(i, 1);
+      saveState();
+      renderAdminBanners();
+    }
+
+    function downloadFullBackup() {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(appState, null, 2)], { type: 'application/json' }));
+      a.download = `firdous-ansar-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      toast('⬇️ Backup Downloaded!');
+    }
+
+    function downloadAndOpenDrive() {
+      downloadFullBackup();
+      setTimeout(() => window.open('https://drive.google.com/drive/my-drive', '_blank', 'noopener,noreferrer'), 800);
+    }
+
+    function restoreFullBackup(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = () => {
+        try {
+          appState = JSON.parse(r.result);
+          saveState();
+          renderAdminKhata();
+          renderAdminProducts();
+          toast('✅ Backup Restored!');
+        } catch {
+          toast('❌ Invalid Backup File');
+        }
+      };
+      r.readAsText(file);
+    }
+
+    // INIT
+    window.addEventListener('DOMContentLoaded', () => {
+      syncOnlineBanner();
+      if (isAdmin) document.getElementById('adminModePill').classList.remove('hidden');
+      renderHero();
+      renderProducts();
+      renderStitching();
+    });
+  </script>
+</body>
+</html>
