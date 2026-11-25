@@ -9,7 +9,7 @@
   <meta name="description" content="FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Custom Designer Stitching & Ready-Made Ethnic Wear | Somvaar Bazaar Wali Gali, 60 Feet Road, Nai Ki Thadi, Jaipur." />
   <title>FIRDOUS LADIES TAILOR - ANSAR COLLECTION | Jaipur</title>
 
-  <!-- Google Fonts: Cormorant Garamond & Outfit -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -50,7 +50,6 @@
     }
     input, textarea, select { user-select: text; }
     .font-display { font-family: 'Cormorant Garamond', serif; }
-    .font-royal { font-family: 'Cinzel Decorative', 'Cormorant Garamond', serif; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     @keyframes slideUp {
@@ -63,7 +62,7 @@
 <body class="bg-[#FFFDF9] text-[#2A0E17] min-h-screen flex flex-col pb-16">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[100] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[110] hidden bg-[#2A0E17] text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-full text-xs font-bold shadow-2xl text-center max-w-[90vw]"></div>
 
   <!-- Offline Indicator -->
   <div id="offlineStrip" class="hidden bg-[#D81B60] text-white text-center text-[11px] font-bold py-1 px-3">
@@ -115,7 +114,6 @@
         🔊 Sound
       </button>
 
-      <!-- Capsule Slide Dots -->
       <div id="heroDots" class="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 bg-black/45 backdrop-blur-xs px-2.5 py-1 rounded-full flex gap-1.5"></div>
     </div>
   </section>
@@ -153,7 +151,6 @@
         <p class="text-xs text-gray-500 mt-0.5">किसी भी डिज़ाइन पर टैप करें और सीधे WhatsApp पर ऑर्डर करें</p>
       </div>
 
-      <!-- Pill Search Bar -->
       <div class="relative">
         <input id="prodSearch" type="text" oninput="renderProducts()" placeholder="सूट, साड़ी, अबाया, ज़री या स्टोर खोजें..." class="w-full bg-white border border-[#E5CFD6] rounded-full pl-10 pr-4 py-2.5 text-xs sm:text-sm outline-none focus:border-[#D81B60] shadow-2xs transition" />
         <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#D81B60]">🔍</span>
@@ -295,11 +292,11 @@
       </div>
     </section>
 
-    <!-- VIEW 3: 9:16 VERTICAL REELS FEED -->
+    <!-- VIEW 3: 9:16 VERTICAL REELS FEED (AUTO-SYNCS CATALOG VIDEOS TOO) -->
     <section id="view_reels" class="hidden space-y-4">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#6A0D25]">Ansar Collection &amp; Tailor Reels</h2>
-        <p class="text-xs text-gray-500">9:16 Showcase — Mannequin &amp; Flat-Lay Presentation • Direct WhatsApp Order</p>
+        <p class="text-xs text-gray-500">9:16 Showcase — Mannequin, Close-Up Stitching &amp; Boutique Presentation • Direct WhatsApp Order</p>
       </div>
       <div id="reelsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
     </section>
@@ -483,7 +480,7 @@
     </aside>
   </div>
 
-  <!-- PRODUCT / DESIGN DETAIL MODAL -->
+  <!-- PRODUCT / DESIGN DETAIL MODAL (With Multi-Photo Gallery Switcher) -->
   <div id="detailModal" onclick="if(event.target===this) closeDetailModal()" class="hidden fixed inset-0 z-50 bg-black/70 flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div id="detailModalContent" class="bg-[#FFFDF9] w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92vh] overflow-y-auto p-5 shadow-2xl animate-slide-up"></div>
   </div>
@@ -502,22 +499,23 @@
     </div>
   </div>
 
-  <!-- FULL-SCREEN 5-TAB ADMIN DASHBOARD -->
+  <!-- FULL-SCREEN 6-TAB ADMIN DASHBOARD (FULL EDIT + MULTI-PHOTO MANAGER) -->
   <div id="adminModal" class="hidden fixed inset-0 z-50 bg-[#FFFDF9] text-[#2A0E17] flex flex-col">
     <div class="px-4 py-3.5 bg-[#6A0D25] text-[#FFFDF9] border-b border-[#D4AF37]/50 flex items-center justify-between shadow-sm">
       <div>
         <h2 class="font-display italic text-2xl font-bold text-[#D4AF37] leading-none">⚙️ Firdous Tailor &amp; Ansar Admin</h2>
-        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Customer Khata • Smart Naap • Digital Receipt • Live Cloud Sync</p>
+        <p class="text-[11px] text-[#FCE4EC]/90 mt-1">Full Edit Control • Multi-Photo Manager • Digital Receipt • Live Sync</p>
       </div>
       <button onclick="closeAdminModal()" class="bg-white/15 hover:bg-white/25 text-white px-4 py-2 rounded-full text-xs font-extrabold transition">← Back to Shop</button>
     </div>
 
     <div class="px-3 py-2.5 border-b border-[#EFE0E5] flex gap-2 overflow-x-auto no-scrollbar bg-[#FCE4EC]/60">
       <button onclick="switchAdminTab('khata')" id="admTab_khata" class="adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs">1. Khata &amp; Smart Naap</button>
-      <button onclick="switchAdminTab('products')" id="admTab_products" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">2. Ready-Made Stock</button>
-      <button onclick="switchAdminTab('rates')" id="admTab_rates" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">3. Silai Rates</button>
-      <button onclick="switchAdminTab('banners')" id="admTab_banners" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">4. 16:9 Banners</button>
-      <button onclick="switchAdminTab('backup')" id="admTab_backup" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">5. Live Sync &amp; Backup</button>
+      <button onclick="switchAdminTab('products')" id="admTab_products" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">2. Ready-Made Stock (Edit)</button>
+      <button onclick="switchAdminTab('rates')" id="admTab_rates" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">3. Silai &amp; Zari Rates (Edit)</button>
+      <button onclick="switchAdminTab('icons')" id="admTab_icons" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">4. Category Icons (Edit)</button>
+      <button onclick="switchAdminTab('banners')" id="admTab_banners" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">5. 16:9 Banners</button>
+      <button onclick="switchAdminTab('backup')" id="admTab_backup" class="adm-btn bg-white text-[#6A0D25] border border-[#E5CFD6] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">6. Live Sync &amp; Backup</button>
     </div>
 
     <div class="flex-1 overflow-y-auto p-4 max-w-4xl w-full mx-auto space-y-5">
@@ -553,10 +551,15 @@
         <div id="adminKhataList" class="space-y-3"></div>
       </div>
 
-      <!-- ADMIN TAB 2: PRODUCTS -->
+      <!-- ADMIN TAB 2: PRODUCTS + MEESHO AUTO-IMPORT + FULL EDIT -->
       <div id="admPanel_products" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
-          <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Ready-Made Product</h3>
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Ready-Made Product</h3>
+            <button onclick="parseMeeshoProductText()" class="bg-[#FCE4EC] text-[#6A0D25] text-[11px] font-extrabold px-3 py-1.5 rounded-full">⚡ Paste Meesho Text</button>
+          </div>
+          <textarea id="meeshoRawInput" rows="2" placeholder="Optional: Meesho se copy ki gayi detail paste karke 'Paste Meesho Text' dabayein..." class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl p-2.5 text-xs outline-none"></textarea>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <input id="newProdName" type="text" placeholder="Product Name *" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
             <select id="newProdCat" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#2A0E17] outline-none focus:border-[#6A0D25]">
@@ -571,21 +574,49 @@
             <input id="newProdPhotoUrl" type="url" placeholder="Direct Photo URL (Live on all phones)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
           </div>
           <label class="block bg-[#FCE4EC]/60 border border-dashed border-[#D81B60] rounded-xl px-3 py-2 text-xs text-[#6A0D25] text-center cursor-pointer font-bold">
-            📷 Or Select Photo from Phone Gallery
-            <input id="newProdPhoto" type="file" accept="image/*" class="hidden" />
+            📷 Or Select Multiple Photos from Gallery
+            <input id="newProdPhoto" type="file" accept="image/*" multiple class="hidden" />
           </label>
           <button onclick="adminAddProduct()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md transition">+ Add &amp; Publish to Catalog</button>
         </div>
         <div id="adminProductsList" class="space-y-2.5"></div>
       </div>
 
-      <!-- ADMIN TAB 3: RATES -->
-      <div id="admPanel_rates" class="adm-panel hidden space-y-3">
-        <h3 class="font-display text-xl font-bold text-[#6A0D25]">✂️ Edit Silai &amp; Zardozi Rates</h3>
+      <!-- ADMIN TAB 3: SILAI & ZARI RATES (ADD NEW + FULL EDIT + MULTI-PHOTO) -->
+      <div id="admPanel_rates" class="adm-panel hidden space-y-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">➕ Add New Silai / Zari Service</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <select id="newRateCat" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-semibold">
+              <option value="Ladies Suits">Ladies Suits</option>
+              <option value="Blouse & Lehenga">Blouse &amp; Lehenga</option>
+              <option value="Zari & Zardozi Embroidery">Zari &amp; Zardozi Embroidery</option>
+              <option value="Kids & Gents">Kids &amp; Gents</option>
+              <option value="Finishing & Handwork">Finishing &amp; Handwork</option>
+            </select>
+            <input id="newRateName" type="text" placeholder="Service Name * (e.g. Designer Plazo Suit)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs" />
+            <input id="newRateSub" type="text" placeholder="Hindi Subtitle (e.g. प्लाज़ो सूट सिलाई)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs" />
+            <input id="newRatePrice" type="number" placeholder="Rate ₹ * (0 for Custom Quote)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs" />
+            <input id="newRateDays" type="text" placeholder="Delivery Time (e.g. 2–3 Days)" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs" />
+            <input id="newRateNeck" type="text" placeholder="Design / Finish Note" class="bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs" />
+          </div>
+          <button onclick="adminAddRate()" class="w-full bg-[#6A0D25] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow">+ Add Silai Service</button>
+        </div>
+
+        <h3 class="font-display text-xl font-bold text-[#6A0D25]">✂️ Edit Silai &amp; Zardozi Items (Tap ✏️ Edit to change Photos &amp; Details)</h3>
         <div id="adminRatesList" class="space-y-2.5"></div>
       </div>
 
-      <!-- ADMIN TAB 4: BANNERS -->
+      <!-- ADMIN TAB 4: CIRCULAR CATEGORY ICONS EDITOR -->
+      <div id="admPanel_icons" class="adm-panel hidden space-y-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-[#EFE0E5] shadow-sm space-y-3">
+          <h3 class="font-display text-xl font-bold text-[#6A0D25]">🎯 Edit Circular Category Icons (गोल फोटो आइकन बदलें)</h3>
+          <p class="text-xs text-gray-500">यहाँ से आप Shop और Stitching के ऊपर दिखने वाले किसी भी गोल कैटेगरी आइकन की फोटो बदल सकते हैं (नया URL डालें या फोन गैलरी से फोटो चुनें):</p>
+          <div id="adminCategoryIconsList" class="space-y-3 pt-2"></div>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 5: BANNERS -->
       <div id="admPanel_banners" class="adm-panel hidden space-y-4">
         <div class="bg-white p-4 rounded-3xl border border-[#EFE0E5] space-y-2.5">
           <h3 class="font-display text-lg font-bold text-[#6A0D25]">🖼️🎬 Add 16:9 Live Banner URL</h3>
@@ -606,12 +637,12 @@
         <div id="adminBannersList" class="space-y-2"></div>
       </div>
 
-      <!-- ADMIN TAB 5: LIVE CLOUD SYNC, BACKUP & LOGOUT -->
+      <!-- ADMIN TAB 6: LIVE CLOUD SYNC, BACKUP & LOGOUT -->
       <div id="admPanel_backup" class="adm-panel hidden space-y-4">
         <div class="bg-white p-5 rounded-3xl border-2 border-[#D4AF37] shadow-sm space-y-3">
           <h3 class="font-display text-xl font-bold text-[#6A0D25]">☁️ Live Cloud Sync (Sabhi Customers ke Phone par Live)</h3>
           <p class="text-xs text-gray-600 leading-relaxed">
-            Apna free <strong>Firebase Realtime Database URL</strong> yahan paste karein. Save karte hi aapke dwara badle gaye rates, products, banners aur customer order status sabhi customers ko live dikhenge:
+            Apna free <strong>Firebase Realtime Database URL</strong> yahan paste karein. Save karte hi aapke dwara badle gaye rates, products, category icons, banners aur customer order status sabhi customers ko live dikhenge:
           </p>
           <input id="admFirebaseUrlInput" type="url" placeholder="https://your-project-default-rtdb.firebasedatabase.app" class="w-full bg-[#FFFDF9] border border-[#E5CFD6] rounded-xl px-3.5 py-2.5 text-xs font-bold text-[#2A0E17] outline-none focus:border-[#6A0D25]" />
           <button onclick="saveAndSyncFirebase()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3 rounded-xl shadow-md">🚀 Connect &amp; Publish Live Now</button>
@@ -632,6 +663,11 @@
       </div>
 
     </div>
+  </div>
+
+  <!-- UNIVERSAL ITEM & MULTI-PHOTO EDITOR MODAL (FOR ANY PRODUCT, SILAI RATE OR PARTNER ITEM) -->
+  <div id="universalEditModal" onclick="if(event.target===this) closeUniversalEditModal()" class="hidden fixed inset-0 z-[70] bg-black/75 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="universalEditContent" class="bg-[#FFFDF9] text-[#2A0E17] w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92vh] overflow-y-auto p-5 shadow-2xl space-y-4 animate-slide-up"></div>
   </div>
 
   <!-- CANVAS RECEIPT PREVIEW MODAL -->
@@ -673,58 +709,179 @@
   <script>
     const SHOP_PHONE = '916350517782';
     const ADMIN_PASS = '@qwer';
-    const STORAGE_KEY = 'firdous_ansar_single_v6';
-    const AUTH_KEY = 'firdous_ansar_admin_v6';
-    const FIREBASE_KEY = 'firdous_firebase_url_v6';
+    const STORAGE_KEY = 'firdous_ansar_single_v7';
+    const AUTH_KEY = 'firdous_ansar_admin_v7';
+    const FIREBASE_KEY = 'firdous_firebase_url_v7';
 
-    // Direct internet apparel, embroidery & tailoring photography (no female face models)
+    // =========================================================================
+    // CRISP CLOSE-UP TAILORING & BOUTIQUE VISUALS (SVG + CLEAN BOUTIQUE PHOTOS)
+    // =========================================================================
+    function buildCraftCloseUpSVG(type) {
+      const visuals = {
+        interlock: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+          <rect width="600" height="450" fill="#FDF2F5"/>
+          <!-- Fabric Layer -->
+          <path d="M0 90 L420 90 L420 450 L0 450 Z" fill="#880E4F"/>
+          <path d="M0 90 L420 90 L420 450 L0 450 Z" fill="none" stroke="#F8BBD0" stroke-width="2" stroke-dasharray="4 4"/>
+          <!-- Close-Up 3-Thread Overlock / Interlock Zigzag Stitch along edge -->
+          <path d="M405 95 L438 110 L405 125 L438 140 L405 155 L438 170 L405 185 L438 200 L405 215 L438 230 L405 245 L438 260 L405 275 L438 290 L405 305 L438 320 L405 335 L438 350 L405 365 L438 380 L405 395 L438 410 L405 425 L438 440" stroke="#FFC107" stroke-width="5" fill="none" stroke-linejoin="round"/>
+          <line x1="405" y1="95" x2="405" y2="445" stroke="#FFF59D" stroke-width="3" stroke-dasharray="10 6"/>
+          <line x1="438" y1="95" x2="438" y2="445" stroke="#FFC107" stroke-width="2.5"/>
+          <!-- Callout Badge -->
+          <rect x="30" y="24" width="540" height="46" rx="23" fill="#6A0D25"/>
+          <text x="300" y="53" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#FFC107" text-anchor="middle">CLOSE-UP: 3-THREAD OVERLOCK (इंटरलॉक फिनिशिंग)</text>
+        </svg>`,
+
+        pico: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+          <rect width="600" height="450" fill="#FFF8E1"/>
+          <!-- Saree / Dupatta Georgette Fabric -->
+          <path d="M0 100 Q260 130 430 100 L430 450 L0 450 Z" fill="#C2185B"/>
+          <!-- Tight Rolled Pico Hem Edge -->
+          <path d="M428 100 C436 130, 422 160, 430 190 C438 220, 422 250, 430 280 C438 310, 422 340, 430 370 C438 400, 424 430, 430 450" stroke="#FFD54F" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M428 100 C436 130, 422 160, 430 190 C438 220, 422 250, 430 280 C438 310, 422 340, 430 370 C438 400, 424 430, 430 450" stroke="#6A0D25" stroke-width="2.5" stroke-dasharray="5 5" fill="none"/>
+          <rect x="30" y="24" width="540" height="46" rx="23" fill="#6A0D25"/>
+          <text x="300" y="53" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#FFC107" text-anchor="middle">CLOSE-UP: BAREEK PICO ROLLED HEM (साड़ी/दुपट्टा पीको)</text>
+        </svg>`,
+
+        fallPico: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+          <rect width="600" height="450" fill="#FDF2F5"/>
+          <!-- Saree Base -->
+          <rect x="40" y="100" width="520" height="310" rx="16" fill="#880E4F"/>
+          <!-- Matching Cotton Fall Strip -->
+          <rect x="40" y="240" width="520" height="155" fill="#AD1457"/>
+          <!-- Invisible Hand Hem Stitch Line -->
+          <line x1="45" y1="242" x2="555" y2="242" stroke="#FFE082" stroke-width="3" stroke-dasharray="3 12"/>
+          <!-- Bottom Pico Edge -->
+          <line x1="40" y1="396" x2="560" y2="396" stroke="#FFC107" stroke-width="7"/>
+          <text x="300" y="325" font-family="Arial, sans-serif" font-weight="800" font-size="22" fill="#FFF8E1" text-anchor="middle">MATCHING COTTON FALL + TURPAI</text>
+          <rect x="30" y="24" width="540" height="46" rx="23" fill="#6A0D25"/>
+          <text x="300" y="53" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#FFC107" text-anchor="middle">SAREE FALL &amp; PICO COMBO (फॉल और पीको)</text>
+        </svg>`,
+
+        kajButton: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+          <rect width="600" height="450" fill="#FFF8E1"/>
+          <rect x="60" y="95" width="480" height="320" rx="20" fill="#6A0D25"/>
+          <!-- Buttonhole (Kaj) -->
+          <rect x="145" y="185" width="90" height="22" rx="11" fill="#2A0E17" stroke="#FFC107" stroke-width="5"/>
+          <line x1="155" y1="196" x2="225" y2="196" stroke="#FFFDF9" stroke-width="2"/>
+          <!-- Pearl / Gold Button -->
+          <circle cx="395" cy="196" r="36" fill="#FFC107" stroke="#FFF8E1" stroke-width="4"/>
+          <circle cx="386" cy="188" r="4" fill="#6A0D25"/>
+          <circle cx="404" cy="188" r="4" fill="#6A0D25"/>
+          <circle cx="386" cy="204" r="4" fill="#6A0D25"/>
+          <circle cx="404" cy="204" r="4" fill="#6A0D25"/>
+          <!-- Hook & Eye -->
+          <path d="M165 315 C195 315, 205 335, 175 335" stroke="#E5E7EB" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M375 325 Q395 305 415 325" stroke="#FFC107" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <rect x="30" y="24" width="540" height="46" rx="23" fill="#6A0D25"/>
+          <text x="300" y="53" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#FFC107" text-anchor="middle">KAJ-BUTTON &amp; HOOK-EYE FINISHING</text>
+        </svg>`,
+
+        pipingNeck: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+          <rect width="600" height="450" fill="#FDF2F5"/>
+          <!-- Kurta Front Panel -->
+          <path d="M120 95 L480 95 L510 430 L90 430 Z" fill="#880E4F"/>
+          <!-- Sweetheart / Paan Neck Cutout with Contrast Gold Dori Piping -->
+          <path d="M215 95 C215 190, 265 235, 300 265 C335 235, 385 190, 385 95 Z" fill="#FFFDF9" stroke="#FFC107" stroke-width="8"/>
+          <!-- Potli Buttons -->
+          <circle cx="300" cy="295" r="9" fill="#FFC107"/>
+          <circle cx="300" cy="330" r="9" fill="#FFC107"/>
+          <circle cx="300" cy="365" r="9" fill="#FFC107"/>
+          <rect x="30" y="24" width="540" height="46" rx="23" fill="#6A0D25"/>
+          <text x="300" y="53" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#FFC107" text-anchor="middle">CUSTOM NECK PIPING &amp; POTLI BUTTONS</text>
+        </svg>`,
+
+        zardoziClose: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+          <rect width="600" height="450" fill="#2A0E17"/>
+          <rect x="40" y="90" width="520" height="330" rx="24" fill="#560B32" stroke="#D4AF37" stroke-width="3"/>
+          <!-- Gold Dabka & Nakshi Floral Motif -->
+          <circle cx="300" cy="255" r="75" fill="none" stroke="#FFC107" stroke-width="4" stroke-dasharray="12 6"/>
+          <circle cx="300" cy="255" r="45" fill="none" stroke="#FFE082" stroke-width="3"/>
+          <circle cx="300" cy="255" r="16" fill="#FFC107"/>
+          <circle cx="300" cy="180" r="10" fill="#FFF8E1"/>
+          <circle cx="300" cy="330" r="10" fill="#FFF8E1"/>
+          <circle cx="225" cy="255" r="10" fill="#FFF8E1"/>
+          <circle cx="375" cy="255" r="10" fill="#FFF8E1"/>
+          <rect x="30" y="22" width="540" height="46" rx="23" fill="#D4AF37"/>
+          <text x="300" y="51" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#2A0E17" text-anchor="middle">HANDMADE ZARI-ZARDOZI &amp; DABKA WORK</text>
+        </svg>`
+      };
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(visuals[type] || visuals.interlock);
+    }
+
+    // Clean, modern wearable boutique flat-lay & apparel photos (Resha India / Plus Size Store aesthetic, no heavy royal costumes)
     const PHOTOS = {
       heroTailor: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80',
-      heroCollection: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1000&q=80',
-      bandhaniSuit: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=600&q=80',
-      abaya: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=600&q=80',
-      banarasiSaree: 'https://images.unsplash.com/photo-1610030469839-f909584b43f1?auto=format&fit=crop&w=600&q=80',
-      kidsWear: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80',
-      liningSuit: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80',
-      anarkaliSuit: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80',
-      blouse: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=600&q=80',
-      zardozi: 'https://images.unsplash.com/photo-1610030469668-8e9f641aaf27?auto=format&fit=crop&w=600&q=80',
-      bridalLehenga: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80'
+      heroCollection: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=80',
+
+      // Ready-Made Boutique Suits, Sarees, Abayas & Kids Wear
+      bandhaniSuit: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=650&q=80',
+      cottonKurtiSet: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=650&q=80',
+      abaya: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=650&q=80',
+      banarasiSaree: 'https://images.unsplash.com/photo-1610030469839-f909584b43f1?auto=format&fit=crop&w=650&q=80',
+      kidsWear: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=650&q=80',
+
+      // Tailoring & Close-Up Craft Visuals
+      liningSuit: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=650&q=80',
+      anarkaliSuit: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=650&q=80',
+      blouse: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=650&q=80',
+      bridalLehenga: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=650&q=80',
+
+      // Exact Close-Up Stitching Details
+      zardozi: buildCraftCloseUpSVG('zardoziClose'),
+      interlockClose: buildCraftCloseUpSVG('interlock'),
+      picoClose: buildCraftCloseUpSVG('pico'),
+      fallPicoClose: buildCraftCloseUpSVG('fallPico'),
+      kajButtonClose: buildCraftCloseUpSVG('kajButton'),
+      pipingNeckClose: buildCraftCloseUpSVG('pipingNeck')
     };
 
     const DEFAULT_STATE = {
       banners: [
         { id: 'b1', type: 'image', src: PHOTOS.heroTailor, title: 'Firdous Ladies Tailor — Custom Designer Stitching', active: true },
-        { id: 'b2', type: 'image', src: PHOTOS.heroCollection, title: 'Ansar Collection — Jaipuri Suits, Sarees & Abayas', active: true }
+        { id: 'b2', type: 'image', src: PHOTOS.heroCollection, title: 'Ansar Collection — Boutique Suits, Sarees & Abayas', active: true }
       ],
+      categoryIcons: {
+        shop_All: PHOTOS.heroCollection,
+        'shop_Ladies Suits': PHOTOS.cottonKurtiSet,
+        shop_Sarees: PHOTOS.banarasiSaree,
+        shop_Abayas: PHOTOS.abaya,
+        'shop_Kids Wear': PHOTOS.kidsWear,
+        'stitch_Ladies Suits': PHOTOS.liningSuit,
+        'stitch_Blouse & Lehenga': PHOTOS.blouse,
+        'stitch_Zari & Zardozi Embroidery': PHOTOS.zardozi,
+        'stitch_Kids & Gents': PHOTOS.kidsWear,
+        'stitch_Finishing & Handwork': PHOTOS.interlockClose
+      },
       products: [
-        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Ideal for daily wear and festive gatherings.', images: [PHOTOS.bandhaniSuit, PHOTOS.liningSuit, PHOTOS.anarkaliSuit], inStock: true },
-        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida / Imported Georgette', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece luxury modest abaya with generous flared flow and fine antique gold embroidery along the neckline and wide cuffs.', images: [PHOTOS.abaya, PHOTOS.zardozi], inStock: true },
-        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Banarasi Silk Saree (5.5m) + 1 Matching Unstitched Blouse Piece (0.8m)', description: 'Festive Rose Pink and Royal Maroon Banarasi silk saree woven with rich antique gold zari brocade motifs.', images: [PHOTOS.banarasiSaree, PHOTOS.heroCollection, PHOTOS.blouse], inStock: true },
-        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Silk-Blend Woven Jacket', setIncludes: '1 Cream Kurta, 1 White Pajama, 1 Embroidered Maroon Nehru Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36 for weddings, Eid, and festivals.', images: [PHOTOS.kidsWear, PHOTOS.bandhaniSuit], inStock: true }
+        { id: 'prod-101', code: '101', sku: 's-1080620891', name: 'Black Jaipuri Bandhani 3-Piece Cotton Blend Suit Set', category: 'Ladies Suits', price: 380, originalPrice: 599, isOffer: true, sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Soft Cotton Blend', setIncludes: '1 Bandhani Kurta, 1 White Printed Palazzo, 1 Matching Dupatta', description: 'Authentic Jaipur Bandhani 3-piece ready-made suit set crafted in breathable cotton blend. Available up to XXXL plus sizes.', images: [PHOTOS.bandhaniSuit], inStock: true },
+        { id: 'prod-105', code: '105', sku: 'AC-KHD-105', name: 'Pure Khadi Cotton Boutique Kurta & Pant Set', category: 'Ladies Suits', price: 499, originalPrice: 799, isOffer: true, sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'], fabric: 'Breathable Khadi Cotton', setIncludes: '1 Embroidered Kurta + 1 Comfort Fit Pant', description: 'Minimalist boutique cotton kurta set designed for all-day comfort and clean modern drape.', images: [PHOTOS.cottonKurtiSet], inStock: true },
+        { id: 'prod-102', code: '102', sku: 'AC-ABY-102', name: '2-Piece Luxury Embroidered Nida Abaya', category: 'Abayas', price: 850, originalPrice: 1199, isOffer: true, sizes: ['52 (S)', '54 (M)', '56 (L)', '58 (XL)', 'Free Size'], fabric: 'Premium Korean Nida', setIncludes: '1 Inner Dress + 1 Open Flared Embroidered Abaya', description: 'Graceful 2-piece modest abaya with generous flared flow and fine antique gold embroidery along cuffs.', images: [PHOTOS.abaya], inStock: true },
+        { id: 'prod-103', code: '103', sku: 'AC-SAR-103', name: 'Banarasi Silk Festive Saree with Unstitched Blouse', category: 'Sarees', price: 799, originalPrice: 1250, isOffer: true, sizes: ['Free Size (5.5m + 0.8m Blouse)'], fabric: 'Art Banarasi Silk Blend', setIncludes: '1 Saree (5.5m) + 1 Matching Blouse Piece (0.8m)', description: 'Soft drape Banarasi silk saree woven with delicate gold zari motifs.', images: [PHOTOS.banarasiSaree], inStock: true },
+        { id: 'prod-104', code: '104', sku: 'AC-KID-104', name: 'Kids Festive Ethnic Kurta-Pajama & Jacket Set', category: 'Kids Wear', price: 499, originalPrice: 750, isOffer: false, sizes: ['14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36'], fabric: 'Soft Cotton Kurta with Woven Jacket', setIncludes: '1 Kurta, 1 Pajama, 1 Embroidered Jacket', description: 'Complete festive 3-piece ethnic outfit for kids spanning sizes 14 to 36.', images: [PHOTOS.kidsWear], inStock: true }
       ],
       rates: [
-        { id: 'r1', category: 'Ladies Suits', name: 'Simple Suit & Salwar (Bina Astar)', sub: 'सिंपल सूट और सलवार (बिना अस्तर)', price: 300, days: '2–3 Days', img: PHOTOS.bandhaniSuit, neck: 'Round / Sweetheart / Paan / V-Neck' },
-        { id: 'r2', category: 'Ladies Suits', name: 'Lining / Astar Suit', sub: 'अस्तर वाला सूट परफेक्ट फिटिंग के साथ', price: 450, days: '3–4 Days', img: PHOTOS.liningSuit, neck: 'Piped V-Neck / Keyhole / Sweetheart' },
-        { id: 'r3', category: 'Ladies Suits', name: 'Pant / Palazzo / Afghani Salwar Suit', sub: 'पैंट, प्लाज़ो या अफ़गानी सलवार सूट', price: 350, days: '2–3 Days', img: PHOTOS.liningSuit, neck: 'Boat Neck / Round / Mandarin Collar' },
-        { id: 'r4', category: 'Ladies Suits', name: 'Anarkali / Umbrella Frock Suit', sub: 'अनारकली और अंब्रेला फ्लेयर फ्रॉक सूट', price: 600, days: '4–5 Days', img: PHOTOS.anarkaliSuit, neck: 'Boat Neck / Deep Back Dori' },
-        { id: 'r5', category: 'Ladies Suits', name: 'Suit Alteration / Fitting', sub: 'सूट ऑल्टरेशन और लूज़-टाइट फिटिंग', price: 80, days: 'Same Day / 1 Day', img: PHOTOS.heroTailor, neck: 'Gala Deep/Short Adjustment' },
-        { id: 'r6', category: 'Blouse & Lehenga', name: 'Simple Blouse (Bina Astar)', sub: 'सिंपल ब्लाउज़ (बिना अस्तर)', price: 200, days: '2 Days', img: PHOTOS.blouse, neck: 'Front Round / Back U / Paan / Square' },
-        { id: 'r7', category: 'Blouse & Lehenga', name: 'Astar / Padded Designer Blouse', sub: 'अस्तर और पैडेड डिज़ाइनर ब्लाउज़ (डोरी व लटकन)', price: 350, days: '3 Days', img: PHOTOS.blouse, neck: 'Sweetheart / Deep Matka / Back Dori' },
-        { id: 'r8', category: 'Blouse & Lehenga', name: 'Bridal / Party Wear Lehenga Stitching', sub: 'ब्राइडल व पार्टी वियर लहंगा-चोली सिलाई', price: 1200, days: '5–7 Days', img: PHOTOS.bridalLehenga, neck: 'Double Astar + Can-Can + Side Zip' },
-        { id: 'r9', category: 'Zari & Zardozi Embroidery', name: 'Suit Gala & Sleeve Zari-Zardozi Work', sub: 'सूट के गले और आस्तीन पर हाथ की ज़री-ज़रदोज़ी कढ़ाई', price: 650, days: '3–4 Days', img: PHOTOS.zardozi, neck: 'Front Gala Bel-Buti / Heavy V-Panel' },
-        { id: 'r10', category: 'Zari & Zardozi Embroidery', name: 'Bridal Blouse Zari-Zardozi Handwork', sub: 'ब्राइडल व पार्टी ब्लाउज़ पर हैवी बैक गला व बाजू ज़रदोज़ी कढ़ाई', price: 1200, days: '4–6 Days', img: PHOTOS.blouse, neck: 'Deep Back Bridal Arch / Sweetheart' },
-        { id: 'r11', category: 'Zari & Zardozi Embroidery', name: 'Saree Border & Pallu Zari-Zardozi Work', sub: 'साड़ी के बॉर्डर और पल्लू पर रॉयल ज़री-ज़रदोज़ी कढ़ाई', price: 1800, days: '5–7 Days', img: PHOTOS.banarasiSaree, neck: '4-Side Scallop / Floral Zari Border' },
-        { id: 'r12', category: 'Zari & Zardozi Embroidery', name: 'Bridal Lehenga Heavy Zardozi Work', sub: 'लहंगा कली और घेरे पर शाही जयपुरी ज़री-ज़रदोज़ी हैंडवर्क', price: 3500, days: '7–12 Days', img: PHOTOS.bridalLehenga, neck: '12–16 Kali Balanced Heavy Dabka & Zari' },
-        { id: 'r13', category: 'Zari & Zardozi Embroidery', name: 'Dupatta Zari Border & Buti Handwork', sub: 'दुपट्टे के चारों तरफ़ ज़री-ज़रदोज़ी बॉर्डर और छोटी बूटी', price: 750, days: '3–4 Days', img: PHOTOS.banarasiSaree, neck: 'Bridal Matha-Patti Heavy Border' },
-        { id: 'r14', category: 'Zari & Zardozi Embroidery', name: 'Custom Zari, Zardozi & Karchob Handwork', sub: 'आपकी पसंद के फोटो अनुसार कस्टम ज़री व करचोब कढ़ाई', price: 0, priceLabel: 'Custom Quote', days: 'As per design', img: PHOTOS.zardozi, neck: 'Koi bhi Photo WhatsApp par Bhejein' },
-        { id: 'r15', category: 'Kids & Gents', name: 'Kids Kurta-Pajama Set', sub: 'बच्चों का कुर्ता-पाजामा सेट (सॉफ्ट फिटिंग)', price: 250, days: '2–3 Days', img: PHOTOS.kidsWear, neck: 'Mandarin Band / Round Placket' },
-        { id: 'r16', category: 'Kids & Gents', name: 'Gents Kurta-Pajama', sub: 'जेंट्स कुर्ता-पाजामा कस्टम नाप व कॉलर फिनिशिंग', price: 400, days: '3–4 Days', img: PHOTOS.kidsWear, neck: 'Mandarin Band / Pathani Collar' },
-        { id: 'r17', category: 'Finishing & Handwork', name: 'Dupatta / Saree Pico', sub: 'दुपट्टा या साड़ी पीको फिनिशिंग (मज़बूत और बारीक)', price: 30, days: 'Same Day', img: PHOTOS.banarasiSaree, neck: 'Matching Silk / Cotton Thread Roll' },
-        { id: 'r18', category: 'Finishing & Handwork', name: 'Interlock (Full Suit)', sub: 'पूरे सूट की मज़बूत इंटरलॉक (धागे निकलने से बचाव)', price: 40, days: 'Same Day', img: PHOTOS.heroTailor, neck: '3-Thread Neat Industrial Overlock' },
-        { id: 'r19', category: 'Finishing & Handwork', name: 'Saree Fall & Pico Combo', sub: 'साड़ी फॉल और पीको कॉम्बो (मैचिंग कॉटन फॉल)', price: 80, days: 'Same Day / 1 Day', img: PHOTOS.banarasiSaree, neck: 'Invisible Hand-Hemmed Top Stitch' },
-        { id: 'r20', category: 'Finishing & Handwork', name: 'Kaj-Button / Hook-Eye (Per Set)', sub: 'काज-बटन या हुक-आई (प्रति सेट)', price: 20, days: 'Same Day', img: PHOTOS.blouse, neck: 'Rust-Free Hooks & Hand Eye Loops' },
-        { id: 'r21', category: 'Finishing & Handwork', name: 'Custom Neck & Sleeve Piping / Patti Design', sub: 'गले और बाजू की मोरी पर कस्टम पाइपिंग / गोटा पट्टी', price: 100, days: '1–2 Days', img: PHOTOS.liningSuit, neck: 'Contrast Dori Piping / Potli Buttons' }
+        { id: 'r1', category: 'Ladies Suits', name: 'Simple Suit & Salwar (Bina Astar)', sub: 'सिंपल सूट और सलवार (बिना अस्तर)', price: 300, days: '2–3 Days', images: [PHOTOS.cottonKurtiSet], neck: 'Round / Sweetheart / Paan / V-Neck' },
+        { id: 'r2', category: 'Ladies Suits', name: 'Lining / Astar Suit', sub: 'अस्तर वाला सूट परफेक्ट फिटिंग के साथ', price: 450, days: '3–4 Days', images: [PHOTOS.liningSuit], neck: 'Piped V-Neck / Keyhole / Sweetheart' },
+        { id: 'r3', category: 'Ladies Suits', name: 'Pant / Palazzo / Afghani Salwar Suit', sub: 'पैंट, प्लाज़ो या अफ़गानी सलवार सूट', price: 350, days: '2–3 Days', images: [PHOTOS.bandhaniSuit], neck: 'Boat Neck / Round / Mandarin Collar' },
+        { id: 'r4', category: 'Ladies Suits', name: 'Anarkali / Umbrella Frock Suit', sub: 'अनारकली और अंब्रेला फ्लेयर फ्रॉक सूट', price: 600, days: '4–5 Days', images: [PHOTOS.anarkaliSuit], neck: 'Boat Neck / Deep Back Dori' },
+        { id: 'r5', category: 'Ladies Suits', name: 'Suit Alteration / Fitting', sub: 'सूट ऑल्टरेशन और लूज़-टाइट फिटिंग', price: 80, days: 'Same Day / 1 Day', images: [PHOTOS.heroTailor], neck: 'Gala Deep/Short Adjustment' },
+        { id: 'r6', category: 'Blouse & Lehenga', name: 'Simple Blouse (Bina Astar)', sub: 'सिंपल ब्लाउज़ (बिना अस्तर)', price: 200, days: '2 Days', images: [PHOTOS.blouse], neck: 'Front Round / Back U / Paan / Square' },
+        { id: 'r7', category: 'Blouse & Lehenga', name: 'Astar / Padded Designer Blouse', sub: 'अस्तर और पैडेड डिज़ाइनर ब्लाउज़ (डोरी व लटकन)', price: 350, days: '3 Days', images: [PHOTOS.blouse], neck: 'Sweetheart / Deep Matka / Back Dori' },
+        { id: 'r8', category: 'Blouse & Lehenga', name: 'Bridal / Party Wear Lehenga Stitching', sub: 'ब्राइडल व पार्टी वियर लहंगा-चोली सिलाई', price: 1200, days: '5–7 Days', images: [PHOTOS.bridalLehenga], neck: 'Double Astar + Can-Can + Side Zip' },
+        { id: 'r9', category: 'Zari & Zardozi Embroidery', name: 'Suit Gala & Sleeve Zari-Zardozi Work', sub: 'सूट के गले और आस्तीन पर हाथ की ज़री-ज़रदोज़ी कढ़ाई', price: 650, days: '3–4 Days', images: [PHOTOS.zardozi], neck: 'Front Gala Bel-Buti / Heavy V-Panel' },
+        { id: 'r10', category: 'Zari & Zardozi Embroidery', name: 'Bridal Blouse Zari-Zardozi Handwork', sub: 'ब्राइडल व पार्टी ब्लाउज़ पर हैवी बैक गला व बाजू ज़रदोज़ी कढ़ाई', price: 1200, days: '4–6 Days', images: [PHOTOS.zardozi], neck: 'Deep Back Bridal Arch / Sweetheart' },
+        { id: 'r11', category: 'Zari & Zardozi Embroidery', name: 'Saree Border & Pallu Zari-Zardozi Work', sub: 'साड़ी के बॉर्डर और पल्लू पर रॉयल ज़री-ज़रदोज़ी कढ़ाई', price: 1800, days: '5–7 Days', images: [PHOTOS.banarasiSaree], neck: '4-Side Scallop / Floral Zari Border' },
+        { id: 'r12', category: 'Zari & Zardozi Embroidery', name: 'Bridal Lehenga Heavy Zardozi Work', sub: 'लहंगा कली और घेरे पर शाही जयपुरी ज़री-ज़रदोज़ी हैंडवर्क', price: 3500, days: '7–12 Days', images: [PHOTOS.bridalLehenga], neck: '12–16 Kali Balanced Heavy Dabka & Zari' },
+        { id: 'r13', category: 'Zari & Zardozi Embroidery', name: 'Dupatta Zari Border & Buti Handwork', sub: 'दुपट्टे के चारों तरफ़ ज़री-ज़रदोज़ी बॉर्डर और छोटी बूटी', price: 750, days: '3–4 Days', images: [PHOTOS.zardozi], neck: 'Bridal Matha-Patti Heavy Border' },
+        { id: 'r14', category: 'Zari & Zardozi Embroidery', name: 'Custom Zari, Zardozi & Karchob Handwork', sub: 'आपकी पसंद के फोटो अनुसार कस्टम ज़री व करचोब कढ़ाई', price: 0, priceLabel: 'Custom Quote', days: 'As per design', images: [PHOTOS.zardozi], neck: 'Koi bhi Photo WhatsApp par Bhejein' },
+        { id: 'r15', category: 'Kids & Gents', name: 'Kids Kurta-Pajama Set', sub: 'बच्चों का कुर्ता-पाजामा सेट (सॉफ्ट फिटिंग)', price: 250, days: '2–3 Days', images: [PHOTOS.kidsWear], neck: 'Mandarin Band / Round Placket' },
+        { id: 'r16', category: 'Kids & Gents', name: 'Gents Kurta-Pajama', sub: 'जेंट्स कुर्ता-पाजामा कस्टम नाप व कॉलर फिनिशिंग', price: 400, days: '3–4 Days', images: [PHOTOS.kidsWear], neck: 'Mandarin Band / Pathani Collar' },
+        { id: 'r17', category: 'Finishing & Handwork', name: 'Dupatta / Saree Pico (Close-Up Rolled Hem)', sub: 'दुपट्टा या साड़ी पीको फिनिशिंग (मज़बूत और बारीक)', price: 30, days: 'Same Day', images: [PHOTOS.picoClose], neck: 'Tight Rolled Edge Hem Finish' },
+        { id: 'r18', category: 'Finishing & Handwork', name: 'Interlock / Overlock (Full Suit Close-Up)', sub: 'पूरे सूट की मज़बूत इंटरलॉक (धागे निकलने से बचाव)', price: 40, days: 'Same Day', images: [PHOTOS.interlockClose], neck: '3-Thread Neat Industrial Overlock' },
+        { id: 'r19', category: 'Finishing & Handwork', name: 'Saree Fall & Pico Combo', sub: 'साड़ी फॉल और पीको कॉम्बो (मैचिंग कॉटन फॉल)', price: 80, days: 'Same Day / 1 Day', images: [PHOTOS.fallPicoClose], neck: 'Invisible Hand-Hemmed Top Stitch' },
+        { id: 'r20', category: 'Finishing & Handwork', name: 'Kaj-Button / Hook-Eye (Per Set)', sub: 'काज-बटन या हुक-आई (प्रति सेट)', price: 20, days: 'Same Day', images: [PHOTOS.kajButtonClose], neck: 'Rust-Free Hooks & Hand Eye Loops' },
+        { id: 'r21', category: 'Finishing & Handwork', name: 'Custom Neck & Sleeve Piping / Potli Design', sub: 'गले और बाजू की मोरी पर कस्टम पाइपिंग / पोटली बटन', price: 100, days: '1–2 Days', images: [PHOTOS.pipingNeckClose], neck: 'Contrast Dori Piping / Potli Buttons' }
       ],
       partnerWorks: [
         { id: 'pw1', title: 'Royal Bridal Neck & Sleeve Zardozi Work', tag: 'Karchob Adda Handwork', price: '₹650 onwards', img: PHOTOS.zardozi, desc: 'Pure antique gold dabka, nakshi, moti & kasab embroidery for bridal suits and blouses.' },
@@ -732,12 +889,15 @@
         { id: 'pw3', title: 'Bridal Kali Lehenga Heavy Zardozi Panel', tag: 'Bridal Lehenga', price: '₹3,500 onwards', img: PHOTOS.bridalLehenga, desc: 'Royal Rajasthani karchob zardozi with kundan, moti and heavy dabka work across lehenga kalis.' }
       ],
       customers: [
-        { id: 'c1', orderId: 'FLT-101', customerName: 'Rukhsar Bano', phone: '9829011223', garment: 'Lining / Astar Suit + Piping', naap: 'Length: 42", Chest: 38", Waist: 34", Hip: 41", Sleeve: 16", Gala: F 6.5" / B 7"', deliveryDate: '2026-11-23', status: 'Stitching', totalBill: 550, amountPaid: 300 },
-        { id: 'c2', orderId: 'FLT-102', customerName: 'Sunita Sharma', phone: '9414055667', garment: 'Astar / Padded Designer Blouse', naap: 'Length: 14.5", Chest: 36", Waist: 30", Sleeve: 10.5", Gala: F 6" / B 9.5"', deliveryDate: '2026-11-22', status: 'Ready for Delivery', totalBill: 350, amountPaid: 150 }
+        { id: 'c1', orderId: 'FLT-101', customerName: 'Rukhsar Bano', phone: '9829011223', garment: 'Lining / Astar Suit + Piping', naap: 'Length: 42", Chest: 38", Waist: 34", Hip: 41", Sleeve: 16", Gala: F 6.5" / B 7"', deliveryDate: '2026-11-26', status: 'Stitching', totalBill: 550, amountPaid: 300 },
+        { id: 'c2', orderId: 'FLT-102', customerName: 'Sunita Sharma', phone: '9414055667', garment: 'Astar / Padded Designer Blouse', naap: 'Length: 14.5", Chest: 36", Waist: 30", Sleeve: 10.5", Gala: F 6" / B 9.5"', deliveryDate: '2026-11-25', status: 'Ready for Delivery', totalBill: 350, amountPaid: 150 }
       ]
     };
 
     let appState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || DEFAULT_STATE;
+    if (!appState.categoryIcons) appState.categoryIcons = DEFAULT_STATE.categoryIcons;
+    appState.rates.forEach(r => { if (!Array.isArray(r.images)) r.images = [r.img || PHOTOS.heroTailor]; });
+
     let isAdmin = localStorage.getItem(AUTH_KEY) === 'true';
     let firebaseUrl = localStorage.getItem(FIREBASE_KEY) || '';
     let selectedProdCat = 'All';
@@ -748,6 +908,7 @@
     let isHeroVisible = true;
     let isHeroMuted = false;
     let currentReceiptCustomer = null;
+    let editingTarget = null; // { kind: 'product'|'rate', id: string }
 
     function saveState() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
@@ -775,6 +936,7 @@
         const remote = await res.json();
         if (remote && typeof remote === 'object' && Array.isArray(remote.products)) {
           appState = remote;
+          if (!appState.categoryIcons) appState.categoryIcons = DEFAULT_STATE.categoryIcons;
           localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
           document.getElementById('liveCloudDot').classList.remove('hidden');
           renderHero();
@@ -1010,12 +1172,13 @@
     }
 
     function renderProducts() {
+      const icons = appState.categoryIcons || DEFAULT_STATE.categoryIcons;
       const circleCats = [
-        { name: 'All', img: PHOTOS.heroCollection },
-        { name: 'Ladies Suits', img: PHOTOS.bandhaniSuit },
-        { name: 'Sarees', img: PHOTOS.banarasiSaree },
-        { name: 'Abayas', img: PHOTOS.abaya },
-        { name: 'Kids Wear', img: PHOTOS.kidsWear }
+        { name: 'All', img: icons.shop_All || PHOTOS.heroCollection },
+        { name: 'Ladies Suits', img: icons['shop_Ladies Suits'] || PHOTOS.cottonKurtiSet },
+        { name: 'Sarees', img: icons.shop_Sarees || PHOTOS.banarasiSaree },
+        { name: 'Abayas', img: icons.shop_Abayas || PHOTOS.abaya },
+        { name: 'Kids Wear', img: icons['shop_Kids Wear'] || PHOTOS.kidsWear }
       ];
 
       document.getElementById('prodCircleCategories').innerHTML = circleCats.map(c => {
@@ -1056,11 +1219,12 @@
       emptyEl.classList.add('hidden');
 
       gridEl.innerHTML = filtered.map(p => {
-        const photoCount = p.images ? p.images.length : 1;
+        const imgs = Array.isArray(p.images) && p.images.length ? p.images : [PHOTOS.cottonKurtiSet];
+        const photoCount = imgs.length;
         return `
           <div onclick="openProductDetail('${p.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col ${p.inStock ? '' : 'opacity-60'}">
             <div class="relative aspect-[4/5] bg-[#FCE4EC]/30">
-              <img src="${p.images[0]}" alt="${p.name}" loading="lazy" onerror="this.src='${PHOTOS.bandhaniSuit}'" class="w-full h-full object-cover" />
+              <img src="${imgs[0]}" alt="${p.name}" loading="lazy" onerror="this.src='${PHOTOS.cottonKurtiSet}'" class="w-full h-full object-cover" />
               ${photoCount > 1 ? `<span class="absolute top-2 right-2 bg-black/65 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">📷 ${photoCount}</span>` : ''}
               ${!p.inStock ? `<span class="absolute inset-0 bg-black/55 text-white font-extrabold text-xs flex items-center justify-center">Out of Stock</span>` : ''}
             </div>
@@ -1078,16 +1242,26 @@
       }).join('');
     }
 
-    function openProductDetail(id) {
+    function openProductDetail(id, imgIdx = 0) {
       const p = appState.products.find(x => x.id === id);
       if (!p) return;
+      const imgs = Array.isArray(p.images) && p.images.length ? p.images : [PHOTOS.cottonKurtiSet];
+      const activeImg = imgs[imgIdx] || imgs[0];
+
       document.getElementById('detailModalContent').innerHTML = `
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-xs font-extrabold text-[#D81B60] uppercase">${p.category} • SKU: ${p.sku || p.code}</span>
             <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-gray-100 font-bold text-xs">✕</button>
           </div>
-          <img src="${p.images[0]}" alt="${p.name}" class="w-full aspect-square object-cover rounded-2xl border border-[#EFE0E5]" />
+          <img src="${activeImg}" alt="${p.name}" class="w-full aspect-square object-cover rounded-2xl border border-[#EFE0E5]" />
+          ${imgs.length > 1 ? `
+            <div class="flex gap-2 overflow-x-auto no-scrollbar">
+              ${imgs.map((src, idx) => `
+                <img onclick="openProductDetail('${p.id}', ${idx})" src="${src}" class="w-14 h-14 rounded-xl object-cover cursor-pointer border-2 ${idx === imgIdx ? 'border-[#D81B60]' : 'border-transparent opacity-70'}" />
+              `).join('')}
+            </div>
+          ` : ''}
           <div>
             <h2 class="font-display text-2xl font-bold text-[#2A0E17]">${p.name}</h2>
             <p class="text-lg font-extrabold text-[#6A0D25] mt-1">₹${p.price} ${p.originalPrice ? `<span class="text-xs text-gray-400 line-through font-normal">₹${p.originalPrice}</span>` : ''}</p>
@@ -1145,13 +1319,14 @@
     }
 
     function renderStitching() {
+      const icons = appState.categoryIcons || DEFAULT_STATE.categoryIcons;
       const stitchCircleList = [
         { name: 'All', label: 'All Designs', isAllIcon: true },
-        { name: 'Ladies Suits', img: PHOTOS.liningSuit },
-        { name: 'Blouse & Lehenga', img: PHOTOS.blouse },
-        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: PHOTOS.zardozi },
-        { name: 'Kids & Gents', img: PHOTOS.kidsWear },
-        { name: 'Finishing & Handwork', label: 'Finishing', img: PHOTOS.heroTailor }
+        { name: 'Ladies Suits', img: icons['stitch_Ladies Suits'] || PHOTOS.liningSuit },
+        { name: 'Blouse & Lehenga', img: icons['stitch_Blouse & Lehenga'] || PHOTOS.blouse },
+        { name: 'Zari & Zardozi Embroidery', label: 'Zari & Zardozi', img: icons['stitch_Zari & Zardozi Embroidery'] || PHOTOS.zardozi },
+        { name: 'Kids & Gents', img: icons['stitch_Kids & Gents'] || PHOTOS.kidsWear },
+        { name: 'Finishing & Handwork', label: 'Finishing', img: icons['stitch_Finishing & Handwork'] || PHOTOS.interlockClose }
       ];
 
       document.getElementById('stitchCircleCategories').innerHTML = stitchCircleList.map(c => {
@@ -1173,7 +1348,7 @@
         'Blouse & Lehenga': 'सिंपल ब्लाउज़, अस्तर-पैडेड डिज़ाइनर ब्लाउज़ व ब्राइडल लहंगा',
         'Zari & Zardozi Embroidery': 'हाथ की ज़री, ज़रदोज़ी, दबका और करचोब कढ़ाई (गला, साड़ी, लहंगा)',
         'Kids & Gents': 'बच्चों और जेंट्स का कस्टम कुर्ता-पाजामा',
-        'Finishing & Handwork': 'पीको, इंटरलॉक, साड़ी फॉल और गला-बाजू पाइपिंग'
+        'Finishing & Handwork': 'करीब से देखें: पीको, इंटरलॉक, साड़ी फॉल, काज-बटन और गला पाइपिंग'
       };
 
       const categoriesToShow = selectedStitchCat === 'All'
@@ -1193,24 +1368,28 @@
               <span class="text-[11px] font-bold text-gray-400">${items.length} designs</span>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              ${items.map(r => `
-                <div onclick="bookStitchingRate('${r.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col">
-                  <div class="aspect-[4/3] bg-[#FCE4EC]/30">
-                    <img src="${r.img}" alt="${r.name}" loading="lazy" onerror="this.src='${PHOTOS.heroTailor}'" class="w-full h-full object-cover" />
-                  </div>
-                  <div class="p-3 flex-1 flex flex-col justify-between">
-                    <div>
-                      <span class="text-[10px] font-bold text-[#B45309]">Firdous Tailor · ${r.days}</span>
-                      <h4 class="font-bold text-xs sm:text-sm text-[#2A0E17] leading-snug mt-0.5">${r.name}</h4>
-                      <p class="text-[10px] text-gray-500 line-clamp-1 mt-0.5">${r.neck}</p>
+              ${items.map(r => {
+                const imgs = Array.isArray(r.images) && r.images.length ? r.images : [r.img || PHOTOS.heroTailor];
+                return `
+                  <div onclick="bookStitchingRate('${r.id}')" class="bg-white rounded-2xl border border-[#EFE0E5] overflow-hidden shadow-xs hover:shadow-md transition cursor-pointer flex flex-col">
+                    <div class="relative aspect-[4/3] bg-[#FCE4EC]/30">
+                      <img src="${imgs[0]}" alt="${r.name}" loading="lazy" onerror="this.src='${PHOTOS.heroTailor}'" class="w-full h-full object-cover" />
+                      ${imgs.length > 1 ? `<span class="absolute top-2 right-2 bg-black/65 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">📷 ${imgs.length}</span>` : ''}
                     </div>
-                    <div class="mt-2 pt-2 border-t border-[#EFE0E5] flex items-center justify-between">
-                      <span class="font-extrabold text-xs sm:text-sm text-[#6A0D25]">${r.priceLabel || `₹${r.price}`}</span>
-                      <span class="text-[10px] font-extrabold text-[#D81B60]">Select Design →</span>
+                    <div class="p-3 flex-1 flex flex-col justify-between">
+                      <div>
+                        <span class="text-[10px] font-bold text-[#B45309]">Firdous Tailor · ${r.days}</span>
+                        <h4 class="font-bold text-xs sm:text-sm text-[#2A0E17] leading-snug mt-0.5">${r.name}</h4>
+                        <p class="text-[10px] text-gray-500 line-clamp-1 mt-0.5">${r.neck}</p>
+                      </div>
+                      <div class="mt-2 pt-2 border-t border-[#EFE0E5] flex items-center justify-between">
+                        <span class="font-extrabold text-xs sm:text-sm text-[#6A0D25]">${r.priceLabel || `₹${r.price}`}</span>
+                        <span class="text-[10px] font-extrabold text-[#D81B60]">Select Design →</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              `).join('')}
+                `;
+              }).join('')}
             </div>
           </div>
         `;
@@ -1280,8 +1459,8 @@
     // TAB 3: 9:16 REELS
     function renderReels() {
       const items = [
-        ...appState.products.map(p => ({ title: p.name, sub: `Ansar Collection • ₹${p.price}`, img: p.images[0], wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.` })),
-        ...appState.rates.slice(0, 4).map(r => ({ title: r.name, sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`, img: r.img, wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.` }))
+        ...appState.products.map(p => ({ title: p.name, sub: `Ansar Collection • ₹${p.price}`, img: (p.images && p.images[0]) || PHOTOS.cottonKurtiSet, wa: `🛍️ *Reel Order — ${p.name}*\n💰 Price: ₹${p.price}\nIs outfit ki details aur sizes bhejein.` })),
+        ...appState.rates.filter(r => ['r2', 'r7', 'r9', 'r17', 'r18'].includes(r.id)).map(r => ({ title: r.name, sub: `Firdous Tailor • ${r.priceLabel || '₹' + r.price}`, img: (r.images && r.images[0]) || PHOTOS.heroTailor, wa: `✂️ *Reel Silai Inquiry — ${r.name}*\n💰 Rate: ${r.priceLabel || '₹' + r.price}\nMujhe yeh silai karwani hai.` }))
       ];
       document.getElementById('reelsContainer').innerHTML = items.map(it => `
         <div class="relative aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-lg border border-[#D4AF37]/30">
@@ -1320,7 +1499,7 @@
     }
 
     // =====================================================================
-    // ADMIN DASHBOARD FUNCTIONS (CLEANED & UNIFIED)
+    // ADMIN DASHBOARD FUNCTIONS (FULL EDIT + MULTI-PHOTO MANAGER)
     // =====================================================================
     function openAdminModal() {
       document.getElementById('adminModal').classList.remove('hidden');
@@ -1328,6 +1507,7 @@
       renderAdminKhata();
       renderAdminProducts();
       renderAdminRates();
+      renderAdminCategoryIcons();
       renderAdminBanners();
       syncHeroPlayback();
     }
@@ -1347,6 +1527,265 @@
       document.getElementById(`admTab_${t}`).className = 'adm-btn bg-[#6A0D25] text-[#D4AF37] px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap shadow-xs';
     }
 
+    // UNIVERSAL ITEM & MULTI-PHOTO EDITOR (Remove Old Photo + Add New Photo + Edit All Fields)
+    function openUniversalItemEditor(kind, id) {
+      const item = kind === 'product'
+        ? appState.products.find(x => x.id === id)
+        : appState.rates.find(x => x.id === id);
+      if (!item) return;
+
+      editingTarget = { kind, id };
+      if (!Array.isArray(item.images)) item.images = [item.img || PHOTOS.heroTailor];
+
+      const box = document.getElementById('universalEditContent');
+      box.innerHTML = `
+        <div class="flex items-center justify-between border-b border-[#EFE0E5] pb-3">
+          <div>
+            <span class="text-[10px] font-extrabold uppercase text-[#D81B60]">${kind === 'product' ? 'Edit Ready-Made Product' : 'Edit Silai / Zari Item'}</span>
+            <h3 class="font-display text-xl font-bold text-[#6A0D25]">✏️ Full Item &amp; Photo Editor</h3>
+          </div>
+          <button onclick="closeUniversalEditModal()" class="w-8 h-8 rounded-full bg-[#FCE4EC] text-[#6A0D25] font-bold text-xs">✕</button>
+        </div>
+
+        <!-- Existing Photos Manager (Remove Old + Add New) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-extrabold text-[#2A0E17]">🖼️ Photos (${item.images.length}) — Purana Hatayein ya Naya Jodein:</label>
+          </div>
+          <div class="flex gap-2.5 overflow-x-auto py-1">
+            ${item.images.map((src, idx) => `
+              <div class="relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border border-[#E5CFD6] bg-gray-100">
+                <img src="${src}" class="w-full h-full object-cover" />
+                <button onclick="removePhotoFromEditingItem(${idx})" title="Remove Photo" class="absolute top-1 right-1 w-5 h-5 rounded-full bg-red-600 text-white text-[10px] font-black flex items-center justify-center shadow">✕</button>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            <div class="flex gap-1">
+              <input id="editAddPhotoUrlInput" type="url" placeholder="Paste New Photo URL..." class="flex-1 bg-white border border-[#E5CFD6] rounded-xl px-2.5 py-2 text-xs outline-none" />
+              <button onclick="addUrlPhotoToEditingItem()" class="bg-[#6A0D25] text-[#D4AF37] font-extrabold text-xs px-3 rounded-xl">+ Add</button>
+            </div>
+            <label class="bg-[#FCE4EC] border border-dashed border-[#D81B60] rounded-xl px-3 py-2 text-xs text-[#6A0D25] font-extrabold text-center cursor-pointer">
+              📷 Add Photo from Gallery
+              <input type="file" accept="image/*" multiple onchange="addGalleryPhotosToEditingItem(event)" class="hidden" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Text & Price Fields -->
+        <div class="space-y-2.5 pt-2 border-t border-[#EFE0E5]">
+          <div>
+            <label class="text-[11px] font-bold text-gray-600">Item Name *</label>
+            <input id="editFieldName" type="text" value="${item.name.replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-bold" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-[11px] font-bold text-gray-600">Category</label>
+              <input id="editFieldCategory" type="text" value="${item.category}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-bold" />
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-gray-600">Price (₹)</label>
+              <input id="editFieldPrice" type="number" value="${item.price}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs font-extrabold text-[#6A0D25]" />
+            </div>
+          </div>
+
+          ${kind === 'product' ? `
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[11px] font-bold text-gray-600">MRP ₹ (Optional)</label>
+                <input id="editFieldOrigPrice" type="number" value="${item.originalPrice || ''}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs" />
+              </div>
+              <div>
+                <label class="text-[11px] font-bold text-gray-600">Sizes (comma separated)</label>
+                <input id="editFieldSizes" type="text" value="${(item.sizes || []).join(', ')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs" />
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-gray-600">Fabric &amp; Description</label>
+              <textarea id="editFieldDesc" rows="2" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl p-2.5 text-xs">${item.description || ''}</textarea>
+            </div>
+          ` : `
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[11px] font-bold text-gray-600">Hindi Subtitle</label>
+                <input id="editFieldSub" type="text" value="${(item.sub || '').replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs" />
+              </div>
+              <div>
+                <label class="text-[11px] font-bold text-gray-600">Delivery Time</label>
+                <input id="editFieldDays" type="text" value="${item.days || ''}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs" />
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-gray-600">Neck / Finish Note</label>
+              <input id="editFieldNeck" type="text" value="${(item.neck || '').replace(/"/g, '&quot;')}" class="w-full mt-1 bg-white border border-[#E5CFD6] rounded-xl px-3 py-2 text-xs" />
+            </div>
+          `}
+        </div>
+
+        <button onclick="saveUniversalItemEdits()" class="w-full bg-[#6A0D25] hover:bg-[#52091C] text-[#D4AF37] font-extrabold text-xs py-3.5 rounded-xl shadow-md">
+          ✅ Save Changes &amp; Publish Live
+        </button>
+      `;
+
+      document.getElementById('universalEditModal').classList.remove('hidden');
+    }
+
+    function closeUniversalEditModal() {
+      document.getElementById('universalEditModal').classList.add('hidden');
+      editingTarget = null;
+    }
+
+    function removePhotoFromEditingItem(photoIdx) {
+      if (!editingTarget) return;
+      const item = editingTarget.kind === 'product'
+        ? appState.products.find(x => x.id === editingTarget.id)
+        : appState.rates.find(x => x.id === editingTarget.id);
+      if (!item) return;
+      if (item.images.length <= 1) {
+        toast('⚠️ Kam se kam 1 photo rehni chahiye (pehle nayi photo jodein, phir purani hatayein)');
+        return;
+      }
+      item.images.splice(photoIdx, 1);
+      openUniversalItemEditor(editingTarget.kind, editingTarget.id);
+    }
+
+    function addUrlPhotoToEditingItem() {
+      if (!editingTarget) return;
+      const url = document.getElementById('editAddPhotoUrlInput').value.trim();
+      if (!url) return toast('Pehle Photo URL paste karein!');
+      const item = editingTarget.kind === 'product'
+        ? appState.products.find(x => x.id === editingTarget.id)
+        : appState.rates.find(x => x.id === editingTarget.id);
+      if (!item) return;
+      item.images.push(url);
+      openUniversalItemEditor(editingTarget.kind, editingTarget.id);
+      toast('✅ New Photo Added!');
+    }
+
+    async function addGalleryPhotosToEditingItem(event) {
+      if (!editingTarget) return;
+      const files = Array.from(event.target.files || []);
+      if (!files.length) return;
+      const item = editingTarget.kind === 'product'
+        ? appState.products.find(x => x.id === editingTarget.id)
+        : appState.rates.find(x => x.id === editingTarget.id);
+      if (!item) return;
+
+      for (const f of files) {
+        const dataUrl = await new Promise(res => {
+          const r = new FileReader();
+          r.onload = () => res(r.result);
+          r.readAsDataURL(f);
+        });
+        item.images.push(dataUrl);
+      }
+      openUniversalItemEditor(editingTarget.kind, editingTarget.id);
+      toast(`✅ ${files.length} Photo(s) Added!`);
+    }
+
+    function saveUniversalItemEdits() {
+      if (!editingTarget) return;
+      const item = editingTarget.kind === 'product'
+        ? appState.products.find(x => x.id === editingTarget.id)
+        : appState.rates.find(x => x.id === editingTarget.id);
+      if (!item) return;
+
+      const name = document.getElementById('editFieldName').value.trim();
+      if (!name) return toast('⚠️ Item Name khali nahi ho sakta!');
+
+      item.name = name;
+      item.category = document.getElementById('editFieldCategory').value.trim() || item.category;
+      item.price = Math.max(0, Number(document.getElementById('editFieldPrice').value) || 0);
+
+      if (editingTarget.kind === 'product') {
+        const mrp = Number(document.getElementById('editFieldOrigPrice').value);
+        item.originalPrice = mrp > 0 ? mrp : undefined;
+        const szRaw = document.getElementById('editFieldSizes').value.trim();
+        if (szRaw) item.sizes = szRaw.split(',').map(s => s.trim()).filter(Boolean);
+        item.description = document.getElementById('editFieldDesc').value.trim();
+      } else {
+        item.sub = document.getElementById('editFieldSub').value.trim();
+        item.days = document.getElementById('editFieldDays').value.trim();
+        item.neck = document.getElementById('editFieldNeck').value.trim();
+        item.priceLabel = item.price > 0 ? `₹${item.price}` : 'Custom Quote';
+        item.img = item.images[0];
+      }
+
+      saveState();
+      closeUniversalEditModal();
+      renderAdminProducts();
+      renderAdminRates();
+      renderProducts();
+      renderStitching();
+      toast('✅ All Changes Saved & Published Live!');
+    }
+
+    // CATEGORY ICONS EDITOR
+    function renderAdminCategoryIcons() {
+      const labels = [
+        { key: 'shop_All', title: 'Shop: All Circle Icon' },
+        { key: 'shop_Ladies Suits', title: 'Shop: Ladies Suits Icon' },
+        { key: 'shop_Sarees', title: 'Shop: Sarees Icon' },
+        { key: 'shop_Abayas', title: 'Shop: Abayas Icon' },
+        { key: 'shop_Kids Wear', title: 'Shop: Kids Wear Icon' },
+        { key: 'stitch_Ladies Suits', title: 'Stitching: Ladies Suits Icon' },
+        { key: 'stitch_Blouse & Lehenga', title: 'Stitching: Blouse & Lehenga Icon' },
+        { key: 'stitch_Zari & Zardozi Embroidery', title: 'Stitching: Zari & Zardozi Icon' },
+        { key: 'stitch_Kids & Gents', title: 'Stitching: Kids & Gents Icon' },
+        { key: 'stitch_Finishing & Handwork', title: 'Stitching: Finishing & Interlock Icon' }
+      ];
+
+      document.getElementById('adminCategoryIconsList').innerHTML = labels.map(it => {
+        const currentSrc = appState.categoryIcons[it.key] || PHOTOS.heroCollection;
+        return `
+          <div class="flex items-center justify-between gap-2.5 p-2.5 rounded-2xl border border-[#EFE0E5] bg-[#FFFDF9]">
+            <img src="${currentSrc}" class="w-12 h-12 rounded-full object-cover border border-[#D81B60] flex-shrink-0" />
+            <div class="flex-1 min-w-0">
+              <p class="font-extrabold text-xs text-[#2A0E17] truncate">${it.title}</p>
+              <div class="flex gap-1.5 mt-1">
+                <input id="catIconUrl_${it.key}" type="url" placeholder="New Image URL..." class="flex-1 bg-white border border-[#E5CFD6] rounded-lg px-2 py-1 text-[11px] outline-none" />
+                <button onclick="updateCategoryIconFromUrl('${it.key}')" class="bg-[#6A0D25] text-[#D4AF37] font-bold text-[10px] px-2.5 py-1 rounded-lg">Save URL</button>
+              </div>
+            </div>
+            <label class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold text-[10px] px-2.5 py-2 rounded-xl cursor-pointer flex-shrink-0">
+              📷 Gallery
+              <input type="file" accept="image/*" onchange="updateCategoryIconFromGallery('${it.key}', event)" class="hidden" />
+            </label>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateCategoryIconFromUrl(key) {
+      const inp = document.getElementById(`catIconUrl_${key}`);
+      const url = inp ? inp.value.trim() : '';
+      if (!url) return toast('Pehle Image URL paste karein!');
+      appState.categoryIcons[key] = url;
+      saveState();
+      renderAdminCategoryIcons();
+      renderProducts();
+      renderStitching();
+      toast('✅ Category Icon Updated Live!');
+    }
+
+    function updateCategoryIconFromGallery(key, event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = () => {
+        appState.categoryIcons[key] = r.result;
+        saveState();
+        renderAdminCategoryIcons();
+        renderProducts();
+        renderStitching();
+        toast('✅ Category Icon Updated!');
+      };
+      r.readAsDataURL(file);
+    }
+
+    // KHATA & SMART NAAP
     function autoParseSmartNaap() {
       const raw = document.getElementById('smartNaapRawInput').value.trim();
       if (!raw) return toast('Pehle raw naap text paste karein!');
@@ -1655,72 +2094,82 @@
       a.click();
     }
 
-    // PRODUCTS ADMIN
-    function renderAdminProducts() {
-      document.getElementById('adminProductsList').innerHTML = appState.products.map(p => `
-        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2.5">
-          <img src="${p.images[0]}" class="w-12 h-12 rounded-xl object-cover border border-[#EFE0E5]" />
-          <div class="flex-1 min-w-0">
-            <p class="font-bold text-xs text-[#2A0E17] truncate">${p.name}</p>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="text-xs text-gray-500">₹</span>
-              <input type="number" value="${p.price}" onchange="updateProdPrice('${p.id}', this.value)" class="w-16 bg-[#FFFDF9] border border-[#E5CFD6] px-2 py-0.5 rounded-lg text-xs font-extrabold text-[#6A0D25]" />
-            </div>
-          </div>
-          <button onclick="toggleProdStock('${p.id}')" class="px-2.5 py-1.5 rounded-xl text-[11px] font-bold ${p.inStock ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
-            ${p.inStock ? 'In Stock' : 'Sold Out'}
-          </button>
-          <button onclick="deleteProd('${p.id}')" class="text-rose-600 font-bold text-xs px-1.5">✕</button>
-        </div>
-      `).join('');
+    // PRODUCTS ADMIN + MEESHO PARSER
+    function parseMeeshoProductText() {
+      const raw = document.getElementById('meeshoRawInput').value.trim();
+      if (!raw) return toast('Pehle Meesho text paste karein!');
+      const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+      const nameMatch = raw.match(/(?:Name|Catalog Name)\s*:\s*(.+)/i) || [null, lines[0]];
+      const priceMatch = raw.match(/(?:₹|Rs\.?|Price)\s*(\d+)/i);
+      const sizesMatch = raw.match(/(?:Sizes?)\s*:\s*(.+)/i);
+      document.getElementById('newProdName').value = (nameMatch[1] || '').trim();
+      if (priceMatch) document.getElementById('newProdPrice').value = priceMatch[1];
+      if (sizesMatch) document.getElementById('newProdSizes').value = sizesMatch[1].trim();
+      toast('✨ Meesho Product Text Auto-Filled!');
     }
 
-    function adminAddProduct() {
+    function renderAdminProducts() {
+      document.getElementById('adminProductsList').innerHTML = appState.products.map(p => {
+        const imgs = Array.isArray(p.images) && p.images.length ? p.images : [PHOTOS.cottonKurtiSet];
+        return `
+          <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
+            <img src="${imgs[0]}" class="w-12 h-12 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-xs text-[#2A0E17] truncate">${p.name}</p>
+              <span class="text-[10px] text-[#6A0D25] font-extrabold">₹${p.price} • ${imgs.length} Photo(s)</span>
+            </div>
+            <button onclick="openUniversalItemEditor('product', '${p.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold text-[11px] px-2.5 py-1.5 rounded-xl">✏️ Edit</button>
+            <button onclick="toggleProdStock('${p.id}')" class="px-2 py-1.5 rounded-xl text-[10px] font-bold ${p.inStock ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
+              ${p.inStock ? 'In Stock' : 'Sold'}
+            </button>
+            <button onclick="deleteProd('${p.id}')" class="text-rose-600 font-bold text-xs px-1">✕</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function adminAddProduct() {
       const name = document.getElementById('newProdName').value.trim();
       const category = document.getElementById('newProdCat').value;
       const price = Number(document.getElementById('newProdPrice').value);
       const originalPrice = Number(document.getElementById('newProdOrigPrice').value) || undefined;
       const sizes = document.getElementById('newProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
       const urlPhoto = document.getElementById('newProdPhotoUrl').value.trim();
-      const file = document.getElementById('newProdPhoto').files[0];
+      const files = Array.from(document.getElementById('newProdPhoto').files || []);
       if (!name || !price) return toast('⚠️ Product Name aur Price daalein!');
 
-      const finishAdd = (imgSrc) => {
-        appState.products.unshift({
-          id: 'prod-' + Date.now(),
-          code: String(100 + appState.products.length + 1),
-          sku: 'AC-' + Date.now().toString().slice(-4),
-          name, category, price, originalPrice,
-          isOffer: true,
-          sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
-          fabric: 'Premium Boutique Fabric',
-          setIncludes: 'Complete Outfit Set',
-          description: `${name} from Ansar Collection Jaipur.`,
-          images: [imgSrc],
-          inStock: true
+      const imgs = [];
+      if (urlPhoto) imgs.push(urlPhoto);
+      for (const f of files) {
+        const dataUrl = await new Promise(res => {
+          const r = new FileReader();
+          r.onload = () => res(r.result);
+          r.readAsDataURL(f);
         });
-        saveState();
-        document.getElementById('newProdName').value = '';
-        document.getElementById('newProdPrice').value = '';
-        document.getElementById('newProdPhotoUrl').value = '';
-        renderAdminProducts();
-        toast('✅ Product Added & Published!');
-      };
-
-      if (urlPhoto) {
-        finishAdd(urlPhoto);
-      } else if (file) {
-        const r = new FileReader();
-        r.onload = () => finishAdd(r.result);
-        r.readAsDataURL(file);
-      } else {
-        finishAdd(PHOTOS.bandhaniSuit);
+        imgs.push(dataUrl);
       }
-    }
+      if (!imgs.length) imgs.push(PHOTOS.cottonKurtiSet);
 
-    function updateProdPrice(id, val) {
-      const p = appState.products.find(x => x.id === id);
-      if (p) { p.price = Number(val) || p.price; saveState(); toast('Price Updated'); }
+      appState.products.unshift({
+        id: 'prod-' + Date.now(),
+        code: String(100 + appState.products.length + 1),
+        sku: 'AC-' + Date.now().toString().slice(-4),
+        name, category, price, originalPrice,
+        isOffer: true,
+        sizes: sizes.length ? sizes : ['S', 'M', 'L', 'XL', 'XXL'],
+        fabric: 'Premium Boutique Fabric',
+        setIncludes: 'Complete Outfit Set',
+        description: `${name} from Ansar Collection Jaipur.`,
+        images: imgs,
+        inStock: true
+      });
+      saveState();
+      document.getElementById('newProdName').value = '';
+      document.getElementById('newProdPrice').value = '';
+      document.getElementById('newProdPhotoUrl').value = '';
+      document.getElementById('newProdPhoto').value = '';
+      renderAdminProducts();
+      toast('✅ Product Added & Published!');
     }
 
     function toggleProdStock(id) {
@@ -1734,25 +2183,56 @@
       renderAdminProducts();
     }
 
-    // RATES ADMIN
-    function renderAdminRates() {
-      document.getElementById('adminRatesList').innerHTML = appState.rates.map(r => `
-        <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
-          <div class="flex-1 min-w-0">
-            <p class="font-bold text-xs text-[#2A0E17] truncate">${r.name}</p>
-            <span class="text-[10px] text-[#D81B60] font-semibold">${r.category}</span>
-          </div>
-          <div class="flex items-center gap-1">
-            <span class="text-xs text-gray-500">₹</span>
-            <input type="number" value="${r.price}" onchange="updateRatePrice('${r.id}', this.value)" class="w-16 bg-[#FFFDF9] border border-[#E5CFD6] px-2 py-1 rounded-lg text-xs font-extrabold text-[#6A0D25]" />
-          </div>
-        </div>
-      `).join('');
+    // RATES ADMIN (WITH FULL EDIT & ADD)
+    function adminAddRate() {
+      const category = document.getElementById('newRateCat').value;
+      const name = document.getElementById('newRateName').value.trim();
+      const sub = document.getElementById('newRateSub').value.trim() || name;
+      const price = Math.max(0, Number(document.getElementById('newRatePrice').value) || 0);
+      const days = document.getElementById('newRateDays').value.trim() || '2–3 Days';
+      const neck = document.getElementById('newRateNeck').value.trim() || 'Custom Fitting';
+      if (!name) return toast('⚠️ Service Name likhein!');
+
+      appState.rates.unshift({
+        id: 'r_' + Date.now(),
+        category,
+        name,
+        sub,
+        price,
+        priceLabel: price > 0 ? `₹${price}` : 'Custom Quote',
+        days,
+        images: [PHOTOS.heroTailor],
+        neck
+      });
+      saveState();
+      document.getElementById('newRateName').value = '';
+      document.getElementById('newRateSub').value = '';
+      document.getElementById('newRatePrice').value = '';
+      renderAdminRates();
+      toast('✅ New Silai Service Added!');
     }
 
-    function updateRatePrice(id, val) {
-      const r = appState.rates.find(x => x.id === id);
-      if (r) { r.price = Number(val) || 0; r.priceLabel = r.price > 0 ? `₹${r.price}` : 'Custom Quote'; saveState(); toast('Silai Rate Updated'); }
+    function renderAdminRates() {
+      document.getElementById('adminRatesList').innerHTML = appState.rates.map(r => {
+        const imgs = Array.isArray(r.images) && r.images.length ? r.images : [r.img || PHOTOS.heroTailor];
+        return `
+          <div class="bg-white p-3 rounded-2xl border border-[#EFE0E5] shadow-2xs flex items-center justify-between gap-2">
+            <img src="${imgs[0]}" class="w-12 h-12 rounded-xl object-cover border border-[#EFE0E5] flex-shrink-0" />
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-xs text-[#2A0E17] truncate">${r.name}</p>
+              <span class="text-[10px] text-[#D81B60] font-semibold">${r.category} • ${r.priceLabel || '₹' + r.price} (${imgs.length} photo)</span>
+            </div>
+            <button onclick="openUniversalItemEditor('rate', '${r.id}')" class="bg-[#FCE4EC] text-[#6A0D25] font-extrabold text-[11px] px-3 py-1.5 rounded-xl flex-shrink-0">✏️ Edit</button>
+            <button onclick="deleteRateItem('${r.id}')" class="text-rose-600 font-bold text-xs px-1">✕</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function deleteRateItem(id) {
+      appState.rates = appState.rates.filter(r => r.id !== id);
+      saveState();
+      renderAdminRates();
     }
 
     // BANNERS ADMIN
@@ -1834,6 +2314,8 @@
           saveState();
           renderAdminKhata();
           renderAdminProducts();
+          renderAdminRates();
+          renderAdminCategoryIcons();
           toast('✅ Backup Restored!');
         } catch {
           toast('❌ Invalid Backup File');
